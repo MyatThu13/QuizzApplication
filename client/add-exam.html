@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Exam Type - PocketPrep Quiz App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/add-exam.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Add New <span class="highlight">Exam Type</span></h1>
+            <p class="tagline">Import custom exam questions and practice</p>
+        </header>
+
+        <div class="add-exam-container">
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Exam Selection
+            </a>
+
+            <form id="add-exam-form" class="add-exam-form">
+                <div class="form-group">
+                    <label for="exam-logo">Exam Logo (PNG or JPEG only)</label>
+                    <div class="file-input-container">
+                        <input type="file" id="exam-logo" name="exam-logo" accept=".png,.jpg,.jpeg" required>
+                        <div class="file-preview">
+                            <img id="logo-preview" src="images/default-exam-icon.png" alt="Logo Preview">
+                        </div>
+                    </div>
+                    <div class="error-message" id="logo-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="exam-name">Exam Name (English letters only)</label>
+                    <input type="text" id="exam-name" name="exam-name" pattern="[A-Za-z\s]+" required>
+                    <div class="error-message" id="name-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="exam-type">Exam Type</label>
+                    <select id="exam-type" name="exam-type" required>
+                        <option value="">-- Select Exam Type --</option>
+                        <option value="standard">Standard Test</option>
+                        <option value="all-questions">All Questions</option>
+                    </select>
+                    <div class="error-message" id="type-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="exam-data">Exam Data (JSON file only)</label>
+                    <input type="file" id="exam-data" name="exam-data" accept=".json" required>
+                    <div class="error-message" id="data-error"></div>
+                </div>
+                
+                <div class="form-actions">
+                    <a href="index.html" class="cancel-btn">Cancel</a>
+                    <button type="submit" class="submit-btn">Add Exam</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification element -->
+    <div id="notification" class="hidden"></div>
+
+    <!-- Load scripts -->
+    <script src="js/add-exam.js"></script>
+</body>
+</html>

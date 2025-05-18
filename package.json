@@ -1,0 +1,29 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "A mock exam quiz application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "reset": "node server/utils/resetDatabase.js",
+    "import": "node server/utils/importQuestions.js",
+    "dev": "nodemon server/server.js"
+  },
+  "keywords": [
+    "quiz",
+    "exam",
+    "education"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^7.8.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
