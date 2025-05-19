@@ -532,20 +532,119 @@ function ensureRequiredDomElements() {
  * Start an exam
  * @param {string} examId - The ID of the exam
  */
+// async function startExam(examId) {
+//     try {
+//         console.log(`Starting exam with ID: ${examId}`);
+        
+//         // Make sure required DOM elements exist
+//         if (!ensureRequiredDomElements()) {
+//             alert('Error: Required page elements not found. Please refresh the page and try again.');
+//             return;
+//         }
+        
+//         // Show loading indicator
+//         startScreen.style.display = 'none';
+//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
+//         questionContainer.style.display = 'block';
+        
+//         // Reset quiz state
+//         currentExamId = examId;
+//         currentQuestionIndex = 0;
+//         correctAnswers = 0;
+        
+//         // Fetch questions from the server
+//         const response = await fetch(`${API_URL}/questions/${examId}`);
+        
+//         if (!response.ok) {
+//             const statusCode = response.status;
+//             let errorMessage;
+            
+//             // Handle specific status codes
+//             if (statusCode === 404) {
+//                 errorMessage = `No questions available for this exam. Please run the import script to load questions.`;
+//             } else {
+//                 errorMessage = `Failed to load questions: ${response.statusText || 'Server error'}`;
+//             }
+            
+//             throw new Error(errorMessage);
+//         }
+        
+//         const data = await response.json();
+//         console.log('Received data from API:', { 
+//             hasMetadata: !!data.metadata, 
+//             questionsCount: data.questions ? data.questions.length : 0 
+//         });
+        
+//         // Check if we received any questions
+//         if (!data || !data.questions || data.questions.length === 0) {
+//             throw new Error(`No questions available for this exam. Please run the import script to load questions.`);
+//         }
+        
+//         // Store metadata and questions
+//         currentExamMetadata = data.metadata;
+//         currentQuestions = shuffleArray(data.questions);
+        
+//         // Restore question container structure
+//         questionContainer.innerHTML = `
+//             <div class="exam-header">
+//                 <div class="progress">
+//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+//                 </div>
+//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+//             </div>
+//             <div id="question-text"></div>
+//             <div id="choices"></div>
+//         `;
+        
+//         // Update element references after recreating DOM elements
+//         currentQuestionEl = document.getElementById('current-question');
+//         totalQuestionsEl = document.getElementById('total-questions');
+//         questionTextEl = document.getElementById('question-text');
+//         choicesEl = document.getElementById('choices');
+        
+//         // Make sure elements exist
+//         if (!questionTextEl || !choicesEl) {
+//             throw new Error('Critical question elements not found after container setup');
+//         }
+        
+//         // Add event listener for the exit button
+//         const exitButton = document.getElementById('exit-exam-btn');
+//         if (exitButton) {
+//             exitButton.addEventListener('click', exitExam);
+//         }
+        
+//         // Show the first question (with randomized choices)
+//         showQuestion();
+//     } catch (error) {
+//         console.error('Error starting exam:', error);
+        
+//         // Use our error handler
+//         if (questionContainer) {
+//             questionContainer.innerHTML = `
+//                 <div class="error-container">
+//                     <h1 class="error-code">Error</h1>
+//                     <h2 class="error-title">Error Loading Questions</h2>
+//                     <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
+//                     <div class="button-container">
+//                         <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
+//                     </div>
+//                 </div>
+//             `;
+//         } else {
+//             alert(`Error starting exam: ${error.message}`);
+//         }
+//     }
+// }
+
+
 async function startExam(examId) {
     try {
-        console.log(`Starting exam with ID: ${examId}`);
-        
-        // Make sure required DOM elements exist
-        if (!ensureRequiredDomElements()) {
-            alert('Error: Required page elements not found. Please refresh the page and try again.');
-            return;
-        }
-        
         // Show loading indicator
         startScreen.style.display = 'none';
         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
         questionContainer.style.display = 'block';
+        
+        console.log(`Starting exam with ID: ${examId}`);
         
         // Reset quiz state
         currentExamId = examId;
@@ -556,28 +655,16 @@ async function startExam(examId) {
         const response = await fetch(`${API_URL}/questions/${examId}`);
         
         if (!response.ok) {
-            const statusCode = response.status;
-            let errorMessage;
-            
-            // Handle specific status codes
-            if (statusCode === 404) {
-                errorMessage = `No questions available for this exam. Please run the import script to load questions.`;
-            } else {
-                errorMessage = `Failed to load questions: ${response.statusText || 'Server error'}`;
-            }
-            
-            throw new Error(errorMessage);
+            // Handle server error response
+            throw new Error(`Failed to load questions: ${response.status} ${response.statusText}`);
         }
         
         const data = await response.json();
-        console.log('Received data from API:', { 
-            hasMetadata: !!data.metadata, 
-            questionsCount: data.questions ? data.questions.length : 0 
-        });
+        console.log('Fetched data:', data);
         
         // Check if we received any questions
         if (!data || !data.questions || data.questions.length === 0) {
-            throw new Error(`No questions available for this exam. Please run the import script to load questions.`);
+            throw new Error(`No questions available for this exam.`);
         }
         
         // Store metadata and questions
@@ -602,11 +689,6 @@ async function startExam(examId) {
         questionTextEl = document.getElementById('question-text');
         choicesEl = document.getElementById('choices');
         
-        // Make sure elements exist
-        if (!questionTextEl || !choicesEl) {
-            throw new Error('Critical question elements not found after container setup');
-        }
-        
         // Add event listener for the exit button
         const exitButton = document.getElementById('exit-exam-btn');
         if (exitButton) {
@@ -618,11 +700,15 @@ async function startExam(examId) {
     } catch (error) {
         console.error('Error starting exam:', error);
         
-        // Use our error handler
-        if (questionContainer) {
+        // Use ErrorHandler if available
+        if (typeof ErrorHandler !== 'undefined') {
+            const examName = examId.includes('Flagged') ? 'Flagged Questions' : examId;
+            ErrorHandler.handleQuestionsLoadingError(error, examName);
+        } else {
+            // Fallback error handling
             questionContainer.innerHTML = `
                 <div class="error-container">
-                    <h1 class="error-code">Error</h1>
+                    <h1 class="error-code">404</h1>
                     <h2 class="error-title">Error Loading Questions</h2>
                     <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
                     <div class="button-container">
@@ -630,8 +716,6 @@ async function startExam(examId) {
                     </div>
                 </div>
             `;
-        } else {
-            alert(`Error starting exam: ${error.message}`);
         }
     }
 }

@@ -195,6 +195,30 @@ const ErrorHandler = (function() {
         `;
     }
     
+    // Add this to your ErrorHandler.js file
+    function handleQuestionsLoadingError(error, examName) {
+    const container = document.getElementById('question-container');
+    
+    if (!container) {
+        console.error('Question container not found');
+        return;
+    }
+    
+    let message;
+    let errorType = 'NOT_FOUND';
+    
+    // Special handling for flagged questions
+    if (examName && examName.includes('Flagged')) {
+        message = 'No flagged questions found. Flag some questions during exams by clicking the flag icon.';
+    } else if (examName) {
+        message = `Failed to load questions for ${examName}. Please make sure questions have been imported.`;
+    } else {
+        message = 'Failed to load questions. Please run the import script or try again later.';
+    }
+    
+    handleApiError(error, message, container);
+}
+
     // Public API
     return {
         showErrorPage,
