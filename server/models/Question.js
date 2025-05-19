@@ -1,7 +1,7 @@
 /**
- * Question Model
+ * Question Model (Updated)
  * Defines the schema for quiz questions in MongoDB
- * Updated to include subject and flagged fields
+ * Updated to include additional metadata
  */
 
 const mongoose = require('mongoose');
@@ -28,10 +28,6 @@ const QuestionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  subject: {
-    type: String,
-    default: ''  // Subject field for categorization
-  },
   choices: [ChoiceSchema],
   correctAnswerId: {
     type: String,
@@ -41,16 +37,48 @@ const QuestionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  examNumber: {
-    type: Number,
+  // Updated fields for new structure
+  examId: {
+    type: String,
     required: true,
-    default: 1
+    index: true // Add index for faster queries by examId
+  },
+  title: {
+    type: String,
+    required: true,
+    index: true // Add index for faster queries by title
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  vendor: {
+    type: String,
+    required: true
+  },
+  year: {
+    type: Number,
+    required: true
+  },
+  // Optional fields
+  subject: {
+    type: String,
+    default: ''
+  },
+  difficulty: {
+    type: String,
+    enum: ['easy', 'medium', 'hard'],
+    default: 'medium'
   },
   flagged: {
     type: Boolean,
-    default: false  // Flag field to mark questions for review
+    default: false
   }
 });
+
+// Add compound index for efficient filtering
+QuestionSchema.index({ title: 1, examId: 1 });
+QuestionSchema.index({ flagged: 1, title: 1 }); // For efficient flagged questions queries
 
 // Export the Question model
 module.exports = mongoose.model('Question', QuestionSchema);

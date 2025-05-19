@@ -1,6 +1,7 @@
 /**
- * Attempt Controller
+ * Attempt Controller (Updated)
  * Handles the business logic for quiz attempt operations
+ * Updated to include additional metadata
  */
 
 const Attempt = require('../models/Attempt');
@@ -9,18 +10,34 @@ const Attempt = require('../models/Attempt');
 exports.saveAttempt = async (req, res) => {
   try {
     // Extract data from request body
-    const { examNumber, questionsCount, correctAnswers, percentage } = req.body;
+    const { 
+      examId, 
+      examName, 
+      title, 
+      type, 
+      vendor, 
+      year, 
+      questionsCount, 
+      correctAnswers, 
+      percentage 
+    } = req.body;
     
     // Validate required fields
-    if (!examNumber || !questionsCount || correctAnswers === undefined || !percentage) {
+    if (!examId || !examName || !title || !type || !vendor || !year || 
+        !questionsCount || correctAnswers === undefined || !percentage) {
       return res.status(400).json({ 
-        message: 'Missing required fields. Please provide examNumber, questionsCount, correctAnswers, and percentage.' 
+        message: 'Missing required fields. Please provide all exam metadata and result data.' 
       });
     }
     
     // Create a new attempt
     const attempt = new Attempt({
-      examNumber,
+      examId,
+      examName,
+      title,
+      type,
+      vendor,
+      year,
       questionsCount,
       correctAnswers,
       percentage
@@ -50,6 +67,25 @@ exports.getAttempts = async (req, res) => {
     res.json(attempts);
   } catch (error) {
     console.error('Error getting attempts:', error);
+    res.status(500).json({ 
+      message: 'Server Error',
+      error: error.message 
+    });
+  }
+};
+
+// Get attempts for a specific title
+exports.getAttemptsByTitle = async (req, res) => {
+  try {
+    const title = req.params.title;
+    
+    // Get attempts for the specific title, sorted by date (newest first)
+    const attempts = await Attempt.find({ title }).sort({ date: -1 });
+    
+    // Return the attempts
+    res.json(attempts);
+  } catch (error) {
+    console.error('Error getting attempts by title:', error);
     res.status(500).json({ 
       message: 'Server Error',
       error: error.message 

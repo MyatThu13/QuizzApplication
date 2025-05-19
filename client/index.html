@@ -1,12 +1,48 @@
+<!-- Update Your index.html to include all necessary CSS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PocketPrep Quiz App</title>
+    
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    
+    <!-- CSS Files - Make sure all of these are included -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- <link rel="stylesheet" href="css/fullscreen-override.css"> -->
+    <link rel="stylesheet" href="css/fullscreen-override.css">
+    <link rel="stylesheet" href="css/groupedExams.css"> <!-- CRITICAL: This file is needed -->
+    
+    <!-- Debug Helper (Optional) - Add this to monitor DOM and API calls -->
+    <script>
+        // Simple debug function to monitor events
+        function debugLog(message) {
+            console.log(`[DEBUG ${new Date().toISOString()}] ${message}`);
+        }
+        
+        // Original fetch for debugging
+        const originalFetch = window.fetch;
+        window.fetch = function() {
+            debugLog(`fetch called with URL: ${arguments[0]}`);
+            return originalFetch.apply(this, arguments);
+        };
+        
+        // DOM Content Loaded Debug
+        document.addEventListener('DOMContentLoaded', () => {
+            debugLog('DOMContentLoaded event fired');
+            
+            // Check for critical elements
+            const examsContainer = document.getElementById('exams-container');
+            debugLog(`exams-container found: ${examsContainer ? 'YES' : 'NO'}`);
+            
+            if (!examsContainer) {
+                debugLog('Looking for alternatives:');
+                const byClass = document.querySelector('.exams-container');
+                debugLog(`exams-container by class: ${byClass ? 'FOUND' : 'NOT FOUND'}`);
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="app-container">
@@ -18,51 +54,16 @@
             </header>
             
             <div class="dashboard-container">
-                <div class="exams-container">
-                    <h2>Available Exams</h2>
-                    <div id="mock-exam-buttons">
-                        <button class="mock-exam-btn" data-exam-id="1" data-file-name="PocketPrepMockExam1_Questions.json">
-                            <div class="exam-icon">01</div>
-                            <div class="exam-info">
-                                <span class="exam-title">Mock Exam 1</span>
-                                <span class="exam-subtitle">Standard test</span>
-                            </div>
-                        </button>
-                        <button class="mock-exam-btn" data-exam-id="2" data-file-name="PocketPrepMockExam2_Questions.json">
-                            <div class="exam-icon">02</div>
-                            <div class="exam-info">
-                                <span class="exam-title">Mock Exam 2</span>
-                                <span class="exam-subtitle">Standard test</span>
-                            </div>
-                        </button>
-                        <button class="mock-exam-btn" data-exam-id="3" data-file-name="PocketPrepMockExam3_Questions.json">
-                            <div class="exam-icon">03</div>
-                            <div class="exam-info">
-                                <span class="exam-title">Mock Exam 3</span>
-                                <span class="exam-subtitle">Standard test</span>
-                            </div>
-                        </button>
-                        <button class="mock-exam-btn" data-exam-id="4" data-file-name="PocketPrepAllQuestions.json">
-                            <div class="exam-icon">ALL</div>
-                            <div class="exam-info">
-                                <span class="exam-title">All Questions</span>
-                                <span class="exam-subtitle">Comprehensive</span>
-                            </div>
-                        </button>
-                        <button class="mock-exam-btn" data-exam-id="5" data-file-name="PocketPrepFlaggedQuestions.json">
-                            <div class="exam-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="exam-info">
-                                <span class="exam-title">Flagged Questions</span>
-                                <span class="exam-subtitle">Your saved items</span>
-                            </div>
-                        </button>
+                <!-- Left Side - Exams Container -->
+                <div id="exams-container" class="exams-container">
+                    <!-- This will be populated dynamically with grouped exams -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading available exams...</p>
                     </div>
                 </div>
                 
+                <!-- Right Side - Performance Container -->
                 <div class="performance-container">
                     <h2>Your Performance</h2>
                     <div id="recent-attempts" class="attempt-history">
@@ -76,67 +77,15 @@
             </div>
         </div>
         
-        <!-- Question Screen -->
-        <div id="question-container">
-            <div class="exam-header">
-                <div class="progress">
-                    Question <span id="current-question">1</span> of <span id="total-questions">150</span>
-                </div>
-                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
-            </div>
-            <div id="question-text"></div>
-            <div id="choices"></div>
-        </div>
+        <!-- Rest of your HTML remains the same -->
         
-        <!-- Feedback Screen -->
-        <div id="feedback-container">
-            <h2 id="feedback-header"></h2>
-            <div id="explanation"></div>
-            <button id="next-button">Next Question</button>
-        </div>
-        
-        <!-- Results Screen -->
-        <div id="results-container">
-            <h1>Quiz Results</h1>
-            <p>You have completed <span id="completed-exam-name">Mock Exam</span>.</p>
-            <div class="result-highlight">
-                <span id="percentage-correct"></span>% Correct
-            </div>
-            <div class="result-details">
-                <div class="result-stat">
-                    <span class="stat-label">Correct Answers</span>
-                    <span id="correct-answers" class="stat-value">0</span>
-                </div>
-                <div class="result-stat">
-                    <span class="stat-label">Total Questions</span>
-                    <span id="total-answers" class="stat-value">0</span>
-                </div>
-            </div>
-            <div class="attempts-history">
-                <h2>Your Attempt History</h2>
-                <table id="history-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Exam</th>
-                            <th>Score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="history-body">
-                        <!-- History will be populated here -->
-                    </tbody>
-                </table>
-            </div>
-            <button id="return-button">Return to Exam Selection</button>
-        </div>
     </div>
 
     <!-- Notification element -->
     <div id="notification" class="hidden"></div>
 
     <!-- Load scripts -->
-    <script src="js/app.js"></script>
-    <script src="js/errorHandler.js"></script>
     <script src="js/modalDialog.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

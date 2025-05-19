@@ -1,12 +1,13 @@
 /**
- * Import Questions Utility
- * Script to import questions from separate JSON files into MongoDB
+ * Enhanced Import Questions Utility
+ * Script to import questions from multiple JSON files into MongoDB with improved metadata
  */
 
 const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 const Question = require('../models/Question');
+const ExamMetadata = require('../models/ExamMetadata'); // New model for exam metadata
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 // Connect to MongoDB
@@ -31,36 +32,79 @@ const connectDB = async () => {
   }
 };
 
+/**
+ * Parse file name to extract metadata
+ * Expected format: Title_Type_Vendor_Year.json
+ * Example: CISSP_MockExam_PocketPrep_2024.json
+ */
+function parseFileName(fileName) {
+  // Remove extension
+  const baseName = fileName.replace(/\.json$/, '');
+  
+  // Split by underscore
+  const parts = baseName.split('_');
+  
+  if (parts.length < 4) {
+    console.warn(`Warning: File ${fileName} does not follow the naming convention (Title_Type_Vendor_Year.json)`);
+    return {
+      title: parts[0] || 'Unknown Title',
+      type: parts[1] || 'Exam',
+      vendor: parts[2] || 'Unknown',
+      year: parseInt(parts[3]) || new Date().getFullYear(),
+      fullName: baseName
+    };
+  }
+  
+  return {
+    title: parts[0],
+    type: parts[1],
+    vendor: parts[2],
+    year: parseInt(parts[3]) || new Date().getFullYear(),
+    fullName: baseName
+  };
+}
+
 // Function to import questions from multiple JSON files
 const importQuestions = async () => {
   try {
     // Connect to database
     await connectDB();
-
-    // Define the exam files to import
-    const examFiles = [
-      { id: 1, name: 'PocketPrepMockExam1_Questions.json' },
-      { id: 2, name: 'PocketPrepMockExam2_Questions.json' },
-      { id: 3, name: 'PocketPrepMockExam3_Questions.json' },
-      { id: 4, name: 'PocketPrepAllQuestions.json' },
-      { id: 5, name: 'PocketPrepFlaggedQuestions.json' }
-    ];
     
-    // Clear existing questions
-    console.log('Clearing existing questions...');
+    // Get all JSON files from the data directory
+    const dataDirectory = path.join(__dirname, '../../data');
+    let files = [];
+    
+    try {
+      files = fs.readdirSync(dataDirectory).filter(file => file.endsWith('.json'));
+    } catch (err) {
+      console.error(`Error reading data directory: ${err.message}`);
+      console.log('Creating data directory...');
+      fs.mkdirSync(dataDirectory, { recursive: true });
+    }
+    
+    if (files.length === 0) {
+      console.log('No JSON files found in the data directory.');
+      process.exit(0);
+    }
+    
+    // Clear existing questions and metadata
+    console.log('Clearing existing questions and metadata...');
     await Question.deleteMany({});
+    await ExamMetadata.deleteMany({});
     
-    // Import each exam file
-    for (const exam of examFiles) {
-      const filePath = path.join(__dirname, `../../data/${exam.name}`);
+    // Map to track unique titles for creating flagged exams
+    const uniqueTitles = new Map();
+    
+    // Import each file
+    let totalQuestionsImported = 0;
+    for (let i = 0; i < files.length; i++) {
+      const fileName = files[i];
+      const filePath = path.join(dataDirectory, fileName);
       
-      // Check if file exists
-      if (!fs.existsSync(filePath)) {
-        console.log(`Warning: File not found: ${exam.name}. Skipping this exam.`);
-        continue;
-      }
-      
-      console.log(`Reading questions from ${exam.name}...`);
+      // Parse file name for metadata
+      const metadata = parseFileName(fileName);
+      console.log(`\nProcessing file ${i+1}/${files.length}: ${fileName}`);
+      console.log(`Detected metadata: Title=${metadata.title}, Type=${metadata.type}, Vendor=${metadata.vendor}, Year=${metadata.year}`);
       
       try {
         // Read and parse the JSON file
@@ -68,53 +112,89 @@ const importQuestions = async () => {
         
         // Validate the file structure
         if (!questionsData || !questionsData.questions || !Array.isArray(questionsData.questions)) {
-          console.error(`Error: Invalid file format in ${exam.name}. The JSON file should contain a "questions" array.`);
+          console.error(`Error: Invalid file format in ${fileName}. The JSON file should contain a "questions" array.`);
           continue;
         }
         
-        // Add examNumber to each question
+        // Track this title to create flagged exams
+        if (!uniqueTitles.has(metadata.title)) {
+          uniqueTitles.set(metadata.title, []);
+        }
+        uniqueTitles.get(metadata.title).push(metadata);
+        
+        // Generate a unique examId for this file
+        const examId = `${metadata.title}_${i+1}`;
+        
+        // Add metadata and examId to each question
         const questionsToInsert = questionsData.questions.map(question => ({
           ...question,
-          examNumber: exam.id
+          examId,
+          title: metadata.title,
+          type: metadata.type,
+          vendor: metadata.vendor,
+          year: metadata.year
         }));
         
         // Insert questions for this exam
         if (questionsToInsert.length > 0) {
           await Question.insertMany(questionsToInsert);
-          console.log(`Successfully imported ${questionsToInsert.length} questions for exam ${exam.id}.`);
+          totalQuestionsImported += questionsToInsert.length;
+          
+          // Save exam metadata
+          await ExamMetadata.create({
+            examId,
+            fileName,
+            title: metadata.title,
+            type: metadata.type,
+            vendor: metadata.vendor,
+            year: metadata.year,
+            fullName: metadata.fullName,
+            questionCount: questionsToInsert.length,
+            dateImported: new Date()
+          });
+          
+          console.log(`Successfully imported ${questionsToInsert.length} questions for ${metadata.title} (${examId}).`);
         } else {
-          console.log(`No questions found in ${exam.name}.`);
+          console.log(`No questions found in ${fileName}.`);
         }
       } catch (error) {
-        console.error(`Error processing ${exam.name}: ${error.message}`);
+        console.error(`Error processing ${fileName}: ${error.message}`);
       }
     }
     
-    // Display distribution of questions across exams
-    console.log('\nQuestion distribution summary:');
-    
-    for (const exam of examFiles) {
-      const count = await Question.countDocuments({ examNumber: exam.id });
-      console.log(`- Exam ${exam.id} (${exam.name}): ${count} questions`);
-    }
-    
-    // Create empty files for any missing exam files
-    for (const exam of examFiles) {
-      const filePath = path.join(__dirname, `../../data/${exam.name}`);
+    // Create a "Flagged Questions" exam for each unique title
+    console.log('\nCreating Flagged Questions exams for each title...');
+    for (const [title, metadataList] of uniqueTitles.entries()) {
+      // Use metadata from the first file of this title
+      const baseMetadata = metadataList[0];
       
-      if (!fs.existsSync(filePath)) {
-        // Create a template file with empty questions array
-        const template = {
-          "questions": []
-        };
-        
-        try {
-          fs.writeFileSync(filePath, JSON.stringify(template, null, 2));
-          console.log(`Created empty template file for ${exam.name}`);
-        } catch (error) {
-          console.error(`Error creating template file for ${exam.name}: ${error.message}`);
-        }
-      }
+      // Create flagged exam metadata
+      await ExamMetadata.create({
+        examId: `${title}_Flagged`,
+        fileName: 'virtual',
+        title: baseMetadata.title,
+        type: 'Flagged Questions',
+        vendor: baseMetadata.vendor,
+        year: baseMetadata.year,
+        fullName: `${baseMetadata.title} Flagged Questions`,
+        questionCount: 0, // Will be dynamic based on user flagging
+        dateImported: new Date(),
+        isFlagged: true
+      });
+      
+      console.log(`Created Flagged Questions exam for ${title}`);
+    }
+    
+    // Display summary information
+    console.log('\nImport Summary:');
+    console.log(`Total exams imported: ${files.length}`);
+    console.log(`Total unique titles: ${uniqueTitles.size}`);
+    console.log(`Total questions imported: ${totalQuestionsImported}`);
+    
+    // List titles and their exam counts
+    console.log('\nExams by Title:');
+    for (const [title, metadataList] of uniqueTitles.entries()) {
+      console.log(`- ${title}: ${metadataList.length} exams + 1 Flagged Questions exam`);
     }
     
     console.log('\nImport process complete!');
