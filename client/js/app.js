@@ -71,7 +71,7 @@ function initialize() {
     returnButtonEl = document.getElementById('return-button');
     
     // Initialize exam type selector
-    initExamTypeSelector();
+    //initExamTypeSelector();
     
     // Add event listeners for mock exam buttons
     document.querySelectorAll('.mock-exam-btn').forEach(button => {
@@ -94,9 +94,10 @@ function initialize() {
     }
 }
 
-/**
- * Initialize Exam Type Selector
- */
+// /**
+//  * Initialize Exam Type Selector
+//  */
+// Probably this function will not be needed in the final version
 function initExamTypeSelector() {
     const currentExamType = document.querySelector('.current-exam-type');
     const examTypeDropdown = document.getElementById('exam-type-dropdown');
