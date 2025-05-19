@@ -31,6 +31,11 @@ const attemptController = require('./controllers/attemptController');
 // Define routes EXPLICITLY
 // For debugging purposes, we'll define critical routes directly here
 
+// In server.js, add this before your other routes
+app.get('/favicon.ico', (req, res) => {
+  res.status(204).end(); // No content response
+});
+
 // Questions routes
 app.get('/api/questions/:examNumber', questionController.getQuestions);
 app.put('/api/questions/flag', (req, res) => {
