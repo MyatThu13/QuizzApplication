@@ -139,7 +139,12 @@ app.get('/api/debug/titles', async (req, res) => {
 
 
 // AFTER defining these specific routes, THEN add the general routes with parameters
-app.get('/api/questions/:examId', questionController.getQuestions);
+// app.get('/api/questions/:examId', questionController.getQuestions);
+app.get('/api/questions/:examId', (req, res, next) => {
+    console.log('Exam ID requested:', req.params.examId);
+    next();
+}, questionController.getQuestions);
+
 app.put('/api/questions/flag', questionController.flagQuestion);
 app.put('/api/questions/unflag', questionController.unflagQuestion);
 

@@ -5,15 +5,15 @@
 
 // Global variables for the application
 let API_URL; // Will be set in initialize()
-let currentExamNumber = 0;
+let currentExamId = '';
 let currentExamName = '';
 let currentFileName = '';
 let currentQuestions = [];
 let currentQuestionIndex = 0;
 let correctAnswers = 0;
 let examTitles = []; // Store exam titles data
-let examsContainer; // CRITICAL: Add this missing variable
-
+let examsContainer; // Reference to exams container
+let currentExamMetadata = null; // Store current exam metadata
 
 // DOM element references
 let startScreen;
@@ -34,34 +34,95 @@ let totalAnswersEl;
 let historyBodyEl;
 let returnButtonEl;
 
-
 // Main entry point - when the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize the application
+    // Check if basic HTML structure is correct
+    const appContainer = document.querySelector('.app-container');
+    
+    if (!appContainer) {
+        document.body.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+                <h1 style="color: red;">Application Error</h1>
+                <p>The application container was not found. Please check your HTML structure.</p>
+                <button onclick="location.reload()">Refresh Page</button>
+            </div>
+        `;
+        return;
+    }
+    
+    // Check if start-screen exists, create it if it doesn't
+    let startScreen = document.getElementById('start-screen');
+    if (!startScreen) {
+        console.warn('start-screen element not found, creating it...');
+        startScreen = document.createElement('div');
+        startScreen.id = 'start-screen';
+        appContainer.appendChild(startScreen);
+        
+        // Create header if not present
+        if (!document.querySelector('.app-header')) {
+            const header = document.createElement('header');
+            header.className = 'app-header';
+            header.innerHTML = '<h1>PocketPrep<span class="highlight">Quiz</span></h1><p class="tagline">Test your knowledge, track your progress</p>';
+            startScreen.appendChild(header);
+        }
+        
+        // Create dashboard container if not present
+        const dashboardContainer = document.createElement('div');
+        dashboardContainer.className = 'dashboard-container';
+        startScreen.appendChild(dashboardContainer);
+        
+        // Create exams container if not present
+        const examsContainer = document.createElement('div');
+        examsContainer.id = 'exams-container';
+        examsContainer.className = 'exams-container';
+        dashboardContainer.appendChild(examsContainer);
+        
+        // Create performance container if not present
+        const performanceContainer = document.createElement('div');
+        performanceContainer.className = 'performance-container';
+        performanceContainer.innerHTML = `
+            <h2>Your Performance</h2>
+            <div id="recent-attempts" class="attempt-history">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading your progress...</p>
+                </div>
+            </div>
+        `;
+        dashboardContainer.appendChild(performanceContainer);
+    }
+    
+    // Initialize the app
     initialize();
     
+    // Load exams and attempts
     loadExams();
-    // Load recent attempts on the home page
     loadRecentAttempts();
 });
 
-/**
- * Initialize the application
- * Set up event listeners and references
- */
 function initialize() {
     // Set the API URL
     API_URL = 'http://localhost:5000/api';
     console.log('API URL set to:', API_URL);
-    console.log('Will fetch titles from:', `${API_URL}/questions/titles`);
     
-    // Get DOM elements
-    startScreen = document.getElementById('start-screen');
-    questionContainer = document.getElementById('question-container');
-    feedbackContainer = document.getElementById('feedback-container');
-    resultsContainer = document.getElementById('results-container');
-
-        // CRITICAL: Initialize examsContainer
+    // Check if the app-container exists
+    const appContainer = document.querySelector('.app-container');
+    if (!appContainer) {
+        console.error('CRITICAL ERROR: app-container not found');
+        document.body.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+                <h1 style="color: red;">Application Error</h1>
+                <p>Critical container elements not found. Please make sure the HTML structure is correct.</p>
+                <button onclick="location.reload()">Refresh Page</button>
+            </div>
+        `;
+        return;
+    }
+    
+    // Get DOM elements or create them if needed
+    ensureRequiredDomElements();
+    
+    // CRITICAL: Initialize examsContainer
     examsContainer = document.getElementById('exams-container');
     if (!examsContainer) {
         console.error('ERROR: exams-container element not found in DOM');
@@ -82,47 +143,12 @@ function initialize() {
         console.log('Found exams container by ID');
     }
     
-    currentQuestionEl = document.getElementById('current-question');
-    totalQuestionsEl = document.getElementById('total-questions');
-    questionTextEl = document.getElementById('question-text');
-    choicesEl = document.getElementById('choices');
-    
-    feedbackHeaderEl = document.getElementById('feedback-header');
-    explanationEl = document.getElementById('explanation');
-    nextButtonEl = document.getElementById('next-button');
-    
-    completedExamNameEl = document.getElementById('completed-exam-name');
-    percentageCorrectEl = document.getElementById('percentage-correct');
-    correctAnswersEl = document.getElementById('correct-answers');
-    totalAnswersEl = document.getElementById('total-answers');
-    historyBodyEl = document.getElementById('history-body');
-    returnButtonEl = document.getElementById('return-button');
-
-
-
-    
-    // Initialize exam type selector
-    //initExamTypeSelector();
-    
-    // Add event listeners for mock exam buttons
-    document.querySelectorAll('.mock-exam-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const examId = parseInt(button.getAttribute('data-exam-id'));
-            const fileName = button.getAttribute('data-file-name');
-            const examName = button.querySelector('.exam-title').textContent;
-            startExam(examId, fileName, examName);
-        });
+    // Check if required elements exist and log any issues
+    ['startScreen', 'questionContainer', 'feedbackContainer', 'resultsContainer', 'examsContainer'].forEach(element => {
+        if (!window[element]) {
+            console.error(`Element ${element} not found in DOM`);
+        }
     });
-    
-    // Add event listener for the next button
-    if (nextButtonEl) {
-        nextButtonEl.addEventListener('click', showNextQuestion);
-    }
-    
-    // Add event listener for the return button
-    if (returnButtonEl) {
-        returnButtonEl.addEventListener('click', returnToStart);
-    }
 }
 
 
@@ -131,8 +157,6 @@ function initialize() {
  * 
  * This updated function includes detailed debugging and better handles the API response format
  */
-
-// Add this code to check the structure of the API response
 function loadExams() {
     try {
         // Show loading indicator
@@ -261,8 +285,9 @@ function loadExams() {
                                 </div>
                             `;
                             
-                            // Add event listener
+                            // Add event listener - FIXED: Add event listener when creating the button
                             examButton.addEventListener('click', () => {
+                                console.log(`Exam button clicked for exam: ${exam.examId}`);
                                 startExam(exam.examId);
                             });
                             
@@ -290,8 +315,9 @@ function loadExams() {
                                 </div>
                             `;
                             
-                            // Add event listener
+                            // Add event listener for flagged exam
                             flaggedButton.addEventListener('click', () => {
+                                console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
                                 startExam(flaggedExam.examId);
                             });
                             
@@ -329,7 +355,6 @@ function loadExams() {
         `;
     }
 }
-
 
 /**
  * Debug function to check database status
@@ -396,473 +421,134 @@ async function checkDatabaseStatus() {
 
 
 /**
- * Updated frontend JavaScript for grouped exams display (continued)
+ * Check if required DOM elements exist and create them if necessary
+ * @returns {boolean} - Whether the elements are ready for use
  */
-
-/**
- * Display the quiz results
- */
-async function showResults() {
-    try {
-        // Calculate percentage
-        const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
-        
-        // Create attempt object
-        const attempt = {
-            examId: currentExamId,
-            examName: currentExamMetadata.fullName,
-            title: currentExamMetadata.title,
-            type: currentExamMetadata.type,
-            vendor: currentExamMetadata.vendor,
-            year: currentExamMetadata.year,
-            questionsCount: currentQuestions.length,
-            correctAnswers: correctAnswers,
-            percentage: percentage
-        };
-        
-        // Save attempt to the server
-        const response = await fetch(`${API_URL}/attempts`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(attempt)
-        });
-        
-        if (!response.ok) {
-            throw new Error('Failed to save attempt');
-        }
-        
-        // Update results UI
-        completedExamNameEl.textContent = currentExamMetadata.fullName;
-        percentageCorrectEl.textContent = percentage;
-        correctAnswersEl.textContent = correctAnswers;
-        totalAnswersEl.textContent = currentQuestions.length;
-        
-        // Hide other containers and show results
-        questionContainer.style.display = 'none';
-        feedbackContainer.style.display = 'none';
-        resultsContainer.style.display = 'block';
-        
-        // Display attempt history
-        await displayAttemptHistory();
-    } catch (error) {
-        console.error('Error showing results:', error);
-        showNotification('Error saving your results', 'error');
-            
-        // Show a simplified results view even if saving failed
-        completedExamNameEl.textContent = currentExamMetadata.fullName;
-        percentageCorrectEl.textContent = Math.round((correctAnswers / currentQuestions.length) * 100);
-        correctAnswersEl.textContent = correctAnswers;
-        totalAnswersEl.textContent = currentQuestions.length;
-        
-        // Hide other containers and show results
-        questionContainer.style.display = 'none';
-        feedbackContainer.style.display = 'none';
-        resultsContainer.style.display = 'block';
-        
-        // Show error message in history table
-        historyBodyEl.innerHTML = `
-            <tr>
-                <td colspan="3">Failed to save attempt. Results not stored.</td>
-            </tr>
-        `;
+function ensureRequiredDomElements() {
+    // Check if startScreen exists
+    startScreen = document.getElementById('start-screen');
+    if (!startScreen) {
+        console.error('Start screen element not found');
+        return false;
     }
-}
-
-/**
- * Load and display recent attempts on the home page
- */
-async function loadRecentAttempts() {
-    try {
-        const recentAttemptsContainer = document.getElementById('recent-attempts');
-        if (!recentAttemptsContainer) return;
+    
+    // Check if questionContainer exists, create it if it doesn't
+    questionContainer = document.getElementById('question-container');
+    if (!questionContainer) {
+        console.log('Question container not found, creating it...');
+        questionContainer = document.createElement('div');
+        questionContainer.id = 'question-container';
+        questionContainer.style.display = 'none';
+        document.querySelector('.app-container').appendChild(questionContainer);
+    }
+    
+    // Check if feedbackContainer exists, create it if it doesn't
+    feedbackContainer = document.getElementById('feedback-container');
+    if (!feedbackContainer) {
+        console.log('Feedback container not found, creating it...');
+        feedbackContainer = document.createElement('div');
+        feedbackContainer.id = 'feedback-container';
+        feedbackContainer.style.display = 'none';
+        document.querySelector('.app-container').appendChild(feedbackContainer);
         
-        // Show loading spinner
-        recentAttemptsContainer.innerHTML = `
-            <div class="loading-spinner">
-                <div class="spinner"></div>
-                <p>Loading your progress...</p>
+        // Create the basic structure of the feedback container
+        feedbackContainer.innerHTML = `
+            <h2 id="feedback-header"></h2>
+            <div id="explanation"></div>
+            <button id="next-button">Next Question</button>
+        `;
+        
+        // Update references to newly created elements
+        feedbackHeaderEl = document.getElementById('feedback-header');
+        explanationEl = document.getElementById('explanation');
+        nextButtonEl = document.getElementById('next-button');
+        
+        // Add event listener for next button
+        if (nextButtonEl) {
+            nextButtonEl.addEventListener('click', showNextQuestion);
+        }
+    }
+    
+    // Check if resultsContainer exists, create it if it doesn't
+    resultsContainer = document.getElementById('results-container');
+    if (!resultsContainer) {
+        console.log('Results container not found, creating it...');
+        resultsContainer = document.createElement('div');
+        resultsContainer.id = 'results-container';
+        resultsContainer.style.display = 'none';
+        document.querySelector('.app-container').appendChild(resultsContainer);
+        
+        // Create the basic structure of the results container
+        resultsContainer.innerHTML = `
+            <h1>Exam Completed</h1>
+            <h2>Your Results for <span id="completed-exam-name"></span></h2>
+            <div class="result-highlight"><span id="percentage-correct">0</span>%</div>
+            <div class="result-details">
+                <div class="result-stat">
+                    <span class="stat-label">Correct Answers</span>
+                    <span id="correct-answers" class="stat-value">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="stat-label">Total Questions</span>
+                    <span id="total-answers" class="stat-value">0</span>
+                </div>
             </div>
+            <div class="attempts-history">
+                <h2>Attempt History</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Exam</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body"></tbody>
+                    </table>
+                </div>
+            </div>
+            <button id="return-button">Return to Home</button>
         `;
         
-        // Fetch attempt history from the server
-        const response = await fetch(`${API_URL}/attempts`);
+        // Update references to newly created elements
+        completedExamNameEl = document.getElementById('completed-exam-name');
+        percentageCorrectEl = document.getElementById('percentage-correct');
+        correctAnswersEl = document.getElementById('correct-answers');
+        totalAnswersEl = document.getElementById('total-answers');
+        historyBodyEl = document.getElementById('history-body');
+        returnButtonEl = document.getElementById('return-button');
         
-        if (!response.ok) {
-            throw new Error('Failed to load attempt history');
+        // Add event listener for return button
+        if (returnButtonEl) {
+            returnButtonEl.addEventListener('click', returnToStart);
         }
+    }
+    
+    return true;
+}
+
+/**
+ * Start an exam
+ * @param {string} examId - The ID of the exam
+ */
+async function startExam(examId) {
+    try {
+        console.log(`Starting exam with ID: ${examId}`);
         
-        const attempts = await response.json();
-        
-        // Clear loading spinner
-        recentAttemptsContainer.innerHTML = '';
-        
-        if (attempts.length === 0) {
-            recentAttemptsContainer.innerHTML = `
-                <div class="no-attempts">
-                    <p>You haven't taken any exams yet.</p>
-                    <p>Select an exam to start practicing!</p>
-                </div>
-            `;
+        // Make sure required DOM elements exist
+        if (!ensureRequiredDomElements()) {
+            alert('Error: Required page elements not found. Please refresh the page and try again.');
             return;
         }
         
-        // Sort attempts by date (newest first)
-        const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        // Add each attempt as a card
-        recentAttempts.forEach(attempt => {
-            const date = new Date(attempt.date);
-            const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            // Determine color based on score
-            let scoreColor = 'var(--primary-color)';
-            if (attempt.percentage < 60) {
-                scoreColor = 'var(--danger-color)';
-            } else if (attempt.percentage < 80) {
-                scoreColor = 'var(--warning-color)';
-            } else {
-                scoreColor = 'var(--success-color)';
-            }
-            
-            const attemptCard = document.createElement('div');
-            attemptCard.className = 'attempt-card';
-            attemptCard.innerHTML = `
-                <div class="attempt-info">
-                    <div class="attempt-exam">${attempt.examName || attempt.title}</div>
-                    <div class="attempt-date">${formattedDate}</div>
-                </div>
-                <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
-            `;
-            
-            recentAttemptsContainer.appendChild(attemptCard);
-        });
-        
-    } catch (error) {
-        console.error('Error loading recent attempts:', error);
-        
-        const recentAttemptsContainer = document.getElementById('recent-attempts');
-        if (recentAttemptsContainer) {
-            recentAttemptsContainer.innerHTML = `
-                <div class="error-message">
-                    <p>Failed to load your recent attempts.</p>
-                    <p>Please refresh the page or try again later.</p>
-                </div>
-            `;
-        }
-    }
-}
-
-/**
- * Display the attempt history
- */
-async function displayAttemptHistory() {
-    try {
-        // Fetch attempt history from the server
-        const response = await fetch(`${API_URL}/attempts`);
-        
-        if (!response.ok) {
-            throw new Error('Failed to load attempt history');
-        }
-        
-        const attempts = await response.json();
-        
-        // Clear history table
-        historyBodyEl.innerHTML = '';
-        
-        if (attempts.length === 0) {
-            historyBodyEl.innerHTML = `
-                <tr>
-                    <td colspan="3">No previous attempts found.</td>
-                </tr>
-            `;
-            return;
-        }
-        
-        // Sort attempts by date (newest first)
-        const sortedAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        // Add each attempt to the table
-        sortedAttempts.forEach(attempt => {
-            const row = document.createElement('tr');
-            
-            const dateCell = document.createElement('td');
-            const date = new Date(attempt.date);
-            dateCell.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-            
-            const examCell = document.createElement('td');
-            examCell.textContent = attempt.examName || attempt.title;
-            
-            const scoreCell = document.createElement('td');
-            scoreCell.textContent = `${attempt.percentage}%`;
-            
-            // Add color based on score
-            if (attempt.percentage < 60) {
-                scoreCell.style.color = 'var(--danger-color)';
-            } else if (attempt.percentage < 80) {
-                scoreCell.style.color = 'var(--warning-color)';
-            } else {
-                scoreCell.style.color = 'var(--success-color)';
-            }
-            
-            row.appendChild(dateCell);
-            row.appendChild(examCell);
-            row.appendChild(scoreCell);
-            
-            historyBodyEl.appendChild(row);
-        });
-    } catch (error) {
-        console.error('Error displaying attempt history:', error);
-        
-        // Display error message in the history table
-        historyBodyEl.innerHTML = `
-            <tr>
-                <td colspan="3">Failed to load attempt history.</td>
-            </tr>
-        `;
-    }
-}
-
-/**
- * Return to the start screen and refresh attempt history
- */
-function returnToStart() {
-    // Show start screen and hide other containers
-    startScreen.style.display = 'block';
-    questionContainer.style.display = 'none';
-    feedbackContainer.style.display = 'none';
-    resultsContainer.style.display = 'none';
-    
-    // Load recent attempts to refresh the display
-    loadRecentAttempts();
-}
-
-// The following helper functions remain unchanged
-// shuffleArray, toggleFlag, selectAnswer, showQuestion, showNextQuestion, showNotification
-
-
-
-
-
-
-
-
-// /**
-//  * Initialize Exam Type Selector
-//  */
-// Probably this function will not be needed in the final version
-// function initExamTypeSelector() {
-//     const currentExamType = document.querySelector('.current-exam-type');
-//     const examTypeDropdown = document.getElementById('exam-type-dropdown');
-//     const examTypeOptions = document.querySelectorAll('.exam-type-option');
-//     const addExamTypeBtn = document.getElementById('add-exam-type-btn');
-    
-//     if (!currentExamType || !examTypeDropdown) return;
-    
-//     // Toggle dropdown when clicking the current exam type
-//     currentExamType.addEventListener('click', function() {
-//         examTypeDropdown.classList.toggle('hidden');
-//         setTimeout(() => {
-//             examTypeDropdown.classList.toggle('show');
-//         }, 10);
-//     });
-    
-//     // Handle exam type selection
-//     examTypeOptions.forEach(option => {
-//         option.addEventListener('click', function() {
-//             // Get selected exam type data
-//             const examType = this.getAttribute('data-exam-type');
-//             const examTitle = this.querySelector('h3').textContent;
-//             const examDescription = this.querySelector('p').textContent;
-//             const examIconSrc = this.querySelector('img').src;
-            
-//             // Update current exam type display
-//             document.querySelector('.exam-type-info h2').textContent = examTitle;
-//             document.querySelector('.exam-type-info p').textContent = examDescription;
-//             document.querySelector('.exam-icon-large img').src = examIconSrc;
-            
-//             // Update selected state
-//             examTypeOptions.forEach(opt => opt.classList.remove('selected'));
-//             this.classList.add('selected');
-            
-//             // Save selected exam type to local storage
-//             localStorage.setItem('selectedExamType', examType);
-            
-//             // Hide dropdown
-//             examTypeDropdown.classList.remove('show');
-//             setTimeout(() => {
-//                 examTypeDropdown.classList.add('hidden');
-//             }, 300);
-            
-//             // Optional: Load exam-specific data or update UI based on exam type
-//             // loadExamTypeData(examType);
-//         });
-//     });
-    
-//     // Handle "Add New Exam Type" button
-//     if (addExamTypeBtn) {
-//         addExamTypeBtn.addEventListener('click', function(e) {
-//             e.stopPropagation(); // Prevent triggering the dropdown toggle
-            
-//             // This would typically open a modal or form to add a new exam type
-//             // For now, just show a notification
-//             showNotification('Add New Exam Type feature coming soon!', 'info');
-            
-//             // Hide dropdown
-//             examTypeDropdown.classList.remove('show');
-//             setTimeout(() => {
-//                 examTypeDropdown.classList.add('hidden');
-//             }, 300);
-//         });
-//     }
-    
-//     // Close dropdown when clicking outside
-//     document.addEventListener('click', function(e) {
-//         if (currentExamType && examTypeDropdown && 
-//             !currentExamType.contains(e.target) && 
-//             !examTypeDropdown.contains(e.target)) {
-//             examTypeDropdown.classList.remove('show');
-//             setTimeout(() => {
-//                 examTypeDropdown.classList.add('hidden');
-//             }, 300);
-//         }
-//     });
-    
-//     // Load previously selected exam type from local storage (if any)
-//     const savedExamType = localStorage.getItem('selectedExamType');
-//     if (savedExamType) {
-//         const savedOption = document.querySelector(`.exam-type-option[data-exam-type="${savedExamType}"]`);
-//         if (savedOption) {
-//             // Simulate a click on the saved option
-//             savedOption.click();
-//         }
-//     }
-// }
-
-/**
- * Load and display recent attempts on the home page
- */
-// async function loadRecentAttempts() {
-//     try {
-//         const recentAttemptsContainer = document.getElementById('recent-attempts');
-//         if (!recentAttemptsContainer) return;
-        
-//         // Show loading spinner
-//         recentAttemptsContainer.innerHTML = `
-//             <div class="loading-spinner">
-//                 <div class="spinner"></div>
-//                 <p>Loading your progress...</p>
-//             </div>
-//         `;
-        
-//         // Fetch attempt history from the server
-//         const response = await fetch(`${API_URL}/attempts`);
-        
-//         if (!response.ok) {
-//             throw new Error('Failed to load attempt history');
-//         }
-        
-//         const attempts = await response.json();
-        
-//         // Clear loading spinner
-//         recentAttemptsContainer.innerHTML = '';
-        
-//         if (attempts.length === 0) {
-//             recentAttemptsContainer.innerHTML = `
-//                 <div class="no-attempts">
-//                     <p>You haven't taken any exams yet.</p>
-//                     <p>Select a mock exam to start practicing!</p>
-//                 </div>
-//             `;
-//             return;
-//         }
-        
-//         // Sort attempts by date (newest first)
-//         const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-//         // Add each attempt as a card
-//         recentAttempts.forEach(attempt => {
-//             const date = new Date(attempt.date);
-//             const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-//             // Determine color based on score
-//             let scoreColor = 'var(--primary-color)';
-//             if (attempt.percentage < 60) {
-//                 scoreColor = 'var(--danger-color)';
-//             } else if (attempt.percentage < 80) {
-//                 scoreColor = 'var(--warning-color)';
-//             } else {
-//                 scoreColor = 'var(--success-color)';
-//             }
-            
-//             // Get the proper exam name
-//             const examName = attempt.examName || getExamNameByNumber(attempt.examNumber);
-            
-//             const attemptCard = document.createElement('div');
-//             attemptCard.className = 'attempt-card';
-//             attemptCard.innerHTML = `
-//                 <div class="attempt-info">
-//                     <div class="attempt-exam">${examName}</div>
-//                     <div class="attempt-date">${formattedDate}</div>
-//                 </div>
-//                 <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
-//             `;
-            
-//             recentAttemptsContainer.appendChild(attemptCard);
-//         });
-        
-//     } catch (error) {
-//         console.error('Error loading recent attempts:', error);
-        
-//         const recentAttemptsContainer = document.getElementById('recent-attempts');
-//         if (recentAttemptsContainer) {
-//             recentAttemptsContainer.innerHTML = `
-//                 <div class="error-message">
-//                     <p>Failed to load your recent attempts.</p>
-//                     <p>Please refresh the page or try again later.</p>
-//                 </div>
-//             `;
-//         }
-//     }
-// }
-
-/**
- * Get proper exam name based on exam number
- * @param {number} examNumber - The exam number
- * @returns {string} - The proper exam name
- */
-function getExamNameByNumber(examNumber) {
-    switch (examNumber) {
-        case 1:
-            return "Mock Exam 1";
-        case 2:
-            return "Mock Exam 2";
-        case 3:
-            return "Mock Exam 3";
-        case 4:
-            return "All Questions";
-        case 5:
-            return "Flagged Questions";
-        default:
-            return `PocketPrep Exam ${examNumber}`;
-    }
-}
-
-
-// Update the startExam function in app.js to include our improved error handling
-
-async function startExam(examId, fileName, examName) {
-    try {
         // Show loading indicator
         startScreen.style.display = 'none';
         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
         questionContainer.style.display = 'block';
         
         // Reset quiz state
-        currentExamNumber = examId;
-        currentFileName = fileName;
-        currentExamName = examName;
+        currentExamId = examId;
         currentQuestionIndex = 0;
         correctAnswers = 0;
         
@@ -875,7 +561,7 @@ async function startExam(examId, fileName, examName) {
             
             // Handle specific status codes
             if (statusCode === 404) {
-                errorMessage = `No questions available for ${examName}. Please run the import script to load questions.`;
+                errorMessage = `No questions available for this exam. Please run the import script to load questions.`;
             } else {
                 errorMessage = `Failed to load questions: ${response.statusText || 'Server error'}`;
             }
@@ -883,15 +569,20 @@ async function startExam(examId, fileName, examName) {
             throw new Error(errorMessage);
         }
         
-        let questions = await response.json();
+        const data = await response.json();
+        console.log('Received data from API:', { 
+            hasMetadata: !!data.metadata, 
+            questionsCount: data.questions ? data.questions.length : 0 
+        });
         
         // Check if we received any questions
-        if (!questions || questions.length === 0) {
-            throw new Error(`No questions available for ${examName}. Please run the import script to load questions.`);
+        if (!data || !data.questions || data.questions.length === 0) {
+            throw new Error(`No questions available for this exam. Please run the import script to load questions.`);
         }
         
-        // Randomize question order 
-        currentQuestions = shuffleArray(questions);
+        // Store metadata and questions
+        currentExamMetadata = data.metadata;
+        currentQuestions = shuffleArray(data.questions);
         
         // Restore question container structure
         questionContainer.innerHTML = `
@@ -911,6 +602,11 @@ async function startExam(examId, fileName, examName) {
         questionTextEl = document.getElementById('question-text');
         choicesEl = document.getElementById('choices');
         
+        // Make sure elements exist
+        if (!questionTextEl || !choicesEl) {
+            throw new Error('Critical question elements not found after container setup');
+        }
+        
         // Add event listener for the exit button
         const exitButton = document.getElementById('exit-exam-btn');
         if (exitButton) {
@@ -922,21 +618,20 @@ async function startExam(examId, fileName, examName) {
     } catch (error) {
         console.error('Error starting exam:', error);
         
-        // Use our new error handler
-        if (typeof ErrorHandler !== 'undefined') {
-            ErrorHandler.handleQuestionsLoadingError(error, examName);
-        } else {
-            // Fallback for backward compatibility
+        // Use our error handler
+        if (questionContainer) {
             questionContainer.innerHTML = `
                 <div class="error-container">
-                    <h1 class="error-code">404</h1>
+                    <h1 class="error-code">Error</h1>
                     <h2 class="error-title">Error Loading Questions</h2>
                     <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
                     <div class="button-container">
-                        <button onclick="location.reload()" class="error-button">Return to Exam Selection</button>
+                        <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
                     </div>
                 </div>
             `;
+        } else {
+            alert(`Error starting exam: ${error.message}`);
         }
     }
 }
@@ -960,62 +655,109 @@ function shuffleArray(array) {
  * Display the current question with randomized answer choices
  */
 function showQuestion() {
-    // Clear previous content
-    questionContainer.style.display = 'block';
-    feedbackContainer.style.display = 'none';
-    choicesEl.innerHTML = '';
-    
-    // Get the current question
-    const question = currentQuestions[currentQuestionIndex];
-    
-    // Update question number
-    currentQuestionEl.textContent = currentQuestionIndex + 1;
-    totalQuestionsEl.textContent = currentQuestions.length;
-    
-    // Set question text with flag button
-    const flaggedClass = question.flagged ? 'flagged' : 'unflagged';
-    const flagTooltip = question.flagged ? 'Unflag this question' : 'Flag this question for review';
-    
-    // Create question header with flag button
-    const questionHeader = document.createElement('div');
-    questionHeader.className = 'question-header';
-    
-    const questionContent = document.createElement('div');
-    questionContent.className = 'question-content';
-    questionContent.innerHTML = question.question;
-    
-    const flagButton = document.createElement('div');
-    flagButton.className = `tooltip flag-button ${flaggedClass}`;
-    flagButton.innerHTML = `
-        <span class="tooltiptext">${flagTooltip}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-            <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    `;
-    
-    // Add event listener to flag button
-    flagButton.addEventListener('click', () => toggleFlag(question));
-    
-    // Assemble the question header
-    questionHeader.appendChild(questionContent);
-    questionHeader.appendChild(flagButton);
-    
-    // Clear and update question text element
-    questionTextEl.innerHTML = '';
-    questionTextEl.appendChild(questionHeader);
-    
-    // Randomize the order of choices
-    const randomizedChoices = shuffleArray([...question.choices]);
-    
-    // Add choices in the randomized order
-    randomizedChoices.forEach(choice => {
-        const button = document.createElement('button');
-        button.className = 'choice-btn';
-        button.innerHTML = choice.text;
-        button.dataset.choiceId = choice.id;
-        button.addEventListener('click', () => selectAnswer(choice.id));
-        choicesEl.appendChild(button);
-    });
+    try {
+        // Make sure we have the necessary elements
+        if (!questionContainer || !choicesEl || !questionTextEl) {
+            console.error('Missing critical DOM elements for showQuestion:', {
+                questionContainer: !!questionContainer,
+                choicesEl: !!choicesEl,
+                questionTextEl: !!questionTextEl
+            });
+            return;
+        }
+        
+        // Clear previous content
+        questionContainer.style.display = 'block';
+        if (feedbackContainer) {
+            feedbackContainer.style.display = 'none';
+        }
+        choicesEl.innerHTML = '';
+        
+        // Make sure we have questions
+        if (!currentQuestions || currentQuestions.length === 0) {
+            console.error('No questions available for this exam');
+            questionTextEl.innerHTML = '<p class="error-message">No questions available for this exam.</p>';
+            return;
+        }
+        
+        // Make sure current index is valid
+        if (currentQuestionIndex < 0 || currentQuestionIndex >= currentQuestions.length) {
+            console.error('Question index out of range:', currentQuestionIndex, 'max:', currentQuestions.length - 1);
+            return;
+        }
+        
+        // Get the current question
+        const question = currentQuestions[currentQuestionIndex];
+        if (!question) {
+            console.error('Failed to get question at index:', currentQuestionIndex);
+            return;
+        }
+        
+        // Update question number
+        if (currentQuestionEl) {
+            currentQuestionEl.textContent = currentQuestionIndex + 1;
+        }
+        if (totalQuestionsEl) {
+            totalQuestionsEl.textContent = currentQuestions.length;
+        }
+        
+        // Set question text with flag button
+        const flaggedClass = question.flagged ? 'flagged' : 'unflagged';
+        const flagTooltip = question.flagged ? 'Unflag this question' : 'Flag this question for review';
+        
+        // Create question header with flag button
+        const questionHeader = document.createElement('div');
+        questionHeader.className = 'question-header';
+        
+        const questionContent = document.createElement('div');
+        questionContent.className = 'question-content';
+        questionContent.innerHTML = question.question;
+        
+        const flagButton = document.createElement('div');
+        flagButton.className = `tooltip flag-button ${flaggedClass}`;
+        flagButton.innerHTML = `
+            <span class="tooltiptext">${flagTooltip}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+        
+        // Add event listener to flag button
+        flagButton.addEventListener('click', () => toggleFlag(question));
+        
+        // Assemble the question header
+        questionHeader.appendChild(questionContent);
+        questionHeader.appendChild(flagButton);
+        
+        // Clear and update question text element
+        questionTextEl.innerHTML = '';
+        questionTextEl.appendChild(questionHeader);
+        
+        // Check if question has choices
+        if (!question.choices || question.choices.length === 0) {
+            console.error('Question has no choices:', question);
+            choicesEl.innerHTML = '<p class="error-message">Error: This question has no answer choices.</p>';
+            return;
+        }
+        
+        // Randomize the order of choices
+        const randomizedChoices = shuffleArray([...question.choices]);
+        
+        // Add choices in the randomized order
+        randomizedChoices.forEach(choice => {
+            const button = document.createElement('button');
+            button.className = 'choice-btn';
+            button.innerHTML = choice.text;
+            button.dataset.choiceId = choice.id;
+            button.addEventListener('click', () => selectAnswer(choice.id));
+            choicesEl.appendChild(button);
+        });
+    } catch (error) {
+        console.error('Error showing question:', error);
+        if (questionTextEl) {
+            questionTextEl.innerHTML = `<p class="error-message">Error displaying question: ${error.message}</p>`;
+        }
+    }
 }
 
 /**
@@ -1078,56 +820,91 @@ async function toggleFlag(question) {
  * @param {string} choiceId - The ID of the selected choice
  */
 function selectAnswer(choiceId) {
-    // Get the current question
-    const question = currentQuestions[currentQuestionIndex];
-    
-    // Check if the answer is correct
-    const isCorrect = choiceId === question.correctAnswerId;
-    
-    if (isCorrect) {
-        correctAnswers++;
+    try {
+        // Make sure we have questions and the current question
+        if (!currentQuestions || currentQuestions.length === 0 || currentQuestionIndex >= currentQuestions.length) {
+            console.error('No current question available');
+            return;
+        }
+        
+        // Get the current question
+        const question = currentQuestions[currentQuestionIndex];
+        
+        // Check if the answer is correct
+        const isCorrect = choiceId === question.correctAnswerId;
+        
+        if (isCorrect) {
+            correctAnswers++;
+        }
+        
+        // Make sure we have required elements
+        if (!questionContainer || !feedbackContainer || !feedbackHeaderEl || !explanationEl) {
+            console.error('Missing critical DOM elements for feedback:', {
+                questionContainer: !!questionContainer,
+                feedbackContainer: !!feedbackContainer,
+                feedbackHeaderEl: !!feedbackHeaderEl,
+                explanationEl: !!explanationEl
+            });
+            
+            alert(`Your answer was ${isCorrect ? 'correct' : 'incorrect'}. Please try again.`);
+            return;
+        }
+        
+        // Hide question container and show feedback
+        questionContainer.style.display = 'none';
+        feedbackContainer.style.display = 'block';
+        
+        // Style the feedback container based on correctness
+        feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
+        
+        // Set feedback header
+        if (isCorrect) {
+            feedbackHeaderEl.textContent = 'Correct!';
+        } else {
+            // Find the correct answer text
+            const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
+            if (correctChoice) {
+                feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+            } else {
+                feedbackHeaderEl.innerHTML = 'Incorrect!';
+            }
+        }
+        
+        // Show explanation
+        explanationEl.innerHTML = question.explanation;
+        
+        // Update next button text
+        const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+        
+        if (nextButtonEl) {
+            nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+        }
+    } catch (error) {
+        console.error('Error selecting answer:', error);
+        alert(`An error occurred while processing your answer: ${error.message}`);
     }
-    
-    // Hide question container and show feedback
-    questionContainer.style.display = 'none';
-    feedbackContainer.style.display = 'block';
-    
-    // Style the feedback container based on correctness
-    feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
-    
-    // Set feedback header
-    if (isCorrect) {
-        feedbackHeaderEl.textContent = 'Correct!';
-    } else {
-        // Find the correct answer text
-        const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
-        feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
-    }
-    
-    // Show explanation
-    explanationEl.innerHTML = question.explanation;
-    
-    // Update next button text
-    const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-    nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
 }
 
 /**
  * Show the next question or results
  */
 function showNextQuestion() {
-    // Move to the next question
-    currentQuestionIndex++;
-    
-    if (currentQuestionIndex < currentQuestions.length) {
-        // Show the next question
-        showQuestion();
-    } else {
-        // Show results
-        showResults();
+    try {
+        // Move to the next question
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < currentQuestions.length) {
+            // Show the next question
+            showQuestion();
+        } else {
+            // Show results
+            showResults();
+        }
+    } catch (error) {
+        console.error('Error showing next question:', error);
+        alert(`An error occurred: ${error.message}`);
     }
 }
-
 
 /**
  * Exit the current exam without saving results
@@ -1135,177 +912,318 @@ function showNextQuestion() {
  */
 function exitExam() {
     // Use our custom confirm dialog instead of the browser's default
-    ModalDialog.confirm(
-        'Exit Exam',
-        'Are you sure you want to exit this exam? Your progress will not be saved.',
-        'Exit',
-        'Cancel',
-        'danger'
-    ).then(confirmed => {
-        if (confirmed) {
-            // Return to start screen
+    if (typeof ModalDialog !== 'undefined') {
+        ModalDialog.confirm(
+            'Exit Exam',
+            'Are you sure you want to exit this exam? Your progress will not be saved.',
+            'Exit',
+            'Cancel',
+            'danger'
+        ).then(confirmed => {
+            if (confirmed) {
+                // Return to start screen
+                returnToStart();
+            }
+        });
+    } else {
+        // Fall back to browser confirm if ModalDialog not available
+        if (confirm('Are you sure you want to exit this exam? Your progress will not be saved.')) {
             returnToStart();
         }
-    });
+    }
 }
-
 
 /**
  * Display the quiz results
  */
-// async function showResults() {
-//     try {
-//         // Calculate percentage
-//         const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
-        
-//         // Get the proper exam name
-//         const examName = getExamNameByNumber(currentExamNumber);
-        
-//         // Create attempt object
-//         const attempt = {
-//             examNumber: currentExamNumber,
-//             examName: examName,
-//             fileName: currentFileName,
-//             questionsCount: currentQuestions.length,
-//             correctAnswers: correctAnswers,
-//             percentage: percentage
-//         };
-        
-//         // Save attempt to the server
-//         const response = await fetch(`${API_URL}/attempts`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(attempt)
-//         });
-        
-//         if (!response.ok) {
-//             throw new Error('Failed to save attempt');
-//         }
-        
-//         // Update results UI
-//         completedExamNameEl.textContent = examName;
-//         percentageCorrectEl.textContent = percentage;
-//         correctAnswersEl.textContent = correctAnswers;
-//         totalAnswersEl.textContent = currentQuestions.length;
-        
-//         // Hide other containers and show results
-//         questionContainer.style.display = 'none';
-//         feedbackContainer.style.display = 'none';
-//         resultsContainer.style.display = 'block';
-        
-//         // Display attempt history
-//         await displayAttemptHistory();
-//     } catch (error) {
-//         console.error('Error showing results:', error);
-//         alert('An error occurred while saving your results. Your score was: ' + 
-//             Math.round((correctAnswers / currentQuestions.length) * 100) + '%');
+async function showResults() {
+    try {
+        // Make sure we have the required elements and data
+        if (!resultsContainer || !currentExamMetadata || !currentQuestions || currentQuestions.length === 0) {
+            console.error('Missing elements or data for showResults:', {
+                resultsContainer: !!resultsContainer,
+                currentExamMetadata: !!currentExamMetadata,
+                currentQuestions: !!currentQuestions
+            });
             
-//         // Show a simplified results view even if saving failed
-//         completedExamNameEl.textContent = getExamNameByNumber(currentExamNumber);
-//         percentageCorrectEl.textContent = Math.round((correctAnswers / currentQuestions.length) * 100);
-//         correctAnswersEl.textContent = correctAnswers;
-//         totalAnswersEl.textContent = currentQuestions.length;
+            alert('Error displaying results. Please return to the home screen.');
+            returnToStart();
+            return;
+        }
         
-//         // Hide other containers and show results
-//         questionContainer.style.display = 'none';
-//         feedbackContainer.style.display = 'none';
-//         resultsContainer.style.display = 'block';
+        // Calculate percentage
+        const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
         
-//         // Show error message in history table
-//         historyBodyEl.innerHTML = `
-//             <tr>
-//                 <td colspan="3">Failed to save attempt. Results not stored.</td>
-//             </tr>
-//         `;
-//     }
-// }
+        // Create attempt object
+        const attempt = {
+            examId: currentExamId,
+            examName: currentExamMetadata.fullName,
+            title: currentExamMetadata.title,
+            type: currentExamMetadata.type,
+            vendor: currentExamMetadata.vendor,
+            year: currentExamMetadata.year,
+            questionsCount: currentQuestions.length,
+            correctAnswers: correctAnswers,
+            percentage: percentage
+        };
+        
+        console.log('Saving attempt:', attempt);
+        
+        // Save attempt to the server
+        const response = await fetch(`${API_URL}/attempts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(attempt)
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to save attempt');
+        }
+        
+        // Check if result elements exist
+// Check if result elements exist
+        if (!completedExamNameEl || !percentageCorrectEl || !correctAnswersEl || !totalAnswersEl) {
+            console.error('Missing DOM elements for results display:', {
+                completedExamNameEl: !!completedExamNameEl,
+                percentageCorrectEl: !!percentageCorrectEl,
+                correctAnswersEl: !!correctAnswersEl,
+                totalAnswersEl: !!totalAnswersEl
+            });
+            
+            alert(`Your score: ${percentage}% (${correctAnswers}/${currentQuestions.length})`);
+            returnToStart();
+            return;
+        }
+        
+        // Update results UI
+        completedExamNameEl.textContent = currentExamMetadata.fullName;
+        percentageCorrectEl.textContent = percentage;
+        correctAnswersEl.textContent = correctAnswers;
+        totalAnswersEl.textContent = currentQuestions.length;
+        
+        // Hide other containers and show results
+        if (questionContainer) questionContainer.style.display = 'none';
+        if (feedbackContainer) feedbackContainer.style.display = 'none';
+        resultsContainer.style.display = 'block';
+        
+        // Display attempt history
+        await displayAttemptHistory();
+    } catch (error) {
+        console.error('Error showing results:', error);
+        showNotification('Error saving your results', 'error');
+            
+        // Try to show a simplified results view even if saving failed
+        if (completedExamNameEl && percentageCorrectEl && correctAnswersEl && totalAnswersEl) {
+            completedExamNameEl.textContent = currentExamMetadata ? currentExamMetadata.fullName : 'Completed Exam';
+            percentageCorrectEl.textContent = Math.round((correctAnswers / currentQuestions.length) * 100);
+            correctAnswersEl.textContent = correctAnswers;
+            totalAnswersEl.textContent = currentQuestions.length;
+            
+            // Hide other containers and show results
+            if (questionContainer) questionContainer.style.display = 'none';
+            if (feedbackContainer) feedbackContainer.style.display = 'none';
+            resultsContainer.style.display = 'block';
+        }
+        
+        // Show error message in history table
+        if (historyBodyEl) {
+            historyBodyEl.innerHTML = `
+                <tr>
+                    <td colspan="3">Failed to save attempt. Results not stored.</td>
+                </tr>
+            `;
+        }
+    }
+}
+
+/**
+ * Load and display recent attempts on the home page
+ */
+async function loadRecentAttempts() {
+    try {
+        const recentAttemptsContainer = document.getElementById('recent-attempts');
+        if (!recentAttemptsContainer) {
+            console.error('recent-attempts container not found');
+            return;
+        }
+        
+        // Show loading spinner
+        recentAttemptsContainer.innerHTML = `
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading your progress...</p>
+            </div>
+        `;
+        
+        // Fetch attempt history from the server
+        const response = await fetch(`${API_URL}/attempts`);
+        
+        if (!response.ok) {
+            throw new Error('Failed to load attempt history');
+        }
+        
+        const attempts = await response.json();
+        
+        // Clear loading spinner
+        recentAttemptsContainer.innerHTML = '';
+        
+        if (!attempts || attempts.length === 0) {
+            recentAttemptsContainer.innerHTML = `
+                <div class="no-attempts">
+                    <p>You haven't taken any exams yet.</p>
+                    <p>Select an exam to start practicing!</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Sort attempts by date (newest first)
+        const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Add each attempt as a card
+        recentAttempts.forEach(attempt => {
+            const date = new Date(attempt.date);
+            const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            // Determine color based on score
+            let scoreColor = 'var(--primary-color)';
+            if (attempt.percentage < 60) {
+                scoreColor = 'var(--danger-color)';
+            } else if (attempt.percentage < 80) {
+                scoreColor = 'var(--warning-color)';
+            } else {
+                scoreColor = 'var(--success-color)';
+            }
+            
+            const attemptCard = document.createElement('div');
+            attemptCard.className = 'attempt-card';
+            attemptCard.innerHTML = `
+                <div class="attempt-info">
+                    <div class="attempt-exam">${attempt.examName || attempt.title}</div>
+                    <div class="attempt-date">${formattedDate}</div>
+                </div>
+                <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
+            `;
+            
+            recentAttemptsContainer.appendChild(attemptCard);
+        });
+        
+    } catch (error) {
+        console.error('Error loading recent attempts:', error);
+        
+        const recentAttemptsContainer = document.getElementById('recent-attempts');
+        if (recentAttemptsContainer) {
+            recentAttemptsContainer.innerHTML = `
+                <div class="error-message">
+                    <p>Failed to load your recent attempts.</p>
+                    <p>Please refresh the page or try again later.</p>
+                </div>
+            `;
+        }
+    }
+}
 
 /**
  * Display the attempt history
  */
-// async function displayAttemptHistory() {
-//     try {
-//         // Fetch attempt history from the server
-//         const response = await fetch(`${API_URL}/attempts`);
+async function displayAttemptHistory() {
+    try {
+        // Check if history body element exists
+        if (!historyBodyEl) {
+            console.error('history-body element not found');
+            return;
+        }
         
-//         if (!response.ok) {
-//             throw new Error('Failed to load attempt history');
-//         }
+        // Fetch attempt history from the server
+        const response = await fetch(`${API_URL}/attempts`);
         
-//         const attempts = await response.json();
+        if (!response.ok) {
+            throw new Error('Failed to load attempt history');
+        }
         
-//         // Clear history table
-//         historyBodyEl.innerHTML = '';
+        const attempts = await response.json();
         
-//         if (attempts.length === 0) {
-//             historyBodyEl.innerHTML = `
-//                 <tr>
-//                     <td colspan="3">No previous attempts found.</td>
-//                 </tr>
-//             `;
-//             return;
-//         }
+        // Clear history table
+        historyBodyEl.innerHTML = '';
         
-//         // Sort attempts by date (newest first)
-//         const sortedAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        if (!attempts || attempts.length === 0) {
+            historyBodyEl.innerHTML = `
+                <tr>
+                    <td colspan="3">No previous attempts found.</td>
+                </tr>
+            `;
+            return;
+        }
         
-//         // Add each attempt to the table
-//         sortedAttempts.forEach(attempt => {
-//             const row = document.createElement('tr');
+        // Sort attempts by date (newest first)
+        const sortedAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Add each attempt to the table
+        sortedAttempts.forEach(attempt => {
+            const row = document.createElement('tr');
             
-//             const dateCell = document.createElement('td');
-//             const date = new Date(attempt.date);
-//             dateCell.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+            const dateCell = document.createElement('td');
+            const date = new Date(attempt.date);
+            dateCell.textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
             
-//             const examCell = document.createElement('td');
-//             // Use the getExamNameByNumber function to get the correct exam name
-//             examCell.textContent = attempt.examName || getExamNameByNumber(attempt.examNumber);
+            const examCell = document.createElement('td');
+            examCell.textContent = attempt.examName || attempt.title;
             
-//             const scoreCell = document.createElement('td');
-//             scoreCell.textContent = `${attempt.percentage}%`;
+            const scoreCell = document.createElement('td');
+            scoreCell.textContent = `${attempt.percentage}%`;
             
-//             // Add color based on score
-//             if (attempt.percentage < 60) {
-//                 scoreCell.style.color = 'var(--danger-color)';
-//             } else if (attempt.percentage < 80) {
-//                 scoreCell.style.color = 'var(--warning-color)';
-//             } else {
-//                 scoreCell.style.color = 'var(--success-color)';
-//             }
+            // Add color based on score
+            if (attempt.percentage < 60) {
+                scoreCell.style.color = 'var(--danger-color)';
+            } else if (attempt.percentage < 80) {
+                scoreCell.style.color = 'var(--warning-color)';
+            } else {
+                scoreCell.style.color = 'var(--success-color)';
+            }
             
-//             row.appendChild(dateCell);
-//             row.appendChild(examCell);
-//             row.appendChild(scoreCell);
+            row.appendChild(dateCell);
+            row.appendChild(examCell);
+            row.appendChild(scoreCell);
             
-//             historyBodyEl.appendChild(row);
-//         });
-//     } catch (error) {
-//         console.error('Error displaying attempt history:', error);
+            historyBodyEl.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error displaying attempt history:', error);
         
-//         // Display error message in the history table
-//         historyBodyEl.innerHTML = `
-//             <tr>
-//                 <td colspan="3">Failed to load attempt history.</td>
-//             </tr>
-//         `;
-//     }
-// }
+        // Display error message in the history table
+        if (historyBodyEl) {
+            historyBodyEl.innerHTML = `
+                <tr>
+                    <td colspan="3">Failed to load attempt history.</td>
+                </tr>
+            `;
+        }
+    }
+}
 
 /**
  * Return to the start screen and refresh attempt history
  */
-// function returnToStart() {
-//     // Show start screen and hide other containers
-//     startScreen.style.display = 'block';
-//     questionContainer.style.display = 'none';
-//     feedbackContainer.style.display = 'none';
-//     resultsContainer.style.display = 'none';
+function returnToStart() {
+    // Make sure elements exist
+    if (!startScreen) {
+        console.error('start-screen element not found');
+        location.reload(); // Reload the page if element not found
+        return;
+    }
     
-//     // Load recent attempts to refresh the display
-//     loadRecentAttempts();
-// }
+    // Show start screen and hide other containers
+    startScreen.style.display = 'block';
+    
+    if (questionContainer) questionContainer.style.display = 'none';
+    if (feedbackContainer) feedbackContainer.style.display = 'none';
+    if (resultsContainer) resultsContainer.style.display = 'none';
+    
+    // Load recent attempts to refresh the display
+    loadRecentAttempts();
+}
 
 /**
  * Show a notification message
@@ -1313,58 +1231,120 @@ function exitExam() {
  * @param {string} type - The type of notification (success/error/info)
  */
 function showNotification(message, type = 'success') {
-    // Create notification element if it doesn't exist
-    let notification = document.getElementById('notification');
-    if (!notification) {
-        notification = document.createElement('div');
-        notification.id = 'notification';
-        document.body.appendChild(notification);
+    try {
+        // Create notification element if it doesn't exist
+        let notification = document.getElementById('notification');
+        if (!notification) {
+            notification = document.createElement('div');
+            notification.id = 'notification';
+            document.body.appendChild(notification);
+            
+            // Add styles if not already in CSS
+            if (!document.getElementById('notification-style')) {
+                const style = document.createElement('style');
+                style.id = 'notification-style';
+                style.textContent = `
+                    #notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        padding: 10px 20px;
+                        border-radius: 4px;
+                        color: white;
+                        font-weight: 500;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                        z-index: 1000;
+                    }
+                    #notification.success {
+                        background-color: #2ecc71;
+                    }
+                    #notification.error {
+                        background-color: #e74c3c;
+                    }
+                    #notification.info {
+                        background-color: #3498db;
+                    }
+                    #notification.show {
+                        opacity: 1;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
         
-        // Add styles if not already in CSS
-        if (!document.getElementById('notification-style')) {
-            const style = document.createElement('style');
-            style.id = 'notification-style';
-            style.textContent = `
-                #notification {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    padding: 10px 20px;
-                    border-radius: 4px;
-                    color: white;
-                    font-weight: 500;
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                    z-index: 1000;
-                }
-                #notification.success {
-                    background-color: #2ecc71;
-                }
-                #notification.error {
-                    background-color: #e74c3c;
-                }
-                #notification.info {
-                    background-color: #3498db;
-                }
-                #notification.show {
-                    opacity: 1;
-                }
-            `;
-            document.head.appendChild(style);
+        // Set message and type
+        notification.textContent = message;
+        notification.className = type;
+        
+        // Show notification
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        // Hide after 3 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
+    } catch (error) {
+        console.error('Error showing notification:', error);
+        // Fall back to alert for critical notifications
+        if (type === 'error') {
+            alert(message);
         }
     }
+}
+
+/**
+ * Add debugging tools in development mode
+ */
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    // Debug application state
+    window.debugAppState = function() {
+        console.log('==== App State ====');
+        console.log('DOM Elements:');
+        console.log('- startScreen:', !!startScreen);
+        console.log('- questionContainer:', !!questionContainer);
+        console.log('- feedbackContainer:', !!feedbackContainer);
+        console.log('- examsContainer:', !!examsContainer);
+        console.log('- questionTextEl:', !!questionTextEl);
+        console.log('- choicesEl:', !!choicesEl);
+        
+        console.log('App State:');
+        console.log('- API_URL:', API_URL);
+        console.log('- currentExamId:', currentExamId);
+        console.log('- currentExamMetadata:', currentExamMetadata);
+        console.log('- currentQuestions:', currentQuestions ? `${currentQuestions.length} questions` : 'None loaded');
+        console.log('- currentQuestionIndex:', currentQuestionIndex);
+        console.log('- correctAnswers:', correctAnswers);
+    };
     
-    // Set message and type
-    notification.textContent = message;
-    notification.className = type;
+    // Debug database connectivity
+    window.testDatabaseConnection = function() {
+        fetch(`${API_URL}/debug/titles`)
+            .then(response => response.json())
+            .then(data => console.log('Database connection test:', data))
+            .catch(error => console.error('Database connection error:', error));
+    };
     
-    // Show notification
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
-    
-    // Hide after 3 seconds
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 3000);
+    // Add debugging button
+    document.addEventListener('DOMContentLoaded', () => {
+        const debugButton = document.createElement('button');
+        debugButton.textContent = 'Debug';
+        debugButton.style.position = 'fixed';
+        debugButton.style.bottom = '10px';
+        debugButton.style.right = '10px';
+        debugButton.style.zIndex = '9999';
+        debugButton.style.backgroundColor = '#f72585';
+        debugButton.style.color = 'white';
+        debugButton.style.padding = '8px 12px';
+        debugButton.style.border = 'none';
+        debugButton.style.borderRadius = '4px';
+        debugButton.style.cursor = 'pointer';
+        debugButton.addEventListener('click', () => {
+            window.debugAppState();
+            window.testDatabaseConnection();
+        });
+        document.body.appendChild(debugButton);
+    });
 }
