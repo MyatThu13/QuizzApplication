@@ -98,93 +98,93 @@ function initialize() {
 //  * Initialize Exam Type Selector
 //  */
 // Probably this function will not be needed in the final version
-function initExamTypeSelector() {
-    const currentExamType = document.querySelector('.current-exam-type');
-    const examTypeDropdown = document.getElementById('exam-type-dropdown');
-    const examTypeOptions = document.querySelectorAll('.exam-type-option');
-    const addExamTypeBtn = document.getElementById('add-exam-type-btn');
+// function initExamTypeSelector() {
+//     const currentExamType = document.querySelector('.current-exam-type');
+//     const examTypeDropdown = document.getElementById('exam-type-dropdown');
+//     const examTypeOptions = document.querySelectorAll('.exam-type-option');
+//     const addExamTypeBtn = document.getElementById('add-exam-type-btn');
     
-    if (!currentExamType || !examTypeDropdown) return;
+//     if (!currentExamType || !examTypeDropdown) return;
     
-    // Toggle dropdown when clicking the current exam type
-    currentExamType.addEventListener('click', function() {
-        examTypeDropdown.classList.toggle('hidden');
-        setTimeout(() => {
-            examTypeDropdown.classList.toggle('show');
-        }, 10);
-    });
+//     // Toggle dropdown when clicking the current exam type
+//     currentExamType.addEventListener('click', function() {
+//         examTypeDropdown.classList.toggle('hidden');
+//         setTimeout(() => {
+//             examTypeDropdown.classList.toggle('show');
+//         }, 10);
+//     });
     
-    // Handle exam type selection
-    examTypeOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            // Get selected exam type data
-            const examType = this.getAttribute('data-exam-type');
-            const examTitle = this.querySelector('h3').textContent;
-            const examDescription = this.querySelector('p').textContent;
-            const examIconSrc = this.querySelector('img').src;
+//     // Handle exam type selection
+//     examTypeOptions.forEach(option => {
+//         option.addEventListener('click', function() {
+//             // Get selected exam type data
+//             const examType = this.getAttribute('data-exam-type');
+//             const examTitle = this.querySelector('h3').textContent;
+//             const examDescription = this.querySelector('p').textContent;
+//             const examIconSrc = this.querySelector('img').src;
             
-            // Update current exam type display
-            document.querySelector('.exam-type-info h2').textContent = examTitle;
-            document.querySelector('.exam-type-info p').textContent = examDescription;
-            document.querySelector('.exam-icon-large img').src = examIconSrc;
+//             // Update current exam type display
+//             document.querySelector('.exam-type-info h2').textContent = examTitle;
+//             document.querySelector('.exam-type-info p').textContent = examDescription;
+//             document.querySelector('.exam-icon-large img').src = examIconSrc;
             
-            // Update selected state
-            examTypeOptions.forEach(opt => opt.classList.remove('selected'));
-            this.classList.add('selected');
+//             // Update selected state
+//             examTypeOptions.forEach(opt => opt.classList.remove('selected'));
+//             this.classList.add('selected');
             
-            // Save selected exam type to local storage
-            localStorage.setItem('selectedExamType', examType);
+//             // Save selected exam type to local storage
+//             localStorage.setItem('selectedExamType', examType);
             
-            // Hide dropdown
-            examTypeDropdown.classList.remove('show');
-            setTimeout(() => {
-                examTypeDropdown.classList.add('hidden');
-            }, 300);
+//             // Hide dropdown
+//             examTypeDropdown.classList.remove('show');
+//             setTimeout(() => {
+//                 examTypeDropdown.classList.add('hidden');
+//             }, 300);
             
-            // Optional: Load exam-specific data or update UI based on exam type
-            // loadExamTypeData(examType);
-        });
-    });
+//             // Optional: Load exam-specific data or update UI based on exam type
+//             // loadExamTypeData(examType);
+//         });
+//     });
     
-    // Handle "Add New Exam Type" button
-    if (addExamTypeBtn) {
-        addExamTypeBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent triggering the dropdown toggle
+//     // Handle "Add New Exam Type" button
+//     if (addExamTypeBtn) {
+//         addExamTypeBtn.addEventListener('click', function(e) {
+//             e.stopPropagation(); // Prevent triggering the dropdown toggle
             
-            // This would typically open a modal or form to add a new exam type
-            // For now, just show a notification
-            showNotification('Add New Exam Type feature coming soon!', 'info');
+//             // This would typically open a modal or form to add a new exam type
+//             // For now, just show a notification
+//             showNotification('Add New Exam Type feature coming soon!', 'info');
             
-            // Hide dropdown
-            examTypeDropdown.classList.remove('show');
-            setTimeout(() => {
-                examTypeDropdown.classList.add('hidden');
-            }, 300);
-        });
-    }
+//             // Hide dropdown
+//             examTypeDropdown.classList.remove('show');
+//             setTimeout(() => {
+//                 examTypeDropdown.classList.add('hidden');
+//             }, 300);
+//         });
+//     }
     
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (currentExamType && examTypeDropdown && 
-            !currentExamType.contains(e.target) && 
-            !examTypeDropdown.contains(e.target)) {
-            examTypeDropdown.classList.remove('show');
-            setTimeout(() => {
-                examTypeDropdown.classList.add('hidden');
-            }, 300);
-        }
-    });
+//     // Close dropdown when clicking outside
+//     document.addEventListener('click', function(e) {
+//         if (currentExamType && examTypeDropdown && 
+//             !currentExamType.contains(e.target) && 
+//             !examTypeDropdown.contains(e.target)) {
+//             examTypeDropdown.classList.remove('show');
+//             setTimeout(() => {
+//                 examTypeDropdown.classList.add('hidden');
+//             }, 300);
+//         }
+//     });
     
-    // Load previously selected exam type from local storage (if any)
-    const savedExamType = localStorage.getItem('selectedExamType');
-    if (savedExamType) {
-        const savedOption = document.querySelector(`.exam-type-option[data-exam-type="${savedExamType}"]`);
-        if (savedOption) {
-            // Simulate a click on the saved option
-            savedOption.click();
-        }
-    }
-}
+//     // Load previously selected exam type from local storage (if any)
+//     const savedExamType = localStorage.getItem('selectedExamType');
+//     if (savedExamType) {
+//         const savedOption = document.querySelector(`.exam-type-option[data-exam-type="${savedExamType}"]`);
+//         if (savedOption) {
+//             // Simulate a click on the saved option
+//             savedOption.click();
+//         }
+//     }
+// }
 
 /**
  * Load and display recent attempts on the home page
@@ -295,82 +295,6 @@ function getExamNameByNumber(examNumber) {
     }
 }
 
-// /**
-//  * Start a new exam with randomized questions and choices
-//  * @param {number} examId - The ID of the exam to start
-//  * @param {string} fileName - The name of the JSON file for this exam
-//  * @param {string} examName - The display name of the exam
-//  */
-// async function startExam(examId, fileName, examName) {
-//     try {
-//         // Show loading indicator
-//         startScreen.style.display = 'none';
-//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
-//         questionContainer.style.display = 'block';
-        
-//         // Reset quiz state
-//         currentExamNumber = examId;
-//         currentFileName = fileName;
-//         currentExamName = examName;
-//         currentQuestionIndex = 0;
-//         correctAnswers = 0;
-        
-//         // Fetch questions from the server
-//         const response = await fetch(`${API_URL}/questions/${examId}`);
-//         if (!response.ok) {
-//             throw new Error(`Failed to load questions: ${response.status}`);
-//         }
-        
-//         let questions = await response.json();
-        
-//         // Check if we received any questions
-//         if (!questions || questions.length === 0) {
-//             throw new Error(`No questions available for ${examName}. Please run the import script to load questions.`);
-//         }
-        
-//         // Randomize question order 
-//         currentQuestions = shuffleArray(questions);
-        
-//         // Restore question container structure
-//         questionContainer.innerHTML = `
-//             <div class="exam-header">
-//                 <div class="progress">
-//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
-//                 </div>
-//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
-//             </div>
-//             <div id="question-text"></div>
-//             <div id="choices"></div>
-//         `;
-        
-//         // Update element references after recreating DOM elements
-//         currentQuestionEl = document.getElementById('current-question');
-//         totalQuestionsEl = document.getElementById('total-questions');
-//         questionTextEl = document.getElementById('question-text');
-//         choicesEl = document.getElementById('choices');
-        
-//         // Add event listener for the exit button
-//         const exitButton = document.getElementById('exit-exam-btn');
-//         if (exitButton) {
-//             exitButton.addEventListener('click', exitExam);
-//         }
-        
-//         // Show the first question (with randomized choices)
-//         showQuestion();
-//     } catch (error) {
-//         console.error('Error starting exam:', error);
-//         questionContainer.innerHTML = `
-//             <div class="error">
-//                 <h2>Error Loading Questions</h2>
-//                 <p>${error.message}</p>
-//                 <button onclick="location.reload()">Return to Exam Selection</button>
-//             </div>
-//         `;
-//     }
-// }
-
-
-// Update the startExam function in app.js to include our improved error handling
 
 // Update the startExam function in app.js to include our improved error handling
 
@@ -650,15 +574,27 @@ function showNextQuestion() {
     }
 }
 
+
 /**
  * Exit the current exam without saving results
+ * Using the custom modal dialog instead of confirm()
  */
 function exitExam() {
-    if (confirm('Are you sure you want to exit this exam? Your progress will not be saved.')) {
-        // Return to start screen
-        returnToStart();
-    }
+    // Use our custom confirm dialog instead of the browser's default
+    ModalDialog.confirm(
+        'Exit Exam',
+        'Are you sure you want to exit this exam? Your progress will not be saved.',
+        'Exit',
+        'Cancel',
+        'danger'
+    ).then(confirmed => {
+        if (confirmed) {
+            // Return to start screen
+            returnToStart();
+        }
+    });
 }
+
 
 /**
  * Display the quiz results
