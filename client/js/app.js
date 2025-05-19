@@ -295,12 +295,85 @@ function getExamNameByNumber(examNumber) {
     }
 }
 
-/**
- * Start a new exam with randomized questions and choices
- * @param {number} examId - The ID of the exam to start
- * @param {string} fileName - The name of the JSON file for this exam
- * @param {string} examName - The display name of the exam
- */
+// /**
+//  * Start a new exam with randomized questions and choices
+//  * @param {number} examId - The ID of the exam to start
+//  * @param {string} fileName - The name of the JSON file for this exam
+//  * @param {string} examName - The display name of the exam
+//  */
+// async function startExam(examId, fileName, examName) {
+//     try {
+//         // Show loading indicator
+//         startScreen.style.display = 'none';
+//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
+//         questionContainer.style.display = 'block';
+        
+//         // Reset quiz state
+//         currentExamNumber = examId;
+//         currentFileName = fileName;
+//         currentExamName = examName;
+//         currentQuestionIndex = 0;
+//         correctAnswers = 0;
+        
+//         // Fetch questions from the server
+//         const response = await fetch(`${API_URL}/questions/${examId}`);
+//         if (!response.ok) {
+//             throw new Error(`Failed to load questions: ${response.status}`);
+//         }
+        
+//         let questions = await response.json();
+        
+//         // Check if we received any questions
+//         if (!questions || questions.length === 0) {
+//             throw new Error(`No questions available for ${examName}. Please run the import script to load questions.`);
+//         }
+        
+//         // Randomize question order 
+//         currentQuestions = shuffleArray(questions);
+        
+//         // Restore question container structure
+//         questionContainer.innerHTML = `
+//             <div class="exam-header">
+//                 <div class="progress">
+//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+//                 </div>
+//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+//             </div>
+//             <div id="question-text"></div>
+//             <div id="choices"></div>
+//         `;
+        
+//         // Update element references after recreating DOM elements
+//         currentQuestionEl = document.getElementById('current-question');
+//         totalQuestionsEl = document.getElementById('total-questions');
+//         questionTextEl = document.getElementById('question-text');
+//         choicesEl = document.getElementById('choices');
+        
+//         // Add event listener for the exit button
+//         const exitButton = document.getElementById('exit-exam-btn');
+//         if (exitButton) {
+//             exitButton.addEventListener('click', exitExam);
+//         }
+        
+//         // Show the first question (with randomized choices)
+//         showQuestion();
+//     } catch (error) {
+//         console.error('Error starting exam:', error);
+//         questionContainer.innerHTML = `
+//             <div class="error">
+//                 <h2>Error Loading Questions</h2>
+//                 <p>${error.message}</p>
+//                 <button onclick="location.reload()">Return to Exam Selection</button>
+//             </div>
+//         `;
+//     }
+// }
+
+
+// Update the startExam function in app.js to include our improved error handling
+
+// Update the startExam function in app.js to include our improved error handling
+
 async function startExam(examId, fileName, examName) {
     try {
         // Show loading indicator
@@ -317,8 +390,19 @@ async function startExam(examId, fileName, examName) {
         
         // Fetch questions from the server
         const response = await fetch(`${API_URL}/questions/${examId}`);
+        
         if (!response.ok) {
-            throw new Error(`Failed to load questions: ${response.status}`);
+            const statusCode = response.status;
+            let errorMessage;
+            
+            // Handle specific status codes
+            if (statusCode === 404) {
+                errorMessage = `No questions available for ${examName}. Please run the import script to load questions.`;
+            } else {
+                errorMessage = `Failed to load questions: ${response.statusText || 'Server error'}`;
+            }
+            
+            throw new Error(errorMessage);
         }
         
         let questions = await response.json();
@@ -359,15 +443,26 @@ async function startExam(examId, fileName, examName) {
         showQuestion();
     } catch (error) {
         console.error('Error starting exam:', error);
-        questionContainer.innerHTML = `
-            <div class="error">
-                <h2>Error Loading Questions</h2>
-                <p>${error.message}</p>
-                <button onclick="location.reload()">Return to Exam Selection</button>
-            </div>
-        `;
+        
+        // Use our new error handler
+        if (typeof ErrorHandler !== 'undefined') {
+            ErrorHandler.handleQuestionsLoadingError(error, examName);
+        } else {
+            // Fallback for backward compatibility
+            questionContainer.innerHTML = `
+                <div class="error-container">
+                    <h1 class="error-code">404</h1>
+                    <h2 class="error-title">Error Loading Questions</h2>
+                    <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
+                    <div class="button-container">
+                        <button onclick="location.reload()" class="error-button">Return to Exam Selection</button>
+                    </div>
+                </div>
+            `;
+        }
     }
 }
+
 
 /**
  * Shuffle array using Fisher-Yates algorithm
