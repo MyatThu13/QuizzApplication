@@ -157,6 +157,11 @@ function initialize() {
  * This function loads exam titles from the API and creates buttons for regular, "All Questions", 
  * "Flagged Questions", and "Missed Questions" exams
  */
+
+/**
+ * Modified loadExams function that applies consistent styling directly
+ * This ensures all buttons have the exact same appearance
+ */
 function loadExams() {
     try {
         // Show loading indicator
@@ -171,6 +176,10 @@ function loadExams() {
         
         const titlesUrl = `${API_URL}/questions/titles`;
         console.log('Fetching from:', titlesUrl);
+        
+        // Define the consistent colors
+        const FLAGGED_COLOR = '#f8961e'; // Orange
+        const MISSED_COLOR = '#f94144';  // Red
         
         // Use fetch with explicit debugging
         fetch(titlesUrl)
@@ -244,7 +253,7 @@ function loadExams() {
                     } else {
                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
                         
-                        // Filter out special exams first (flagged, missed, all questions)
+                        // Filter out special exams first
                         const regularExams = exams.filter(exam => 
                             !exam.isFlagged && 
                             !exam.isMissed && 
@@ -308,7 +317,7 @@ function loadExams() {
                             titleExamsContainer.appendChild(allButton);
                         }
                         
-                        // Add flagged questions exam if it exists
+                        // Add flagged questions exam if it exists - WITH INLINE STYLES
                         const flaggedExam = exams.find(exam => exam.isFlagged);
                         if (flaggedExam) {
                             console.log(`Adding flagged exam for ${title._id || title.title}`);
@@ -317,10 +326,16 @@ function loadExams() {
                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
                             
+                            // Apply direct styling
+                            flaggedButton.style.borderColor = FLAGGED_COLOR;
+                            flaggedButton.style.borderStyle = 'dashed';
+                            flaggedButton.style.borderWidth = '1px';
+                            
                             flaggedButton.innerHTML = `
-                                <div class="exam-icon">
+                                <div class="exam-icon flag-icon" style="background-color: ${FLAGGED_COLOR};">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" 
+                                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                                     </svg>
                                 </div>
                                 <div class="exam-info">
@@ -338,7 +353,7 @@ function loadExams() {
                             titleExamsContainer.appendChild(flaggedButton);
                         }
                         
-                        // Add missed questions exam if it exists
+                        // Add missed questions exam if it exists - WITH INLINE STYLES
                         const missedExam = exams.find(exam => exam.isMissed);
                         if (missedExam) {
                             console.log(`Adding missed exam for ${title._id || title.title}`);
@@ -347,10 +362,16 @@ function loadExams() {
                             missedButton.className = 'mock-exam-btn missed-exam-btn';
                             missedButton.setAttribute('data-exam-id', missedExam.examId);
                             
+                            // Apply direct styling
+                            missedButton.style.borderColor = MISSED_COLOR;
+                            missedButton.style.borderStyle = 'dashed';
+                            missedButton.style.borderWidth = '1px';
+                            
                             missedButton.innerHTML = `
-                                <div class="exam-icon">
+                                <div class="exam-icon missed-icon" style="background-color: ${MISSED_COLOR};">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                        <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 18L18 6M6 6l12 12" 
+                                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                                     </svg>
                                 </div>
                                 <div class="exam-info">

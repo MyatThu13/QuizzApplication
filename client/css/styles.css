@@ -1132,3 +1132,151 @@ tr:nth-child(even) {
     fill: none;
     stroke: var(--white-color);
 }
+
+
+/* Enhanced CSS for Flagged and Missed Questions Icons */
+
+/* Flagged exam button styling */
+.flagged-exam-btn {
+    border-color: #f8961e;
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.flagged-exam-btn .exam-icon {
+    background-color: #f8961e;
+}
+
+.flagged-exam-btn .exam-icon svg {
+    fill: none;
+    stroke: var(--white-color);
+}
+
+/* Missed exam button styling */
+.missed-exam-btn {
+    border-color: #f94144;
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.missed-exam-btn .exam-icon {
+    background-color: #f94144;
+}
+
+.missed-exam-btn .exam-icon svg {
+    fill: none;
+    stroke: var(--white-color);
+}
+
+/* Icon specific styling */
+.flag-icon svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.missed-icon svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Hover effects for buttons */
+.flagged-exam-btn:hover, .missed-exam-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.flagged-exam-btn:hover {
+    border-color: #e76f00;
+}
+
+.missed-exam-btn:hover {
+    border-color: #e41c23;
+}
+
+.flagged-exam-btn:hover .exam-icon {
+    background-color: #e76f00;
+}
+
+.missed-exam-btn:hover .exam-icon {
+    background-color: #e41c23;
+}
+
+/* Active state */
+.flagged-exam-btn:active, .missed-exam-btn:active {
+    transform: translateY(1px);
+}
+
+
+/* Standardized CSS for Flagged and Missed Questions Buttons
+ * This CSS ensures consistent colors across all instances
+ */
+
+/* ===== FLAGGED QUESTIONS STYLING ===== */
+/* All flagged question buttons get the same orange color */
+.flagged-exam-btn {
+    border-color: var(--warning-color);
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.flagged-exam-btn .exam-icon {
+    background-color: var(--warning-color);
+}
+
+.flagged-exam-btn .exam-icon svg {
+    fill: none;
+    stroke: var(--white-color);
+}
+
+/* Flagged hover effects */
+.flagged-exam-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #e76f00; /* Slightly darker orange on hover */
+}
+
+.flagged-exam-btn:hover .exam-icon {
+    background-color: #e76f00; /* Slightly darker orange on hover */
+}
+
+/* ===== MISSED QUESTIONS STYLING ===== */
+/* All missed question buttons get the same red color */
+.missed-exam-btn {
+    border-color: var(--danger-color);
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.missed-exam-btn .exam-icon {
+    background-color: var(--danger-color);
+}
+
+.missed-exam-btn .exam-icon svg {
+    fill: none;
+    stroke: var(--white-color);
+}
+
+/* Missed hover effects */
+.missed-exam-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #e41c23; /* Slightly darker red on hover */
+}
+
+.missed-exam-btn:hover .exam-icon {
+    background-color: #e41c23; /* Slightly darker red on hover */
+}
+
+/* ===== COMMON BUTTON EFFECTS ===== */
+.flagged-exam-btn:active, .missed-exam-btn:active {
+    transform: translateY(1px);
+}
+
+/* Ensure icon styling is consistent */
+.flag-icon svg, .missed-icon svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}

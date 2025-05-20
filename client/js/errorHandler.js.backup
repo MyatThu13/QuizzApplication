@@ -40,49 +40,12 @@ const ErrorHandler = (function() {
                 errorTitle = 'Page Not Found';
         }
         
-        // Process error message to extract more context
-        let additionalInfo = '';
-        
-        if (errorMessage) {
-            // Special handling for missed questions errors
-            if (errorMessage.includes('No missed questions') || errorMessage.includes('_Missed')) {
-                additionalInfo = `
-                    <p style="margin-top: 10px; font-style: italic;">
-                        To get missed questions, take some practice exams and answer questions incorrectly.
-                        Those questions will appear in your missed questions section.
-                    </p>`;
-                
-                // Also update the main error message if it's the generic one
-                if (errorMessage.includes('Please make sure questions have been imported')) {
-                    errorMessage = 'No missed questions found. You need to answer some questions incorrectly first.';
-                }
-            }
-            // Special handling for flagged questions errors
-            else if (errorMessage.includes('No flagged questions') || errorMessage.includes('_Flagged')) {
-                additionalInfo = `
-                    <p style="margin-top: 10px; font-style: italic;">
-                        To flag questions, click the flag icon when taking a practice exam.
-                        Flagged questions will appear in this section for later review.
-                    </p>`;
-                
-                // Also update the main error message if it's the generic one
-                if (errorMessage.includes('Please make sure questions have been imported')) {
-                    errorMessage = 'No flagged questions found. Flag some questions during exams by clicking the flag icon.';
-                }
-            }
-        }
-        
-        // Create error page HTML with the improved formatting
+        // Create error page HTML
         const errorHTML = `
             <div class="error-container">
                 <h1 class="error-code">${errorCode}</h1>
                 <h2 class="error-title">${errorTitle}</h2>
-                
-                <div style="color: #f94144; padding: 20px; background-color: #fff1f1; border-radius: 8px; margin: 20px 0; text-align: left;">
-                    <p>${errorMessage || 'Something went wrong. Please try again.'}</p>
-                    ${additionalInfo}
-                </div>
-                
+                <p class="error-message">${errorMessage || 'Something went wrong. Please try again.'}</p>
                 <svg class="error-illustration" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="errorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -101,7 +64,7 @@ const ErrorHandler = (function() {
                 </svg>
                 <div class="button-container">
                     <button class="error-button" onclick="window.location.reload()">Refresh Page</button>
-                    <button class="error-button" onclick="returnToStart()">Return Home</button>
+                    <button class="error-button" onclick="window.location.href='index.html'">Return Home</button>
                 </div>
             </div>
         `;
@@ -137,56 +100,37 @@ const ErrorHandler = (function() {
         let errorType = 'NOT_FOUND';
         let message = customMessage || 'An error occurred while fetching data.';
         
-        // Try to extract error message from JSON response if available
-        if (error.responseJSON && error.responseJSON.message) {
-            message = error.responseJSON.message;
-        } else if (error.responseText && error.responseText.includes('{')) {
-            try {
-                // Try to parse JSON from the error text
-                const jsonStart = error.responseText.indexOf('{');
-                const jsonPart = error.responseText.substring(jsonStart);
-                const errorData = JSON.parse(jsonPart);
-                if (errorData.message) {
-                    message = errorData.message;
-                }
-            } catch (e) {
-                // If parsing fails, use the provided message
-                console.error('Error parsing error response:', e);
-            }
-        }
-        
         // Determine error type from status code if available
         if (error.status) {
             switch (error.status) {
                 case 400:
                     errorType = 'BAD_REQUEST';
-                    if (!customMessage) message = 'Invalid request. Please check your data and try again.';
+                    message = 'Invalid request. Please check your data and try again.';
                     break;
                 case 401:
                     errorType = 'UNAUTHORIZED';
-                    if (!customMessage) message = 'You need to be logged in to access this resource.';
+                    message = 'You need to be logged in to access this resource.';
                     break;
                 case 403:
                     errorType = 'FORBIDDEN';
-                    if (!customMessage) message = 'You don\'t have permission to access this resource.';
+                    message = 'You don\'t have permission to access this resource.';
                     break;
                 case 404:
                     errorType = 'NOT_FOUND';
-                    if (!customMessage) message = 'The requested resource was not found.';
+                    message = 'The requested resource was not found.';
                     break;
                 case 500:
                 case 502:
                 case 503:
                 case 504:
                     errorType = 'SERVER_ERROR';
-                    if (!customMessage) message = 'Server error. Please try again later.';
+                    message = 'Server error. Please try again later.';
                     break;
                 default:
                     errorType = 'NOT_FOUND';
             }
         }
         
-        // If a custom message was provided, use it (but keep the additional context for special cases)
         if (customMessage) {
             message = customMessage;
         }
@@ -195,7 +139,7 @@ const ErrorHandler = (function() {
     }
     
     /**
-     * Handle questions loading error with improved messages for special cases
+     * Handle questions loading error
      * @param {Error} error - The error object
      * @param {string} examName - The name of the exam
      */
@@ -208,35 +152,8 @@ const ErrorHandler = (function() {
         }
         
         let message;
-        let errorType = 'NOT_FOUND';
-        
-        // Try to get error message from the server response
-        let serverMessage = '';
-        if (error.responseJSON && error.responseJSON.message) {
-            serverMessage = error.responseJSON.message;
-        } else if (error.message) {
-            serverMessage = error.message;
-        }
-        
-        // Detect if this is a missed questions exam
-        if (examName && examName.includes('_Missed')) {
-            message = 'No missed questions found. You need to answer some questions incorrectly first.';
-        }
-        // Detect if this is a flagged questions exam
-        else if (examName && examName.includes('_Flagged')) {
-            message = 'No flagged questions found. Flag some questions during exams by clicking the flag icon.';
-        }
-        // If we have a server error message about missed questions, use it
-        else if (serverMessage && serverMessage.includes('missed')) {
-            message = serverMessage;
-        }
-        // If we have a server error message about flagged questions, use it
-        else if (serverMessage && serverMessage.includes('flagged')) {
-            message = serverMessage;
-        }
-        // Otherwise, use a generic message
-        else if (examName) {
-            message = `Failed to load questions for ${examName}. Please make sure questions have been imported.`;
+        if (examName) {
+            message = `Failed to load questions for ${examName}. Please run the import script or try again later.`;
         } else {
             message = 'Failed to load questions. Please run the import script or try again later.';
         }
@@ -278,6 +195,30 @@ const ErrorHandler = (function() {
         `;
     }
     
+    // Add this to your ErrorHandler.js file
+    function handleQuestionsLoadingError(error, examName) {
+    const container = document.getElementById('question-container');
+    
+    if (!container) {
+        console.error('Question container not found');
+        return;
+    }
+    
+    let message;
+    let errorType = 'NOT_FOUND';
+    
+    // Special handling for flagged questions
+    if (examName && examName.includes('Flagged')) {
+        message = 'No flagged questions found. Flag some questions during exams by clicking the flag icon.';
+    } else if (examName) {
+        message = `Failed to load questions for ${examName}. Please make sure questions have been imported.`;
+    } else {
+        message = 'Failed to load questions. Please run the import script or try again later.';
+    }
+    
+    handleApiError(error, message, container);
+}
+
     // Public API
     return {
         showErrorPage,
