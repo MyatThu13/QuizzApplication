@@ -1,6 +1,6 @@
 /**
- * ExamMetadata Model
- * Defines the schema for exam metadata in MongoDB
+ * Updated ExamMetadata Model
+ * Include support for missed questions exams
  */
 
 const mongoose = require('mongoose');
@@ -49,14 +49,14 @@ const ExamMetadataSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  isMissed: {
+    type: Boolean,
+    default: false
+  },
   displayOrder: {
     type: Number,
     default: 0
-  },
-  isMissed: {
-        type: Boolean,
-        default: false
-    }
+  }
 });
 
 // Export the ExamMetadata model

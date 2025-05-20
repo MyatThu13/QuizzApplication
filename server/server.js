@@ -1,6 +1,5 @@
 /**
- * Quiz Application - Debug Server File
- * With explicit route definitions
+ * Quiz Application - Server File with Fixed Route Registration
  */
 
 const express = require('express');
@@ -29,77 +28,12 @@ app.use((req, res, next) => {
 const questionController = require('./controllers/questionController');
 const attemptController = require('./controllers/attemptController');
 
-// Define routes EXPLICITLY
-// For debugging purposes, we'll define critical routes directly here
-
-// In server.js, add this before your other routes
+// Handle favicon requests
 app.get('/favicon.ico', (req, res) => {
   res.status(204).end(); // No content response
 });
 
-
-// CRITICAL FIX for server.js
-// The specific issue is the order of route definitions
-
-/**
- * The problem:
- * The /:examId route is capturing /titles as an examId parameter
- * This happens because Express routes are matched in order of definition
- * 
- * Solution:
- * 1. Define the /titles route BEFORE the /:examId route
- * 2. Use explicit routes instead of the router for debugging
- */
-
-// ===== ADD THIS CODE TO YOUR server.js FILE =====
-
-// Remove the existing questions route registration if it exists
-// app.use('/api/questions', require('./routes/questions'));
-
-// Add specific routes IN THIS ORDER
-app.get('/api/questions/titles', async (req, res) => {
-  console.log('GET /api/questions/titles endpoint called directly');
-  
-  try {
-    // Get exam metadata from database
-    const ExamMetadata = require('./models/ExamMetadata');
-    
-    // Get unique titles with their exams
-    const titles = await ExamMetadata.aggregate([
-      { $sort: { title: 1, year: -1, type: 1 } },
-      { 
-        $group: {
-          _id: "$title",
-          exams: { 
-            $push: {
-              examId: "$examId",
-              title: "$title",
-              type: "$type",
-              vendor: "$vendor",
-              year: "$year",
-              fullName: "$fullName",
-              questionCount: "$questionCount",
-              isFlagged: "$isFlagged"
-            }
-          },
-          count: { $sum: 1 }
-        }
-      },
-      { $sort: { _id: 1 } } // Sort by title
-    ]);
-
-    console.log(`Found ${titles.length} unique titles to return`);
-    res.json({ titles });
-  } catch (error) {
-    console.error('Error in /api/questions/titles route:', error);
-    res.status(500).json({ 
-      message: 'Server Error', 
-      error: error.message 
-    });
-  }
-});
-
-// Add the debug endpoint
+// Debug endpoint
 app.get('/api/debug/titles', async (req, res) => {
   try {
     // Check mongoose connection
@@ -146,160 +80,47 @@ app.get('/api/debug/titles', async (req, res) => {
   }
 });
 
-// AFTER defining these specific routes, THEN add the general routes with parameters
-// app.get('/api/questions/:examId', questionController.getQuestions);
-app.get('/api/questions/:examId', (req, res, next) => {
-    console.log('Exam ID requested:', req.params.examId);
-    next();
-}, questionController.getQuestions);
-
-app.put('/api/questions/flag', questionController.flagQuestion);
-app.put('/api/questions/unflag', questionController.unflagQuestion);
-
-// Then register the attempts routes
-app.use('/api/attempts', require('./routes/attempts'));
-// Questions routes
-// app.get('/api/questions/:examNumber', questionController.getQuestions);
-
-// app.put('/api/questions/flag', (req, res) => {
-//   console.log('Flag route called with ID (query param):', req.query.id);
-//   req.params.id = req.query.id;
-//   return questionController.flagQuestion(req, res);
-// });
-// app.put('/api/questions/unflag', (req, res) => {
-//   console.log('Unflag route called with ID (query param):', req.query.id);
-//   req.params.id = req.query.id;
-//   return questionController.unflagQuestion(req, res);
-// });
-
-// // Attempts routes
-// app.use('/api/attempts', require('./routes/attempts'));
-
 // Debugging route to verify API is working
 app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-// Serve static assets (frontend)
-app.use(express.static(path.join(__dirname, '../client')));
-
-// Handle any routes not defined above - return the main index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client', 'index.html'));
-});
-
-// Add this to the bottom of server.js before app.listen() to handle 404 errors
-// Handle 404 errors - should be after all other routes
-app.use((req, res, next) => {
-    // API routes should return JSON
-    if (req.path.startsWith('/api/')) {
-        return res.status(404).json({
-            error: 'Not Found',
-            message: 'The requested API endpoint does not exist.'
-        });
-    }
-    
-    // For HTML requests, send the 404 page
-    res.status(404).sendFile(path.join(__dirname, '../client/404.html'));
-});
-
-// Define and register the missed questions routes explicitly
-app.put('/api/questions/markMissed', async (req, res) => {
-    console.log('markMissed route called with query:', req.query);
-    try {
-        const questionId = req.query.id;
-        
-        if (!questionId) {
-            return res.status(400).json({ message: 'Question ID is required' });
-        }
-        
-        // Find and update the question
-        const Question = require('./models/Question');
-        const question = await Question.findByIdAndUpdate(
-            questionId,
-            { missed: true },
-            { new: true }
-        );
-        
-        // Check if question exists
-        if (!question) {
-            return res.status(404).json({ message: 'Question not found' });
-        }
-        
-        // Return success
-        res.json({ 
-            message: 'Question marked as missed',
-            question 
-        });
-    } catch (error) {
-        console.error('Error marking question as missed:', error);
-        res.status(500).json({ 
-            message: 'Server Error',
-            error: error.message 
-        });
-    }
-});
-
-app.put('/api/questions/unmarkMissed', async (req, res) => {
-    console.log('unmarkMissed route called with query:', req.query);
-    try {
-        const questionId = req.query.id;
-        
-        if (!questionId) {
-            return res.status(400).json({ message: 'Question ID is required' });
-        }
-        
-        // Find and update the question
-        const Question = require('./models/Question');
-        const question = await Question.findByIdAndUpdate(
-            questionId,
-            { missed: false },
-            { new: true }
-        );
-        
-        // Check if question exists
-        if (!question) {
-            return res.status(404).json({ message: 'Question not found' });
-        }
-        
-        // Return success
-        res.json({ 
-            message: 'Question removed from missed',
-            question 
-        });
-    } catch (error) {
-        console.error('Error unmarking question as missed:', error);
-        res.status(500).json({ 
-            message: 'Server Error',
-            error: error.message 
-        });
-    }
-});
-
-
-
-
-// Import route modules explicitly with variable names
+// Import route modules
 const questionsRoutes = require('./routes/questions');
 const attemptsRoutes = require('./routes/attempts');
 
-// Register routes with app.use
-app.use('/api/questions', questionsRoutes);
+// IMPORTANT: Register questions routes properly
+// First, register specific route handlers to ensure they take precedence
+app.put('/api/questions/markMissed', questionController.markQuestionMissed);
+app.put('/api/questions/unmarkMissed', questionController.unmarkQuestionMissed);
+app.put('/api/questions/flag', questionController.flagQuestion);
+app.put('/api/questions/unflag', questionController.unflagQuestion);
+app.get('/api/questions/titles', questionController.getExamTitles);
+
+// Then register the parameter route AFTER all specific routes
+app.get('/api/questions/:examId', (req, res, next) => {
+    console.log('Exam ID requested:', req.params.examId);
+    next();
+}, questionController.getQuestions);
+
+// Then register the attempts routes
 app.use('/api/attempts', attemptsRoutes);
 
-// Log registered routes from the questions router
-console.log('\n=== QUESTIONS ROUTER ROUTES ===');
-questionsRoutes.stack.forEach((layer) => {
-  if (layer.route) {
-    const path = layer.route.path;
-    const methods = Object.keys(layer.route.methods)
-      .filter(method => layer.route.methods[method])
-      .join(', ')
-      .toUpperCase();
-    console.log(`${methods} /api/questions${path}`);
-  }
+// Serve static assets (frontend)
+app.use(express.static(path.join(__dirname, '../client')));
+
+// Handle 404 errors for API routes
+app.use('/api/*', (req, res) => {
+    return res.status(404).json({
+        error: 'Not Found',
+        message: 'The requested API endpoint does not exist.'
+    });
 });
-console.log('=============================\n');
+
+// Handle 404 errors for all other routes - serve the 404 page
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, '../client/404.html'));
+});
 
 // Set up the server port
 const PORT = process.env.PORT || 5000;

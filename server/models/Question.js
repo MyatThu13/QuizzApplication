@@ -1,7 +1,6 @@
 /**
- * Question Model (Updated)
- * Defines the schema for quiz questions in MongoDB
- * Updated to include additional metadata
+ * Updated Question Model
+ * Include missed questions support
  */
 
 const mongoose = require('mongoose');
@@ -83,6 +82,7 @@ const QuestionSchema = new mongoose.Schema({
 // Add compound index for efficient filtering
 QuestionSchema.index({ title: 1, examId: 1 });
 QuestionSchema.index({ flagged: 1, title: 1 }); // For efficient flagged questions queries
+QuestionSchema.index({ missed: 1, title: 1 }); // For efficient missed questions queries
 
 // Export the Question model
 module.exports = mongoose.model('Question', QuestionSchema);

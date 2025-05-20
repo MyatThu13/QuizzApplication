@@ -1114,7 +1114,10 @@ tr:nth-child(even) {
     font-weight: 500;
 }
 
-/* Add to your styles.css */
+
+/* Additional CSS for Missed Questions button */
+
+/* Missed exam button specific styling */
 .missed-exam-btn {
     border-color: var(--danger-color);
     border-width: 1px;

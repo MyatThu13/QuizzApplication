@@ -153,230 +153,9 @@ function initialize() {
 
 
 /**
- * Frontend Debugging Fix for loadExams Function
- * 
- * This updated function includes detailed debugging and better handles the API response format
- */
-// function loadExams() {
-//     try {
-//         // Show loading indicator
-//         examsContainer.innerHTML = `
-//             <div class="loading-spinner">
-//                 <div class="spinner"></div>
-//                 <p>Loading available exams...</p>
-//             </div>
-//         `;
-        
-//         console.log('Starting to fetch exam titles from API...');
-        
-//         // Add this debugging code to check your API URL
-//         const titlesUrl = `${API_URL}/questions/titles`;
-//         console.log('Fetching from:', titlesUrl);
-        
-//         // Use fetch with explicit debugging
-//         fetch(titlesUrl)
-//             .then(response => {
-//                 console.log('Response status:', response.status);
-//                 if (!response.ok) {
-//                     throw new Error(`API request failed: ${response.status} ${response.statusText}`);
-//                 }
-//                 return response.json();
-//             })
-//             .then(data => {
-//                 // Log the complete response structure
-//                 console.log('API Response data:', data);
-                
-//                 // Check if response has the expected structure
-//                 if (!data || typeof data !== 'object') {
-//                     throw new Error('API response is not a valid object');
-//                 }
-                
-//                 // Examine what's in the response
-//                 if (data.titles) {
-//                     console.log('Found titles array in response:', data.titles.length);
-//                     examTitles = data.titles;
-//                 } else {
-//                     // If data doesn't have a titles property, check if it might be the titles array directly
-//                     console.log('No titles property found, checking if response is the titles array');
-//                     if (Array.isArray(data)) {
-//                         console.log('Response is an array, using as titles:', data.length);
-//                         examTitles = data;
-//                     } else {
-//                         console.error('Unexpected API response format:', data);
-//                         throw new Error('API returned unexpected data format - missing titles array');
-//                     }
-//                 }
-                
-//                 // Clear loading indicator
-//                 examsContainer.innerHTML = '';
-                
-//                 if (examTitles.length === 0) {
-//                     console.log('No exam titles found');
-//                     examsContainer.innerHTML = `
-//                         <div class="no-exams">
-//                             <h2>No Exams Available</h2>
-//                             <p>No exam data found. Please run the import script to load exams.</p>
-//                         </div>
-//                     `;
-//                     return;
-//                 }
-                
-//                 console.log('Building UI for exam titles...');
-                
-//                 // Create a section for each title
-//                 examTitles.forEach(title => {
-//                     console.log(`Processing title: ${title._id || title.title}`);
-                    
-//                     const titleSection = document.createElement('div');
-//                     titleSection.className = 'exam-title-section';
-                    
-//                     // Create title header
-//                     const titleHeader = document.createElement('h2');
-//                     titleHeader.textContent = title._id || title.title; // Handle both formats
-//                     titleSection.appendChild(titleHeader);
-                    
-//                     // Create exams container for this title
-//                     const titleExamsContainer = document.createElement('div');
-//                     titleExamsContainer.className = 'title-exams-container';
-                    
-//                     // Check if title has exams array
-//                     const exams = title.exams || [];
-//                     if (exams.length === 0) {
-//                         console.warn(`No exams found for title ${title._id || title.title}`);
-//                         const noExamsMsg = document.createElement('p');
-//                         noExamsMsg.className = 'no-exams-message';
-//                         noExamsMsg.textContent = `No exams available for ${title._id || title.title}`;
-//                         titleExamsContainer.appendChild(noExamsMsg);
-//                     } else {
-//                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
-                        
-//                         // Filter out flagged and all questions first
-//                         const regularExams = exams.filter(exam => 
-//                             !exam.isFlagged && 
-//                             !exam.type.includes('All') && 
-//                             !exam.type.includes('Flagged')
-//                         );
-                        
-//                         // Add each regular exam with a reset counter starting at 1
-//                         regularExams.forEach((exam, index) => {
-//                             console.log(`Adding button for exam: ${exam.examId} with index ${index + 1}`);
-                            
-//                             const examButton = document.createElement('button');
-//                             examButton.className = 'mock-exam-btn';
-//                             examButton.setAttribute('data-exam-id', exam.examId);
-                            
-//                             // Use index + 1 (starting from 1) for each title group
-//                             const examNumber = index + 1;
-//                             let iconText = examNumber.toString().padStart(2, '0');
-                            
-//                             examButton.innerHTML = `
-//                                 <div class="exam-icon">${iconText}</div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">${exam.type}</span>
-//                                     <span class="exam-subtitle">${exam.vendor} ${exam.year}</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener - FIXED: Add event listener when creating the button
-//                             examButton.addEventListener('click', () => {
-//                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
-//                                 startExam(exam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(examButton);
-//                         });
-                        
-//                         // Add "All Questions" exam if it exists
-//                         const allQuestionsExam = exams.find(exam => exam.type.includes('All'));
-//                         if (allQuestionsExam) {
-//                             console.log(`Adding All Questions button for ${title._id || title.title}`);
-                            
-//                             const allButton = document.createElement('button');
-//                             allButton.className = 'mock-exam-btn';
-//                             allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
-                            
-//                             allButton.innerHTML = `
-//                                 <div class="exam-icon">ALL</div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">${allQuestionsExam.type}</span>
-//                                     <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener
-//                             allButton.addEventListener('click', () => {
-//                                 console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
-//                                 startExam(allQuestionsExam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(allButton);
-//                         }
-                        
-//                         // Add flagged questions exam at the end
-//                         const flaggedExam = exams.find(exam => exam.isFlagged);
-//                         if (flaggedExam) {
-//                             console.log(`Adding flagged exam for ${title._id || title.title}`);
-                            
-//                             const flaggedButton = document.createElement('button');
-//                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
-//                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
-                            
-//                             flaggedButton.innerHTML = `
-//                                 <div class="exam-icon">
-//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-//                                         <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-//                                     </svg>
-//                                 </div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">Flagged Questions</span>
-//                                     <span class="exam-subtitle">Your saved items</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener for flagged exam
-//                             flaggedButton.addEventListener('click', () => {
-//                                 console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
-//                                 startExam(flaggedExam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(flaggedButton);
-//                         } else {
-//                             console.warn(`No flagged exam found for ${title._id || title.title}`);
-//                         }
-//                     }
-                    
-//                     titleSection.appendChild(titleExamsContainer);
-//                     examsContainer.appendChild(titleSection);
-//                 });
-                
-//                 console.log('Exam titles UI building completed successfully');
-//             })
-//             .catch(error => {
-//                 console.error('Error in loadExams:', error);
-//                 examsContainer.innerHTML = `
-//                     <div class="error-message">
-//                         <h2>Error Loading Exams</h2>
-//                         <p>${error.message || 'Failed to load available exams.'}</p>
-//                         <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//                     </div>
-//                 `;
-//             });
-            
-//     } catch (error) {
-//         console.error('Exception in loadExams:', error);
-//         examsContainer.innerHTML = `
-//             <div class="error-message">
-//                 <h2>Error Loading Exams</h2>
-//                 <p>${error.message || 'An unexpected error occurred.'}</p>
-//                 <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//             </div>
-//         `;
-//     }
-// }
-
-
-/**
- * Load available exams from the server
+ * Updated loadExams function to properly display Missed Questions buttons
+ * This function loads exam titles from the API and creates buttons for regular, "All Questions", 
+ * "Flagged Questions", and "Missed Questions" exams
  */
 function loadExams() {
     try {
@@ -390,7 +169,6 @@ function loadExams() {
         
         console.log('Starting to fetch exam titles from API...');
         
-        // Add this debugging code to check your API URL
         const titlesUrl = `${API_URL}/questions/titles`;
         console.log('Fetching from:', titlesUrl);
         
@@ -404,7 +182,6 @@ function loadExams() {
                 return response.json();
             })
             .then(data => {
-                // Log the complete response structure
                 console.log('API Response data:', data);
                 
                 // Check if response has the expected structure
@@ -412,20 +189,16 @@ function loadExams() {
                     throw new Error('API response is not a valid object');
                 }
                 
-                // Examine what's in the response
+                // Determine where the titles array is in the response
                 if (data.titles) {
                     console.log('Found titles array in response:', data.titles.length);
                     examTitles = data.titles;
+                } else if (Array.isArray(data)) {
+                    console.log('Response is an array, using as titles:', data.length);
+                    examTitles = data;
                 } else {
-                    // If data doesn't have a titles property, check if it might be the titles array directly
-                    console.log('No titles property found, checking if response is the titles array');
-                    if (Array.isArray(data)) {
-                        console.log('Response is an array, using as titles:', data.length);
-                        examTitles = data;
-                    } else {
-                        console.error('Unexpected API response format:', data);
-                        throw new Error('API returned unexpected data format - missing titles array');
-                    }
+                    console.error('Unexpected API response format:', data);
+                    throw new Error('API returned unexpected data format - missing titles array');
                 }
                 
                 // Clear loading indicator
@@ -624,7 +397,6 @@ function loadExams() {
         `;
     }
 }
-
 
 
 /**
@@ -1071,66 +843,6 @@ function showQuestion() {
 }
 
 
-// function selectMultipleAnswers(selectedChoiceIds) {
-//     try {
-//         // Get the current question
-//         const question = currentQuestions[currentQuestionIndex];
-        
-//         // Get all correct choice IDs and texts
-//         const correctChoices = question.choices.filter(choice => choice.isCorrect);
-//         const correctChoiceIds = correctChoices.map(choice => choice.id);
-        
-//         // Check if the selected answers match all correct answers
-//         const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
-//             correctChoiceIds.every(id => selectedChoiceIds.includes(id));
-        
-//         // Update score if all answers are correct
-//         if (allCorrect) {
-//             correctAnswers++;
-//         }
-        
-//         // Hide question container and show feedback
-//         questionContainer.style.display = 'none';
-//         feedbackContainer.style.display = 'block';
-        
-//         // Style the feedback container based on correctness
-//         feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
-        
-//         // Set feedback header with improved formatting for multiple correct answers
-//         if (allCorrect) {
-//             feedbackHeaderEl.textContent = 'Correct!';
-//         } else {
-//             // Create a stylized feedback for correct answers
-//             let correctAnswersHTML = `
-//                 <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
-//                 <div class="correct-answers-list">
-//             `;
-            
-//             // Add each correct answer with styling
-//             correctChoices.forEach(choice => {
-//                 correctAnswersHTML += `
-//                     <div class="correct-answer-item">
-//                         ${choice.text}
-//                     </div>
-//                 `;
-//             });
-            
-//             correctAnswersHTML += '</div>';
-//             feedbackHeaderEl.innerHTML = correctAnswersHTML;
-//         }
-        
-//         // Show explanation
-//         explanationEl.innerHTML = question.explanation;
-        
-//         // Update next button text
-//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-//         nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
-//     } catch (error) {
-//         console.error('Error processing multiple answers:', error);
-//         alert(`An error occurred while processing your answers: ${error.message}`);
-//     }
-// }
-
 /**
  * Handle multiple answer selection
  * @param {Array} selectedChoiceIds - IDs of the selected choices
@@ -1312,76 +1024,6 @@ async function unmarkQuestionMissed(questionId) {
     }
 }
 
-// /**
-//  * Handle a selected answer
-//  * @param {string} choiceId - The ID of the selected choice
-//  */
-// function selectAnswer(choiceId) {
-//     try {
-//         // Make sure we have questions and the current question
-//         if (!currentQuestions || currentQuestions.length === 0 || currentQuestionIndex >= currentQuestions.length) {
-//             console.error('No current question available');
-//             return;
-//         }
-        
-//         // Get the current question
-//         const question = currentQuestions[currentQuestionIndex];
-        
-//         // Check if the answer is correct
-//         const isCorrect = choiceId === question.correctAnswerId;
-        
-//         if (isCorrect) {
-//             correctAnswers++;
-//         }
-        
-//         // Make sure we have required elements
-//         if (!questionContainer || !feedbackContainer || !feedbackHeaderEl || !explanationEl) {
-//             console.error('Missing critical DOM elements for feedback:', {
-//                 questionContainer: !!questionContainer,
-//                 feedbackContainer: !!feedbackContainer,
-//                 feedbackHeaderEl: !!feedbackHeaderEl,
-//                 explanationEl: !!explanationEl
-//             });
-            
-//             alert(`Your answer was ${isCorrect ? 'correct' : 'incorrect'}. Please try again.`);
-//             return;
-//         }
-        
-//         // Hide question container and show feedback
-//         questionContainer.style.display = 'none';
-//         feedbackContainer.style.display = 'block';
-        
-//         // Style the feedback container based on correctness
-//         feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
-        
-//         // Set feedback header
-//         if (isCorrect) {
-//             feedbackHeaderEl.textContent = 'Correct!';
-//         } else {
-//             // Find the correct answer text
-//             const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
-//             if (correctChoice) {
-//                 feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
-//             } else {
-//                 feedbackHeaderEl.innerHTML = 'Incorrect!';
-//             }
-//         }
-        
-//         // Show explanation
-//         explanationEl.innerHTML = question.explanation;
-        
-//         // Update next button text
-//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-        
-//         if (nextButtonEl) {
-//             nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
-//         }
-//     } catch (error) {
-//         console.error('Error selecting answer:', error);
-//         alert(`An error occurred while processing your answer: ${error.message}`);
-//     }
-// }
-
 /**
  * Handle a selected answer
  * @param {string} choiceId - The ID of the selected choice
@@ -1487,10 +1129,6 @@ function exitExam() {
 /**
  * Display the quiz results
  */
-
-/**
- * Display the quiz results
- */
 async function showResults() {
     try {
         // Calculate percentage
@@ -1564,91 +1202,6 @@ async function showResults() {
 /**
  * Load and display recent attempts on the home page
  */
-// async function loadRecentAttempts() {
-//     try {
-//         const recentAttemptsContainer = document.getElementById('recent-attempts');
-//         if (!recentAttemptsContainer) {
-//             console.error('recent-attempts container not found');
-//             return;
-//         }
-        
-//         // Show loading spinner
-//         recentAttemptsContainer.innerHTML = `
-//             <div class="loading-spinner">
-//                 <div class="spinner"></div>
-//                 <p>Loading your progress...</p>
-//             </div>
-//         `;
-        
-//         // Fetch attempt history from the server
-//         const response = await fetch(`${API_URL}/attempts`);
-        
-//         if (!response.ok) {
-//             throw new Error('Failed to load attempt history');
-//         }
-        
-//         const attempts = await response.json();
-        
-//         // Clear loading spinner
-//         recentAttemptsContainer.innerHTML = '';
-        
-//         if (!attempts || attempts.length === 0) {
-//             recentAttemptsContainer.innerHTML = `
-//                 <div class="no-attempts">
-//                     <p>You haven't taken any exams yet.</p>
-//                     <p>Select an exam to start practicing!</p>
-//                 </div>
-//             `;
-//             return;
-//         }
-        
-//         // Sort attempts by date (newest first)
-//         const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-//         // Add each attempt as a card
-//         recentAttempts.forEach(attempt => {
-//             const date = new Date(attempt.date);
-//             const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-//             // Determine color based on score
-//             let scoreColor = 'var(--primary-color)';
-//             if (attempt.percentage < 60) {
-//                 scoreColor = 'var(--danger-color)';
-//             } else if (attempt.percentage < 80) {
-//                 scoreColor = 'var(--warning-color)';
-//             } else {
-//                 scoreColor = 'var(--success-color)';
-//             }
-            
-//             const attemptCard = document.createElement('div');
-//             attemptCard.className = 'attempt-card';
-//             attemptCard.innerHTML = `
-//                 <div class="attempt-info">
-//                     <div class="attempt-exam">${attempt.examName || attempt.title}</div>
-//                     <div class="attempt-date">${formattedDate}</div>
-//                 </div>
-//                 <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
-//             `;
-            
-//             recentAttemptsContainer.appendChild(attemptCard);
-//         });
-        
-//     } catch (error) {
-//         console.error('Error loading recent attempts:', error);
-        
-//         const recentAttemptsContainer = document.getElementById('recent-attempts');
-//         if (recentAttemptsContainer) {
-//             recentAttemptsContainer.innerHTML = `
-//                 <div class="error-message">
-//                     <p>Failed to load your recent attempts.</p>
-//                     <p>Please refresh the page or try again later.</p>
-//                 </div>
-//             `;
-//         }
-//     }
-// }
-
-// Update the loadRecentAttempts function to improve the structure and add classes for better styling
 
 async function loadRecentAttempts() {
     try {
