@@ -921,3 +921,178 @@ tr:nth-child(even) {
     margin-top: 20px;
     text-align: center;
 }
+
+
+/* Enhanced Performance Container Styles */
+.performance-container {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-light);
+    height: 100%; /* Take full height of parent container */
+    display: flex;
+    flex-direction: column;
+}
+
+.performance-container h2 {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--gray-light);
+    position: relative;
+}
+
+/* Attempt history container */
+.attempt-history {
+    flex: 1; /* Take remaining space */
+    overflow-y: auto;
+    margin-top: var(--space-md);
+    max-height: 500px; /* Increase maximum height */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--primary-light) var(--gray-light); /* For Firefox */
+}
+
+/* Custom scrollbar styling for Webkit browsers */
+.attempt-history::-webkit-scrollbar {
+    width: 8px;
+}
+
+.attempt-history::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 4px;
+}
+
+.attempt-history::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
+
+.attempt-history::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Improved attempt card styling */
+.attempt-card {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-sm);
+    padding: var(--space-md);
+    margin-bottom: var(--space-sm);
+    border-left: 4px solid var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.attempt-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.attempt-info {
+    flex: 1;
+    min-width: 0; /* Allow proper text overflow handling */
+}
+
+.attempt-exam {
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.attempt-date {
+    font-size: var(--text-sm);
+    color: var(--gray-color);
+}
+
+.attempt-score {
+    font-weight: 700;
+    font-size: var(--text-lg);
+    background-color: var(--white-color);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+    margin-left: var(--space-md);
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Empty state styles */
+.no-attempts {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--gray-color);
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-md);
+    margin-top: var(--space-md);
+}
+
+.no-attempts p:first-child {
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+    .attempt-card {
+        padding: var(--space-sm);
+    }
+    
+    .attempt-exam {
+        font-size: var(--text-base);
+    }
+    
+    .attempt-score {
+        margin-left: var(--space-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+}
+
+@media (min-width: 1200px) {
+    .attempt-history {
+        max-height: 600px; /* Even taller on larger screens */
+    }
+    
+    .attempt-card {
+        padding: var(--space-md) var(--space-lg);
+    }
+}
+
+
+/* Add this to your styles.css */
+.choice-btn.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(67, 97, 238, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    background-color: var(--gray-color) !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none !important;
+}
+
+.submit-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+}

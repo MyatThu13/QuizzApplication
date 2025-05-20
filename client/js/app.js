@@ -157,205 +157,6 @@ function initialize() {
  * 
  * This updated function includes detailed debugging and better handles the API response format
  */
-// function loadExams() {
-//     try {
-//         // Show loading indicator
-//         examsContainer.innerHTML = `
-//             <div class="loading-spinner">
-//                 <div class="spinner"></div>
-//                 <p>Loading available exams...</p>
-//             </div>
-//         `;
-        
-//         console.log('Starting to fetch exam titles from API...');
-        
-//         // Add this debugging code to check your API URL
-//         const titlesUrl = `${API_URL}/questions/titles`;
-//         console.log('Fetching from:', titlesUrl);
-        
-//         // Use fetch with explicit debugging
-//         fetch(titlesUrl)
-//             .then(response => {
-//                 console.log('Response status:', response.status);
-//                 if (!response.ok) {
-//                     throw new Error(`API request failed: ${response.status} ${response.statusText}`);
-//                 }
-//                 return response.json();
-//             })
-//             .then(data => {
-//                 // Log the complete response structure
-//                 console.log('API Response data:', data);
-                
-//                 // Check if response has the expected structure
-//                 if (!data || typeof data !== 'object') {
-//                     throw new Error('API response is not a valid object');
-//                 }
-                
-//                 // Examine what's in the response
-//                 if (data.titles) {
-//                     console.log('Found titles array in response:', data.titles.length);
-//                     examTitles = data.titles;
-//                 } else {
-//                     // If data doesn't have a titles property, check if it might be the titles array directly
-//                     console.log('No titles property found, checking if response is the titles array');
-//                     if (Array.isArray(data)) {
-//                         console.log('Response is an array, using as titles:', data.length);
-//                         examTitles = data;
-//                     } else {
-//                         console.error('Unexpected API response format:', data);
-//                         throw new Error('API returned unexpected data format - missing titles array');
-//                     }
-//                 }
-                
-//                 // Clear loading indicator
-//                 examsContainer.innerHTML = '';
-                
-//                 if (examTitles.length === 0) {
-//                     console.log('No exam titles found');
-//                     examsContainer.innerHTML = `
-//                         <div class="no-exams">
-//                             <h2>No Exams Available</h2>
-//                             <p>No exam data found. Please run the import script to load exams.</p>
-//                         </div>
-//                     `;
-//                     return;
-//                 }
-                
-//                 console.log('Building UI for exam titles...');
-                
-//                 // Create a section for each title
-//                 examTitles.forEach(title => {
-//                     console.log(`Processing title: ${title._id || title.title}`);
-                    
-//                     const titleSection = document.createElement('div');
-//                     titleSection.className = 'exam-title-section';
-                    
-//                     // Create title header
-//                     const titleHeader = document.createElement('h2');
-//                     titleHeader.textContent = title._id || title.title; // Handle both formats
-//                     titleSection.appendChild(titleHeader);
-                    
-//                     // Create exams container for this title
-//                     const titleExamsContainer = document.createElement('div');
-//                     titleExamsContainer.className = 'title-exams-container';
-                    
-//                     // Check if title has exams array
-//                     const exams = title.exams || [];
-//                     if (exams.length === 0) {
-//                         console.warn(`No exams found for title ${title._id || title.title}`);
-//                         const noExamsMsg = document.createElement('p');
-//                         noExamsMsg.className = 'no-exams-message';
-//                         noExamsMsg.textContent = `No exams available for ${title._id || title.title}`;
-//                         titleExamsContainer.appendChild(noExamsMsg);
-//                     } else {
-//                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
-                        
-//                         // Add each exam for this title
-//                         exams.forEach(exam => {
-//                             // Skip flagged for now, we'll add it at the end
-//                             if (exam.isFlagged) return;
-                            
-//                             console.log(`Adding button for exam: ${exam.examId}`);
-                            
-//                             const examButton = document.createElement('button');
-//                             examButton.className = 'mock-exam-btn';
-//                             examButton.setAttribute('data-exam-id', exam.examId);
-                            
-//                             // Determine icon text
-//                             let iconText;
-//                             if (exam.type.includes('Mock') || exam.type.includes('Exam')) {
-//                                 // If it's a numbered exam, extract the number
-//                                 const examNumber = exam.examId.split('_')[1] || '';
-//                                 iconText = examNumber.padStart(2, '0');
-//                             } else if (exam.type.includes('All')) {
-//                                 iconText = 'ALL';
-//                             } else {
-//                                 // Use first letter of each word in type
-//                                 iconText = exam.type.split(' ')
-//                                     .map(word => word[0])
-//                                     .join('')
-//                                     .toUpperCase();
-//                             }
-                            
-//                             examButton.innerHTML = `
-//                                 <div class="exam-icon">${iconText}</div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">${exam.type}</span>
-//                                     <span class="exam-subtitle">${exam.vendor} ${exam.year}</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener - FIXED: Add event listener when creating the button
-//                             examButton.addEventListener('click', () => {
-//                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
-//                                 startExam(exam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(examButton);
-//                         });
-                        
-//                         // Add flagged questions exam at the end
-//                         const flaggedExam = exams.find(exam => exam.isFlagged);
-//                         if (flaggedExam) {
-//                             console.log(`Adding flagged exam for ${title._id || title.title}`);
-                            
-//                             const flaggedButton = document.createElement('button');
-//                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
-//                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
-                            
-//                             flaggedButton.innerHTML = `
-//                                 <div class="exam-icon">
-//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-//                                         <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-//                                     </svg>
-//                                 </div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">Flagged Questions</span>
-//                                     <span class="exam-subtitle">Your saved items</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener for flagged exam
-//                             flaggedButton.addEventListener('click', () => {
-//                                 console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
-//                                 startExam(flaggedExam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(flaggedButton);
-//                         } else {
-//                             console.warn(`No flagged exam found for ${title._id || title.title}`);
-//                         }
-//                     }
-                    
-//                     titleSection.appendChild(titleExamsContainer);
-//                     examsContainer.appendChild(titleSection);
-//                 });
-                
-//                 console.log('Exam titles UI building completed successfully');
-//             })
-//             .catch(error => {
-//                 console.error('Error in loadExams:', error);
-//                 examsContainer.innerHTML = `
-//                     <div class="error-message">
-//                         <h2>Error Loading Exams</h2>
-//                         <p>${error.message || 'Failed to load available exams.'}</p>
-//                         <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//                     </div>
-//                 `;
-//             });
-            
-//     } catch (error) {
-//         console.error('Exception in loadExams:', error);
-//         examsContainer.innerHTML = `
-//             <div class="error-message">
-//                 <h2>Error Loading Exams</h2>
-//                 <p>${error.message || 'An unexpected error occurred.'}</p>
-//                 <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//             </div>
-//         `;
-//     }
-// }
-
 function loadExams() {
     try {
         // Show loading indicator
@@ -572,6 +373,9 @@ function loadExams() {
         `;
     }
 }
+
+
+
 
 /**
  * Debug function to check database status
@@ -851,15 +655,12 @@ function shuffleArray(array) {
 /**
  * Display the current question with randomized answer choices
  */
+
 function showQuestion() {
     try {
         // Make sure we have the necessary elements
         if (!questionContainer || !choicesEl || !questionTextEl) {
-            console.error('Missing critical DOM elements for showQuestion:', {
-                questionContainer: !!questionContainer,
-                choicesEl: !!choicesEl,
-                questionTextEl: !!questionTextEl
-            });
+            console.error('Missing critical DOM elements for showQuestion');
             return;
         }
         
@@ -870,25 +671,8 @@ function showQuestion() {
         }
         choicesEl.innerHTML = '';
         
-        // Make sure we have questions
-        if (!currentQuestions || currentQuestions.length === 0) {
-            console.error('No questions available for this exam');
-            questionTextEl.innerHTML = '<p class="error-message">No questions available for this exam.</p>';
-            return;
-        }
-        
-        // Make sure current index is valid
-        if (currentQuestionIndex < 0 || currentQuestionIndex >= currentQuestions.length) {
-            console.error('Question index out of range:', currentQuestionIndex, 'max:', currentQuestions.length - 1);
-            return;
-        }
-        
         // Get the current question
         const question = currentQuestions[currentQuestionIndex];
-        if (!question) {
-            console.error('Failed to get question at index:', currentQuestionIndex);
-            return;
-        }
         
         // Update question number
         if (currentQuestionEl) {
@@ -897,6 +681,13 @@ function showQuestion() {
         if (totalQuestionsEl) {
             totalQuestionsEl.textContent = currentQuestions.length;
         }
+        
+        // Count correct answers to determine if it's a multiple-choice question
+        const correctAnswersCount = question.choices.filter(choice => choice.isCorrect).length;
+        const isMultipleChoice = correctAnswersCount > 1;
+        
+        // Store the number of correct answers for this question
+        question.correctAnswersCount = correctAnswersCount;
         
         // Set question text with flag button
         const flaggedClass = question.flagged ? 'flagged' : 'unflagged';
@@ -930,15 +721,11 @@ function showQuestion() {
         questionTextEl.innerHTML = '';
         questionTextEl.appendChild(questionHeader);
         
-        // Check if question has choices
-        if (!question.choices || question.choices.length === 0) {
-            console.error('Question has no choices:', question);
-            choicesEl.innerHTML = '<p class="error-message">Error: This question has no answer choices.</p>';
-            return;
-        }
-        
         // Randomize the order of choices
         const randomizedChoices = shuffleArray([...question.choices]);
+        
+        // Initialize selected choices array
+        question.selectedChoices = [];
         
         // Add choices in the randomized order
         randomizedChoices.forEach(choice => {
@@ -946,9 +733,85 @@ function showQuestion() {
             button.className = 'choice-btn';
             button.innerHTML = choice.text;
             button.dataset.choiceId = choice.id;
-            button.addEventListener('click', () => selectAnswer(choice.id));
+            
+            // Handle click event based on question type
+            if (isMultipleChoice) {
+                button.addEventListener('click', () => {
+                    // Toggle selection
+                    if (button.classList.contains('selected')) {
+                        button.classList.remove('selected');
+                        // Remove the choice ID from selected choices
+                        const index = question.selectedChoices.indexOf(choice.id);
+                        if (index !== -1) {
+                            question.selectedChoices.splice(index, 1);
+                        }
+                    } else {
+                        button.classList.add('selected');
+                        question.selectedChoices.push(choice.id);
+                    }
+                    
+                    // Update submit button state
+                    const submitButton = document.getElementById('submit-answers-btn');
+                    if (submitButton) {
+                        submitButton.disabled = question.selectedChoices.length === 0;
+                    }
+                });
+            } else {
+                // Single choice behavior
+                button.addEventListener('click', () => selectAnswer(choice.id));
+            }
+            
             choicesEl.appendChild(button);
         });
+        
+        // For multiple-choice questions, add a submit button
+        if (isMultipleChoice) {
+            const submitContainer = document.createElement('div');
+            submitContainer.className = 'submit-container';
+            submitContainer.style.marginTop = '20px';
+            submitContainer.style.textAlign = 'right';
+            
+            const submitButton = document.createElement('button');
+            submitButton.id = 'submit-answers-btn';
+            submitButton.className = 'submit-btn';
+            submitButton.textContent = 'Submit Answers';
+            submitButton.disabled = true; // Initially disabled
+            
+            // Apply button styling
+            submitButton.style.backgroundColor = 'var(--primary-color)';
+            submitButton.style.color = 'white';
+            submitButton.style.border = 'none';
+            submitButton.style.borderRadius = 'var(--border-radius-md)';
+            submitButton.style.padding = 'var(--space-sm) var(--space-lg)';
+            submitButton.style.fontWeight = '500';
+            submitButton.style.cursor = 'pointer';
+            submitButton.style.transition = 'all var(--transition-fast)';
+            
+            // Add hover styles
+            submitButton.addEventListener('mouseover', function() {
+                if (!this.disabled) {
+                    this.style.backgroundColor = 'var(--primary-dark)';
+                    this.style.transform = 'translateY(-2px)';
+                }
+            });
+            
+            submitButton.addEventListener('mouseout', function() {
+                if (!this.disabled) {
+                    this.style.backgroundColor = 'var(--primary-color)';
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+            
+            // Click handler for submit button
+            submitButton.addEventListener('click', () => {
+                if (question.selectedChoices.length > 0) {
+                    selectMultipleAnswers(question.selectedChoices);
+                }
+            });
+            
+            submitContainer.appendChild(submitButton);
+            choicesEl.appendChild(submitContainer);
+        }
     } catch (error) {
         console.error('Error showing question:', error);
         if (questionTextEl) {
@@ -956,6 +819,64 @@ function showQuestion() {
         }
     }
 }
+
+/**
+ * Handle multiple answer selection
+ * @param {Array} selectedChoiceIds - IDs of the selected choices
+ */
+function selectMultipleAnswers(selectedChoiceIds) {
+    try {
+        // Get the current question
+        const question = currentQuestions[currentQuestionIndex];
+        
+        // Get all correct choice IDs
+        const correctChoiceIds = question.choices
+            .filter(choice => choice.isCorrect)
+            .map(choice => choice.id);
+        
+        // Check if the selected answers match all correct answers
+        // All correct answers must be selected and no incorrect answers should be selected
+        const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
+            correctChoiceIds.every(id => selectedChoiceIds.includes(id));
+        
+        // Update score if all answers are correct
+        if (allCorrect) {
+            correctAnswers++;
+        }
+        
+        // Use existing feedback mechanism
+        // Hide question container and show feedback
+        questionContainer.style.display = 'none';
+        feedbackContainer.style.display = 'block';
+        
+        // Style the feedback container based on correctness
+        feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
+        
+        // Set feedback header
+        if (allCorrect) {
+            feedbackHeaderEl.textContent = 'Correct!';
+        } else {
+            // Create a readable feedback message
+            const correctChoicesText = question.choices
+                .filter(choice => choice.isCorrect)
+                .map(choice => choice.text)
+                .join(' and ');
+            
+            feedbackHeaderEl.innerHTML = `Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}: ${correctChoicesText}`;
+        }
+        
+        // Show explanation
+        explanationEl.innerHTML = question.explanation;
+        
+        // Update next button text
+        const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+        nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+    } catch (error) {
+        console.error('Error processing multiple answers:', error);
+        alert(`An error occurred while processing your answers: ${error.message}`);
+    }
+}
+
 
 /**
  * Toggle the flag status of a question
@@ -1210,13 +1131,96 @@ async function showResults() {
 /**
  * Load and display recent attempts on the home page
  */
+// async function loadRecentAttempts() {
+//     try {
+//         const recentAttemptsContainer = document.getElementById('recent-attempts');
+//         if (!recentAttemptsContainer) {
+//             console.error('recent-attempts container not found');
+//             return;
+//         }
+        
+//         // Show loading spinner
+//         recentAttemptsContainer.innerHTML = `
+//             <div class="loading-spinner">
+//                 <div class="spinner"></div>
+//                 <p>Loading your progress...</p>
+//             </div>
+//         `;
+        
+//         // Fetch attempt history from the server
+//         const response = await fetch(`${API_URL}/attempts`);
+        
+//         if (!response.ok) {
+//             throw new Error('Failed to load attempt history');
+//         }
+        
+//         const attempts = await response.json();
+        
+//         // Clear loading spinner
+//         recentAttemptsContainer.innerHTML = '';
+        
+//         if (!attempts || attempts.length === 0) {
+//             recentAttemptsContainer.innerHTML = `
+//                 <div class="no-attempts">
+//                     <p>You haven't taken any exams yet.</p>
+//                     <p>Select an exam to start practicing!</p>
+//                 </div>
+//             `;
+//             return;
+//         }
+        
+//         // Sort attempts by date (newest first)
+//         const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+//         // Add each attempt as a card
+//         recentAttempts.forEach(attempt => {
+//             const date = new Date(attempt.date);
+//             const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+//             // Determine color based on score
+//             let scoreColor = 'var(--primary-color)';
+//             if (attempt.percentage < 60) {
+//                 scoreColor = 'var(--danger-color)';
+//             } else if (attempt.percentage < 80) {
+//                 scoreColor = 'var(--warning-color)';
+//             } else {
+//                 scoreColor = 'var(--success-color)';
+//             }
+            
+//             const attemptCard = document.createElement('div');
+//             attemptCard.className = 'attempt-card';
+//             attemptCard.innerHTML = `
+//                 <div class="attempt-info">
+//                     <div class="attempt-exam">${attempt.examName || attempt.title}</div>
+//                     <div class="attempt-date">${formattedDate}</div>
+//                 </div>
+//                 <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
+//             `;
+            
+//             recentAttemptsContainer.appendChild(attemptCard);
+//         });
+        
+//     } catch (error) {
+//         console.error('Error loading recent attempts:', error);
+        
+//         const recentAttemptsContainer = document.getElementById('recent-attempts');
+//         if (recentAttemptsContainer) {
+//             recentAttemptsContainer.innerHTML = `
+//                 <div class="error-message">
+//                     <p>Failed to load your recent attempts.</p>
+//                     <p>Please refresh the page or try again later.</p>
+//                 </div>
+//             `;
+//         }
+//     }
+// }
+
+// Update the loadRecentAttempts function to improve the structure and add classes for better styling
+
 async function loadRecentAttempts() {
     try {
         const recentAttemptsContainer = document.getElementById('recent-attempts');
-        if (!recentAttemptsContainer) {
-            console.error('recent-attempts container not found');
-            return;
-        }
+        if (!recentAttemptsContainer) return;
         
         // Show loading spinner
         recentAttemptsContainer.innerHTML = `
@@ -1238,7 +1242,7 @@ async function loadRecentAttempts() {
         // Clear loading spinner
         recentAttemptsContainer.innerHTML = '';
         
-        if (!attempts || attempts.length === 0) {
+        if (attempts.length === 0) {
             recentAttemptsContainer.innerHTML = `
                 <div class="no-attempts">
                     <p>You haven't taken any exams yet.</p>
@@ -1250,6 +1254,11 @@ async function loadRecentAttempts() {
         
         // Sort attempts by date (newest first)
         const recentAttempts = attempts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Add a container for dynamic width adjustment
+        const attemptsListContainer = document.createElement('div');
+        attemptsListContainer.className = 'attempts-list-container';
+        recentAttemptsContainer.appendChild(attemptsListContainer);
         
         // Add each attempt as a card
         recentAttempts.forEach(attempt => {
@@ -1276,7 +1285,7 @@ async function loadRecentAttempts() {
                 <div class="attempt-score" style="color: ${scoreColor}">${attempt.percentage}%</div>
             `;
             
-            recentAttemptsContainer.appendChild(attemptCard);
+            attemptsListContainer.appendChild(attemptCard);
         });
         
     } catch (error) {
@@ -1293,6 +1302,7 @@ async function loadRecentAttempts() {
         }
     }
 }
+
 
 /**
  * Display the attempt history
