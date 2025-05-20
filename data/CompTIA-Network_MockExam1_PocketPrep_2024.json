@@ -1,0 +1,2188 @@
+{
+  "questions": [
+    {
+      "question": "<p>Which metric describes the maximum time after an incident in which a resource or function must be restored to avoid unacceptable consequences?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RTO</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RPO</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MTTR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MTBF</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RTO</p><p>The Recovery Time Objective (RTO) is the metric that describes the maximum allowable downtime or the target time within which a system or service must be restored to its operational state following an outage.&nbsp;</p><p>The Recovery Point Objective (RPO) is the maximum amount of data loss that an organization can tolerate.</p><p>The Mean Time Between Failures (MTBF) is the average time between failures of a system or component.</p><p>The Mean Time To Repair (MTTR) is the average time it takes to repair a failed system or component.</p>"
+    },
+    {
+      "question": "<p>A developer is creating an application that streams audio and video. Which protocol should they use at the Transport layer to transfer this data over a network?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>UDP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TCP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ICMP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>GRE</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: UDP</p><p>For streaming data, the developer should use UDP because it is connectionless. It has minimal overhead, which makes it fast and efficient.</p><p>TCP is connection oriented, so it is not efficient for real-time streaming.</p><p>ICMP is used for testing and diagnostics with networks.</p><p>GRE is used to tunnel packets to another network.</p>"
+    },
+    {
+      "question": "<p>Which of the following standards is specifically designed to provide high-availability routes?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FHRP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RIPv2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>BGP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EIGRP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FHRP</p><p>The First Hop Redundancy Protocol (FHRP) is designed to provide high-availability routes by allowing multiple routers to work together to present the illusion of a single virtual router to the hosts on the LAN. This ensures that if one router fails, another can take over without disrupting the network.</p><p>The Routing Information Protocol version 2 (RIPv2) is a distance-vector routing protocol used for exchanging routing information.</p><p>The Border Gateway Protocol (BGP) is an external gateway protocol used to exchange routing information but does not primarily focus on providing high-availability routes.</p><p>The Enhanced Interior Gateway Routing Protocol (EIGRP) is an advanced distance-vector routing protocol but does not specifically use high-availability routes like FHRP.</p>"
+    },
+    {
+      "question": "<p>A technician in investigating a ticket about a slow Ethernet network. They connect to a switch and see that there are many frames arriving that are smaller than 64 bytes. Which type of frames are MOST LIKELY causing the issue?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Runts</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Giants</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Drops</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Broadcasts</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Runts</p><p>Runts are Ethernet frames that are smaller than the minimum allowed frame size of 64 bytes. These undersized frames are often the result of collisions or other network issues and can lead to degraded network performance.&nbsp;</p><p>Giants are Ethernet frames that exceed the maximum allowed frame size (typically greater than 1518 bytes).</p><p><i>Drops </i>are not a type of frame but refer to packets or frames that are discarded due to issues such as buffer overflow or errors.</p><p>Broadcasts are not related to small frame sizes.</p>"
+    },
+    {
+      "question": "<p>Which tool gives a secure command-line interface to a remote system?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SSH</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Telnet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>API</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>GUI</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SSH</p><p>Secure SHell (SSH) is a protocol that provides a secure command-line interface to a remote system. It uses encryption to protect the data transmitted between the client and the server, ensuring that the communication is private and secure.</p><p>Telnet provides a command-line interface to a remote system but does not use encryption.</p><p>An API is a set of rules and protocols for building and interacting with software applications that does not provide a command-line interface.</p><p>A Graphical User Interface (GUI) is a visual method for interacting with a system.</p>"
+    },
+    {
+      "question": "<p>Which of the following activities should be performed for device hardening?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Disabling unnecessary services</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Blocking SSH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Uninstalling firewalls</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Removing software updates</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Disabling unnecessary services</p><p>Device hardening involves taking steps to secure a device by reducing its attack surface. By turning off services that are not needed, you can reduce the number of potential entry points for attackers.</p><p>SSH is a secure protocol used for remote administration and secure file transfers.</p><p>Firewalls are essential security components that help control and monitor incoming and outgoing network traffic based on predetermined security rules.</p><p>Keeping software up to date is crucial for maintaining security.</p>"
+    },
+    {
+      "question": "<p>What enables both a phone and PC device to connect to a single port switch while having each in their own VLAN?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Voice access ports</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Trunk ports</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Access ports</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Port channels</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Voice access ports</p><p>Voice access ports are designed to handle both voice and data traffic on the same physical switch port. They enable both a phone and a PC to connect to the same switch port while placing the phone in a voice VLAN and the PC in a data VLAN.</p><p>Trunk ports are used to carry traffic from multiple VLANs across switches.</p><p>Access ports are used to connect end devices to the switch and place them in a single VLAN.</p><p>Port channels, or link aggregation, combine multiple physical links into a single logical link to increase bandwidth and provide redundancy.&nbsp;</p>"
+    },
+    {
+      "question": "<p>A network administrator needs to ensure that network services have at least 99.99% uptime. What category of tool should they use for this?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Availability monitoring</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Performance monitoring</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Configuration monitoring</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>API integration</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Availability monitoring</p><p>Availability monitoring tracks the uptime and downtime of network services. Availability monitoring tools continuously check the status of services and alert administrators if any service goes down, allowing them to take swift action to minimize downtime.</p><p>Performance monitoring tools focus on tracking the performance metrics of network services, such as bandwidth usage, latency, and throughput.</p><p>Configuration monitoring tools track changes to network configurations and ensure they comply with policies and standards.&nbsp;</p><p>Application Programming Interface (API) integration involves connecting different software applications through APIs to enable them to work together.</p>"
+    },
+    {
+      "question": "<p>What is the main authentication method for SNMPv1 and SNMPv2c?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Community names</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>User accounts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>OAuth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Kerberos</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Community names</p><p>SNMPv1 and SNMPv2c use a simple, plaintext community string as their main method of authentication. The community string acts as a password that grants access to the SNMP device.</p><p>User accounts are associated with SNMPv3.</p><p>Kerberos is a network authentication protocol but is not used in SNMPv1 or SNMPv2c.</p><p>OAuth is an authorization framework commonly used for web applications but is not used in SNMPv1 or SNMPv2c.</p>"
+    },
+    {
+      "question": "<p>A company's public web server has been experiencing performance issues during peak hours. To improve performance, they want to spread the traffic to a pool of servers to handle requests.&nbsp;</p><p>Which type of device should they implement for this?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Load balancer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Proxy</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Router</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Load balancer</p><p>A load balancer distributes incoming network traffic across multiple servers. That ensures that no single server becomes overwhelmed, which improves overall performance during peak hours.</p><p>A firewall improves security by controlling network traffic based on rules.&nbsp;</p><p>A proxy acts as an intermediary for requests from clients seeking resources from other servers but does not handle load distribution.</p><p>A router directs data packets between different networks.</p>"
+    },
+    {
+      "question": "<p>A network administrator feels that the network has become more congested over time. However, they do not have any values to compare the network's current state to.&nbsp;</p><p>What should the administrator have done earlier to be better prepared for this situation?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Created a baseline configuration</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Set up load balancing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Used port mirroring</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Installed an IPS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Baseline configuration</p><p>Establishing a baseline configuration involves documenting the normal operating performance of the network, including metrics such as bandwidth usage, latency, and packet loss. By having these values as a reference, the network administrator can compare the current network performance to the baseline to identify anomalies or trends.</p><p>Setting up load balancing can help distribute network traffic more evenly and reduce congestion but is not a method to compare network performance over time.</p><p>Port mirroring is used to copy network traffic from one port to another for monitoring and analysis purposes but does not compare traffic over time.</p><p>An Intrusion Prevention System (IPS) is a security tool that monitors network traffic for malicious activity and attempts to prevent intrusions.</p>"
+    },
+    {
+      "question": "<p>Which characteristic of cloud computing relates to clients using a common pool of resources, each with their own privileges?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Multitenancy</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Elasticity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Scalability</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Redundancy</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Multitenancy</p><p>In a multitenant architecture, multiple clients share the same infrastructure and resources. However, each client has its own separate and secure environment.</p><p><i>Elasticity</i> refers to the ability of a cloud system to automatically scale resources up or down based on demand.</p><p>Scalability is the capability to handle increasing workloads by adding resources and is a long-term strategy.</p><p><i>Redundancy</i> refers to the duplication of critical components to increase reliability.</p>"
+    },
+    {
+      "question": "<p>What is the CIDR value for a subnet mask of &nbsp;255.255.0.0?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>/16</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>/8</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>/24</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>/20</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: /16</p><p>Classless Inter-Domain Routing (CIDR) is used by IPSs to allocate addresses to organizations. It can be represented in slash notation that specifies the number of bits that are turned on in the mask, which is 16 in the case of 255.255.0.0.</p><p>A CIDR value of /8 is equal to 255.0.0.0.</p><p>A CIDR value of /24 is equal to 255.255.255.0.</p><p>A CIDR value of /20 is equal to 255.255.240.0.</p>"
+    },
+    {
+      "question": "<p>An online retailer notices a sudden spike in web traffic. That causes their website to become extremely slow, and eventually it crashes. The IT team analyzes the traffic and sees requests coming from multiple IP addresses across different locations.&nbsp;</p><p>What type of attack is the retailer likely experiencing?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DDoS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MAC flooding</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ARP poisoning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rogue access point</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DDoS</p><p>A Distributed Denial of Service (DDoS) attack involves overwhelming a target website or network with a flood of traffic from multiple sources. This causes the website to become extremely slow and eventually crash.&nbsp;</p><p>MAC flooding targets network switches by overwhelming their MAC address tables with fake addresses.</p><p>ARP poisoning involves sending false ARP messages to a local network to associate the attacker's MAC address with the IP address of another device.</p><p>A rogue access point is an unauthorized wireless access point set up to capture network traffic.</p>"
+    },
+    {
+      "question": "<p>A network administrator is setting up multiple access points throughout a corporate building. They want to ensure that users can roam between different APs without needing to reconnect to each one individually.&nbsp;</p><p>Which setting should they configure across all APs to accomplish this?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ESSID</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SSID</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WPA2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Channel bonding</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ESSID</p><p>An Extended Service Set IDentifier (ESSID) allows multiple access points to share the same network name and security settings, enabling seamless roaming within the network. The ESSID represents a group of APs that are part of the same wireless network, allowing devices to move from one AP to another without interruption.</p><p>A <i>Service Set IDentifier (SSID)</i> refers to the name of a single wireless network.</p><p>Wi-Fi Protected Access 2 (WPA2) is a security protocol used to protect wireless networks.</p><p>Channel bonding is used to increase bandwidth by combining multiple channels.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which term describes a method that acts on a weakness?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Exploit</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Vulnerability</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Threat</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Risk</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Exploit</p><p>An exploit is a method or technique that takes advantage of a vulnerability, or weakness, in a system. Exploits are used by attackers to carry out malicious activities.</p><p>A vulnerability is a weakness or flaw in a system.</p><p>A threat is a potential danger or risk that could exploit a vulnerability.</p><p>Risk is the likelihood and impact of a threat exploiting a vulnerability.</p>"
+    },
+    {
+      "question": "<p>Which type of operational technology used with a SCADA system is located locally and uses ladder logic with logic circuits to perform tasks?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PLC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IoT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HMI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RTU</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PLC</p><p>A Programmable Logic Controller (PLC) is a type of operational technology used in Supervisory Control And Data Acquisition (SCADA) systems that is located locally and uses ladder logic with logic circuits to perform tasks. PLCs are designed for real-time control and automation of industrial processes.</p><p><i>Internet of Things (IoT)</i> refers to a network of interconnected devices that communicate and exchange data over the internet but does not use ladder logic.&nbsp;</p><p>A Human Machine Interface (HMI) is used to provide a user interface for operators to interact with the SCADA system.&nbsp;</p><p>A Remote Terminal Unit (RTU) is used to collect data from sensors and devices in the field.</p>"
+    },
+    {
+      "question": "<p>Which technique encrypts DNS queries and uses TCP port 853?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DoT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DoH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SLAAC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NTS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DoT</p><p>DNS over TLS (DoT) is a security protocol that encrypts DNS queries and responses using the TLS protocol. It specifically uses TCP port 853 to ensure that DNS traffic is secure and private.&nbsp;</p><p>DNS over HTTPS (DoH) uses HTTPS to encrypt DNS queries and responses, and it typically uses TCP port 443, not port 853.&nbsp;</p><p>StateLess Address AutoConfiguration (SLAAC) is related to IPv6 address configuration and does not involve DNS queries.</p><p>Network Time Security (NTS) is used to secure Network Time Protocol (NTP) communications, not DNS queries.</p>"
+    },
+    {
+      "question": "<p>A supermarket chain would like to deploy a fleet of vehicles across a metropolitan area. They need fast, reliable wireless internet access to track each vehicle. Which technology should they implement for this?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>5G</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>802.11ac</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>802.3</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 5G</p><p>5G is a cellular mobile technoligy that is suitable for communicating with a fleet of vehicles because of its high speeds, low latency, and wide coverage.</p><p>802.11ac (Wi-Fi) is limited to short-range connections and may not provide consistent coverage in a metropolitan area.</p><p>Bluetooth is primarily used for short-range communication and is not suitable for internet access.</p><p>802.3 (Ethernet) is a wired technology.</p>"
+    },
+    {
+      "question": "<p>A data center needs to implement a fast switching architecture. They want a two-layer topology where each switch in the backbone is connected to each switch in the lower layer.&nbsp;</p><p>Which type of topology should they implement for this?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Spine and leaf</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Star</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Mesh</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Hybrid</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Spine and leaf</p><p>A spine and leaf topology offers direct connections between the backbone, or spine, and the leaf switches. However, spine switches are not directly connected to other spine switches, and leaf switches are not directly connected to other leaf switches.</p><p>A star topology centralizes connections through a single hub.</p><p>A mesh topology has all devices connected directly to each other.</p><p>A hybrid topology mixes multiple topology types, but a spine and leaf topology more accurately addresses the requirements.</p>"
+    },
+    {
+      "question": "<p>An organization wants to set up a server that will attract attackers so that they can learn about attackers' techniques. What should they use for this?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Honeypot</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rogue access point</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>IDS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Honeypot</p><p>A honeypot is set up to attract attackers and monitor their activities. It is designed to look like a legitimate server or resource, but it actually serves as a trap for cyber attackers.&nbsp;</p><p>A rogue access point is an unauthorized wireless access point that is set up without the knowledge or permission of the network administrator.</p><p>A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined rules.&nbsp;</p><p>An Intrusion Detection System (IDS) is a security system that monitors network traffic for suspicious activity.</p>"
+    },
+    {
+      "question": "<p>Which of the following activity or activities occur at the Data Link layer of the OSI model?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Destination and source hardware addresses are added</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>The best way to move data across a network is determined</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bits are sent and received on a network</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Data is either segmented or reassembled into a data stream</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Destination and source hardware addresses are added</p><p>At the Data Link layer, frames are created and hardware addresses, or MAC addresses, are added to ensure data is delivered to the correct device on a local network. Other functions at this layer include error notifications, network topology, and flow control.</p><p>The best way to move data across a network is determined at the Network layer, where routing and path determination are performed.</p><p>Bits are sent and received on a network at the Physical layer, where the actual transmission and reception of raw bit streams occur.</p><p>Data is either segmented or reassembled into a data stream at the Transport layer.</p>"
+    },
+    {
+      "question": "<p>An administrator assigns multiple private IP addresses to one of a router's interfaces to create multiple subnets on one interface. What is this an example of?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Virtual IP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>APIPA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>FHRP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Multicast address</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Virtual IP</p><p>A virtual IP is an IP address that is not tied to a specific physical network interface. Assigning multiple private IP addresses to a single router interface allows for more efficient IP address management and routing within a network.</p><p>Automatic Private IP Addressing (APIPA) assigns an IP address from the range 169.254.0.1 to 169.254.255.254 when a DHCP server is not available.&nbsp;</p><p>First Hop Redundancy Protocol (FHRP) is used to ensure high availability and failover capabilities for IP traffic.&nbsp;</p><p>A multicast address is used to deliver packets to a group of destinations.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which of the following is an example of using out-of-band management?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Utilizing a hardware management port on a server</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Connecting to a web server on the network through SSH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Using RDP to manage a Windows server</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Accessing a router's web administrative tool</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Utilizing a hardware management port on a server</p><p><i>Out-of-band management</i> refers to the use of a dedicated management interface that is separate from the main network connections. Utilizing a hardware management port on a server, such as a Baseboard Management Controller (BMC) or an integrated Lights-Out (iLO) port, is a common example of out-of-band management.&nbsp;</p><p>Connecting to a web server on the network through SSH is an in-band management method, as it relies on the primary network connection to access the web server.</p><p>Using RDP to manage a Windows server relies on the primary network connection, making it an in-band management method.</p><p>Accessing a router's web administrative tool relies on the primary network connection, making it an in-band management method.</p>"
+    },
+    {
+      "question": "<p>What is the first step in the troubleshooting process?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Identifying the problem</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Establishing a theory of probable cause</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Documenting findings</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Establishing a plan of action</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Identifying the problem</p><p>The first step in the troubleshooting process is identifying the problem. This involves gathering information, understanding the symptoms, and determining the scope of the issue.&nbsp;</p><p>Establishing a theory of probable cause comes after identifying the problem.&nbsp;</p><p>Documenting findings is at the end.</p><p>Establishing a plan of action occurs after determining the probable cause.</p>"
+    },
+    {
+      "question": "<p>What is the main purpose of the Spanning Tree Protocol (STP)?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>To stop loops from occurring on a layer 2 network</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>To allow VLAN traffic to be sent between switches</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>To give priority to designated types of traffic</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>To improve switching speeds on VLANs</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: To stop loops from occurring on a layer 2 network</p><p>The main purpose of the Spanning Tree Protocol (STP) is to prevent network loops in Ethernet networks. STP creates a loop-free logical topology by identifying and blocking redundant paths that could cause loops.</p><p>Allowing VLAN traffic to be sent between switches is handled by VLAN tagging protocols like IEEE 802.1Q.</p><p>Quality of Service (QoS) mechanisms are responsible for prioritizing certain types of traffic.</p><p>STP does not directly improve switching speeds.</p>"
+    },
+    {
+      "question": "<p>What is the first field in a syslog message?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Timestamp</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Device-id</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Severity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Message text</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Timestamp</p><p>The first field in a syslog message is the timestamp, which indicates the date and time when the log entry was generated. This field is crucial for understanding the timing of events and for correlating logs from different devices.</p><p>The device-id comes after the timestamp.</p><p>The severity field indicates the importance of the log entry and comes after the device-id.</p><p>The message text contains the content of the log entry and appears at the end of the syslog message.</p>"
+    },
+    {
+      "question": "<p>Which of the following activities occurs in the final stage of the troubleshooting process?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Documenting lessons learned</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Implementing the solution</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Identifying potential effects</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Consider multiple approaches</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Documenting lessons learned</p><p>The final stage of the troubleshooting process involves documenting lessons learned. This step is crucial for creating a record of what was done to resolve the issue, what worked, and what didn't.</p><p>Implementing the solution occurs in the fifth step.</p><p>Identifying potential effects occurs in the fourth step.</p><p>Considering multiple approaches occurs in the second step.</p>"
+    },
+    {
+      "question": "<p>Which of the following attacks is an evil twin attack?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>An access point under an attacker's control that uses a similar SSID to a legitimate access point</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A DHCP server under control of an attacker that gives the host incorrect DNS server information</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A rogue switch that intercepts and modifies network traffic</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A fake DNS server that redirects users to phishing sites</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: An access point under an attacker's control that uses a similar SSID to a legitimate access point</p><p>An evil twin attack involves setting up a rogue wireless Access Point (AP) that mimics the SSID of a legitimate access point. The goal is to deceive users into connecting to the fake AP, allowing the attacker to intercept and manipulate the data transmitted by the users.&nbsp;</p><p>A DHCP server under control of an attacker describes a DHCP spoofing attack.</p><p>A rogue switch that intercepts and modifies network traffic describes a man-in-the-middle attack involving a rogue switch.</p><p>A fake DNS server that redirects users to phishing sites describes DNS spoofing or DNS cache poisoning.</p>"
+    },
+    {
+      "question": "<p>Which type of attack can be addressed by using privacy filters?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Shoulder surfing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dumpster diving</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Piggybacking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Tailgating</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Shoulder surfing</p><p>Shoulder surfing is an attack where an attacker attempts to gain sensitive information by looking over someone's shoulder while they are entering data on a device, such as typing a password or reading sensitive documents. Privacy filters are physical screen overlays that limit the viewing angle of a display, making it difficult for anyone not directly in front of the screen to see the content.</p><p>Dumpster diving involves searching through trash to find sensitive information that has been discarded.</p><p>Piggybacking involves an unauthorized person following an authorized person through a secure entry point.</p><p>Tailgating is similar to piggybacking, where an unauthorized person gains access to a secure area by closely following an authorized person.</p>"
+    },
+    {
+      "question": "<p>What is the 802.1X protocol used for?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Controlling access on an internal network</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Defining wireless network protocols</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Encrypting data transmitted over the network</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Configuring IP addresses for network devices</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Controlling access on an internal network</p><p>The 802.1X protocol is used for controlling access on an internal network by providing authentication mechanisms for devices trying to connect to the network. It is often used in conjunction with Network Access Control (NAC) systems.</p><p>802.1X is not a protocol that defines wireless network protocols.</p><p>Encryption of data is typically handled by other protocols such as WPA in wireless networks.</p><p>IP address configuration is typically managed by protocols like DHCP.</p>"
+    },
+    {
+      "question": "<p>An IT team needs to set up a network where fiber-optic cables run between different floors of a building. They want a solution that provides easy access for technicians to connect, troubleshoot, and reconfigure fiber links when needed.&nbsp;</p><p>What should they install on each floor to achieve this?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FDP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Router</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PDU</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FDP</p><p>A Fiber Distribution Panel (FDP) is specifically designed for managing and organizing fiber-optic connections. It provides a convenient and accessible way for technicians to connect, troubleshoot, and reconfigure fiber links.</p><p>A router is a networking device that routes data packets between different networks.</p><p>A Power Distribution Unit (PDU) is used to distribute electrical power to various devices in a network rack or data center.&nbsp;</p><p>A switch connects devices within a network and directs data traffic between them.</p>"
+    },
+    {
+      "question": "<p>A network troubleshooter has been testing theories to determine the cause of a file server connectivity issue. They could not confirm any of their theories. What should the next step be?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Escalate the issue</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Establish a plan of action</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Implement a solution</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Verify full system functionality</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Escalate the issue</p><p>If the network troubleshooter has tested multiple theories and could not confirm any of them as the cause of the file server connectivity issue, the next step is to escalate the issue. Escalation involves bringing the problem to the attention of higher-level technician.</p><p>Establishing a plan of action occurs only after identifying a probable cause.&nbsp;</p><p>Implementing a solution should only occur after a probable cause has been identified and a plan of action has been established.</p><p>Verifying full system functionality is done after a solution has been implemented.</p>"
+    },
+    {
+      "question": "<p>Which technology breaks up broadcast domains in a switched internetwork?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VLAN</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NAT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>QoS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>STP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VLAN</p><p>Virtual Local Area Networks (VLANs) are used to segment a physical network into multiple logical networks. Each VLAN creates its own broadcast domain, which means that broadcast traffic is contained within each VLAN and does not propagate to other VLANs.</p><p>Network Address Translation (NAT) is used to translate private IP addresses to a public IP address.</p><p>Quality of Service (QoS) is used to manage network traffic by prioritizing certain types of traffic to ensure performance and reliability.</p><p>The Spanning Tree Protocol (STP) is used to prevent network loops in Ethernet networks by creating a spanning tree topology.</p>"
+    },
+    {
+      "question": "<p>A network administrator wants to increase the performance of a SAN. What can they implement to improve performance?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Jumbo frames</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Port mirroring</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Voice VLAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SVI</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Jumbo frames</p><p>Jumbo frames are larger Ethernet frames that can carry more data than standard frames. By increasing the frame size, the amount of overhead is reduced, leading to improved performance and efficiency in a Storage Area Network (SAN).&nbsp;</p><p>Port mirroring is used for network monitoring and troubleshooting by copying traffic from one port to another.</p><p>Voice VLANs are used to segregate voice traffic from data traffic on a network.</p><p>Switched Virtual Interface (SVI) is used to enable routing functions on a Layer 3 switch.</p>"
+    },
+    {
+      "question": "<p>Which of the following is responsible for enrolling clients and issuing key pairs in public key infrastructure?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>CA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>AIA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CRL</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RADIUS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Certificate authority</p><p>A Certificate Authority (CA) is responsible for enrolling clients and issuing key pairs in Public Key Infrastructure (PKI). The CA is a trusted entity that validates the identity of entities and issues digital certificates containing public keys.&nbsp;</p><p>Authority Information Access (AIA) does not handle client enrollment or key pair issuance.</p><p>A Certificate Revocation List (CRL) is a list that contains the serial numbers of digital certificates that have been revoked before their expiration date.</p><p>Remote Authentication Dial-In User Service (RADIUS) is a protocol used for remote authentication, authorization, and accounting.</p>"
+    },
+    {
+      "question": "<p>What is the default action when a security violation occurs on a switch's port?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Putting the interface into error-disabled mode</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Putting the interface into restrict mode</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Putting the interface into protect mode</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Putting the interface into access mode</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Putting the interface into error-disabled mode</p><p>When a security violation occurs on a switch's port, the default action is to put the interface into error-disabled mode. This state stops all traffic from passing through it, isolating the potential security threat.</p><p>Restrict mode limits the actions taken when a security violation occurs but is not the default action.</p><p>Protect mode drops unauthorized frames without disabling the port, which is not the default action.</p><p>Access mode allows for connecting end devices to the network, which is not the default action after a security violation occurs.</p>"
+    },
+    {
+      "question": "<p>A remote worker needs to use a VPN to connect to their office's network, but they also want an open connection to the internet. Which solution should they use for this?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Split tunnel</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Full tunnel</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Clientless</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Site-to-site</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Split tunnel</p><p>A split tunnel VPN allows the remote worker to connect to their office's network while still maintaining an open connection to the internet. This means that only traffic destined for the office network is sent through the VPN, while other internet traffic goes directly through the worker's local network.&nbsp;</p><p>A full tunnel VPN routes all the remote worker's traffic, both to the office network and the internet, through the VPN connection.</p><p>A clientless VPN provides access to specific applications without requiring a dedicated VPN client.&nbsp;</p><p>A site-to-site VPN connects the entire network to each other rather than individual remote workers to the office network.</p>"
+    },
+    {
+      "question": "<p>A network administrator needs to install fiber cable in an industrial setting that is prone to vibrations. Which type of connector should they use in this context?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ST</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>LC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RJ45</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ST</p><p>A Standard Tip (ST) connector can be twisted and locked into position. This makes it ideal for use in high-vibration environments.</p><p>A Subscriber Connector (SC) uses a push-on/pull-off mechanism that is not as secure.</p><p>A Local Connector (LC) has a small latching mechanism to keep it in place and is useful within datacenters.</p><p>An RJ45 connector is used for twisted-pair cables.</p>"
+    },
+    {
+      "question": "<p>When using a troubleshooting methodology, when does a technician implement a solution?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Right after they establish a plan of action to resolve the problem and identify potential effects</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Right after they verify full system functionality and implement preventive measures if applicable</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Right before they test the theory to determine the cause</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Right after they establish a theory of probable cause</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Right after they establish a plan of action to resolve the problem and identify potential effects</p><p>When following a troubleshooting methodology, a technician should implement a solution right after they establish a plan of action to resolve the problem and identify potential effects. This ensures that the technician has a clear and well-thought-out approach to addressing the issue.</p><p>Verifying full system functionality and implementing preventive measures are steps that come after the solution has been implemented and tested.</p><p>Testing the theory to determine the cause comes before establishing a plan of action.&nbsp;</p><p>Establishing a theory of probable cause occurs before creating a plan of action.</p>"
+    },
+    {
+      "question": "<p>A marketing company has occupied the third floor of a building and has now expanded to also occupy the fourth floor. They will move their design department to the fourth floor and put them on their own separate network. They want the networks on both the third and fourth floors to be able to communicate with each other.&nbsp;</p><p>Which type of device should they use for this?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Router</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Proxy</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Router</p><p>A router connects multiple networks and forwards data packets between them. It allows for communication between different networks, like the third- and fourth-floor networks.</p><p>A switch operates within a single network segment, using MAC addresses rather than IP addresses, and does not route traffic between networks.</p><p>A firewall filters traffic and enforces security policies rather than routing traffic between multiple networks.</p><p>A proxy forwards requests on behalf of a client but does not route traffic between separate IP networks.</p>"
+    },
+    {
+      "question": "<p>A network administrator suspects that signal degradation is being caused by crosstalk on a Category 5 cable. What can they do to test their theory?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Test the signal with a Category 6 cable</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Try disabling CSMA/CD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Use a cable tester to check for faults</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Change the network protocol and see if the issue persists</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Test the signal with a Category 6 cable</p><p>Category 5 cables are more susceptible to crosstalk compared to Category 6 cables. By testing the signal with a Cat 6 cable, the network administrator can determine if crosstalk is the cause of the signal degradation.&nbsp;</p><p>Carrier Sense Multiple Access with Collision Detection (CSMA/CD) is used to avoid collisions.&nbsp;</p><p>Faults or breaks in the cable is not specifically related to crosstalk issues.</p><p>Changing the network protocol will not address something in the physical layer.</p>"
+    },
+    {
+      "question": "<p>What is the default subnet mask for a Class A network?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>255.0.0.0</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>255.255.0.0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>255.255.255.0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>255.255.255.255</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct Answer: 255.0.0.0</p><p>A subnet mask specifies which part of an address is the network and which part is the host. For a Class A network, the first octet denotes the network, which is specified with 255.0.0.0.</p><p>The default subnet mask for a Class B network is 255.255.0.0.</p><p>The default subnet mask for a Class C network is 255.255.255.0.</p><p>255.255.255.255 is not a default subnet mask for any network.</p><p>&nbsp;</p>"
+    },
+    {
+      "question": "<p>A company's users have been reporting that when they use videoconferencing software during peak hours, the video and audio is choppy. What can a network administrator implement to address this issue?&nbsp;</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>QoS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CDN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>TTL</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: QoS</p><p>Quality of Service (QoS) can be configured on switches to prioritize traffic. That can ensure that time-sensitive data, like video and audio streams, gets higher priority over less critical traffic.</p><p>A Storage Area Network (SAN) is used for high-speed data transfers between servers and storage devices.</p><p>A Content Delivery Network (CDN) is used to distribute content like websites and videos to users more efficiently by using geographically distributed servers.</p><p>A Time To Live (TTL) value is a value that determines how long a packet can exist in a network before being discarded.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which aspect of authentication allows a user to log into an application and then use those credentials to log into subsequent applications?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SSO</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MFA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PKI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OAuth</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SSO</p><p>Single Sign-On (SSO) is an authentication process that allows a user to log into one application and then use those same credentials to access multiple subsequent applications. This streamlines the authentication process and improves the user experience.</p><p>Multi-Factor Authentication (MFA) requires users to provide two or more verification factors to gain access to an application.</p><p>Public Key Infrastructure (PKI) is a framework for managing digital certificates and public key encryption.&nbsp;</p><p>OAuth is an authorization framework that allows third-party applications to access user resources without exposing user credentials.</p>"
+    },
+    {
+      "question": "<p>Which protocol ensures that systems do not receive time updates from unauthorized servers?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NTS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NFS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SLAAC</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NTS</p><p>Network Time Security (NTS) is a protocol used to secure Network Time Protocol (NTP) communications. It provides authentication and integrity for time synchronization data, ensuring that systems receive time updates only from authorized servers.&nbsp;</p><p><i>Network Time Protocol (NTP)</i> is incorrect because it does not inherently provide security features.</p><p>Network File System (NFS) is a protocol used for file sharing over a network.</p><p><i>StateLess Address AutoConfiguration (SLAAC)</i> is incorrect because it is related to IPv6 address configuration.</p>"
+    },
+    {
+      "question": "<p>A company has a web application that they want to be available at all times. They decide that they will use one powerful server to host the web application and use a less powerful one as a backup that will take over automatically if the primary server fails.&nbsp;</p><p>What type of configuration are they using?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Active/passive</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Active/active</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Round robin</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Clustering</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Active/passive</p><p>In an active/passive setup, one server handles all the traffic and operations, while the other server stands by as a backup. If the active server fails, the passive server takes over automatically to ensure continuous availability of the web application.</p><p>In active/active, both or all servers are actively handling traffic and sharing the workload simultaneously.</p><p>Round robin is a load balancing technique where incoming requests are distributed equally among a group of servers in order.</p><p>Clustering is a group of servers working together as a single system to provide high availability, scalability, and redundancy.</p>"
+    },
+    {
+      "question": "<p>A network administrator wants to protect against users setting up ad-hoc wireless networks using their Cisco Unified Wireless Network (CUWN). How can CUWN prevent interactions with these networks?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>By sending deauthentication frames</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>By disabling SSID broadcast</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>By using WEP encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>By enabling MAC address filtering</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: By sending deauthentication frames</p><p>In a Cisco Unified Wireless Network (CUWN), administrators can configure the system to send deauthentication frames to rogue devices that attempt to set up ad-hoc wireless networks. This effectively disconnects those devices from the network and prevents them from communicating with other devices on the same wireless network.</p><p>Disabling SSID broadcast hides the network name from being advertised but does not prevent the creation or interaction with ad-hoc networks.</p><p>WEP is an outdated and insecure encryption method.&nbsp;</p><p>MAC address filtering is not an effective solution for preventing ad-hoc network interactions, as MAC addresses can be spoofed.</p>"
+    },
+    {
+      "question": "<p>A network administrator wants to allow SSH traffic through a firewall. Which port should they allow to accomplish this?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>22</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>23</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>53</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>443</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 22</p><p>22 is the default port for Secure SHell (SSH). SSH allows for secure remote connections.</p><p>23 is the default port for Telnet.</p><p>53 is the default port for DNS.</p><p>443 is the default port for HTTPS.</p>"
+    },
+    {
+      "question": "<p>Which of the following sentences accurately describes the distribution layer in the three-tiered networking model?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>It contains the control plane and is where packet filtering is performed</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>It connects end-user hosts and creates collision domains</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>It connects WAN lines and only provides routing and switching</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>It controls access to the network and manages user authentication</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: It contains the control plane and is where packet filtering is performed</p><p>The distribution layer acts as an intermediary between the core and access layers, handling routing, filtering, and policies for traffic between different subnets and VLANs. It manages the control plane and often performs actions such as packet filtering and implementing policies.</p><p>Connecting end-user hosts and creating collision domains describes the access layer.</p><p>Connecting WAN lines and providing routing and switching describes the core layer.</p><p>Controlling access to the network and managing user authentication relates to the access layer.</p>"
+    },
+    {
+      "question": "<p>What needs to be included in a change management plan in case too many adverse effects occur?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Rollback process</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Change request</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Maintenance window</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Inventory management</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Rollback process</p><p>A rollback process is a critical part of a change management plan. It outlines the steps needed to revert a system or environment to its previous state if a change results in too many adverse effects.&nbsp;</p><p>A change request is the document that initiates the change management process.</p><p>A maintenance window is a scheduled time period during which changes or maintenance activities are performed.</p><p>Inventory management involves tracking and managing hardware and software assets.</p>"
+    },
+    {
+      "question": "<p>Which of the following attacks is DNS spoofing?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>An attacker manipulates domain to IP address information to redirect users to a compromised site</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>An attacker places fake VLAN tags on frames to send traffic to different VLANs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>An attacker floods the network with ICMP packets to disrupt communication</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An attacker sends a large number of SYN requests to a target to consume resources</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: An attacker manipulates domain to IP address information to redirect users to a compromised site</p><p>DNS spoofing, also known as <i>DNS cache poisoning</i>, is an attack where an attacker manipulates domain to IP address information in domain name system to redirect users to a malicious or compromised site. This can lead to users unknowingly providing sensitive information to the attacker or downloading malware.</p><p>An attacker placing fake VLAN tags on frames to send traffic to different VLANs is a VLAN hopping attack.</p><p>An attacker flooding the network with ICMP packets to disrupt communication is a ping flood attack.</p><p>An attacker sending a large number of SYN requests to a target is a SYN flood attack.</p>"
+    },
+    {
+      "question": "<p>A CDN service provider is setting up its infrastructure to deliver web content from multiple data centers worldwide. They want requests to be dynamically routed to the nearest available data center for optimal performance.&nbsp;</p><p>What type of IP addressing should they use?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Anycast</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Multicast</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Broadcast</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Unicast</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Anycast</p><p>Anycast allows multiple devices, such as servers in different data centers, to share the same IP address. This optimizes performance by reducing latency and balancing the load across geographically distributed servers, which is ideal for CDNs.</p><p>Multicast sends data to a group of specific devices but does not route requests based on proximity to different locations.</p><p>Broadcast sends data to all devices in a local network segment.</p><p>Unicast establishes one-to-one communication between a sender and a single receiver.</p>"
+    },
+    {
+      "question": "<p>What is a DHCP relay used for?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Providing addresses to hosts that are not on the same LAN as the DHCP server</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Speeding up the DHCP process on a LAN by specifying secondary DHCP servers</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Creating an administrative interface for easily configuring DHCP settings</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Load balancing DHCP requests across multiple DHCP servers</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Providing addresses to hosts that are not on the same LAN as the DHCP server</p><p>A DHCP relay is used to forward DHCP requests and responses between clients and a DHCP server when they are not on the same Local Area Network (LAN). This allows devices in different subnets to obtain IP addresses from a central DHCP server.</p><p>A DHCP relay does not speed up the process or specify secondary servers.&nbsp;</p><p>A DHCP relay does not create an administrative interface.&nbsp;</p><p>DHCP relay is not involved in load balancing.</p>"
+    },
+    {
+      "question": "<p>Which type of documentation contains all the devices and connectivity paths on a network?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Physical network diagram</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Logical network diagram</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Rack diagram</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Site survey report</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Physical network diagram</p><p>A physical network diagram provides a visual representation of the physical layout of the network, including all devices such as routers, switches, servers, and workstations and their physical connectivity paths. It helps in understanding the actual hardware and wiring setup.</p><p>A logical network diagram focuses on the logical relationships within the network, including IP addressing and subnets, but does not show the physical layout or specific connectivity paths.</p><p>A rack diagram provides a detailed view of the equipment installed in a network rack, but it does not show the overall physical connectivity of the entire network.</p><p>A site survey report includes information gathered during a site survey, such as environmental conditions, wireless signal strength, and potential sources of interference.</p>"
+    },
+    {
+      "question": "<p>Which of the following factors contributes to chip creep?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Cycles of overheating and cooling</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cycles of low and high humidity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Electrostatic discharge</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Power surges</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Cycles of overheating and cooling</p><p>Chip creep occurs due to thermal expansion and contraction as the system heats up and cools down. This repeated expansion and contraction can cause the chip to gradually work its way out of its socket.</p><p>Cycles of low and high humidity can affect electronic components but is not a primary cause of chip creep.</p><p>ElectroStatic Discharge (ESD) can damage electronic components, but it does not cause chip creep.</p><p>Power surges can damage electronic components, but they do not cause chip creep.</p>"
+    },
+    {
+      "question": "<p>A company wants to host a public web server. Where should they locate this in the network?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>In a screened subnet</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>In an internal network</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Directly on the internet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Behind a NAT device</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: In a screened subnet</p><p>A screened subnet, also known as a <i>DMZ</i>, is a specialized network segment that acts as a buffer zone between an internal network and external public networks like the internet. It is designed to host public-facing services such as web servers, email servers, and DNS servers, providing an additional layer of security.&nbsp;</p><p>Placing a public web server in the internal network exposes sensitive internal systems to potential attacks.&nbsp;</p><p>Network Address Translation (NAT) assigns private IPs and is not ideal for hosting public services.&nbsp;</p><p>Placing a server directly on the internet without any additional security measures exposes it to a wide range of attacks.</p>"
+    },
+    {
+      "question": "<p>A developer is creating a client-server application. During the testing process, testers report that they are disconnected from the server whenever another user logs in. Which layer of the OSI model is causing this issue for the developer?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Session</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Network</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Application</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Transport</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Session</p><p>The Session layer has the responsibilties of establishing, managing, and terminating sessions between devices. If users are getting disconnected when someone else logs in, it suggests that the management of these sessions is flawed.</p><p>The Network layer is responsible for routing data between devices.</p><p>The Application layer provides services for end-user applications but relies on the Session layer to manage multiple connections.</p><p>The Transport layer manages data transfer reliability and flow control.</p>"
+    },
+    {
+      "question": "<p>A financial firm has employees in separate branches who need to share data. They want to use a cloud solution that keeps their data isolated from other, public cloud users. What type of solution should they implement?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VPC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>VPN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>IPS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VPC</p><p>A Virtual Private Cloud (VPC) provides a private and isolated section of a cloud environment for resources and data. That keeps data separate from other public cloud users.</p><p>A Storage Area Network (SAN) is used for high-speed data transfers between storage devices rather than an isolated cloud environment.</p><p>A Virtual Private Network (VPN) creates secure connections over public networks but doesn't isolate data within a cloud environment.</p><p>An Intrusion Prevention System (IPS) is a security measure to monitor and prevent malicious activities.</p>"
+    },
+    {
+      "question": "<p>Which term describes the date when a vendor stops making updates or patching a product?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>EOS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>EOL</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MTBF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MTTR</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: EOS</p><p>The <i>End Of Support (EOS)</i> refers to the date when a vendor stops providing updates, patches, and technical support for a product. After this date, the product becomes more vulnerable to security threats and compatibility issues.</p><p><i>End Of Life (EOL)</i> refers to the end of a product's sale.</p><p>The <i>Mean Time Between Failures (MTBF)</i> represents the average time between failures for a product or system, indicating its reliability.</p><p>The <i>Mean Time To Repair (MTTR)</i> is the average time it takes to repair a device after its failure.</p>"
+    },
+    {
+      "question": "<p>Which process describes how a network packet is wrapped with information at each layer of the OSI model?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Encapsulation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Framing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Addressing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Segmentation</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Encapsulation</p><p>Encapsulation is the process of wrapping data with the protocol information at each OSI layer, from the application layer down to the physical layer. The layer on each end of the communicating devices only deals with its corresponding layer.</p><p>Framing happens at the Data Link layer and involves the creation of frames for data transfer.</p><p><i>Addressing</i> refers to identifying the sending and receiving devices.</p><p>Segmentation involves breaking down large chunks of data into smaller pieces for easier management and transmission.</p>"
+    },
+    {
+      "question": "<p>What does an administrator use to automate IaC?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Playbooks</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dynamic inventories</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Zero-touch provisioning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OpenFlow</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Playbooks</p><p>Playbooks are the primary tool used to automate Infrastructure as Code (IaC). These are scripts or configurations written in a declarative language like YAML or JSON, defining the desired state of the infrastructure.</p><p>Dynamic inventories are used to manage and retrieve the list of hosts or resources dynamically, particularly in cloud environments.</p><p>Zero-touch provisioning is a method of automating the initial configuration and setup of devices without manual intervention.</p><p>OpenFlow is a protocol used for Software-Defined Networking (SDN) to enable network devices to be managed via software.</p>"
+    },
+    {
+      "question": "<p>A technician is documenting the issue that they have just resolved with a network. Using the ping tool, they notice that packet response times are inconsistent with some returning quickly and others significantly delayed.&nbsp;</p><p>What type of issue should they note that they observed?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Jitter</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Packet loss</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Latency</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Congestion</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Jitter</p><p>Jitter refers to the variability in packet response times or delays of packets. Inconsistent response times indicate jitter, which can negatively affect real-time applications such as video conferencing.</p><p>Packet loss occurs when packets are dropped and would be observed as missing packets.</p><p>Latency refers to the overall time it takes for a packet to travel but not necessarily imply variability.</p><p>Congestion refers to an overloaded network but does not specifically describe variability in packet response times.</p>"
+    },
+    {
+      "question": "<p>Which term describes a disaster recovery location where all resources for full operations except data are ready to go within minutes?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hot site</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Warm site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cold site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Active/active</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hot site</p><p>A hot site is a disaster recovery location that is fully equipped and ready to go within minutes, except for the data, which can be restored from backups. This allows for minimal downtime in case of an incident.</p><p>A warm site is a partially equipped site that requires some setup time to become fully operational.</p><p>A cold site is a location with basic infrastructure in place but requires significant time and effort to get set up.</p><p>Active/active is a configuration where two or more sites are always operational and actively handle traffic, providing high availability and redundancy.</p>"
+    },
+    {
+      "question": "<p>A manufacturing company has been migrating their operations to the cloud. They want to implement a security framework that protects each physical, digital, and logical edge so that users and resources are protected no matter where they are located.&nbsp;</p><p>Which type of solution should they use?&nbsp;</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SASE</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ZTA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IaC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SDN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SASE</p><p>Security Access Secure Edge (SASE) provides a unified, cloud-based security platform that protects users and applications regardless of their location. It integrates various security functions, including zero trust, Cloud Access Security Brokers, (CASB), and Secure Web Gateways (SWG).</p><p>Zero Trust Architecture (ZTA) focuses on identity-based access control and continuous verification, but it doesn't inherently provide security across all edges.</p><p>Infrastructure as Code (IaC) is a practice for managing and provisioning infrastructure through code.</p><p>Software-Defined Networking (SDN) focuses on network management and automation but doesn't include integrated security functions to protect all edges.</p>"
+    },
+    {
+      "question": "<p>A technician wants to monitor the power consumption of each server on a rack. Which device should they use to accomplish this?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PDU</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>UPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Surge protector</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Power strip</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PDU</p><p>A Power Distribution Unit (PDU) is designed for data centers and network racks, providing not only power distribution but also the ability to monitor power consumption of each outlet. This allows technicians to track the power usage of each server on the rack.</p><p>An Uninterruptible Power Supply (UPS) provides backup power, but it does not typically offer detailed monitoring of power consumption for individual devices.</p><p>A surge protector protects devices from voltage spikes, but it does not provide the capability to monitor power consumption.</p><p>A power strip provides multiple outlets for plugging in devices, but it lacks the features for monitoring power usage of individual devices.</p>"
+    },
+    {
+      "question": "<p>An organization is moving into a building where they will occupy multiple floors. They set up a centralized room on the third floor where the ISP connection, servers, and primary switches are located. Network cables then run to smaller rooms on other floors to provide connectivity.&nbsp;</p><p>Which term describes the centralized room on the third floor in this scenario?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>MDF</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IDF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Patch panel</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Access point</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: MDF</p><p>A Main Distribution Frame (MDF) is the centralized room where the main networking equipment, such as the ISP connection, servers, and primary switches, are located. It serves as the central point of distribution for network connections to various Intermediate Distribution Frames (IDFs).</p><p>An IDF is a secondary distribution point for network connections, typically located on each floor or in different sections of a building.&nbsp;</p><p>A patch panel is a hardware device that provides a central point for connecting and organizing network cables but does not refer to the entire centralized room.</p><p>An Access Point (AP) is a device that allows wireless devices to connect to a wired network.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which of the following outcomes is an advantage of using NAT?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Conserving legally registered addresses</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>End-to-end IP traceability</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Improved switching path speeds</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Universal compatibility with network applications</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Conserving legally registered addresses</p><p>An advantage of using Network Address Translation (NAT) is that is conserves legally registered addresses. NAT allows multiple devices on a local network to share a single public IP address for accessing the internet, which helps in conserving the number of unique IP addresses needed.</p><p>NAT loses end-to-end traceability.</p><p>NAT can introduce switching path delays.</p><p>Not all network applications work with NAT.</p>"
+    },
+    {
+      "question": "<p>Which dynamic routing protocol uses both distance vector and link state to determine the BEST path to a remote network?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>EIGRP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RIP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RIPv2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OSPF</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: EIGRP</p><p>Enhanced Interior Gateway Routing Protocol (EIGRP) is a hybrid protocol that combines distance vector and link state when making routing decisions. Distance vector is used for route discovery and link state is used for route maintenance.</p><p>The Routing Information Protocol (RIP) is a purely distance vector protocol.</p><p>Routing Information Protocol version 2 (RIPv2) is an enhancement of RIP and is still considered a distance vector protocol.</p><p>Open Shortest Path First (OSPF) is a pure link state protocol.</p>"
+    },
+    {
+      "question": "<p>Which of the following scenarios would MOST benefit from a private cloud model?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>An organization has strict data privacy regulations for data it stores in the cloud</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>An organization needs an affordable cloud solution that is pay-as-you-go</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>An organization needs a cloud solution with maximum elasticity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An organization wants to share its cloud hardware with partnering organizations</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: An organization has strict data privacy regulations for data it stores in the cloud</p><p>A private cloud provides a dedicated and isolated environment that enhances security and compliance with strict data privacy regulations. That makes it suitable for organizations that need to protect sensitive data.</p><p>Public clouds are typically more cost effective and provide pay-as-you-go options as well as having greater elasticity and scalability.</p><p>Community clouds or public clouds can be used for sharing resources among multiple organizations.</p>"
+    },
+    {
+      "question": "<p>A technician is troubleshooting a networking problem by starting at the application layer. What type of approach are they taking?</p>",
+      "subject": "5.0 Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Top-to-bottom</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bottom-to-top</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Divide and conquer</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Questioning the obvious</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Top-to-bottom</p><p>When a technician starts troubleshooting a networking problem at the application layer, they are using a top-to-bottom approach. This method involves beginning at the top of the OSI model, which is the application layer, and working downward through the layers.&nbsp;</p><p>A bottom-to-top approach starts at the lowest layer of the OSI model and works upward.</p><p>A divide and conquer approach involves isolating and testing individual components or sections of the network to pinpoint the problem.&nbsp;</p><p>Questioning the obvious involves checking simple issues first.</p>"
+    },
+    {
+      "question": "<p>What is the difference between STP and UTP cables?</p>",
+      "subject": "1.0 Networking Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>STP protects against EMI</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>STP protects against water damage</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>UTP has faster transmission speeds</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>UTP is compatible with RJ45 connectors</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: STP protects against EMI</p><p>Shielded Twisted Pair (STP) cables have a protective shielding that reduces ElectroMagnetic Interference (EMI). This improves signal quality in environments with high interference.</p><p>STP cables are not designed to provide protection against water damage.&nbsp;</p><p>Unshielded Twisted Pair (UTP) and STP cables can have similar transmission speeds.&nbsp;</p><p>Both UTP and STP cables are compatible with RJ45 connectors.</p>"
+    },
+    {
+      "question": "<p>What is the default administrative distance for static routes on a router?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>1</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>100</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>110</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 1</p><p>Administrative Distance (AD) is a metric used to determine the best path to a network. A lower AD is more trusted, while a higher AD is less trusted with a static route having a default AD of 1.</p><p>A connected interface has a default AD of 0.</p><p>An IGRP route source has a default AD of 100.</p><p>An OSPF route source has a default AD of 110.</p>"
+    },
+    {
+      "question": "<p>Which channels in the 2.4 GHz band are non-overlapping?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>1, 6, 11</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>0, 4, 9</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>1, 3, 5</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>0, 7, 13</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 1, 6, 11</p><p>In the 2.4 GHz frequency band, channels 1, 6, and 11 are non-overlapping. This is because the 2.4 GHz band has 11 channels in total, each 20 MHz wide, but they overlap with adjacent channels.&nbsp;</p><p>Channel 0 does not exist in the 2.4 GHz band, and channels 4 and 9 overlap with each other and with other channels.</p><p>Channels 1, 3, and 5 overlap with each other, leading to potential interference and degraded performance.</p><p>Channel 0 does not exist in the 2.4 GHz band, and channels 7 and 13 overlap with other channels, causing interference.</p>"
+    },
+    {
+      "question": "<p>A medium-sized corporation is setting up a wireless network. They want to be sure that employees must use their unique usernames and passwords to connect while controlling network access by revoking credentials when someone leaves the company.&nbsp;</p><p>Which Wi-Fi security mode would BEST meet these requirements?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Enterprise</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PSK</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WPA3-Personal</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Captive portal</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Enterprise</p><p>Enterprise mode, also referred to as <i>WPA2-Enterprise</i> or <i>WPA3-Enterprise</i>, is designed for business environments where individual user authentication is required. It uses an authentication server such as RADIUS to manage unique usernames and passwords for each employee.</p><p>A Pre-Shared Key (PSK), also known as <i>WPA2-Personal</i> or <i>WPA3-Personal</i>, uses a single shared password for all users to access the network.</p><p>WPA3-Personal uses a single shared password for all users.&nbsp;</p><p>A captive portal requires users to first interact with a web page to gain access to the network.</p>"
+    },
+    {
+      "question": "<p>A company wants to scan the information in web pages that employees request to make sure they are not inappropriate. What type of tool should they use for this?</p>",
+      "subject": "4.0 Network Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Content filtering</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>URL filtering</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Captive portal</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Analog modem</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Content filtering</p><p>Content filtering is a tool used to scan and filter the information in web pages that employees request. It examines the content of the web pages to identify and block inappropriate or harmful material based on predefined criteria.&nbsp;</p><p>URL filtering blocks access to websites based on their URLs, not the actual content.</p><p>A captive portal is a web page that users must interact with before gaining access to a network.</p><p>An analog modem converts digital data to analog signals and vice versa.</p>"
+    },
+    {
+      "question": "<p>What is the 802.1Q standard used for?</p>",
+      "subject": "2.0 Network Implementation",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Identifying VLANs between different brands of switches</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Providing QoS to prioritize certain types of traffic</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Preventing network loops from consuming all bandwidth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Managing wireless networks from a console</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Identifying VLANs between different brands of switches</p><p>The IEEE 802.1Q standard, also known as <i>VLAN tagging</i>, is used to identify VLANs by inserting a VLAN tag into the Ethernet frame. This standard ensures compatibility and interoperability between switches from different vendors by using a common method for VLAN tagging.</p><p>Quality of Service (QoS) is a separate concept that involves prioritizing specific types of network traffic to ensure performance.</p><p>Preventing network loops is handled by protocols like Spanning Tree Protocol (STP), not the 802.1Q standard.</p><p>Managing wireless networks involves protocols like IEEE 802.11, not 802.1Q.</p>"
+    },
+    {
+      "question": "<p>Using a monitoring tool, a network administrator discovers packets that share the same ingress interface, source IP address, destination IP address, IP protocol number, source port, destination port, and IP type of service.&nbsp;</p><p>What can these packets be described as?</p>",
+      "subject": "3.0 Network Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Flow data</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Audit log</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Syslog</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Route table</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Flow data</p><p><i>Flow data</i> refers to a set of packets that share common attributes such as the ingress interface, source IP address, destination IP address, IP protocol number, source port, destination port, and IP type of service. This grouping of packets into flows allows network administrators to analyze and monitor network traffic patterns and behaviors.&nbsp;</p><p>Syslog is a standard protocol used for logging messages from network devices.</p><p>An audit log is a record of different activities.&nbsp;</p><p>A route table contains routes to determine the best path for forwarding packets.</p>"
+    }
+  ]
+}

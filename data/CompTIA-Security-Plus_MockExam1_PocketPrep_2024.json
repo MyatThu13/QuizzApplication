@@ -1,0 +1,2524 @@
+{
+  "questions": [
+    {
+      "question": "<p>Which protocol is used to automatically check if a certificate has been revoked?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>OCSP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DHCP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DNS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OSPF</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: OCSP</p><p>The Online Certificate Status Protocol (OCSP) gives real-time information on the status of a certificate. A certificate authority runs an OCSP server that responds to requests from clients.</p><p>DHCP is used to dynamically assign IP addresses. DNS is used to resolve domain names to IP addresses. OSPF is a routing protocol.</p>"
+    },
+    {
+      "question": "<p>An ethical hacker performed a penetration test against a network. Once she gained initial access to a system, she was able to move throughout the network and gain access to other systems.&nbsp;</p><p>What is the name for this type of technique?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pivot</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Persistence</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Sprawl</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Resource exhaustion</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pivot</p><p>Pivot is a technique that allows for an attacker or tester to move between systems after gaining initial access.</p><p>Persistence is a technique in which the attacker or tester attempts to gain access back to the network or system at a later date. Sprawl occurs when an organization has more systems than it needs. Resource exhaustion is not a technique used to move throughout a network.</p>"
+    },
+    {
+      "question": "<p>What is the PBKDF2 algorithm used for?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Key stretching</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Steganography</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hashing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Key stretching</p><p>Key stretching (also known as key strengthening) takes a weak key and attempts to strengthen it by increasing its size. The purpose of key stretching is to make password attacks, such as brute force attacks, more difficult. Password-Based Key Derivation Function 2 (PBKDF2) and Bcrypt are used for key stretching.</p><p>Steganography involves hiding messages in another medium, such as images. Hashing algorithms create a fixed-length output from a variable-length input. Encryption algorithms convert data to a format so that only authorized users can read it.</p>"
+    },
+    {
+      "question": "<p>A user has approached you and asked about file transfers. He would like to know which protocol is not secure enough to transfer confidential data. Of the following, which protocol is NOT a secure method for transferring files?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FTP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SFTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>FTPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SCP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FTP</p><p>File Transfer Protocol (FTP) operates on ports 20 and 21. FTP transmits data in cleartext by default, making it an insecure protocol to use for file transfer. File Transfer Protocol Secure (FTPS) is an extension of the FTP protocol that uses Transport Layer Security (TLS) to encrypt FTP traffic, making it a more secure solution.</p><p>Secure File Transfer Protocol (SFTP) uses Secure Shell (SSH) to transmit files in an encrypted manner. It can be easy to confuse FTPS and SFTP, but they operate differently. Secure Copy Protocol (SCP) uses SSH and is used to copy encrypted files over a network.</p>"
+    },
+    {
+      "question": "<p>You are setting up MFA for an account. It is asking you to use a \"something you are\" authentication factor. Which of the following could be used to meet the \"something you are\" authentication factor?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Biometrics</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PIN&nbsp;</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hardware token</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ID card&nbsp;</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Biometrics</p><p>The \"something you are\" authentication type refers to biometrics. This could include items such as fingerprint scanners, retina scanners, iris scanners, and any other method that uses a part of your body.</p><p>A PIN is considered \"something you know.\" Hardware tokens and ID cards are both considered \"something you have.\"</p>"
+    },
+    {
+      "question": "<p>You are interested in isolating a corporate application on your mobile device away from all personal items on that device. You'd also like that application and all of the data associated with it to be encrypted but aren't interested in encrypting the entire device.&nbsp;</p><p>Which of the following is the BEST solution for this scenario?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Containerization</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Sideloading</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Geofencing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Biometrics</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Containerization</p><p>Containerization is the process of running an application in a container, isolated from the rest of the data on the device. By running the application inside of a container, that container can be encrypted, and the data is protected from the rest of the items on the device.</p><p>Sideloading is installing an app through an unofficial app store. Geofencing uses GPS data to make authentication or authorization decisions. Biometrics is a \"something you are\" authentication factor.</p>"
+    },
+    {
+      "question": "<p>A network engineer is deploying a new web server. The web server will need to be accessible over the public internet. Where should the web server be placed on the network?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Screened subnet</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>VPN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>LAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Honeynet</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Screened subnet</p><p>A screened subnet, or DMZ, is an area on a computer network that contains systems accessible by clients or other networks on the internet. They are often used to house servers such as web servers, mail servers, and database servers.</p><p>Since the device needs to be accessed from the internet, it would not make sense to place it within the local area network (LAN) or virtual private network (VPN) network zones. Honeynets are networks that are meant to distract attackers from the legitimate network. As such, it would not make sense to place the new web server on a honeynet.</p>"
+    },
+    {
+      "question": "<p>An attacker obtained a password hash for a user's account within an organization. The attacker plans to reapply the password hash to the server to log in as that user. Once the attacker is logged in as that user, he hopes to obtain the credentials of a higher-privileged user.</p><p>What type of attack is this?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pass the hash</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Birthday attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Smurf attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Brute force</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pass the hash</p><p>During a pass the hash attack, an attacker has acquired the password hash of a user and reapplies that hash to the system to log in.</p><p>A birthday attack is another type of password attack in which two messages are sent with the same hash, causing a collision. A brute force attack tries all possible combinations of a password. A smurf attack is a type of distributed denial-of-service (DDoS) attack.</p>"
+    },
+    {
+      "question": "<p>You are enforcing a password policy for your organization. You have ensured that when users go to reset their password, they cannot use their last 4 passwords. Which of the following policies have you configured?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password reuse</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Password complexity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Password age</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Password length</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password reuse</p><p>Setting a password reuse, or history, policy enforces that users are not able to reuse passwords that were previously used. For example, if you set a password reuse policy to 4, users can't reuse their last 4 passwords when they reset their password.</p>"
+    },
+    {
+      "question": "<p>A security engineer would like to determine if attackers are trying to gain access to the company's network, and if they were to gain access, what actions they would perform. As a way to address this, the engineer has developed an area of the network that houses no important or private information. Instead, the portion of the network is filled with dummy resources and analysis tools. The goal is that an attacker will not be able to determine which resources are valid and which are fake. If the attacker performs any actions on the decoy network, the security engineer will be able to analyze the actions taken to ensure better protection in the future.</p><p>What is the section of the network that houses the dummy resources known as?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Honeynet</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SASE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DMZ</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Perimeter network</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Honeynet</p><p>A honeypot is a single resource created to look like a legitimate resource with the goal of tricking an attacker. A section of the network which contains multiple honeypots, or decoy systems, is known as a honeynet.</p><p>A secure access service edge (SASE) is a cloud-native security solution that integrates network security with WAN functionality. The demilitarized zone (DMZ), or perimeter network, is a zone that houses servers that must be accessible over the internet.</p>"
+    },
+    {
+      "question": "<p>You are working for an organization that relies heavily on the use of mobile devices. Specifically, employee mobile phones contain a lot of confidential data that could be damaging if the device ends up in the wrong hands. You are implementing security controls that would help reduce the damage caused in the event of loss or theft.</p><p>Of the following, which would NOT<strong> </strong>make sense to implement to achieve this goal?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Jailbreaking</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Remote wiping</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Screen locks</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>FDE</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Jailbreaking</p><p>Jailbreaking is the process of removing carrier or manufacturer restrictions from a mobile device. Jailbreaking poses a risk because any of the protections built into the device by default are no longer in place after the jailbreak has occurred.</p><p>Screen locks, remote wiping, and FDE (full device encryption) are all practices that could help prevent damage if a device was lost or stolen.</p>"
+    },
+    {
+      "question": "<p>You are a network engineer implementing a new packet filtering firewall. The firewall could be considered a pure packet filtering firewall as it does not store the packets but simply inspects each one and allows or denies it based upon predefined rules.</p><p>What type of firewall is being implemented?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Stateless firewall</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Stateful firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WAF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NGFW</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Stateless firewall</p><p>A stateless, or Layer 4, firewall is a type of packet filtering firewall. Stateless firewalls are considered pure packet filtering firewalls because, unlike stateful firewalls, they do not retain the memory of the packets that have passed through. Instead, they simply inspect the packets and allow or deny them based upon the pre-defined rules.</p><p>A stateful firewall uses a state table to track traffic between systems. A web application firewall (WAF) is used to protect specific web applications from attacks. A next-generation firewall (NGFW) is an all-in-one security device.</p>"
+    },
+    {
+      "question": "<p>Which protocol should be used to encrypt Wi-Fi traffic?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WPA3</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>WEP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RADIUS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EAP-TLS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WPA3</p><p>Wi-Fi Protected Access 3 (WPA3) is used to encrypt Wi-Fi traffic. It is the current standard for Wi-Fi security.</p><p>WEP is an outdated encryption method for Wi-Fi. RADIUS is a protocol for authentication, authorization, and accounting. EAP-TLS is an authentication protocol.</p>"
+    },
+    {
+      "question": "<p>You are in the process of implementing a new hypervisor for your virtual environment. The hypervisor runs as software within the system's operating system. Which type of hypervisor is being described in this scenario?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Type II</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Type I</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bare-metal</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Native</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Type II</p><p>A Type II hypervisor is one that runs as software on a system's operating system. Virtualbox is an example of a type II hypervisor.</p><p>A Type I hypervisor is one that runs directly on a system's hardware. Type I hypervisors are also referred to as native and bare-metal hypervisors.</p>"
+    },
+    {
+      "question": "<p>Of the following authentication services, which should NOT be used today?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NTLM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Kerberos</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>LDAP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>LDAPS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NTLM</p><p>New Technology LAN Manager (NTLM) is the least secure of the options given. NTLM creates an MD4 hash of a user's password. Since MD4 can be cracked, NTLM shouldn't be used. NTLMv2 and NTLM2 are two more secure versions of NTLM, but Microsoft still recommends not using any of these authentication services.</p><p>Kerberos, Lightweight Directory Access Service (LDAP), and Lightweight Directory Access Services Secure (LDAPS) are all more secure than NTLM.</p>"
+    },
+    {
+      "question": "<p>An attack has compromised an organization's systems. Upon gaining access, the attacker began transferring corporate confidential data outside of the network to systems under the attacker's control.</p><p>What is being described in this scenario?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Data exfiltration</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Ethical hacking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Service disruption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Social engineering</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Data exfiltration</p><p>Data exfiltration refers to the unauthorized transfer of confidential data outside of the organization. Data exfiltration can be accomplished through various attacker methods, such as malware or even a malicious insider saving data on a USB drive and taking it out of the network. To prevent data exfiltration, data loss prevention (DLP) solutions should be implemented.</p><p>Ethical hacking involves trying to point out vulnerabilities. Service disruption involves taking down critical systems or networks. Social engineering involves using social techniques to get users to divulge sensitive information.</p>"
+    },
+    {
+      "question": "<p>The employees of a company use a website to log their work hours. An attacker finds a vulnerability in this site and inserts malicious code to exfiltrate data from employees when they visit it.&nbsp;</p><p>What type of attack is occurring?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Watering hole</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Phishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Pretexting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Typosquatting</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Watering hole</p><p>A watering hole attack compromises a server that users frequently visit.</p><p>Phishing attacks rely on tricking users to divulge sensitive information. Pretexting involves fabricating a scenario to extract information. Typosquatting involves registering domain names that are similar to legitimate ones.</p>"
+    },
+    {
+      "question": "<p>You are investigating an incident in which an individual gained unauthorized physical access to an office building. Upon interviewing employees of the office, it was determined that the individual gained access by following authorized personnel into the building and grabbing the door before it closed behind an authorized employee.</p><p>Which of the following BEST describes the scenario?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Tailgating</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Shoulder surfing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Mantrap</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Watering hole attack</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Tailgating&nbsp;</p><p>Tailgating, also similar to piggybacking, refers to the act of one individual following closely behind another individual as a way to gain entry into a restricted area.&nbsp;</p><p>Shoulder surfing refers to the act of looking over a person's shoulder to view credentials as they enter them. A watering hole attack refers to a strategy in which attackers target users based on the common types of websites they frequently visit. A similar attack to tailgating is piggybacking. Occasionally, you will hear these terms used interchangeably, but they are slightly different. A mantrap is a small space with two sets of interlocking doors which can be used to prevent tailgating.</p>"
+    },
+    {
+      "question": "<p>You are researching biometric systems for your organization. Which of the following indicates that a biometric system is more accurate?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A lower CER</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A higher CER</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A higher FAR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A higher FRR</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A lower CER</p><p>CER refers to a biometrics crossover error rate. The crossover error rate (CER) is calculated by plotting the false acceptance rate (FAR) and false rejection rate (FRR). The point where the FRR and FAR meet is the CER. If you are evaluating multiple biometrics systems, the one with the lowest CER is the most accurate.</p><p>A higher false acceptance rate (FAR) means that more unauthorized users are granted access. A higher false rejection rate (FRR) means that many authorized users are not granted access.</p>"
+    },
+    {
+      "question": "<p>A security engineer has placed an IDS in the cloud. Traffic doesn't pass directly through the IDS but is forwarded to the IDS after it has entered the network. As such, the IDS would be able to alert after an intrusion has occurred, but not before.&nbsp;</p><p>What is this known as?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Out-of-band</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Inline</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>In-band</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Outward</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Out-of-band</p><p>Out-of-band, also known as passive, means that the device monitors network traffic, but traffic doesn't have to go through the device.</p><p>Inline, or in-band, devices are devices that traffic must go through to enter the network. An intrusion prevention system (IPS) would be inline, and as that traffic passes through the IPS, it can prevent malicious traffic before it enters the network. The term outward doesn't apply to the question.</p>"
+    },
+    {
+      "question": "<p>A software engineer has written some code and wants a colleague to check it line by line for logic errors. What type of testing should be done in this situation?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Static code analysis</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Stress testing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Fuzz testing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Dynamic code testing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Static code analysis</p><p>Static code analysis is a testing method in which the application is not run but rather checked line by line. This is useful for checking logic errors.</p><p>Stress testing involves sending an application excessive data until it malfunctions. Fuzz testing is a testing method in which random characters are input into a computer program to find vulnerabilities. Dynamic code analysis techniques are used to test the programs while they are running.</p>"
+    },
+    {
+      "question": "<p>You are working as a systems administrator for an organization and find that many users have trouble remembering multiple passwords to log into all company systems. You would like to implement a system in which users can log into multiple systems by entering their password once.</p><p>What should you implement to achieve this?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SSO</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MFA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SIEM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>FTP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SSO</p><p>Single sign-on (SSO) allows a user to log into multiple systems or programs after successfully entering their credentials only once. For example, a user can enter a single strong domain password to access company email, file servers, ticketing systems, payroll websites, and more. Single sign-on allows a user to create one strong password that they can remember rather than remember many passwords. This increases security because users will often write down passwords if they have to remember too many.</p><p>Multi-factor authentication (MFA) requires that users have two or more types of authentication methods to access a system. MFA can and should be implemented on top of SSO to add extra security. A security information and event management (SIEM) solution is used to correlate and aggregate logs from various systems. File Transfer Protocol (FTP) is a protocol used to transfer files over a network.</p>"
+    },
+    {
+      "question": "<p>Which type of cloud service gives customers the greatest responsibility in managing their services?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>IaaS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BaaS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: IaaS</p><p>With the infrastructure as a service (IaaS) model, the provider gives the customer computing resources such as servers, storage, and networking. It is the customer's responsibility to manage all their own resources.</p><p>Software as a service (SaaS) offers a full application to the customer. Platform as a service (PaaS) offers an environment where developers can create applications in the cloud. Backup as a service (BaaS) offers solutions for backing up and restoring data.</p>"
+    },
+    {
+      "question": "<p>An employee of a company is attempting to log in to their company network from a new device. Before being given access, they are asked additional security questions. What aspect of zero trust architecture is occurring?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Adaptive identity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Threat scope reduction</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Policy-driven access control</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Implicit trust zones</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Adaptive identity</p><p>Adaptive identity refers to including context in the authentication process. Authentication systems take into account factors such as the user's location, device, and behavior before granting access.</p><p>Threat scope reduction refers to limiting the damage a threat can pose by using principles such as least privilege. Policy-driven access control refers to automating the enforcement of security policies. Implicit trust zones are areas of a network where systems trust each other.</p>"
+    },
+    {
+      "question": "<p>Which mode encrypts the entire IP packet rather than just the packet's payload in IPSec?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Tunnel mode</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Transport mode</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Authentication mode</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Light mode</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Tunnel mode</p><p>The two modes associated with IPSec are tunnel mode and transport mode. Tunnel mode encrypts the entire IP packet, and transport mode only encrypts the packet's payload. Tunnel mode is used with VPNs transmitted over the internet, and transport mode is often used in private networks.</p><p>Light mode and authentication mode are not types of IPSec modes.</p>"
+    },
+    {
+      "question": "<p>Pretexting is an example of:</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Social engineering</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A cryptographic attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Zero trust architecture</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An injection check</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Social engineering</p><p>Pretexting involves fabricating a scenario in order to steal sensitive information. Examples of social engineering techniques include phishing, whaling, tailgating, dumpster diving, impersonation, and shoulder surfing.</p><p>Phishing would not be considered a cryptographic, zero trust, or injection attack.</p>"
+    },
+    {
+      "question": "<p>HMAC can be described as which of the following?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hashing algorithm</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Encryption algorithm</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Key stretching algorithm</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Key exchange algorithm</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hashing algorithm</p><p>HMAC, which stands for Hash-based Message Authentication Code, is a type of hashing algorithm. Other hashing algorithms include Message Digest 5 (MD5), Secure Hash Algorithm (SHA), and RACE Integrity Primitives Evaluation Message Digest (RIPEMD).</p>"
+    },
+    {
+      "question": "<p>An organization evaluated its risk of financial loss due to a flood occurring and affecting their office building. The organization's executives determined that they would purchase flood insurance to cover the financial losses resulting from a flood.</p><p>What is this an example of?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Risk transfer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Risk mitigation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Risk avoidance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Risk acceptance</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Risk transfer</p><p>There are several different risk responses that an organization can make when faced with a potential risk. Risk transfer refers to the organization transferring the risk (either entirely or partially) to another entity. This is often done by purchasing insurance, such as in this scenario, but can also be achieved through outsourcing.</p><p>Risk mitigation involves applying controls for a risk. Risk avoidance involves not engaging in the risky process. Risk acceptance involves not taking any additional actions to mitigate a risk.</p>"
+    },
+    {
+      "question": "<p>An attacker was able to gain unauthorized access to a system using a vulnerability he found on the system. To ensure that he will be able to regain access to the machine, even if the original vulnerability is fixed, he installed a piece of software that will allow him to remotely connect to the system whenever he wants without authenticating. The software runs without causing any disruption to the system, so as not to alert the actual user that there was a breach.&nbsp;</p><p>Of the following, which BEST describes the action of the attacker?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Creating a backdoor</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Installing a rootkit</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Performing an injection attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Performing an on-path attack</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Creating a backdoor</p><p>A backdoor is an alternate method of accessing a system, usually while bypassing normal authentication methods. Backdoors are not always inherently malicious. Sometimes, program developers add backdoors to their software for maintenance purposes, although this is not recommended. It is common for malware to create backdoors into systems after the system has been infected. Additionally, as in the scenario described, hackers who gain access to a system may install a backdoor so that they can access the system if their initial means of entry are no longer available. Remote access trojans, or RATs, are regularly used as a way to create a backdoor into a system.</p><p>A rootkit focuses on giving an attacker administrative access to a system. An injection attack sends data to an application in an attempt to compromise it. An on-path attack captures and modifies data between two systems.</p>"
+    },
+    {
+      "question": "<p>A network engineer has been tasked with configuring a VPN between a company's Texas location and the company's California location. Which type of tunnel should the network engineer implement?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Site-to-site</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Remote access</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>OSPF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Round-robin</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Site-to-site</p><p>A site-to-site virtual private network (VPN) tunnel is used to connect to networks that are geographically separated. Site-to-site VPNs allow for the connection of both networks without requiring additional steps on the user's part.</p><p>A remote access VPN allows the user to connect directly from their laptop using a VPN software client to connect to a VPN gateway. This is often implemented for traveling or remote users to connect to the corporate network. OSPF is a routing protocol. Round-robin is a type of load balancing.</p>"
+    },
+    {
+      "question": "<p>You are hiring a new individual in the product development department. The employees of the product development department deal with a lot of proprietary and confidential data.</p><p>Which of the following should you require the new hire to sign before giving them access to any of the data?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NDA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SOP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SLA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NDA</p><p>A non-disclosure agreement (NDA) states that an individual will not share any confidential or proprietary data. If the individual does share the data after signing an NDA, they can be subject to a lawsuit.</p><p>A service level agreement (SLA) is between a vendor and a client, so it would not be applicable in this scenario. Standard operating procedures (SOPs) outline steps for performing certain tasks but do not explicitly prevent the employee from sharing private data. A business partner agreement (BPA) does not apply to this scenario because it is between two business partners rather than an employer and employee.</p>"
+    },
+    {
+      "question": "<p>Of the following, which is a digitally signed document that binds a public key with the identity of the owner of the document?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Certificate</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Hash</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Algorithm</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OTP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Certificate</p><p>A certificate is a digitally signed document that binds a public key with the identity of the owner of the certificate.</p><p>A message hash is a summary of a message, typically used to perform integrity checks. An algorithm is a process or set of rules to be followed in calculations. A one-time password is a temporary password used as an additional layer of security.</p>"
+    },
+    {
+      "question": "<p>You are performing a penetration test in which you have been given no information about the target network. You will need to conduct OSINT gathering as a means to learn more about the company and begin the simulated attack.&nbsp;</p><p>Which of the following BEST describes the type of test that you are performing?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Unknown environment</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Known environment</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Partially known environment</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Sandbox</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Unknown environment</p><p>An unknown environment test is completed by someone who is not familiar with the systems at all. The pen tester is not given much information about the network and must try to determine what vulnerabilities exist through their own reconnaissance and enumeration.</p><p>In a known environment testing scenario, the pen tester knows the systems' internal workings and is given information such as credentials and source code. In a partially known testing scenario, the tester has some internal knowledge of the systems but still conducts the test as if they were an outside attacker. Sandboxing is a technique in which a program, code, or application is run in a controlled and monitored environment to see how it behaves; it is not a penetration testing method.</p>"
+    },
+    {
+      "question": "<p>An organization wants to ensure that its employees understand how they are expected to behave while using company information systems. Which of the following should outline this information for employees?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>AUP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ISA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NDA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MOA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: AUP</p><p>An acceptable use policy (AUP) outlines the rules and behaviors expected of those using company systems or networks. For example, an acceptable use policy might state that employees cannot download personal applications onto their corporate-owned computer.</p><p>An interconnection security agreement (ISA) is an agreement between organizations planning to operate interconnected IT systems. A non-disclosure agreement (NDA) states that an individual will not share confidential and proprietary data but doesn't outline how they should behave while using company systems. A memorandum of agreement (MOA) constitutes a legal agreement between two parties that wish to work together.</p>"
+    },
+    {
+      "question": "<p>You are working as a network engineer for a consulting company that has both government and non-government clients. Because the data relating to government clients is classified and controlled, the entire network that handles that data is physically isolated from the network that handles non-government clients.</p><p>What is the name of this technique?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Air gap</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Honeynet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Container</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Screened subnet</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Air gap</p><p>An air-gapped network means that the network is not connected to any other network and, therefore, completely isolated. The term air gap is synonymous with physical isolation. It implies that there is a gap of air between one system (or network) and another. Air gap techniques can be employed against a single component, system, or entire network.</p><p>A honeynet is a network designed to attract attackers. A container is an application packaged together with its dependencies. A screened subnet is protected by a firewall.</p>"
+    },
+    {
+      "question": "<p>An administrator is in charge of securing an important web server. They want to be alerted if any of the server's system files have been altered. What type of solution should they implement?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FIM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NAC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SPF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MFA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FIM</p><p>File integrity monitoring (FIM) is used to detect if any specified files have been altered. If a change is detected, alerts can be sent out.</p><p>Network access control (NAC) is used to control access based on users and their devices. The Sender Policy Framework (SPF) is used to prevent email spoofing and phishing attacks. Multi-factor authentication (MFA) is used to protect accounts in case one factor is compromised.</p>"
+    },
+    {
+      "question": "<p>Of the following, which is another name for a Type I hypervisor?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Bare-metal</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Software-based</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Application-contained</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Host-based</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Bare-metal</p><p>A Type I hypervisor runs directly on a system's hardware rather than running inside the system's operating system like a Type II hypervisor. Since the hypervisor doesn't require the operating system to run, it is often referred to as a bare-metal hypervisor. It is also considered a \"native\" hypervisor rather than a \"hosted\" hypervisor.</p>"
+    },
+    {
+      "question": "<p>You are working on a software development project. You know that there are multiple SDLC models that can be used. In the model that is being used for this project, there are multiple stages that go from top to bottom. Each stage feeds into the next stage. Some of the stages include requirements, design, implementation, verification, and maintenance.</p><p>Which SDLC model is being used here?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Waterfall</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Agile</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Scrum</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Spiral</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Waterfall</p><p>The waterfall model uses a methodology that includes multiple stages, all of which feed into each other. When you finish one stage, you move on to the next stage. It is named waterfall because the stages start at the top and flow into each other.</p><p>An agile methodology uses short iterations. A scrum is a daily meeting. A spiral methodology combines elements of agile and waterfall models.</p>"
+    },
+    {
+      "question": "<p>AAA protocols provide which of the following?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Authentication, authorization, and accounting</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Authentication, availability, and access</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Accounting, auditing, and availability</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Authentication, affinity, and antispoofing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Authentication, authorization, and accounting</p><p>AAA stands for authentication, authorization, and accounting. AAA protocols are protocols that provide all three of these. RADIUS and TACACS+ are both considered AAA protocols. You may sometimes hear Kerberos referred to as an AAA protocol, but since it doesn't provide accounting services, this is not technically accurate.</p>"
+    },
+    {
+      "question": "<p>A software developer has complicated the source code and attempted to make it more difficult for others to read. Her reason for doing this is to prevent tampering and reverse engineering.&nbsp;</p><p>What is this technique known as?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Obfuscation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Hashing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Masking</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Obfuscation</p><p>Code obfuscation, sometimes referred to as camouflage, is the process of making code unclear or unreadable. Code obfuscation is used to prevent tampering and reverse engineering. This is an example of security through obscurity.</p><p>Hashing is a one-way algorithm for creating a fixed-length value for a variable-length input. Encryption is a method of ensuring that only authorized users can view a message. Masking is a method of hiding data by replacing it with another character.</p>"
+    },
+    {
+      "question": "<p>You have been tasked with implementing controls to help with DLP within your organization. Of the following options, which would be the BEST to assist in data loss prevention?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>USB blocking</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Spam filtering</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Honeypots</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Stateful firewalls</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: USB blocking</p><p>Data loss prevention (DLP) is meant to stop the leakage of confidential data. While all of the options mentioned are useful to improve the overall security of an organization, USB blocking is the best option to directly address data loss prevention specifically.</p><p>Spam filtering helps block suspicious emails. Honeypots are used to attract attackers. Stateful firewalls block traffic at the application layer.</p>"
+    },
+    {
+      "question": "<p>You are investigating an incident in which an attacker targeted the organization's CEO with a phishing email. While investigating, you discover that no other employees, besides the CEO, received the email.&nbsp;</p><p>Which of the following BEST describes the incident?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Whaling</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Spear phishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Vishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Pharming</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Whaling&nbsp;</p><p>Whaling is a type of phishing attack that specifically targets high-level employees of an organization, such as the CEO or CFO. General phishing attacks do not require the attacker to know any information about their targets except their email addresses.&nbsp;</p><p>Spear phishing is a type of phishing attack that targets specific individuals. While this attack could be considered a spear phishing attack, the term that best describes the incident is whaling. Vishing is similar to phishing but makes use of a phone instead of email. Pharming is a cyber attack intended to redirect a website's traffic to another, fake site.</p>"
+    },
+    {
+      "question": "<p>You are working as a security administrator for an organization that has just experienced a security incident. Several of the computers in the development department were victims of a ransomware attack. You are in the process of rebuilding the affected systems and restoring the data from backups.&nbsp;</p><p>Which phase of incident response are you likely in?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Recovery</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Eradication</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Containment</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Lessons learned</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Recovery</p><p>Incident response processes typically consist of six phases:</p><ol><li>Preparation</li><li>Identification</li><li>Containment</li><li>Eradication</li><li>Recovery</li><li>Lessons learned</li></ol><p>During the recovery phase of the incident response process, the systems affected are rebuilt, and any data available from backup is restored.</p><p>In the eradication phase, the root cause of the incident is removed. In the containment phase, the affected systems are isolated. In the lessons learned phase, the incident is reviewed to help prevent a similar incident in the future.</p>"
+    },
+    {
+      "question": "<p>An employee at a company wants to connect to their personal files that they have in their own cloud account from their company's workstation. To do so, they are able to download the cloud service provider's application and install it. This gives the user the ability to store sensitive work files in their personal cloud files sharing folder.&nbsp;</p><p>What type of threat does the employee pose to the company?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Shadow IT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Hacktivist</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>APT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Ethical</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Shadow IT</p><p>Shadow IT involves the use of IT solutions by employees that are not made explicitly known to the IT department. Employees' own IT solutions can create risks for an organization.&nbsp;</p><p>A hacktivist is an attacker who acts as part of an activist movement to further the movement's cause. Advanced persistent threats (APTs) are very sophisticated threat actors who target specific networks and hope to maintain access to that network for an extended amount of time. An ethical hacker is a hacker that seeks to find vulnerabilities, then chooses to alert the owners of the system rather than exploit the vulnerability.</p>"
+    },
+    {
+      "question": "<p>To prevent malicious insiders, an organization has a measure in place to disable a terminated user's account within 30 minutes of their resignation or termination. In what type of procedure would you likely find this outlined?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Offboarding</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Onboarding</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Least privilege</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Separation of duties</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Offboarding</p><p>Offboarding policies and procedures outline the steps to be taken during the offboarding of an employee. This would outline things such as disabling the user account within a specified period of time.</p><p>Onboarding policies are for when a new employee is starting at a company. An onboarding procedure would outline how to create a new user's account. A least privilege policy states that users shouldn't have any more access than they need to complete their daily activities for their jobs. Separation of duties is a principle that prevents a single user from having too much control over a network or system.</p>"
+    },
+    {
+      "question": "<p>You are interested in implementing physical security measures for your organization. One control that you are implementing involves an area between two doorways which is used to keep people in until their identity is verified.&nbsp;</p><p>What is the name of this control?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Mantrap</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bollard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Faraday cage</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Air gap</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Mantrap</p><p>A mantrap is a physical security technique. It is an area between two locked doors. Once an individual enters through the first door, they cannot go through the second door or retreat through the first door until after their identity has been verified and authenticated.</p><p>A bollard is a post designed to control vehicular traffic. A Faraday cage is a structure that blocks electromagnetic interference. An air gap is a network that is physically separated from other networks.</p>"
+    },
+    {
+      "question": "<p>You are working as a security engineer for an organization. Lately, the organization has been receiving a large amount of spam email. You have been tasked with reducing the number of spam messages making it into users' mailboxes.&nbsp;</p><p>Which of the following would NOT help you accomplish this goal?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Install antivirus on all user endpoints</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Close open mail relays</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Remove email address links from the company website</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Implement a spam filter</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Install antivirus on all user endpoints</p><p>Some of the methods for preventing or reducing spam include:</p><ul><li>Closing open mail relays</li><li>Removing email addresses from the company websites</li><li>Implementing a spam filter</li><li>Using email blacklisting and whitelisting</li></ul><p>Although it is best practice to have antivirus on all user endpoints, and antivirus could potentially block malware from being delivered in a spam email, it is unlikely that simply having an antivirus installed will reduce the number of spam emails received.</p>"
+    },
+    {
+      "question": "<p>You are interested in implementing a solution that will act as a central repository for all logs and provide a means to aggregate and correlate those logs. Which type of solution would BEST fit your needs?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SIEM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DLP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Proxy</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SIEM</p><p>A security information and event management (SIEM) solution can be used as a central repository for monitoring and system logs. Additionally, these types of products provide a helpful way to aggregate and correlate events, as well as provide alerting functionality. ArcSight, QRadar, and Splunk are examples of popular SIEM solutions.</p><p>An intrusion protection system (IPS) focuses on identifying and actively stopping attacks. Data loss prevention (DLP) is used to actively identify and stop data exfiltration. A proxy is a system that handles requests on behalf of a client.</p>"
+    },
+    {
+      "question": "<p>You are working for an organization that plans to implement FDE on all of its corporate-owned laptops. To ensure that this process runs as smoothly as possible, you would like to ensure that the laptops can store the cryptographic keys for that encryption using a hardware chip on the computer's motherboard.</p><p>When researching new laptops, which of the following should you check for?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TPM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>UEFI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MFD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SED</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TPM</p><p>The Trusted Platform Module (TPM) is a hardware chip attached to a computer's motherboard capable of storing cryptographic keys for full disk encryption (FDE). The TPM supports secure boot and attestation. Most devices these days come with TPM chips by default. When researching new laptops, you should verify that there is a TPM chip, since it is not practical to add a TPM chip to a computer that doesn't have one already.</p><p>UEFI is firmware that operates between an operating system and hardware. A multi-functional device (MFD) is a printer that also performs actions such as scanning, copying, and faxing. A self-encrypting drive (SED) automatically encrypts data.</p>"
+    },
+    {
+      "question": "<p>An organization recently faced a major data breach that cost them millions of dollars. Upon investigation, security analysts found that the breach resulted from a known vulnerability in the Windows operating system. Microsoft had released an update to resolve the issue, but it was not installed on the machine at the time of the breach.</p><p>Which of the following solutions could have BEST prevented this breach?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Patch management</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DLP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Application blacklisting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Removable media control</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Patch management</p><p>Patch management refers to the planning, testing, and installation of patches/updates. Without patch management, it can be difficult to ensure that all systems are patched and protected from known vulnerabilities.</p><p>Data loss prevention (DLP) technologies help to prevent the exfiltration of data after an exploit, but it would have been the patch that would have prevented the breach. There is no indication that application blacklisting or removable media control would have prevented this breach.</p>"
+    },
+    {
+      "question": "<p>A systems administrator for an organization recently experienced a pay cut. As a systems administrator, this individual had access to everything and had complete control of the systems and network of the organization. The disgruntled employee was able to cause significant damage to the organization by making changes to the entire infrastructure before quitting the job.</p><p>Which of the following policies could have BEST prevented this outcome?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Separation of duties</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Mandatory vacation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Continuing education</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Background checks</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Separation of duties</p><p>Of the options given, a separation of duties policy would have been the best to prevent the outcome. The scenario describes an employee who has far too much control over the network to cause detrimental damage.</p><p>Mandatory vacation is used to help identify employees performing long-term malicious activities. It would be unlikely that a mandatory vacation could have prevented this scenario. Continuing education is helpful to teach employees about malicious actors, but won't prevent them from becoming a malicious insider. Background checks are important, but if the systems administrator hadn't performed a malicious act in the past, it would not help in this scenario.</p>"
+    },
+    {
+      "question": "<p>You are a security engineer for an organization that has just had an incident. A piece of malware was located on one of the computers in the finance department. You are currently in the process of removing the computer from the network, ensuring that it doesn't have a network cable plugged in and that it isn't connected to the company wireless.</p><p>What stage of the incident response process are you likely in?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Containment</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Preparation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Eradication</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Recovery</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Containment</p><p>The six common steps in an incident response policy include:</p><ol><li>Preparation</li><li>Identification</li><li>Containment</li><li>Eradication</li><li>Recovery</li><li>Lessons learned</li></ol><p>During the containment stage of incident response, it is crucial to isolate the system to contain the problem's spread. Worms, ransomware, and other types of malware can quickly move through an organization's network, so when these are found on a system, the system should be completely removed from the network.</p><p>In the preparation stage, organizations make plans and do training. In the eradication stage, the root cause of the incident is removed. In the recovery stage, operations are restored to their normal state.</p>"
+    },
+    {
+      "question": "<p>It is time for Emily to reset her password. Her previous passwords were BlackCat12!, Purple3Pancake$, Money34Dog!, and HappyL1v3$. She attempted to change her password to bunnyrabbits, but the system informed her that this did not meet the password requirements. Emily then tried the password BunnyR@bb1t$, which the system accepted.</p><p>Which of the following policies likely allowed Emily to use BunnyR@bb1t$ as a password but not bunnyrabbits?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password complexity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Password length</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Password history</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Password age</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password complexity</p><p>When Emily added capital letters, symbols, and a number to her password, it was accepted. A password complexity policy outlines complexity requirements for passwords, including things like must include symbols, must include upper and lower case characters, must include a number, etc.</p><p>Given that bunnyrabbits was not one of her previously used passwords, it can be assumed that it was not a password history policy preventing her from using that password.</p><p>Since bunnyrabbits and BunnyR@bb1t$ are both the same number of characters, it can be assumed that it was not a password length requirement preventing her from using that password.</p><p>Password age refers to how long a password can be used before it needs to be reset. Since bunnyrabbits was not a previously used password, it doesn't apply to this question.</p>"
+    },
+    {
+      "question": "<p>An attacker is planning a cyber attack against a major organization. To learn more about the organization and its employees, the attacker used websites such as Facebook, Twitter, and LinkedIn. The attacker also researched the organization using other publicly available data such as news articles, the organization's website, and press releases.&nbsp;</p><p>What is the BEST way to describe this type of information gathering?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>OSINT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>OWASP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Active reconnaissance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Vulnerability scanning</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: OSINT</p><p>Open-source intelligence gathering, referred to as OSINT, is the process of gathering information through public sources such as social media websites, company websites, news articles, public records, press releases, and more.</p><p>OWASP is the Open Web Application Security Project and is a non-profit organization that exists to help improve application security. Active reconnaissance refers to information gathering that requires interaction with the actual systems in a network, such as testing to find if ports are open on a network. Vulnerability scanning uses tools to locate common vulnerabilities within a network or system.</p>"
+    },
+    {
+      "question": "<p>What protocol does Active Directory use to manage its objects?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>LDAP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>OAuth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SAML</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OpenID</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: LDAP</p><p>Windows domains use Active Directory (AD), which is based on Lightweight Directory Access Protocol (LDAP). LDAP operates at the application layer and is used for accessing and altering directory services data.</p><p>OAuth, SAML, and OpenID are internet-based architectures for single sign-on.</p>"
+    },
+    {
+      "question": "<p>You have implemented a biometric authentication system for your organization. One day, you found that the biometric system allowed an individual into the building that should not have been allowed to enter.</p><p>What is this an example of?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>False acceptance</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>False rejection</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Positive acceptance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Positive rejection&nbsp;</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: False acceptance</p><p>Failures in which a biometric system improperly categorizes people include false acceptance and false rejection. A false acceptance occurs anytime an individual that should not be allowed access is granted access.</p><p>A false rejection occurs when a user is denied access even though they should be allowed access. A positive acceptance refers to when a user who should be allowed access is accurately granted access. A positive rejection refers to when a user who should not be allowed access is accurately rejected access. Positive acceptance and positive rejection happen when the system is working properly.</p>"
+    },
+    {
+      "question": "<p>An attacker has placed a wireless access point outside of a coffee shop. The wireless access point has been configured to look exactly like the free wireless internet offered by the coffee shop, but the attacker controls it. When unknowing users connect to the access point, believing it to be the legitimate coffee shop Wi-Fi, the attacker can capture all of the data they are sending across the network.&nbsp;</p><p>What is this an example of?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Evil twin</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bluejacking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Birthday attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Amplification</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Evil twin</p><p>An evil twin is a wireless access point configured to use the same name as a nearby wireless network, typically a public Wi-Fi hotspot. The purpose is to trick users into connecting to the rogue access point, thinking that it is the legitimate access point. When victims connect to the rogue access point, the attacker who controls the rogue device can capture all the traffic.</p><p>Bluejacking takes advantage of Bluetooth. A birthday attack is an attack on hashing algorithms. An amplification attack is a denial-of-service attack.</p>"
+    },
+    {
+      "question": "<p>You are in the process of implementing a new virtual environment for an organization. You have chosen to go with a hypervisor that runs directly on the system hardware. What type of hypervisor did you choose?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Type I</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Type II</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Host-based</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Desktop</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Type I</p><p>A type I hypervisor, also known as a bare-metal hypervisor, runs directly on system hardware.&nbsp;</p><p>A type II, or host-based, hypervisor runs as software inside of a system's operating system, such as a user's desktop.</p>"
+    },
+    {
+      "question": "<p>Which of the following would NOT technically be considered MFA?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password and security questions&nbsp;</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Password and hardware token</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PIN and fingerprint scanner</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Retina scanner and passcode&nbsp;</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password and security questions</p><p>Multifactor authentication (MFA) is when two or more types of authentication factors are in place. Types of authentication factors include something you are (biometrics), something you have (hardware token), something you know (PIN, password, security questions), somewhere you are (location-based), and something you do (behavior-based).</p><p>Password and security questions are the same type of authentication factor\u2014something you know. Although some organizations may believe this is multifactor authentication, it is technically incorrect.</p>"
+    },
+    {
+      "question": "<p>Which of the following provides confidentiality with IPSec?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ESP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>AH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>TLM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DNP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ESP</p><p>IPSec provides security in two ways: ESP and AH. Encapsulating Security Payload (ESP) is used to provide encryption of data and provide confidentiality.</p><p>Authentication Header (AH) allows each of the hosts in the IPSec communication to authenticate with each other before exchanging data. AH provides authentication and integrity. TLM and DNP are fabricated terms.</p>"
+    },
+    {
+      "question": "<p>Of the following types of attacks, which is MOST likely to lead to resource exhaustion on a system?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DoS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Logic bomb</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Privilege escalation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Ransomware</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DoS</p><p>A denial-of-service (DoS) attempts to overload an application or service on a system, which leads to resource exhaustion on that system. As a result, the system may be unable to respond to legitimate requests. While other types of attacks could potentially lead to resource exhaustion, DoS attacks are specifically designed to achieve this goal.</p><p>A logic bomb is a string of code set to execute in response to a specific event. Privilege escalation is the act of exploiting a bug or flaw in an application to gain access to resources that would normally be unavailable to that user. Ransomware is a type of malicious program which rapidly encrypts files on a system and demands a payment (ransom) for decrypting the files.</p>"
+    },
+    {
+      "question": "<p>An agreement between an ISP and a company outlines that the ISP will ensure 99 percent internet uptime for the company. If the ISP is unable to keep the internet connection up 99 percent of the time, they may be subject to a financial penalty.</p><p>What type of agreement is being described in this scenario?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SLA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MOU</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ISA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SLA</p><p>A service level agreement (SLA) is an agreement between a vendor and a client that outlines the expectations that are to be met by the vendor.</p><p>A memorandum of agreement (MOU) is an understanding between two parties that outlines the intention to work together toward a common goal. A business partner agreement (BPA) is a written agreement between business partners that outlines their obligations within the partnership. An interconnection security agreement (ISA) specifies the security requirements for a connection between multiple entities.</p>"
+    },
+    {
+      "question": "<p>Marcus is a part of a political movement and has decided to use his hacking skills to bring down the website of an organization that doesn't agree with their movement. What type of hacker BEST describes Marcus?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hacktivist</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Shadow IT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Unskilled attacker</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Nation-state actor</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hacktivist</p><p>A hacktivist is a type of malicious actor that hacks for a cause. Hacktivists are often aligned with a specific movement and use their hacking abilities to target other groups or organizations that do not agree with their set of values.</p><p>Shadow IT is technology used by members of an organization without the IT department's knowledge. Unskilled attackers, or script kiddies, use tools and techniques designed by other, more skilled hackers. Nation-state actors are advanced and sophisticated hackers that are government-sponsored.</p>"
+    },
+    {
+      "question": "<p>You are currently developing a set of detailed instructions that explain how to effectively and securely create a new user account. What is being developed here?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SOP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>AUP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>BPA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NDA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SOP</p><p>A standard operating procedure (SOP) is a set of step-by-step instructions that employees are to follow when performing a specific task, such as account creation. SOPs are helpful to support security policies as well.</p><p>An acceptable use policy (AUP) outlines how employees are expected to act when using a company's system or network. A business partner agreement (BPA) is a written agreement between two business partners that specifies each partner's obligations. A non-disclosure agreement (NDA) is a document stating that an entity will not share proprietary data outside of the organization.</p>"
+    },
+    {
+      "question": "<p>An organization has just implemented mandatory vacations. What is the likely reason for this?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>To detect employees involved in malicious activities</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>To boost company morale</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>To reduce the chance of phishing attacks</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>To prevent employee burnout</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: To detect employees involved in malicious activities</p><p>Mandatory vacation policies can help detect if an employee is involved in malicious activities, such as embezzlement or fraud. This is because employees involved in these activities will need to be present to hide their activities constantly. If another individual takes their responsibilities while they are out on a mandatory vacation, any nefarious activities will likely be uncovered.</p>"
+    },
+    {
+      "question": "<p>Ana, Mark, and Zoe use the same computer. Ana created a folder on the computer named \"Office Admin Files.\" She has determined that Mark will need access to these files, but not Zoe. Ana configures the permissions so that Mark can access the folder when he's on that computer, but Zoe cannot.</p><p>What type of access control method is in place in this scenario?&nbsp;</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DAC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MAC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RBAC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ABAC</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DAC</p><p>Discretionary access control (DAC) is an access control method in which the owner of an object (such as a file, folder, printer, etc.) determines who can access the object. Ana is the owner of the object (the folder) in this scenario and has decided, based on her own discretion, that Mark should have access to that object and not Zoe.</p><p>Mandatory access control (MAC) uses classification levels on resources and clearance levels on users. Role-based access control (RBAC) grants access based on a user's defined role. Attribute-based access control (ABAC) uses granular control based on attributes of users.</p>"
+    },
+    {
+      "question": "<p>You are in the process of adding ACL rules to a stateless firewall. The goal is to ensure that any traffic that is not explicitly allowed by one of the rules is implicitly denied. Where should the deny all rule be placed within the access control lists?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>The implicit deny rule should be the last rule in an ACL</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>The implicit deny rule should be the first rule in an ACL</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>The implicit deny rule should be placed in the center of the ACL</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>It doesn't matter where the implicit deny rule is placed as long as it exists</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: The implicit deny rule should be the last rule in an ACL</p><p>The implicit deny rule should be the last rule listed within an access control list (ACL). Configured in this way, the firewall will compare the traffic against all of the rules first, and if it doesn't meet the requirements of those rules, it will be denied by the final rule.</p><p>If the implicit deny rule is listed first, it will deny all traffic without comparing the traffic against the allow rules that follow. Placing it in the middle of the ACL would cause the same issue as placing it first; any rules listed after the implicit deny rule would be ignored.</p>"
+    },
+    {
+      "question": "<p>Which of the following biometric methods uses the pattern of blood vessels behind the eye for recognition?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Retina scanner</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Iris scanner</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cornea scanner</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Pupil scanner</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Retina scanner</p><p>Two types of biometrics scanners involve the eyes: retina scanners and iris scanners. The retina scanner uses the pattern of blood vessels in the back of the eye for recognition.</p><p>Iris scanners capture an image of the iris around the pupil for recognition. Cornea scanner and pupil scanner are both fabricated terms.</p>"
+    },
+    {
+      "question": "<p>You have been tasked with creating a BCDR plan. One of the items that you've decided to implement is a recovery site. The recovery site is a replica of the main site and has everything needed to be fully operational within 24 hours of a disaster (but usually much quicker). It has an active network connection and systems with their needed software.</p><p>What type of site is described in this scenario?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hot site</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Warm site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cold site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Red site</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hot site</p><p>A hot site is the most effective disaster recovery (DR) site to meet high-availability requirements. Hot sites can be fully operational within 24 hours of a disaster and, in some cases, just a few hours or minutes after the disaster. Hot sites are also the most expensive to implement and maintain.</p><p>A warm site is similar to a hot site in that they have all of the equipment needed. However, the equipment is likely not up to date with the latest backups. There will be a bit of overhead to get the warm site up and running, and it will take a bit longer than a hot site. A cold site is generally just an alternate facility with a roof, walls, electricity, and not much else. All of the equipment would need to be brought into the cold site before it was operational. Cold sites often take a week or more to become operational.</p><p>A red site is a fabricated term.</p>"
+    },
+    {
+      "question": "<p>You are working as a security engineer for a web application developer. You have been tasked with reducing the chance of a cross-site scripting (XSS) attack against a web application.</p><p>Which of the following is the BEST way to reduce the possibility of XSS?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Input validation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Anti-virus software</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Key management</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Patch management</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Input validation</p><p>Cross-site scripting (XSS) is a type of injection attack. Injection attacks occur when a flaw or bug in an application is exploited by inserting (or injecting) invalid information into the application. The best way to combat an XSS attack is to use input validation to ensure that anything entered into the application is valid and non-malicious.</p><p>Anti-virus software is used to protect user workstations. Key management is used to manage cryptographic keys. Patch management is used to automate patching of systems.</p>"
+    },
+    {
+      "question": "<p>An unsuspecting employee found a USB drive lying outside of his office building. Happy to have a new, free storage device, he put it in his pocket and left for the evening. The following day, back in the office, he plugged the USB drive into his computer.</p><p>Upon plugging the device into his computer, a program on the drive began recording everything that the employee was typing without his knowledge and storing it within a file. Since the employee's computer was connected to the internet, the program on the drive was able to connect back to the attacker and send the file. As a result, the attacker obtained passwords for several of the employee's accounts.</p><p>Which BEST describes the program that is installed on the USB drive?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Keylogger</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Trojan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RAT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Logic bomb</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Keylogger</p><p>The program being described is a keylogger. Keyloggers are programs that capture a user's keystrokes. This can be beneficial to a criminal because it could capture passwords and/or credit card numbers. Keyloggers come in both hardware and software variants.</p><p>A Trojan is malware that is disguised as legitimate software. A remote access Trojan (RAT) gives an attacker a way to log into a system. A logic bomb is malware that executes after a certain time or after a certain action.</p>"
+    },
+    {
+      "question": "<p>You are working as a network engineer and implementing a new firewall. In addition to doing deep-packet inspection, the firewall will also do IDS/IPS and scan for malware. What type of firewall is being implemented?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NGFW</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Stateless</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Layer 4</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Layer 7</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NGFW</p><p>A next-generation firewall (NGFW) performs many functions beyond deep inspection of packets to deny or allow traffic. It can also take the roles of intrusion detection/prevention systems (IDS/IPS), perform malware scanning, and analyze user behavior.</p><p>A Layer 4, or stateless, firewall does not keep track of sessions and relies solely on access control lists (ACLs) for decisions on blocking and allowing traffic. A Layer 7 firewall inspects traffic at the application.</p>"
+    },
+    {
+      "question": "<p>An attacker had access to a virtual machine. With access to the virtual machine, the attacker was able to run code on the virtual system and access the hypervisor. Having control over the hypervisor, the attacker had complete control over all of the virtual machines on the host.</p><p>What is the name of this type of attack?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VM escape</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>VM sprawl</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Pivot</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cryptographic</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VM escape</p><p>A VM escape is an attack in which the attacker can access the underlying host system. The host system runs an application known as a hypervisor. The hypervisor manages the virtual machines on the host system. In some cases, the attacker can run code on the virtual machines and access the hypervisor and host system.</p><p>VM sprawl refers to running virtual machines that are no longer needed. A pivot involves moving laterally through a network. A cryptographic attack targets the algorithms used to secure data.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a cryptographic hashing function?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SHA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>AES</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DES</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SHA</p><p>The Secure Hash Algorithm (SHA) is the only option listed that is a hashing function. Hashing functions are used to generate a hash (a summary of a file or message) which is then used to verify the integrity of the data.</p><p>Diffie-Hellman (DH) is a key exchange used for establishing a shared key. Data Encryption Standard (DES) and Advanced Encryption Standard (AES) are encryption algorithms and not hashing functions.</p>"
+    },
+    {
+      "question": "<p>You work for an organization that has implemented biometric locks to enter the building. One day, upon trying to enter, you find that you are denied access, even though you should be allowed to enter.</p><p>What is this an example of?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>False rejection</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>False acceptance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Positive rejection</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Positive acceptance</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: False rejection</p><p>Failures in which a biometric system improperly categorizes people include false acceptance and false rejection. A false rejection occurs when a user is denied access even though they should be allowed access.</p><p>A false acceptance occurs anytime an individual that should not be allowed access is granted access. A positive acceptance refers to when a user who should be allowed access is accurately granted access. A positive rejection refers to when a user who should not be allowed access is accurately rejected access. Positive acceptance and positive rejection occur when the system is working properly.</p>"
+    },
+    {
+      "question": "<p>Of the following, which is the LEAST reliable concept for ensuring security within a network?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Security through obscurity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Principle of least privilege</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Defense in depth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SecDevOps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Security through obscurity</p><p>Security through obscurity is a concept that asserts something will be secure if it's hidden or difficult to understand. Code obfuscation is an example of security through obscurity. Security through obscurity is considered a weak defense and should not be used as a primary security method.</p><p>Defense in depth is a concept in which the more security controls are in place, the better. The principle of least privilege outlines that users, processes, and applications should all have the bare minimum of permissions to operate. SecDevOps is a concept that integrates security into every phase of software development.</p>"
+    },
+    {
+      "question": "<p>You are interested in implementing a UTM solution. Of the following, which is UNLIKELY to be included in a UTM?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>File server</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Intrusion prevention system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Content filter</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: File server</p><p>Unified Threat Management (UTM) solutions combine multiple security solutions into one device. The goal is to provide better security while reducing the management overhead. Sometimes, UTMs are referred to as next-generation firewalls (NGFWs). UTMs include many different features to improve security, such as intrusion detection or prevention systems (IPS/IDSs), firewall capabilities, content filtering, data leak prevention (DLP), malware inspection, and more.&nbsp;</p><p>It's unlikely that a UTM would act as a file server, as it doesn't provide any additional security.</p>"
+    },
+    {
+      "question": "<p>Before installing a new patch for a piece of software, engineers decide to test it inside an isolated environment to analyze the impact of the patch. Which term describes what they are using for testing?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Sandbox</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Honeypot</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Honeynet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>White box</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Sandbox</p><p>A sandbox is an isolated system that is often used for testing. Sandboxing is regularly used by malware analysts to run malware in an isolated environment and see how it behaves. Additionally, sandboxing can be used by administrators to test patches and updates before installing them company-wide. Software developers may also use sandboxing to test their own programs.</p><p>The term white box is used to describe a penetration test in which the tester has full knowledge of the entire network or systems. Honeypots are decoy systems used to distract and trick attackers into thinking it is a legitimate system. A honeynet is a network or part of a network that contains multiple honeypots.</p>"
+    },
+    {
+      "question": "<p>You are performing a quantitative risk assessment and need to find the annualized loss expectancy for a specific risk. Which of the following calculations can be used to find the annualized loss expectancy?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SLE x ARO</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SLE + ARO</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MTTR x ARO</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MTTR + ARO</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SLE x ARO</p><p>As a way to determine the annualized loss expectancy (ALE) related to a specific incident or risk, you should multiply the single loss expectancy (SLE) and the annualized rate of occurrence (ARO). The single loss expectancy (SLE) refers to the loss of value in dollars for a single incident. The annualized rate of occurrence (ARO) is the number of times that a particular incident will occur.</p>"
+    },
+    {
+      "question": "<p>A user notices indicators of an attack, such as unusual network traffic and systems modifications. However, their anti-malware application does not detect any threats. What type of issue could the system be having?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Fileless virus</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Worm</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bot</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAT</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Fileless virus</p><p>A fileless virus can be difficult to detect because it resides in memory rather than on disk. Searching for indicators of an attacker through behavioral or heuristic analysis is one clue that a fileless virus is present on a system.</p><p>Worms are similar to viruses; however, they are self-replicating and don't require user interaction or a host application. A bot is an infected system that is under the control of an attacker. A remote access trojan (RAT) is a trojan type that provides remote access to a system while bypassing typical authentication methods.</p>"
+    },
+    {
+      "question": "<p>Which of the following terms is used to describe the time needed to repair a failed device?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>MTTR</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MTTF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ALE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ARO</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: MTTR</p><p>The mean time to repair (MTTR) is the term used to identify the time needed to repair a failed device.</p><p>The mean time to failure (MTTF) is a measure of reliability for devices that cannot be repaired. The annual rate of occurrence (ARO) refers to the number of times an incident occurs within a year. The annual loss expectancy (ALE) is the total loss in dollars expected due to a specific incident.</p>"
+    },
+    {
+      "question": "<p>A research and development company wants to protect its sensitive information. To do so, they give files custom file extensions and encode them in non-standard formats. What type of security strategy are they employing?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Obfuscation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Hashing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Degaussing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Obfuscation</p><p>Security through obscurity is a security concept which asserts that by making something harder to find or more difficult to understand, it will be secure. Obfuscation is a technique for making something harder to understand. For example, code obfuscation refers to adding nonsense and extra information into the code to throw an attacker off track. It should be noted that most security professionals reject security through obfuscation as a reliable method for maintaining security.</p><p>Hashing is often used to verify the integrity of files. Encryption involves using an algorithm on a file to make it so that only authorized users can read its contents. Degaussing is a method of sanitizing a disk.</p>"
+    },
+    {
+      "question": "<p>A company will use a cloud service to store backup data. They want to ensure that all data is encrypted when being sent from the company's facilities to the cloud backup service provider.&nbsp;</p><p>What type of data encryption do they need to consider in this situation?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Data in transit</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Data at rest</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Data in use</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Data in process</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Data in transit</p><p>Data in transit refers to data that is sent across a network. TLS is a common protocol to use when needing to encrypt data traversing a network.</p><p>Data at rest is data stored on a drive. Data in use, or data in process, is data currently being accessed by a user or a system.</p>"
+    },
+    {
+      "question": "<p>You are working as a malware analyst. While reverse-engineering an application, you find that some code is set to execute at a particular time, specifically on Christmas Eve, at midnight.&nbsp;</p><p>Of the following, which BEST describes this type of code?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Logic bomb</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Evil twin</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rootkit</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Logic bomb</p><p>A logic bomb is a code inserted in an application or script set to execute in response to an event. The creator of the logic bomb specifies the event, and it can be as simple or complex as the creator decides to make it. For example, it could execute on a specific date and time as listed in the scenario or execute when a user performs a specified action. Logic bombs that are set to execute on specific dates and times are also referred to as time bombs.</p><p>A remote access Trojan (RAT) is malware that lets an attacker access a system remotely. An evil twin attack targets Wi-Fi networks. A rootkit is malware that gives a user administrative access to a system.</p>"
+    },
+    {
+      "question": "<p>An attacker has purchased the domain \"evay.com\" in hopes of infecting victims who accidentally type evay.com when attempting to access ebay.com. What is the name of this type of attack?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Typosquatting</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Active interception</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Logic bomb</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Clickjacking</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Typosquatting</p><p>Many attackers rely on human error, such as making a typo when entering the name of a website. These attackers purchase similar domains to legitimate domains, knowing that millions of typos are performed in web browsers each day. As a result, when a user arrives at the incorrect site, they are vulnerable to malware installation and other types of attacks. These types of attacks are known as typosquatting or URL hijacking.</p><p>Active interception is a technique used in man-in-the-middle attacks in which a computer is placed between the sender and recipient. A logic bomb is a type of code meant to execute malicious actions after a set of specific criteria has been met. Clickjacking tricks users into clicking something different than what they believe they are clicking.</p>"
+    },
+    {
+      "question": "<p>You have been asked to implement a policy that outlines the usage of personal devices for work-related tasks. This policy will state that employees are allowed to use their own devices on the corporate network for work-related items and outlines how the employees must protect their devices if they wish to do so.</p><p>What type of policy are you creating in this scenario?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>BYOD</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>CYOD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Corporate-owned</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>COPE</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: BYOD</p><p>A common deployment of mobile devices in the corporate world is known as BYOD, or bring your own device. When allowing employees to bring their own devices, it's crucial that there is a policy in place that outlines how to manage and protect those devices before they connect to the corporate network. This policy is known as a BYOD policy.</p><p>Choose your own device (CYOD), corporate-owned, and corporate-owned personally enabled (COPE) do not allow the users to use their own personal devices on the network.</p>"
+    },
+    {
+      "question": "<p>Two organizations are planning to work together on a project. Which type of document formally outlines the roles and responsibilities in detail for each party?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>MOA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MOU</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SLA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: MOA</p><p>A memorandum of agreement (MOA) is a type of agreement between multiple entities that outlines in detail the roles and responsibilities of each party. It is more detailed than an MOU.</p><p>A service level agreement (SLA) is a type of agreement between a vendor and client that outlines the expectations for the vendor to meet. A business partner agreement (BPA) is a type of agreement between business partners that outlines each partner's obligations. A memorandum of understanding (MOU) is an understanding between two or more parties that states their intention to work toward a specific goal.</p>"
+    },
+    {
+      "question": "<p>A group of sophisticated attackers found a vulnerability in an operating system that even the operating system developers weren't aware of. Since the developers did not know about the vulnerability, there was no patch or fix to prevent it from being exploited. As such, attackers could exploit this vulnerability multiple times before any patch was released to prevent it.&nbsp;</p><p>What is this an example of?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Zero-day</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Watering hole</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Man-in-the-middle</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Evil twin</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Zero-day</p><p>A zero-day vulnerability is one that has not yet been discovered by the vendor or a vulnerability for which no patch currently exists. Zero-day vulnerabilities are not very common. Zero-day attacks consist of using various attack methods such as viruses, trojans, overflow attempts, and more to exploit the vulnerability.</p><p>A watering hole attack targets a server that users frequently visit. A man-in-the-middle attack intercepts and modifies traffic between two systems. An evil twin attack targets Wi-Fi.</p>"
+    },
+    {
+      "question": "<p>What type of cipher is 3DES?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Symmetric block cipher</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Asymmetric block cipher</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Symmetric stream cipher</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Asymmetric stream cipher</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Symmetric block cipher</p><p>The Triple Data Encryption Standard (3DES), pronounced Triple DES, was built as an improvement over the Data Encryption Standard (DES). Both DES and 3DES are symmetric block ciphers. Symmetric encryption uses the same key to encrypt and decrypt data, while asymmetric uses two keys in a matched pair for encryption and decryption. A block cipher encrypts data in blocks (such as 64- or 128-bit blocks), while a stream cipher encrypts it as a stream of bits.</p>"
+    },
+    {
+      "question": "<p>Of the following cloud deployment models, which provides an entire cloud computing platform that allows developers to quickly jump in and develop applications?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PaaS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DaaS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PaaS</p><p>Platform as a service (PaaS) is a cloud development model that provides an entire cloud computing platform for developing applications. PaaS allows developers to focus on creating and managing their applications without having to deal with managing the hardware and operating systems. In many cases, the PaaS provider even installs the necessary updates and patches to the operating system.</p>"
+    }
+  ]
+}

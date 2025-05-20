@@ -1,0 +1,2524 @@
+{
+  "questions": [
+    {
+      "question": "<p>Which of the following is used to protect against SQL injection attacks?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Stored procedures</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Database tokenization</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Memory management</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Secure cookies</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Stored procedures</p><p>Stored procedures protect against SQL injection attacks because they prevent user-supplied data from being interpreted as code.</p><p>Database tokenization protects some sensitive information against unauthorized access but does not prevent SQL injection. Good memory management can protect against buffer overflows and similar issues. Secure cookies are used to store information from a website locally in a user's browser.</p>"
+    },
+    {
+      "question": "<p>Which of the following is HIGHEST in the order of forensic volatility?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>CPU cache</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Disk</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Swap file</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: CPU cache</p><p>The forensic order of volatility describes which forms of evidence are more stable or more volatile. The CPU cache is the most volatile type of evidence.</p><p>RAM, swap files, and data on disk are lower in the order of volatility.</p>"
+    },
+    {
+      "question": "<p>Which of the following network security approaches focuses on protecting high-risk or vital systems from the rest of the network?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Isolation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Segmentation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Quarantine</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Containment</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Isolation</p><p>Isolation is designed to protect high-risk or vital systems from threats by isolating them from the rest of the network.</p><p>Segmentation breaks the network into chunks based on purpose, making it more difficult for attackers to cross these boundaries. Quarantine and containment are focused on preventing a threat from spreading from a compromised system.</p>"
+    },
+    {
+      "question": "<p>A user clicks on a link whose URL looks legitimate. However, the link takes them to a phishing site that harvests their login credentials and sends them to an attacker. Which of the following types of attacks is MOST likely to have occurred?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pharming</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Phishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Pretexting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Vishing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pharming</p><p>In a pharming attack, malicious DNS records, malware, or other means are used to redirect users to a phishing site.</p><p>Since the URL looks correct, pharming is more likely the case than phishing, which typically relies upon lookalike or plausible URLs. Pretexting gains access by creating a plausible scenario, and vishing is phishing over the phone.</p>"
+    },
+    {
+      "question": "<p>An organization has a team of techs who travel to various customer sites to provide IT support and may be on call as part of a 24/7 roster. A security administrator wants to be alerted if a technician makes authentication attempts simultaneously from two locations located more than 100 meters apart.&nbsp;</p><p>What type of threat hunting is the security administrator implementing?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Impossible travel time</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Geofencing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Missing logs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Blocked content</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Impossible travel time</p><p>With these mobile techs, the company may be unable to predict when or where the employee will be working. However, if they log in from different locations without the time to travel between them, this is an anomalous login worthy of investigation.</p><p>Geofencing is used to prevent devices from authenticating outside of a specific area. Missing logs refers to systems that have had their log files cleared or altered. Blocked content refers to attempts to access resources from a device that are not allowed.</p>"
+    },
+    {
+      "question": "<p>An organization has experienced a cyberattack in which a website was defaced with political slogans. Which of the following is MOST likely to be the cause?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hacktivists</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>APT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Criminal syndicates</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>State actors</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hacktivists</p><p>Hacktivists are hackers with some form of agenda.</p><p>While the other types of attackers, such as APT, criminal syndicates, and state actors, could have carried out this attack, hacktivists are the most likely cause.</p>"
+    },
+    {
+      "question": "<p>What type of risk appetite is associated with a company that creates medical devices?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Conservative</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Neutral</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Expansionary</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Balanced</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Conservative</p><p>A risk appetite can be described as conservative, neutral, or expansionary. Companies in the medical field need to maintain a conservative posture because they are in a heavily regulated industry and need to create products that are safe for consumers.</p><p>A neutral, or balanced, appetite can take more risks than companies in highly regulated industries. An expansionary appetite is typical of a startup company.</p>"
+    },
+    {
+      "question": "<p>Which of the following is an example of an algorithm that could produce 256-bit hash outputs?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SHA-2</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SHA-1</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MD5</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>AES</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SHA-2</p><p>SHA-2 includes the SHA-256 and SHA-512 algorithms, and SHA-256 can produce a 256-bit hash.</p><p>MD5 produces 128-bit hashes, and SHA-1 produces 160-bit hashes. AES is an encryption algorithm.</p>"
+    },
+    {
+      "question": "<p>A company wants to evaluate the effects that would occur to their business in the case of different systems becoming unavailable for a certain amount of time. What type of process should they complete for this?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>BIA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DRP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>BCP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: BIA</p><p>A business impact analysis (BIA) analyzes the risks to different systems to calculate the effect if they are taken offline. This information is important for determining how much resources to allocate towards protecting each resource.</p><p>A disaster recovery plan (DRP) outlines how a company will restore systems after an incident. A business continuity plan (BCP) is used to describe how a company will continue operations during an incident. A business partners agreement (BPA) is a document that outlines how two companies will work together.</p>"
+    },
+    {
+      "question": "<p>A software developer is concerned about race condition attacks against their application. They want to ensure that when a user verifies access permissions for a resource, that the resource does not change before it gets used.&nbsp;</p><p>What type of vulnerability are they trying to address?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TOC/TOU</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SQLI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Buffer overflow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EOL</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TOC/TOU</p><p>A time of check/time of use (TOC/TOU) vulnerability takes advantage of the time between when a resource is checked and the time it is used. This can occur in a multi-threaded system.</p><p>A SQLI attack inserts SQL queries into web forms. A buffer overflow vulnerability takes advantage of code that is not designed to handle memory correctly. An end-of-life (EOL) vulnerability occurs when there is a vulnerability in software that is no longer supported by the developer.</p>"
+    },
+    {
+      "question": "<p>A company wants to ensure that the devices that employees use are fully patched before allowing them to connect to the network. What technology should they use to accomplish this?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NAC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>FIM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>EDR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DLP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NAC</p><p>Network access control (NAC) installs an agent on devices that carries out checks to ensure that the devices meet the required specifications to join the network.</p><p>File integrity monitoring (FIM) alerts when a system file has been altered. Endpoint Detection and Response (EDR) is used to identify and mitigate attacks on endpoints. Data loss prevention (DLP) is used to prevent data exfiltration.</p>"
+    },
+    {
+      "question": "<p>Which of the following types of metadata can provide location-related information about an incident?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Photo</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Email</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Document</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Web content</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Photo</p><p>Photos can embed the GPS coordinates of the location where they are taken. A photo of a security incident can provide more information about its location.</p><p>Emails, documents, and web content may contain location data, but this is much less likely since they don't embed it automatically.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a component of an embedded system that needs to have its default settings changed, such as its default passwords?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RTOS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SSID</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>APT</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ECDSA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RTOS</p><p>A real-time operating system (RTOS) is used with embedded systems where data needs to be processed quickly without waiting for interrupts. An RTOS needs to be checked for security, including changing any default passwords.</p><p>A Service Set Identifier (SSID) is a unique name for a Wi-Fi network. An advanced persistent threat (APT) is an attacker that has a long-term presence in an organization. The Elliptic Curve Digital Signature Algorithm (ECDSA) is a cryptographic algorithm for digital signatures.</p>"
+    },
+    {
+      "question": "<p>A company has sensitive information stored on a system that has been air-gapped from their network. What type of technique are they using to secure the data?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Isolation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Patching</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Decommissioning</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Isolation</p><p>Isolation involves protecting a system by separating it from the rest of the network. It can also be used to separate systems that have been compromised in an attack.</p><p>Patching involves protecting systems by running regular updates. Encryption involves protecting data by making it unreadable to unauthorized users. Decommissioning involves retiring assets that are no longer needed.</p>"
+    },
+    {
+      "question": "<p>In a DevSecOps environment, what practice is used to consistently automate builds with code in a shared repository?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Continuous integration</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Continuous delivery</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Continuous deployment</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Continuous testing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Continuous integration</p><p>When many users work on an application, they use a shared repository where they check code out to work on it and then check it back in when they are done. Continuous integration gives early detection if an application has build errors after some changes.</p><p>Continuous testing is used to run automated tests on aspects such as functionality and security. Continuous deployment, or delivery, is used to regularly roll out tested changes to live servers.</p>"
+    },
+    {
+      "question": "<p>An attacker identifies information about its target's vulnerabilities by searching through the target's social media feeds and websites. What type of intelligence is the attacker using?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>OSINT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Threat feeds</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ISOs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Dark web</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: OSINT</p><p>Open source intelligence (OSINT) is information about an organization that is publicly available. Common sources of OSINT include websites, social media, DNS, and news reports.</p><p>Threat feeds are curated streams of discovered vulnerabilities. Information sharing organizations (ISOs) are organizations created to exchange threat intelligence. The dark web includes websites that are not indexed by search engines and used for illicit activities.</p>"
+    },
+    {
+      "question": "<p>At which stage of the incident response process does a first responder become involved?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Detection</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Preparation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Containment</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Eradication</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Detection</p><p>At the detection, or identification, stage of the incident response process, a first responder is notified and investigates the incident.</p><p>After their arrival, one of the first steps is containment, followed by eradication, recovery, and lessons learned. Preparation occurs before an incident happens.</p>"
+    },
+    {
+      "question": "<p>Which regulation concerns the financial transparency of public companies?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SOX</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>GDPR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CCPA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>PCI DSS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SOX</p><p>The Sarbanes-Oxley (SOX) Act deals with corporate transparency and mandates that companies keep certain records for a fixed period of time.</p><p>Other regulations, such as GDPR, CCPA, and PCI DSS, are primarily focused on data privacy.</p>"
+    },
+    {
+      "question": "<p>A company is worried about the risks involved with hosting their own email servers. To deal with this, they turn to a third-party solution to handle all of their email services. What type of risk strategy are they employing?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Transfer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Accept</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Avoid</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Mitigate</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Transfer</p><p>Risk transference involves allocating the risks to a third party. Another type of risk transference involves getting insurance.</p><p>Risk acceptance involves adding no more controls to a risk. Risk avoidance involves not engaging in the activity deemed risky. Risk mitigation involves adding more controls to address a risk.</p>"
+    },
+    {
+      "question": "<p>A company wants to add digital watermarks to sensitive files to trace the origin of any data leaks. Which technique allows them to do this?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Steganography</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Tokenization</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Masking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Minimization</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Steganography</p><p>Steganography involves hiding messages in other media. This can include adding messages in images or audio files for exfiltration or for providing forensic evidence in case of a data breach.</p><p>Tokenization involves replacing data with placeholder values. Data masking involves removing sensitive information from a document and replacing it with random characters. Minimization involves collecting only the minimal amount of data an organization needs to perform its functions.</p>"
+    },
+    {
+      "question": "<p>During quality assurance testing, the team determines that an application's operations are unpredictable. When running the same sets of inputs through the application, it produces different results.&nbsp;</p><p>Which of the following might be the problem?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Race condition</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Integer overflow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Buffer overflow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Directory traversal</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Race condition</p><p>A race condition vulnerability can exist if an application uses multithreading and fails to ensure that different threads of execution can't interfere with one another. If the same tests produce different results, then the issue may be a race condition.</p><p>For integer overflow, buffer overflow, and directory traversal, exploiting them should consistently produce the same results.</p>"
+    },
+    {
+      "question": "<p>Which of the following solutions is designed to collect data from various sources and analyze it to extract useful intelligence?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SIEM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Syslog</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SNMP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SOAR</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SIEM</p><p>A Security Information and Event Management (SIEM) system collects log files and other data from various sources and analyzes them to extract useful information.</p><p>Syslog and the Simple Network Management Protocol (SNMP) are two means of collecting data from various sources. Security Orchestration, Automation, and Response (SOAR) can help to automate responses to the alerts generated by a SIEM.</p>"
+    },
+    {
+      "question": "<p>Which technology signs the body and parts of the header of an email message to verify that it was sent from the organization it claims to be from?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DKIM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SPF</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>FIM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>PGP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DKIM</p><p>DomainKeys Identified Mail (DKIM) digitally signs email messages. It is used to authenticate email.</p><p>The Sender Policy Framework (SPF) uses DNS records to verify if a sender's IP address is authorized to send email on behalf of the domain. File integrity monitoring (FIM) is used to determine if system files have been altered. Pretty Good Privacy (PGP) is used to encrypt email messages.</p>"
+    },
+    {
+      "question": "<p>Which of the following standards was developed and maintained by a set of organizations within the industry?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PCI DSS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>HIPAA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SOX</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>GDPR</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PCI DSS</p><p>The Payment Card Industry Data Security Standard (PCI DSS) was developed by major payment card brands to protect against fraud.</p><p>GDPR, HIPAA, and SOX are all laws developed by a government entity.</p>"
+    },
+    {
+      "question": "<p>A company decides that they cannot afford to lose more than six hours of work in case of a disruption. So, they change their backup frequency to four times per day. What metric of a business impact analysis are they adjusting?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RPO</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RTO</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MTTR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MTBF</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RPO</p><p>The recovery point objective (RPO) defines the maximum age of files or data that an organization can afford to lose in the case of an incident. A lower RPO will require more frequent backups.</p><p>The recovery time objective (RTO) defines the maximum time that an organization can have a system down before it must be repaired. The mean time to repair (MTTR) is the average time to restore a malfunctioning system to its functioning state. The mean time between failures (MTBF) is the average time a system functions before it needs repairs.</p>"
+    },
+    {
+      "question": "<p>Which of the following policies is NOT designed to protect against fraud or negligence?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Acceptable use</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Job rotation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Mandatory vacation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Separation of duties</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Acceptable use</p><p>Acceptable use policies define what can and cannot be done on corporate systems and protect more against the use of social media, etc. than fraud.</p><p>Job rotation and mandatory vacation protect against fraud by occasionally placing someone else in a role where they might be able to detect evidence of fraud. Separation of duties breaks critical processes up into steps performed by different people, which can protect against both fraud and phishing.</p>"
+    },
+    {
+      "question": "<p>During a penetration test, which of the following terms does NOT refer to attempts to expand a tester's access to the target environment?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Persistence</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Lateral movement</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Pivoting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Privilege escalation</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Persistence</p><p>Persistence mechanisms are designed to solidify an existing foothold on a compromised system.</p><p>During a penetration test, lateral movement and pivoting refer to moving from one system to another, while privilege escalation provides the attacker with additional access and permissions.</p>"
+    },
+    {
+      "question": "<p>Access controls that manage permissions on corporate systems fall under which category of security controls?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Technical</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Managerial</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Operational</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Procedural</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Technical</p><p>Technical controls apply to technology and include firewalls, access controls, and similar solutions.</p><p>A password policy is an example of a managerial control because it is a policy or procedure that affects the entire organization. Operational controls specify how something should be done, such as backups or managing a particular system. Procedural is not a category of security control.</p>"
+    },
+    {
+      "question": "<p>Which of the following would NOT be a violation of password complexity requirements?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password reuse</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Limited character set</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Password length</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Common words</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password reuse</p><p>An employee may have a complex password but reuse it across multiple accounts. This is an example of a password security issue not related to password complexity.</p><p>Using a limited character set, short passwords, or a keyboard walk decreases password complexity.</p>"
+    },
+    {
+      "question": "<p>A user has received a message on their phone containing a link using a link-shortening service. Which of the following is MOST likely the case?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Smishing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Vishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Spear phishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Whaling</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Smishing</p><p>This is likely a smishing attack because SMS messages commonly use shortened links. Smishing can be addressed through user education and anti-spam filters on mobile devices.</p><p>While spear phishing and whaling could use shortened links, they are often done through email, which doesn't have the same length constraints as SMS. Vishing is performed over the phone, so shortened links do not make sense in that context.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a method of implementing authentication across multiple organizations?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Federation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Attestation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Directory services</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MFA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Federation</p><p>Federation allows authentication to be implemented across multiple organizations.</p><p>Attestation is when one party vouches for another. Directory services maintain profiles with information about users and groups. Multi-factor authentication (MFA) improves the strength of authentication by using multiple, different authentication factors.</p>"
+    },
+    {
+      "question": "<p>Which of the following components in a zero trust architecture is located in the data plane?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Subjects</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Policy-driven access control</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Policy administrator</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Policy engine</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Subjects</p><p>The data plane is responsible for the movement of packets within a network. Subjects are the entities that initiate data communications.</p><p>Policy-driven access control, the policy administrator, and the policy engine are in the control plane.</p>"
+    },
+    {
+      "question": "<p>Which type of tool stores users' passwords online and uses a single master password to control them?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password vault</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Password key</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HSM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>TPM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password vault</p><p>A password vault stores authentication information (such as password keys). Examples of password managers include LastPass and Bitwarden.&nbsp;</p><p>They are not solutions that provide hardware-based protection for sensitive information like a TPM or HSM does.</p>"
+    },
+    {
+      "question": "<p>An organization wants remote workers to use a VPN to connect to resources on the public LAN but wants traffic to cloud-based SaaS solutions to be directly routed. Which of the following VPN configurations would accomplish that goal?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Split tunnel</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Full tunnel</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Remote access</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Site-to-site</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Split tunnel</p><p>In a split-tunnel VPN, traffic to the corporate network travels over the VPN, while the user has direct access to the Internet (and cloud SaaS) applications.&nbsp;</p><p>With a full-tunnel VPN, all traffic is routed over the VPN. A remote access VPN can be used as a full-tunnel or split-tunnel VPN. A site-to-site VPN is used to link two corporate LANs over an untrusted network.</p>"
+    },
+    {
+      "question": "<p>During a phishing attack, the attacker masquerades as the CEO giving instructions to an employee. Which social engineering reason for effectiveness was the attacker using?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Authority</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Intimidation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Urgency</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Familiarity/liking</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Authority</p><p>The attacker was using authority in their attack because, if the attacker is who they claim to be, the recipient of the email should follow their instructions.</p><p>Intimidation is incorrect because the message being relayed in the email is not necessarily one that would inspire fear. The message may convey a sense of urgency, but the primary reason for the effectiveness of the attack is the perceived authority of the attacker. While the CEO may be a familiar person to the intended recipient, this is not the source of effectiveness.</p>"
+    },
+    {
+      "question": "<p>An organization has a mobile device policy that allows employees to install certain preapproved applications of their choice on company-owned devices. Which of the following models does this BEST describe?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>COPE</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>COBO</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>BYOD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CYOD</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: COPE</p><p>A Corporate-Owned Personally Enabled (COPE) policy allows employees to manage and install preapproved apps on company-owned devices.</p><p>A Corporate-Owned Business Only (COBO) policy only allows business applications on company devices. A Choose Your Own Device (CYOD) policy has devices that are either purchased from an approved list by the company or treated as rentals and allow personal apps. A Bring Your Own Device (BYOD) policy allows the use of personal devices for business.</p>"
+    },
+    {
+      "question": "<p>An organization has noticed a high volume of failed login attempts to its online services. Further investigation finds that the attacker performed a few login attempts for each user account before moving on to the next.&nbsp;</p><p>Which of the following types of attacks is MOST likely occurring?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password spraying</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dictionary</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Rainbow table</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Brute force</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password spraying</p><p>In a password spraying attack, the attacker tries to log into many different accounts using the same list of common passwords.&nbsp;</p><p>In contrast, dictionary, rainbow table, and brute force attacks typically focus on a single account.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a Layer 2 attack in which the attacker modifies the mappings of MAC addresses to IP addresses cached on one or more systems?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ARP poisoning</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MAC flooding</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MAC cloning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DNS poisoning</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ARP poisoning</p><p>In an ARP poisoning attack, the attacker modifies the ARP caches on one or more machines to have incorrect mappings of IP to MAC addresses. One way to defend against this is to use port security on switches.</p><p>MAC flooding causes a similar effect by overflowing the MAC address table and causing old, valid MAC addresses to be pushed out by new, malicious ones. MAC cloning is when a system uses the same MAC address as some other system. DNS poisoning changes DNS records to map to incorrect IP addresses.</p>"
+    },
+    {
+      "question": "<p>Which of the following refers to one of the resulting chunks after a monolithic application is broken up into multiple pieces to make them easier to develop, update, and maintain?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Microservices</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>APIs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Serverless</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Functions</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Microservices</p><p>Microservices are independent sections of an application that implement a particular function. These are easier to maintain than a whole application and, when linked together via Application Programming Interfaces (APIs), achieve the same goal.</p><p>Serverless architectures are where a cloud service provider manages the work of configuring, maintaining, and operating a server where a customer's applications can run. A microservice may have a single function or multiple functions.</p>"
+    },
+    {
+      "question": "<p>A company is collecting evidence after an incident. What type of document should they use to keep track of any parties that access the evidence after it has been collected?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Chain of custody</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SLA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NDA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Right-to-audit clause</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Chain of custody</p><p>A chain of custody is required to keep track of evidence so that it may be used in court. It includes the date, time, and location of where it was collected along with a history of who accesses it.</p><p>A service level agreement (SLA) is used to outline the services a provider offers to clients. A non-disclosure agreement (NDA) is an agreement to ensure that information cannot be shared with others. A right-to-audit clause is an agreement with a provider that allows the client or a third party to audit the provider to ensure it's operating according to standards.</p>"
+    },
+    {
+      "question": "<p>An organization is concerned about the potential for DDoS attacks against its cloud-based resources. Which of the following could help to mitigate those concerns?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Dynamic resource provisioning</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Security groups</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Instance awareness</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Container security</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Dynamic resource provisioning</p><p>Dynamic resource provisioning, or allocation, makes it possible to spin up additional resources as necessary in the cloud. In the face of a DDoS attack, this could allow resources to scale to manage the additional traffic.</p><p>Security groups manage access to cloud resources. Instance awareness enables an organization to differentiate between its various cloud resources. Container security addresses container-specific threats. None of these are related to DDoS attacks.</p>"
+    },
+    {
+      "question": "<p>A user's system is clearly infected with malware. However, numerous antivirus scans have not detected anything. Which of the following may explain the issue?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Rootkit</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Ransomware</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Keylogger</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAT</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Rootkit</p><p>A rootkit is malware specifically designed to hide the presence of malware on a system. Depending on the type and sophistication of the rootkit, it may be able to hide from an antivirus.</p><p>While it's possible that these other types of malware could go undetected by an antivirus, a rootkit is the most likely explanation.</p>"
+    },
+    {
+      "question": "<p>Which aspect of zero trust architecture relates to applying context to authentication attempts?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Adaptive identity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Threat scope reduction</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Policy-driven access control</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Policy enforcement points</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Adaptive identity</p><p>Adaptive identity is the aspect of zero trust architecture that considers factors such as user location, behavior, and device characteristics before making authentication decisions. Additional authentication factors may be asked for if authentication attempts occur under unusual circumstances.</p><p>Threat scope reduction refers to minimizing the attack surface. Policy-driven access control refers to translating security policies and guidelines into enforceable policies. Policy enforcement points refers to having a single checkpoint for making decisions about whether actions should be authorized.</p>"
+    },
+    {
+      "question": "<p>Which of the following tracks evidence through its lifecycle?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Chain of custody</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Timeline</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Event log</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Evidence log</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Chain of custody</p><p>A chain of custody is a document that tracks the possession and location of evidence.</p><p>Timelines document what happens and when during an incident. Event logs are a type of evidence. Evidence log is a fabricated term.</p>"
+    },
+    {
+      "question": "<p>Which of the following protocols FIRST implemented the IEEE 802.11i wireless security standard, which uses CCMP with AES for encryption?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WPA2</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>WPA3</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WPA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>WEP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WPA2</p><p>Wi-Fi Protected Access 2 (WPA2) first implemented IEEE 802.11i, which includes the use of Counter Mode Cipher Block Chaining Message Authentication Code Protocol (CCMP) with AES for encryption.</p><p>Wired Equivalent Privacy (WEP) and WPA predate this protocol and are insecure. WPA3 is an update to WPA2 and incorporates Simultaneous Authentication of Equals (SAE) to replace WPA2's pre-shared keys (PSKs).</p>"
+    },
+    {
+      "question": "<p>Which of the following algorithms has secure and insecure versions identified by version numbers rather than a different name?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SNMP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SSH</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>FTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SFTP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SNMP</p><p>SNMPv3 is the secure version of the protocol, incorporating strong encryption.</p><p>FTP is insecure, and SFTP and SSH are always secure.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a secure chip built into a computer to store encryption keys?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TPM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>HSM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>UEFI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SED</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TPM</p><p>A Trusted Platform Module (TPM) is a secure chip built into a computer's motherboard that stores encryption keys.</p><p>Hardware Security Modules (HSMs) are standalone systems similar to a TPM. Unified Extensible Firmware Interface (UEFI) includes security features for boot. Self-Encrypting Drives (SED), like Opal, automatically encrypt data stored on them.</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT an open-source protocol or tool for network traffic analysis?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NetFlow</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IPFIX</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>sFlow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>tcpdump</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NetFlow</p><p>NetFlow is a Cisco-proprietary network monitoring protocol.</p><p>The Internet Protocol Flow Information eXport (IPFIX) is a network monitoring protocol. sFlow is an open protocol for packet sampling, and tcpdump is a command-line tool for recording network traffic.</p>"
+    },
+    {
+      "question": "<p>A company has certain employees with sensitive information on their laptops. They want to implement a solution that will monitor their devices for malicious activity and actively stop any attacks.&nbsp;</p><p>What should they implement for this?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>HIPS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Host-based firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Patch management</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NAC</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: HIPS</p><p>A host-based intrusion protection system (HIPS) will detect and actively counter attacks on end-user devices.</p><p>A host-based firewall denies or allows traffic based on rulesets. Patch management is used to automatically deploy patches to systems. Network access control (NAC) is used to ensure that devices meet certain specifications before being allowed to connect to a network.</p>"
+    },
+    {
+      "question": "<p>Which of the following is the rate at which a biometric system incorrectly rejects authentic users?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FRR</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>FAR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CER</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>FER</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FRR</p><p>The false rejection rate (FRR) is the rate at which a system incorrectly rejects legitimate users.</p><p>The false acceptance rate (FAR) is the rate at which the system incorrectly accepts unauthorized users. The crossover error rate (CER) is the point where the two error rates are equal. FER is a fabricated term.</p>"
+    },
+    {
+      "question": "<p>An Internet of Things (IoT) device is designed to plug into the wall, communicate over 5G or Wi-Fi networks, and ensure data security by encrypting data with the 3DES algorithm. Which of the following is one of the security constraints of this solution?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Encryption</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Power</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Network</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Range</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Encryption</p><p>DES and 3DES are weak encryption algorithms, so crypto is the obvious constraint for this system.</p><p>An IoT system plugged into the wall likely has ample power, and support for 5G and Wi-Fi networks makes it likely that the system will have network connectivity and no limits on range.</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT a vulnerability caused by improper input handling or sanitization?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VM escape</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Injection</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Buffer overflow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Integer overflow</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VM escape</p><p>Virtual machine (VM) escape occurs when a virtual machine can break out of its hypervisor, allowing it to access other VMs and resources on the system. This can occur due to bugs or vulnerabilities in a hypervisor.</p><p>Injection, buffer overflows, and integer overflows are all vulnerabilities that arise from poor input sanitization.</p>"
+    },
+    {
+      "question": "<p>A company wants to set up security around the perimeter of their building that detects intruders based on their heat signatures. Which type of sensor should they use for this?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Infrared</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Pressure</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Microwave</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Ultrasonic</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Infrared</p><p>Infrared sensors detect heat signature changes. They are inexpensive and commonly used for security.</p><p>Pressure sensors detect touches or steps. Microwave sensors emit and detect microwave pulses. Ultrasonic sensors detect sound waves.</p>"
+    },
+    {
+      "question": "<p>What is the BEST term for an unauthorized, malicious wireless connection point set up with the same SSID and password as a legitimate wireless network?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Evil twin</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rogue AP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bluejacking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Jailbreaking</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Evil twin</p><p>An evil twin is a type of rogue access point in which an attacker configures the rogue AP with the same information as a legitimate network to trick users.</p><p>Rogue APs, in general, are simply wireless APs set up without proper authorization. Bluejacking is a Bluetooth weakness. Jailbreaking involves gaining root access to a mobile device.</p>"
+    },
+    {
+      "question": "<p>Which of the following standards is XML-based and allows third parties to share a user's credentials so they can log in to multiple applications?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SAML</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>HTML</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SOAP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CCMP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SAML</p><p>Security Assertions Markup Language (SAML) enables single sign-on (SSO). It lets a user connect to multiple applications because third parties exchange authentication and authorization data.</p><p>HTML is used to format web pages. SOAP is used to exchange data between web services. Counter Mode/CBC-MAC Protocol (CCMP) is a cryptographic protocol.</p>"
+    },
+    {
+      "question": "<p>Which of the following application security best practices could protect against buffer overflow attacks?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Input validation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Stored procedures</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Code signing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Input validation</p><p>Input validation involves verifying that input meets certain expectations before using it. This can help protect against buffer overflows by validating that data will fit in an allocated memory buffer before writing the data to that buffer.</p><p>Stored procedures protect against SQL injection attacks, not buffer overflows. Code signing ensures the authenticity and integrity of an application's code, and encryption is used to protect data integrity; neither of these relates to buffer overflows.</p>"
+    },
+    {
+      "question": "<p>Which of the following solutions is NOT targeted toward blocking malicious content from entering the organization?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DLP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Firewall rule</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Content filter</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>URL filter</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DLP</p><p>Data loss prevention (DLP) solutions are designed to protect against data leaks.</p><p>Firewall rules, content filters, and URL filters all provide protection against malicious content (and potentially other threats).</p>"
+    },
+    {
+      "question": "<p>Which type of backup site will likely have utilities and Internet connectivity but lack up-to-date software and data on any on-site systems?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Warm site</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cold site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hot site</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Secondary site</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Warm site</p><p>A warm site falls somewhere between a cold and hot site and likely has utilities but will not have up-to-date systems.</p><p>A cold site is a bare-bones location and may not even have utilities in service. A hot site is fully set up and may just lack the latest version of updated data. Secondary site is a fabricated term.</p>"
+    },
+    {
+      "question": "<p>Taking out an insurance policy is an example of which of the following risk management strategies?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Transference</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Avoidance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Acceptance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Mitigation</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Transference</p><p>Risk transference involves offloading risk to a third party, such as an insurance provider.</p><p>Risk avoidance involves not performing some activity that creates a particular risk. Risk acceptance involves doing nothing and accepting the resulting risk. Risk mitigation uses security controls (such as an antivirus or access control policy) to reduce or eliminate risk.</p>"
+    },
+    {
+      "question": "<p>Which of the following types of algorithms is used to ensure data authenticity?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Digital signatures</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Key stretching</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hash functions</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Encryption algorithms</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Digital signatures</p><p>Digital signatures are used to verify the authenticity of data.</p><p>Encryption algorithms ensure confidentiality. Key stretching algorithms make passwords stronger. Hash functions ensure data integrity.</p>"
+    },
+    {
+      "question": "<p>Which of the following is designed to provide protection against power outages?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>UPS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAID</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NIC teaming</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Managed PDU</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: UPS</p><p>An uninterruptible power supply (UPS) protects against power outages.</p><p>NIC teaming and load balancing are network redundancy features. A Redundant Array of Inexpensive Disks (RAID) protects against disk failures. Managed Power Distribution Units (PDUs) allow different outlets on a PDU to be turned on or off.</p>"
+    },
+    {
+      "question": "<p>Which of the following is the BEST definition of a zero-day vulnerability?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A vulnerability unknown to the software manufacturer for which no patch is available</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A vulnerability for which a patch is released but not widely applied</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A vulnerability that is so old that it poses zero threat to modern systems</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A vulnerability in software that has not yet been discovered</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A vulnerability unknown to the software manufacturer for which no patch is available</p><p>A zero-day vulnerability is a vulnerability unknown to the software manufacturer for which no patch is available. Threat actors may be actively exploiting the vulnerability before it is discovered and patched. To defend against zero-day attacks, a multi-layer defense system is needed so that if one system is vulnerable, other types of systems will still stop attacks.</p>"
+    },
+    {
+      "question": "<p>Which of the following physical security solutions is designed to protect against tailgating?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Access control vestibules</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Badging</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Fencing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Air gap</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Access control vestibules</p><p>Tailgating is when an unauthorized visitor follows another person through a door that they opened. Access control vestibules or mantraps create a small vestibule between an outer and inner door. This protects against tailgating by making it infeasible for the unauthorized visitor to pass through both doors without detection, since only one door can be opened at a time.</p><p>The use of badging and fencing doesn't prevent tailgating, since this involves following someone through an open door. An air gap is a digital defense in which two networks are not physically connected.</p>"
+    },
+    {
+      "question": "<p>Which of the following BEST describes the types of data protected under PCI DSS?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Financial information</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Health information</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Customer data</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Government data</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Financial information</p><p>The Payment Card Industry Data Security Standard (PCI DSS) is designed to protect financial information.</p><p>Health information, customer data, and government data are protected under a variety of other regulations, such as HIPAA and GDPR.</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT used in the process of validating a digital certificate?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Certificate Signing Request (CSR)</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Online Certificate Status Protocol (OCSP)</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Certificate Authority (CA)</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Certificate Revocation List (CRL)</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Certificate Signing Request (CSR)</p><p>A Certificate Signing Request (CSR) is a message sent to a Certificate Authority (CA) to apply for a digital certificate. It contains information that will be included in the certificate, such as the applicant's public key. However, the CSR itself is not used in the process of validating an existing certificate.</p><p>For certificate validation:</p><ul><li>The Certificate Authority (CA) issues certificates</li><li>The Certificate Revocation List (CRL) contains certificates that have been revoked</li><li>The Online Certificate Status Protocol (OCSP) is used to check the revocation status of a certificate in real time</li></ul>"
+    },
+    {
+      "question": "<p>Which of the following algorithms can be implemented using elliptic curve cryptography?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Diffie-Hellman</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>AES</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SHA-256</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Blowfish</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Diffie-Hellman</p><p>Elliptic Curve Cryptography (ECC) can be used for asymmetric key exchange and encryption algorithms. Diffie-Hellman has both integer-based and ECC variants.</p><p>AES and Blowfish are symmetric encryption algorithms, and symmetric encryption doesn't use ECC. Similarly, SHA-256 is a hash algorithm, which doesn't use ECC either.</p>"
+    },
+    {
+      "question": "<p>Which of the following types of cybersecurity exercises requires the MOST resources?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Simulation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Documentation review</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Walkthrough</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Tabletop exercise</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Simulation</p><p>Simulations require the most resources because they are designed to accurately emulate a security incident.</p><p>Documentation reviews simply require reading through documents, and tabletop exercises are performed by verbally discussing and responding to scenarios. Walkthroughs require going through the motions of responding to an incident, potentially on-site.</p>"
+    },
+    {
+      "question": "<p>After a security incident, it was discovered that the attacker was able to cover their tracks by clearing the log files of a system they had compromised. What type of solution can prevent an attacker from doing this in the future?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SIEM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TPM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SCADA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SOAP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SIEM</p><p>Security Information and Event Management (SIEM) systems perform real-time log aggregation and analysis. By centrally collecting log files, an attacker cannot alter them on a compromised system.</p><p>Trusted Platform Module (TPM) is used for providing security operations on a system. SCADA is used for controlling industrial equipment. SOAP is used for exchanging structured information.</p>"
+    },
+    {
+      "question": "<p>Which of the following is EXCLUSIVELY a risk associated with internal actors?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Shadow IT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Hacktivist</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Supply chain</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Wireless</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Shadow IT</p><p>Shadow IT refers to the use of unauthorized software, systems, etc. for business purposes. As a result, it is a threat that only originates from internal actors.</p><p>Hacktivist, supply chain, and wireless attack vectors can all be used by an external actor as well.</p>"
+    },
+    {
+      "question": "<p>A company wants to enhance security by scanning all internet requests and applying filtering rules to determine if traffic should pass through. They will use a single system to analyze all the traffic.&nbsp;</p><p>What type of method are they using?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Centralized proxy</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Agent-based filtering</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Group policy</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Vulnerability scanners</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Centralized proxy</p><p>A centralized proxy allows or blocks traffic based on rules. A centralized proxy does not require agents installed on each client.</p><p>Agent-based filtering involves installing software agents on client machines. Group policy is a way to enforce security policies on users and computers using Active Directory. Vulnerability scanners are used to test if systems have known weaknesses.</p>"
+    },
+    {
+      "question": "<p>An ecommerce site conceals part of the customer's credit card number with asterisks when confirming the order and payment details. This is an example of which of the following types of data protection?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Masking</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Tokenization</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Minimization</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Masking</p><p>Using asterisks to replace and hide sensitive data is an example of masking.</p><p>Tokenization replaces the data with a non-sensitive token, and encryption scrambles it so that it can only be restored with knowledge of the decryption key. Minimization involves collecting no more sensitive data than necessary.</p>"
+    },
+    {
+      "question": "<p>A company uses a private cloud for most of its workloads, but also can switch to using public cloud resources if there is a burst in demand. What type of cloud model are they using?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hybrid</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Public</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Private</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Community</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hybrid</p><p>The hybrid cloud model combines public and private cloud infrastructure, allowing an organization to host data or applications on the public or private cloud depending on their security and scalability needs.</p><p>On a private cloud, an organization has access to dedicated infrastructure, which is more secure but less scalable. On the public cloud, infrastructure is shared between the cloud provider's customers, offering scalability at the price of lower security. A community cloud is a cloud maintained for the use of multiple organizations working together.</p>"
+    },
+    {
+      "question": "<p>Which type of risk assessment is designed to be implemented quickly and in response to a change, such as a newly perceived threat?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Ad hoc</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Recurring</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>One-time</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Continuous</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Ad hoc</p><p>Ad hoc risk assessments are quick assessments that are done quickly to respond to a change in the environment. They are flexible and swift.</p><p>A recurring risk assessment is done at scheduled intervals. A one-time risk assessment is done at a specific time, such as before starting a project. A continuous risk assessment is ongoing monitoring and evaluation of risks.</p>"
+    },
+    {
+      "question": "<p>Which of the following DNS attacks will NOT cause users to be rerouted to an attacker-controlled site?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DNS amplification</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DNS hijacking</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DNS poisoning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>URL redirection</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DNS amplification</p><p>DNS amplification is a technique used in Distributed Denial-of-Service (DDoS) attacks. It takes advantage of the fact that DNS queries are much smaller than the replies they can generate.</p><p>DNS hijacking, DNS poisoning, and URL redirection are all designed to send a user to a malicious site.</p>"
+    },
+    {
+      "question": "<p>A system administrator wants to securely and remotely access the command line on a server. Which of the following protocols is a good choice?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SSH</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Telnet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SFTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SNMP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SSH</p><p>SSH provides remote access and is secure.</p><p>Telnet provides remote access but is insecure. SFTP is a file transfer protocol, and SNMP is used for device monitoring and management.</p>"
+    },
+    {
+      "question": "<p>Which of the following is used to protect against the potential that a CA will be compromised and issue additional, malicious certificates for a domain?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pinning</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Stapling</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cloning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Hardening</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pinning</p><p>Pinning is when a website announces the hashes of the public keys that it might use to secure a connection. This protects against the use of other valid but malicious certificates.</p><p>Stapling is a technique used to speed up the process of seeing if a certificate is revoked. Cloning can refer to an RFID cloning attack. Hardening refers to making systems more secure.</p>"
+    },
+    {
+      "question": "<p>Which protocol is used to automate the interactions between security components?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SCAP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PPTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OCSP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SCAP</p><p>The Security Content Automation Protocol (SCAP) is used to automate security-related activities. It is used to work with standards such as OVAL, which describe the security state of a system.&nbsp;</p><p>NTP is used for synchronizing clocks. PPTP is used for VPNs. OCSP is used for checking the revocation status of a certificate.</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT an example of a vulnerability that exists due to improper management of variables?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Resource exhaustion</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Memory leak</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Buffer overflow</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Integer overflow</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Resource exhaustion</p><p>Resource exhaustion is a denial of service (DoS) vulnerability that occurs when an application needs more memory, processing power, network bandwidth, etc., than it has available.</p><p>Memory leaks, buffer overflows, and integer overflows are all buffer/memory vulnerabilities that arise from the misuse of variables. For example, a buffer overflow occurs when more data is written to a variable than it has space for in memory.</p>"
+    },
+    {
+      "question": "<p>Which wireless security protocol disallows the use of pre-shared keys (PSKs)?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WPA3</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>WPA2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WEP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>WPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WPA3</p><p>WPA3 is an update to WPA2 and incorporates Simultaneous Authentication of Equals (SAE) to replace WEP, WPA, and WPA2's use of Pre-Shared Keys (PSKs).</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT an example of a concern that should be included in a TPRM strategy?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Malicious insider</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Supply chain</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Vendor</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Business partner</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Malicious insider</p><p>Malicious insiders are internal threats and not part of a TPRM strategy.</p><p>Third-party risk management (TPRM) deals with potential threats from outside the organization, such as vendors, supply chains, and business partners.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a list of publicly-known vulnerabilities in software?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>CVE</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>CVSS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NVD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CWE</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: CVE</p><p>Common Vulnerabilities and Exposures (CVE) list known weaknesses in software along with severity rankings.</p><p>The severity rankings are calculated via the Common Vulnerability Scoring System (CVSS). This information is stored in the National Vulnerability Database (NVD), and CVEs are commonly mapped to Common Weakness Enumeration (CWE) categories that describe various types of vulnerabilities (buffer overflows, etc.).</p>"
+    },
+    {
+      "question": "<p>An organization has prominently placed signs in secure areas to warn that unauthorized individuals are not allowed. Which of the following types of security controls BEST describes this?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Deterrent</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Detective</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Compensating</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Preventative</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Deterrent</p><p>Prominently placed and highly visible signs are an example of a deterrent security control because they are intended to deter someone from doing something.</p><p>Detective controls are used to identify threats. Compensating controls are used when there are exceptions to a security policy. Preventative controls are used to stop an incident from even occurring.</p>"
+    },
+    {
+      "question": "<p>Which of the following is considered a form of passive reconnaissance?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>OSINT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Drones</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Footprinting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>War driving</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: OSINT</p><p>Open-source intelligence (OSINT) is publicly accessible on the Internet without the need to access the target environment, making it a passive form of reconnaissance.</p><p>The use of drones and war driving is active reconnaissance, and footprinting can be performed actively or passively.</p>"
+    },
+    {
+      "question": "<p>An organization wants a single digital certificate that covers a list of specific domains. Which of the following types should they request?</p>",
+      "subject": "1.0 General Security Concepts",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Subject alternative name</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Wildcard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Extended validation</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Self-signed</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Subject alternative name</p><p>A Subject Alternative Name (SAN) certificate supports multiple specific domain names.</p><p>A wildcard certificate applies to any subdomains within a domain. An Extended Validation (EV) certificate requires additional validation of the applicant's identity. A self-signed certificate is a digital certificate signed with its own private key rather than having a chain of trust back to a root CA. Root CAs use self-signed certificates.</p>"
+    },
+    {
+      "question": "<p>You have an EF of .1, an ARO of 5, and an ALE of 5000. What is the asset value?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>10000</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>2500</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>100</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>250000</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 10000</p><p>The Single Loss Expectancy (SLE) is the expected loss caused by an incident. It is the product of the Asset Value (AV) and the Exposure Factor (EF), which measures the percentage of the asset's value lost during an incident.</p><p>The annualized rate of occurrence (ARO) estimates how many times a particular type of incident will occur each year.</p><p>The annualized loss expectancy (ALE) is the annual expected loss due to a particular type of incident and is the product of the SLE and ARO.</p><p>Therefore, AV = ALE/(ARO*EF) = 5000/(.1*5) = 10000</p>"
+    },
+    {
+      "question": "<p>Which of the following is NOT a method used to remove digital data from a hard drive?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pulping</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Shredding</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Pulverizing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Degaussing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pulping</p><p>Pulping is a method used to destroy paper documents.</p><p>Old hard drives can be shredded, pulverized, or degaussed.</p>"
+    },
+    {
+      "question": "<p>An organization has discovered malware on an employee's Android device, but it is in a mobile application that is not found on any legitimate app store. Which of the following is NOT a possible explanation for the issue?</p>",
+      "subject": "2.0 Threats, Vulnerabilities, and Mitigations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Carrier unlocking</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Sideloading</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Third-party app stores</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rooting</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Carrier unlocking</p><p>Carrier unlocking is unlikely to be the cause since it simply allows the user to switch between mobile providers.</p><p>A user may have installed a malicious mobile app by rooting/jailbreaking their device, using third-party app stores, or sideloading the app onto their device.</p>"
+    },
+    {
+      "question": "<p>Which of the following pairs of factors is a valid form of multi-factor authentication (MFA)?</p>",
+      "subject": "4.0 Security Operations",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Password and authenticator app</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Smartcard and SMS-based OTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Fingerprint and facial recognition</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Password and PIN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Password and authenticator app</p><p>The combination of a password and authenticator app is a valid form of MFA because it uses two different factors (something you know and something you have).</p><p>Smartcard and SMS-based OTP, fingerprint and facial recognition, and password and pin all use two examples of the same type of authentication factor.</p>"
+    },
+    {
+      "question": "<p>Which of the following clauses in an agreement with a CSP impacts an organization's ability to investigate a security incident?</p>",
+      "subject": "5.0 Security Program Management and Oversight",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Right-to-audit</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Jurisdiction</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Regulatory compliance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Notification</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Right-to-audit</p><p>Right-to-audit clauses are essential in agreements with CSPs to ensure that an organization has the right to investigate security incidents in its cloud infrastructure.</p><p>Regulations and jurisdiction can determine if third parties (like regulators) will perform their own investigations. Data breach notification laws determine who needs to be informed of a breach (customers, regulators, etc.).</p>"
+    },
+    {
+      "question": "<p>Which type of backup can be used along with a complete backup to quickly restore the files to a system?</p>",
+      "subject": "3.0 Security Architecture",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Differential</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Incremental</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Full</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Snapshot</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Differential</p><p>Differential backups back up all files that have changed since the last full backup. A full backup backs up all files on the system, regardless of whether they have been modified since the last backup.</p><p>Incremental backups back up any files that have changed since the last backup (full or incremental) and can take longer to restore. A snapshot copies the full state of a system.</p>"
+    }
+  ]
+}

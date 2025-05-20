@@ -1,0 +1,2524 @@
+{
+  "questions": [
+    {
+      "question": "<p>What is the FIRST thing a user should do if they notice a burning smell coming from a computer?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Shut down the computer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Blow compressed air into it</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Empty the Recycle Bin</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Disable unnecessary services</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Shut down the computer</p><p>If there is a burning smell, then the computer should be shut down immediately. The system can be checked for any melted components or have the power supply replaced.</p><p>Any other actions would not help solve the situation.</p>"
+    },
+    {
+      "question": "<p>Which wireless protocol is the most popular for connecting a headset to a computer?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NFC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Zigbee</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Z-wave</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Bluetooth</p><p>The Bluetooth protocol creates a personal area network that has a range of about 10 meters, which is ideal for devices like speakers and headsets.</p><p>The near-field communication (NFC) protocol only has a range of about 10 centimeters. Zigbee and Z-waver are protocols for IoT devices.</p>"
+    },
+    {
+      "question": "<p>A company will create cloud servers that they will host on their own. They will use it to allow their own developers to collaborate on projects. They will also use a commercial cloud service for their marketing department, which will be used to manage their emails to customers and potential customers.</p><p>What type of cloud strategy is the company implementing?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hybrid</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Community</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Public</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Private</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hybrid</p><p>A hybrid cloud uses both private and public clouds, depending on the situation.</p><p>A community cloud is a private cloud that is shared with a few close collaborators. A public cloud is a cloud that is available to anyone. A private cloud is a cloud that is only available to the organization that hosts it.</p>"
+    },
+    {
+      "question": "<p>Which of the following are true about RAID issues? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RAID 0 has more points of failure than a single drive.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>If one drive fails using RAID 5 with three drives, the data is still accessible.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>If one drive fails using RAID 1 with two drives, all the data is lost.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>If one drive fails in a mirrored set using RAID 10, the data cannot be recovered.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>RAID 0 does disk striping over multiple drives, so there are more points of failure than just a single non-RAID drive. RAID 5 will still function if one drive fails.&nbsp;</p><p>RAID 1 is mirroring, so if one drive fails, the data will still be recoverable. If one drive in RAID 10 fails, the data is still available.</p>"
+    },
+    {
+      "question": "<p>Which communication interface is commonly used with both SSDs and HDDs?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SATA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PCIe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NVMe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>PATA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SATA</p><p>SATA connections are used with both SSDs and HDDs because they are common in modern motherboards. However, some other options like PCIe and NVMe are faster than SATA.</p><p>PCIe is not commonly used with HDDs because they are not designed to take advantage of the data rate. NVMe is designed to work with SSDs. PATA is an older standard and is not practical with SSDs.</p>"
+    },
+    {
+      "question": "<p>Which chip on a motherboard can be used to encrypt an entire drive?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TPM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Southbridge</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Northbridge</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>BIOS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TPM</p><p>The Trusted Platform Module (TPM) is used to secure a system before it even boots. It can ensure that a system has not been tampered with after it has been turned off.</p><p>The southbridge manages communication between the CPU and other components. The northbridge manages communication between the CPU, RAM, and PCI Express slots. BIOS manages initial instructions for booting a system.</p>"
+    },
+    {
+      "question": "<p>An impact printer is printing faded characters. What is a solution for this issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Replace the printer ribbon</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Install a new print head</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Fix the ribbon-advance gear</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Choose the correct driver</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Replace the printer ribbon</p><p>Faded out characters is a symptom of a worn-out printer ribbon. If adjusting the print head does not change anything, then a new ribbon should be used.</p><p>Installing a new print head should be done if there is a small, blank line going through lines of print. Fixing the ribbon-advance gear is used when lines go from dark to light across the page. Choosing a different driver is used if the printer is printing garbage characters.</p>"
+    },
+    {
+      "question": "<p>An administrator wants to disallow users from making unencrypted connections to the websites that they visit. Which port should they block on the company's firewall to block any unencrypted web traffic?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>80</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>443</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>22</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>53</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 80</p><p>Web traffic used to primarily be transmitted through HTTP on port 80. However, that traffic was unencrypted, so HTTPS is now preferred.</p><p>Port 443 is for HTTPS. Port 22 is for SSH. Port 53 is for DNS.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which standard for power connectors introduced an 8-pin, 150W connector?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ATX12V 2.2</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ATX12V 2.1</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ATX12V 2.0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ATX12V 1.0</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ATX12V 2.2</p><p>The 8-pin, 150W PCIe connector was introduced in the ATX12V 2.2 standard to replace the 6-pin, 75W connector in standard ATX12V 2.1. A plastic bridge between the two top pins keeps it from being inserted into other 6-pin headers.</p>"
+    },
+    {
+      "question": "<p>A paper company wants to use a cloud service to manage its payroll. The company will pay a cloud provider a monthly fee to use their app through its web interface.</p><p>What type of cloud service will they be using?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SaaS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>HaaS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SaaS</p><p>Software as a service (SaaS) is a cloud service which is completely managed by a third party. The client can easily access the SaaS platform and pay for what they need.</p><p>Platform as a service (PaaS) is used when a client needs a development platform. Infrastructure as a service (IaaS) is used when an organization needs to rent computational power, networking, or other cloud resources. Hardware as a service (HaaS) is used to rent hardware storage in the cloud.</p>"
+    },
+    {
+      "question": "<p>Which protocol is used to resolve hostnames to IP addresses?&nbsp;</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DNS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>FTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SMTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DHCP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DNS</p><p>The Domain Name System (DNS) is used so that users can enter human-readable domain names to access resources on the Internet. In the background, a computer will use the DNS service to look up the IP address of a requested resource.</p><p>FTP is used to transfer files. SMTP is used to send email. DHCP is used to assign IP addresses.</p>"
+    },
+    {
+      "question": "<p>A manufacturer is developing a payment system which lets customers pay wirelessly by placing their smartphones right next to a sensor. Which protocol should they use when implementing their solution?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NFC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Wi-Fi</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Lightning</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NFC</p><p>Near-field communication (NFC) is used for wireless connections of only a few inches. It does not require much power and has added security because the range is so short.</p><p>Bluetooth and Wi-Fi have ranges that are too far. Lightning uses wires to transfer data.</p>"
+    },
+    {
+      "question": "<p>What form factor do traditional hard drives used in desktop workstations have?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>3.5\"</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>2.5\"</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>1.75\"</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>5.25\"</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 3.5\"</p><p>A 3.5\" form factor is used with hard drives installed inside a workstation. These fit into slots that are typically housed at the front part of a computer case.</p><p>A 2.5\" form factor is used with laptops and portable drives. A 1.75\" form factor is used with server chassis sizes. A 5.25\" form factor is used with floppy drives.</p>"
+    },
+    {
+      "question": "<p>An employee reports that their smartphone is suddenly unable to connect to Wi-Fi or Bluetooth. What setting should a technician check which could have disabled these services?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Airplane mode</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Location services</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>VPN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cellular</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Airplane mode</p><p>If both Bluetooth and Wi-Fi are not working, then it is likely the user accidentally enabled airplane mode. Turning off airplane mode will allow Wi-Fi and Bluetooth to work again.</p><p>Location services relates to GPS. A VPN is used for remote access or encrypted tunnels between networks. The cellular setting relates to getting data from a carrier.</p>"
+    },
+    {
+      "question": "<p>The CEO of a company reports that they are having problems with video calling. They state that the video is choppy and that the audio also drops off frequently.</p><p>What type of solution can an administrator implement on the network to address this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>QoS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Port flapping</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>TPM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>PAN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: QoS</p><p>Quality of service (QoS) is an option on networking hardware that will prioritize certain traffic over other traffic. This can be used to prioritize real-time traffic like voice or video over other types of file transfers.</p><p>Port flapping is an issue in which ports repeatedly open and close. Trusted Platform Module (TPM) is used for system security. A personal area network (PAN) is used for short-range wireless devices like Bluetooth.</p>"
+    },
+    {
+      "question": "<p>Which type of network connects users across state lines or country borders?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WAN</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>LAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MAN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WAN</p><p>A wide area network (WAN) is a network that spans a large geographic area. It allows companies with branches in separate cities, states, or countries to access network resources as if they were in the same location.</p><p>A local area network (LAN) is a network of systems that are in the same room or floor of a building. A personal area network (PAN) is a network of only a few meters that includes Bluetooth and USB devices. A metropolitan area network (MAN) is a network that is larger than a LAN but smaller than a WAN.</p>"
+    },
+    {
+      "question": "<p>Which type of network is created when using Bluetooth?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PAN</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>LAN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PAN</p><p>Bluetooth creates a wireless personal area network (PAN). These are networks that are smaller than LANs, including USB and infrared.</p><p>A metropolitan area network (MAN) is a network that spans the area of a city. A wide area network (WAN) is a network that can span city, state, or country lines. A local area network (LAN) is a network the size of a room or floor of a building.</p>"
+    },
+    {
+      "question": "<p>Which of the following connection types are serial interfaces? Select TWO.</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>USB</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>HDMI</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SCSI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PATA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Serial interfaces transfer data over a single communication channel. Examples include USB, Thunderbolt, and HDMI.</p><p>SCSI and PATA are parallel interfaces.</p>"
+    },
+    {
+      "question": "<p>A laser printer is experiencing frequent paper jams. Nothing has changed recently with the printer or its environment, and it is using the same paper as it has always used.</p><p>Which component is MOST likely causing the issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pickup rollers</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Transformer</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Stepper motor</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EP drum</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pickup rollers</p><p>Paper jams are often caused by the mechanism that moves the paper or by using the worn paper, or if the environment is too humid. If the pickup rollers are worn out, then they will have trouble gripping the pages, which could lead to paper jams.</p><p>A transformer is used with the power supply. A stepper motor is used by an inkjet printer to move the print head. An EP drum is used with the toner cartridge.</p>"
+    },
+    {
+      "question": "<p>An administrator is going to connect an interior computer network to the internet. They want to be sure that the systems on the network are protected from outside hackers.</p><p>Which dedicated network device should they install between their interior network and the Internet to filter packets to protect their systems?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Firewall</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Patch panel</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Router</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Firewall</p><p>A dedicated hardware firewall sits between networks and filters traffic. A firewall can also be software-based and protect the host that it is installed on.</p><p>A switch is a device with many network ports that forwards packets to the right port. A patch panel organizes cables in a cabinet. A router makes decisions about where to forward packets between networks.</p>"
+    },
+    {
+      "question": "<p>A user's screen was working fine for a long time, but suddenly started flickering. What is MOST likely the issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Failing backlight</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dead pixels</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Display burn-in</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ESD</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Failing backlight</p><p>If the backlight for an LCD monitor is failing, it can start to flicker. It will need to be replaced.&nbsp;</p><p>A dead pixel is a small dot that does not light up. Display burn-in is when an image gets burned into the monitor. Electrostatic discharge (ESD) is when electric shocks damage computer equipment.</p>"
+    },
+    {
+      "question": "<p>Which of the following are characteristics of cloud services? Select TWO.</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Resource pooling</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Rapid elasticity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Preferred roaming list</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Near-field communication</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Resource pooling is a characteristic of cloud services that involves dividing up a provider's resources amongst clients. Rapid elasticity is a characteristic of cloud computing that involves quickly scaling resources up and down as needed.</p><p>A preferred roaming list (PRL) is a feature of cellular networks. Near-field communication (NFC) is a protocol for short, wireless transactions.</p>"
+    },
+    {
+      "question": "<p>Which of the following are resource requirements for using virtualization? Select TWO.</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Enough RAM for each hosted OS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>A processor that supports virtualization</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Additional voltage from the PSU for each OS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A fiber internet connection</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>When using virtualization, the system should be powerful enough to support the operating systems. It will need enough RAM for each hosted system. It also needs a processor that is capable of handling virtualization.</p><p>The system does not need additional voltage to do virtualization. It also does not require a fast internet speed.</p>"
+    },
+    {
+      "question": "<p>Which of the following languages is a page-description language that was invented by HP for use with its inkjet printers?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PCL</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>GDI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>PDF</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PCL</p><p>A page-description language is used to prepare a document for sending to a printer. The Printer Control Language (PCL) was invented by HP as a competitor to PostScript.</p><p>PS was developed by Adobe. GDI is a Windows component for preparing images for printers and monitors. A PDF is a document type.</p>"
+    },
+    {
+      "question": "<p>An administrator finds a cable with a connector that is square-shaped with latches. Which type of cable connector did they find?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ST</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>F-type</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>USB-C</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SC</p><p>A subscriber connector (SC) connector is for fiber-optic cables. It is square-shaped and is held in place with latches.</p><p>A straight tip (ST) connector is round and used with fiber. An F-type connector is round and used with coaxial cable. A USB-C connector has round edges and is used with USB and Thunderbolt.</p>"
+    },
+    {
+      "question": "<p>Which fan in a desktop computer is used to exhaust hot air from the case?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Rear fan</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>CPU fan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Chipset fan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Front fan</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Rear fan</p><p>The rear fan is an exhaust fan, while the front fan is an intake fan. A case should have good airflow to keep it from overheating.</p><p>A CPU fan is directed at the heat sink over a CPU. On some motherboards, a chipset fan is directed at chipsets. A front fan intakes cooler air from outside the case.</p>"
+    },
+    {
+      "question": "<p>Where is the Wi-Fi antenna generally located in a laptop?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Along the side of the display</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Around the keyboard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>In front of the trackpad</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>At the back where the external connectors are</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Along the side of the display</p><p>By running the Wi-Fi router along the side of the display of a laptop, it can get to the highest point for the best reception when the case is open.</p>"
+    },
+    {
+      "question": "<p>How does an app developer make sure that their app runs on various types of hardware and operating systems?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Cross-platform virtualization</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TPM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Multithreading</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Serial interfaces</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Cross-platform virtualization</p><p>A developer uses cross-platform virtualization to test how code runs in various environments. Different application development environments come with their own tools to load virtualized environments to test the code.</p><p>The Trusted Platform Module (TPM) is used to secure a system when booting. Multithreading is used by CPUs to perform multiple tasks concurrently. Serial interfaces are used to transmit data one bit at a time.</p>"
+    },
+    {
+      "question": "<p>Which situation best describes users accessing a VDI in the cloud?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A user connects to a remote system that is hosted virtually on a server that hosts many other systems.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A user connects through a Telnet session to a server that has its own dedicated hardware and software.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A user connects to a server to receive the boot files they need to boot up their workstation.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A user connects to a virtual assistant through a web interface on a website.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A user connects to a remote system that is hosted virtually on a server that hosts many other systems.</p><p>In a virtual desktop environment (VDI) in the cloud, a user connects to a virtual machine that is located remotely on cloud resources. It can use virtual NICs and other virtualized components.</p><p>The remote system will be hosted on shared resources rather than a dedicated system. A workstation can boot from a shared server to run the operating system locally by using a network boot procedure. A user can connect to a virtual assistant through web interfaces, but it does not give a desktop environment.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which feature of hard drives gives extensive diagnostics that can alert to failures?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>S.M.A.R.T.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Beep codes</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>UEFI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>IOPS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: S.M.A.R.T.</p><p>Self-Monitoring, Analysis, and Reporting Technology (S.M.A.R.T.) is a feature that works with software to give extensive diagnostics on a hard drive's performance. However, it is not commonly used.</p><p>Beep codes are used by BIOS during its POST test. The Unified Extensible Firmware Interface (UEFI) is firmware for initiating components. Input/output operations per second (IOPS) reports read and write times.</p>"
+    },
+    {
+      "question": "<p>Which cable type is a single copper wire surrounded by a braided shield and plastic jacket?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Coaxial</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Fiber</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>UTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>STP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Coaxial</p><p>A coaxial cable has a center wire with insulation around it. It is used for cable TV but not often in networking.</p><p>A fiber cable is fiberglass or plastic surrounded by a rubber coating. An unshielded twisted pair (UTP) is two or four pairs of copper wires surrounded by insulation. A shielded twisted pair (STP) is two or four pairs of copper wire surrounded by insulation and foil shielding.</p>"
+    },
+    {
+      "question": "<p>What are some symptoms of a failing hard drive? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Data corruption</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Extended read times</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Intermittent shutdown</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Capacitor swelling</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>If a hard drive is failing, it will have issues with reading and writing files. Files may become corrupted and it may take longer to read files from the drive.</p><p>Intermittent shutdowns are likely due to overheating or a power supply issue. Capacitor swelling is usually due to a capacitor's age or an electrical issue.</p>"
+    },
+    {
+      "question": "<p>What type of issue can be experienced if a Wi-Fi network is near a microwave, cordless phone, or Bluetooth device?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Interference</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Collisions</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Duplex mismatch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Fragmentation</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Interference</p><p>Interference is when other devices operate on the same frequency as Wi-Fi. This reduces network performance and can be caused by other electronic devices.</p><p>Collisions occur when two devices try to transmit at the same time. A duplex mismatch occurs when one device is full-duplex and another is half-duplex. Fragmentation is when a drive's files become discontinuous.</p>"
+    },
+    {
+      "question": "<p>How many pins does the power connector for an ATX motherboard that supports PCIe devices have?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>24</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>20</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>6</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>8</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 24</p><p>The ATX12V 2.0 standard adds four pins to the motherboard adapter in order to support PCIe devices. It is keyed to still fit into a 20-pin slot.</p><p>A 20-pin connector was used originally with ATX motherboards. A 6-pin connector provides 75W for PCIe power. An 8-pin connector provides 150W.&nbsp;</p>"
+    },
+    {
+      "question": "<p>In the United States, what voltage range does a computer's power supply unit expect?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>110 to 120 volts</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>120 to 210 volts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>115 to 230 volts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>220 to 240 volts</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 110 to 120 volts</p><p>In the United States, voltage is between 110 and 120 volts. When using equipment designed for another country, the voltage should be checked because having the wrong voltage could damage the computer.</p><p>In Europe, the voltage is between 220 and 240 volts.</p>"
+    },
+    {
+      "question": "<p>A user wants to keep a backup of all their data on a drive. They are not worried about increasing speed or having parity. They only have one extra drive to use to create the backup.</p><p>Which RAID level would be appropriate for this situation?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RAID 1</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAID 10</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RAID 0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAID 5</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RAID 1</p><p>RAID 1 is known as disk mirroring. This technique writes data to two drives simultaneously so that if one fails, the other will be used.</p><p>RAID 10 provides fault tolerance as well as mirroring. RAID 0 is disk striping, which increases the speed by spreading data on multiple drives. RAID 5 is disk striping with parity, which increases speed and can recover if a drive fails.</p>"
+    },
+    {
+      "question": "<p>A printer gives an \"out of paper\" warning even though it has paper loaded into its paper tray. What step could be taken to try to fix this issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Clean the paper-feed sensor</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Replace the separation pads</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Reduce humidity in the room</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Update the print drivers</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Clean the paper-feed sensor</p><p>A printer has a paper-feed sensor that can detect when it is out of paper. If this sensor gets dirty, it may not correctly report on this information, so it should be cleaned.</p><p>Replacing the separation pads or reducing humidity can fix issues with paper jams. Updating the print drivers can fix issues with garbled characters.</p>"
+    },
+    {
+      "question": "<p>A user buys a new monitor only to find that there is a tiny dark spot on the screen that never lights up. What issue are they having with the monitor?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Dead pixel</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Display burn-in</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ESD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Interference</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Dead pixel</p><p>Dead pixels are small points on a monitor that never light up. They can also have the opposite problem, in which they are always lit the same color.</p><p>Display burn-in is when an image gets burned into the screen so that it is always visible. Electro-static discharge (ESD) is when electric currents cause damage to computer components. Interference is an issue when wireless networks in proximity share frequencies.</p>"
+    },
+    {
+      "question": "<p>A company is setting up a web server that will handle a lot of requests from users within the organization. They need the server to be as powerful as possible, so they would like it to have more than one CPU.</p><p>Which motherboard feature should they look for when choosing the hardware for the server?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Multisocket</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Multithreading</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Multicore</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Multiple access</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Multisocket</p><p>A multisocket motherboard allows for multiple CPUs that each have their own memory slots. They typically support two or four CPUs and have custom form-factors from their manufacturer.</p><p>Multithreading and multicore are CPU features. Multiple access is a feature of networking.</p>"
+    },
+    {
+      "question": "<p>Which statements are true about Type 1 hypervisors? Select TWO.</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>They are called \"bare metal hypervisors\".</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>They run directly on hardware.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>They are less efficient than Type 2 hypervisors.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>They are used most commonly by developers on their workstations.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A Type 1 hypervisor runs directly on hardware without needing an intermediary operating system. Another term for Type 1 hypervisors is \"bare metal hypervisors\".</p><p>Type 1 hypervisors are more efficient than Type 2 hypervisors because they do not need an operating system. Developers use Type 2 hypervisors on their workstations because they also need an operating system for other purposes.</p>"
+    },
+    {
+      "question": "<p>Which connector type is used with fiber-optic cables and has a twist-lock mechanism to keep it in place?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ST</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>LC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RJ45</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ST</p><p>A straight tip (ST) connector is the most common connector for fiber-optic cables. It was developed by AT&amp;T and uses a twist-lock mechanism to keep the cable in place.</p><p>A subscriber connector (SC) is a fiber-optic connector with latches. A lucent connector (LC) is a mini form factor connector that does not have a twist-lock mechanism. An RJ45 connector is for connecting Ethernet cables.</p>"
+    },
+    {
+      "question": "<p>Which PoE standard provides a maximum power of 60 watts?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>802.3bt (Type 3)</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>802.3at</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>802.3af</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>802.3bt (Type 4)</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 802.3bt (Type 3)</p><p>Power over Ethernet (PoE) runs electricity across Ethernet lines. The 802.3bt (Type 3) standard has a maximum power of 60 watts and can support wireless access points and videoconferencing.</p><p>The 802.3at standard supports a maximum power of 30 watts. The 802.3af standard supports a maximum power of 15.4 watts. The 802.3bt (Type 4) standard supports a maximum power of 100 watts.</p>"
+    },
+    {
+      "question": "<p>On a 64-bit system, how many bits can single-channel memory transfer at a time?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>64</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>32</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>128</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>512</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 64</p><p>Single-channel memory can only transfer 64 bits at a time on a system with a 64-bit bus. Dual-channel memory would be able to work with 128 bits at a time.</p>"
+    },
+    {
+      "question": "<p>Which technology lets a smartphone with a data plan share their Internet connection with others nearby by creating a Wi-Fi network?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hotspot</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Lightning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NFC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hotspot</p><p>A hotspot is a Wi-Fi network that is created by a mobile device by sharing from its data plan. It's best to have an unlimited data plan, or you could easily use up all your data by doing this.</p><p>Lightning is a wired data sharing technology. Near-field communication (NFC) is a short-range wireless protocol. Bluetooth creates a personal area network between a device and peripherals.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a security concern that specifically affects virtualization?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Attacks on the hypervisor</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Buffer overflows</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cross-site scripting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SQL injection</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Attacks on the hypervisor</p><p>Many attacks on systems that are virtualized will target the hypervisor that manages all the virtual machines. If the hypervisor is compromised, then the other virtual machines can be accessed.</p><p>A buffer overflow attacks application vulnerabilities. Cross-site scripting affects vulnerable websites. SQL injection attacks vulnerable websites that connect to databases.</p>"
+    },
+    {
+      "question": "<p>A company has a few different departments. Their entire network is supported by a single 24-port switch. Whenever an employee's workstation in one department sends a broadcast, all other workstations receive it, regardless of which department they work for. This has caused some latency for users.</p><p>What solution could they implement to help reduce the latency?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VLANs</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>QoS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Port flapping</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAID</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VLANs</p><p>The switch can be divided into virtual LANs based on the users' departments. This will reduce the amount of latency for each department because broadcast packets will only go to the relevant systems.</p><p>Quality of service (QoS) will not reduce the overall latency. Port flapping is an issue in which ports repeatedly open and close. A RAID is an array of disks used for increased speed and fault tolerance.</p>"
+    },
+    {
+      "question": "<p>Which tool is used to find the end of a cable?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Toner probe</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Crimper</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cable stripper</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Loopback plug</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Toner probe</p><p>A toner probe generates a sound at one end of a cable and uses a probe to find the other end. This is used to help find the endpoints of cables at a patch panel.</p><p>A crimper attaches a connector at the end of a cable. A cable stripper removes the insulation from a cable. A loopback plug tests if a network interface card is working properly.</p>"
+    },
+    {
+      "question": "<p>What extra protection do direct burial cables receive over STP cables?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Waterproofing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Fireproofing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ESD protection</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Heat resistance</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Waterproofing</p><p>Direct burial cables are network cables that need to go outside or be buried underground. They are STP cables with an additional waterproofing sheath.</p>"
+    },
+    {
+      "question": "<p>Which of the following IP ratings for a device would indicate that it is waterproof?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>IPX8</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IP66</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IP04</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>IPX0</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: IPX8</p><p>The second digit in the ingress protection (IP) rating denotes a device's water resistance, while the first digit represents particles like dust. If a water resistance rating is 7 or 8, then it is waterproof. If there is an X in place of the digit for dust, then that has not been tested.</p>"
+    },
+    {
+      "question": "<p>How do most smartphones deal with the issue of overheating?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>By using components that generate less heat</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>&nbsp;By using more heat sinks and fans</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>By using vents where dust can be blown out</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>By using liquid cooling</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: By using components that generate less heat</p><p>Smartphones do not have extra space where heat can be dissipated. Instead, smartphones rely on components that do not generate as much heat.</p><p>Smartphones do not have fans or vents and rarely have liquid cooling.</p>"
+    },
+    {
+      "question": "<p>Where is the BEST location for a shared wireless office printer to be placed?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>In a location that is central to users</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>At one user's desk</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>In the corner of the building</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Close to an RJ-45 wall jack</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: In a location that is central to users</p><p>When setting up a wireless office printer, it needs to be in a place that is central to all users. It will also be closest to access points if it is centrally located.</p><p>Placing it at a user's desk will inconvenience the user. The corner of a building does not typically have good wireless coverage. An RJ-45 wall jack is not necessary for a wireless printer.</p>"
+    },
+    {
+      "question": "<p>Which component of a Serial Attached SCSI system sends commands to devices and receives data back from them?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Initiator</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Target</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Service delivery subystem</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Expander</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Initiator</p><p>The initiator acts as a controller for Serial Attached SCSI. It sends commands to target devices and receives data back from them.</p><p>The target is the device connected to the system, typically a hard drive. The service delivery subsystem transmits information between the initiator and targets. The expander is for connecting more than one initiator together.</p>"
+    },
+    {
+      "question": "<p>Which network device only repeats the frames that it receives without performing any logical decisions as to which interface to send data out on?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Hub</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Router</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Hub</p><p>A hub is a device that repeats data out on all its interfaces. These have mostly been replaced with switches, which offer improved performance and security.</p><p>A router makes decisions about where to forward packets based on IP addresses. A switch makes decisions about which interface to send frames based on MAC addresses. A firewall makes decisions about forwarding packets based on network ports.</p>"
+    },
+    {
+      "question": "<p>Users are reporting intermittent network connectivity. The administrator wants to check if port flapping is an issue.</p><p>Where is one place they can look for evidence of this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>The switch's error log</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Users' registry files</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>The router's IP table</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>The firewall's ACL</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: The switch's error log</p><p>Port flapping is when a switch's port continually switches from an up to a down state. To see if this is occurring, the switch's error log can be checked.</p><p>Registry files, a router's IP table, or a firewall's ACL will not hold information about port flapping.</p>"
+    },
+    {
+      "question": "<p>A user reports that their LCD monitor is not displaying the correct colors. Which of the following solutions could address the issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Check that the cable is correctly plugged in</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Degauss the display</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Replace the EP drum</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Recalibrate the inkjet cartridges</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Check that the cable is correctly plugged in</p><p>If the cable is not fully plugged in, it can result in color errors. Make sure that the cable is securely plugged in.</p><p>Degaussing is used with old CRT monitors. An EP drum is used with a laser printer. Inkjet cartridges are used with inkjet printers.</p>"
+    },
+    {
+      "question": "<p>What is a disadvantage of migrating to SSDs from HDDs?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SSDs are more expensive per byte of storage</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SSDs add mechanical parts that fail frequently</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SSDs have slower start-up and read times</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SSDs consume more power, so need a larger power supply</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SSDs are more expensive per byte of storage</p><p>A solid-state drive (SSD) has many advantages over a hard disk drive (HDD). However, they cost more per byte than HDDs.</p><p>HDDs have mechanical parts that are prone to fail and slower read and start-up times. HDDs also consume more power than SSDs.</p>"
+    },
+    {
+      "question": "<p>Which tool's only function is to remove the insulation of a cable?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Cable stripper</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Crimper</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Wi-Fi analyzer</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Toner probe</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Cable stripper</p><p>A cable stripper removes the outer jacket of a cable so that a connector can be attached to it. Many tools will strip the cable and also add connectors at the same time.</p><p>A crimper is used to add a connector to the cable. A Wi-Fi analyzer is used to analyze Wi-Fi networks and traffic. A toner probe is a device for finding both ends of a table.</p>"
+    },
+    {
+      "question": "<p>Which connector type supports analog video?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DVI-I</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DisplayPort</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HDMI</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Thunderbolt</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DVI-I</p><p>The DVI-I category of Digital Visual Interface connectors supports both analog and digital connections. DVI-A is analog only, while DVI-D is digital only.</p><p>DisplayPort, HDMI, and Thunderbolt only use digital signals.</p>"
+    },
+    {
+      "question": "<p>Which tool is used to attach cables to a patch panel?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Punch-down tool</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Loopback plug</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Network tap</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Crimper</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Punch-down tool</p><p>A punch-down tool connects wires to a block or patch panel.&nbsp;</p><p>A loopback plug tests if a network interface cable works correctly. A network tap is used to capture network traffic. A crimper is used to attach connectors to a cable.</p>"
+    },
+    {
+      "question": "<p>What is the maximum data transfer speed for USB 3.2?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>20 Gbps</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>10 Gbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>5 Gbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>40 Gbps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 20 Gbps</p><p>USB 3.2 has a maximum data speed of 20 Gbps. It was released in 2017 and is signified by a red cable connector.</p><p>USB 3.0 has a maximum speed of 5 Gbps. USB 3.1 has a maximum data speed of 10 Gbps. USB4 has a maximum speed of 40 Gbps.</p>"
+    },
+    {
+      "question": "<p>As part of the troubleshooting process, a technician checks if a chip needs to be reseated. Which step of the troubleshooting process is this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Testing the theory</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Establishing a plan of action</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Establishing a theory</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Identifying the problem</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Testing the theory</p><p>The third step of the troubleshooting process is to test the theory. If the theory is that a chip has become unseated through chip-creep, then checking if it needs to be reseated is part of testing the theory.</p><p>Identifying the problem is the first step and involves gathering information. Establishing a theory occurs after identifying the problem. Establishing a plan of action occurs after testing the theory.</p>"
+    },
+    {
+      "question": "<p>What is a major threat to be aware of when using NFC?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Suspicious-looking scanners</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rogue access points</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Eavesdropping</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SQL injection</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Suspicious-looking scanners</p><p>Near-field communications (NFC) is a wireless communication technique that only has a rehang of about 10 centimeters and is often used for payments. A major concern is that an attacker could place a fake NFC scanner to steal payment information.</p><p>Rogue access points are threats for Wi-Fi networks. Eavesdropping is a concern on wired networks or longer-distance wireless networks. SQL injections are attacks on web application servers.</p>"
+    },
+    {
+      "question": "<p>Which of the following actions can help prevent a computer from overheating? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Keep slot covers in place at the back of the computer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Use heat sinks on components with processors</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Blow dust into the case from the power supply fan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Enable overclocking of the CPU</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Heat is one of the biggest threats to the longevity of computer components. Computers can be kept cool by using heat sinks and fans. Components with processors should have heat sinks to dissipate heat. The slot covers at the back of the case should remain covered to keep out dust and also maintain air flow.&nbsp;</p><p>Dust from the power supply fan should be blown outwards from the case, not inwards. Overclocking the CPU will generate more heat.</p>"
+    },
+    {
+      "question": "<p>An administrator wants to disable the possibility of any of their servers being accessed through Telnet from external networks. Which port on the company's firewall should they block to ensure this?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>23</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>25</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>20</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>53</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 23</p><p>Telnet uses port 23. It does not encrypt data or user authentication credentials, so it should not be used for security reasons.</p><p>Port 25 is used for SMTP. Port 20 is used for FTP. Port 53 is used for DNS.</p>"
+    },
+    {
+      "question": "<p>What is the data capacity of a double-sided, dual-layer Blu-ray disk?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>100 GB</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>17.1 GB</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>50 GB</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>20 GB</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 100 GB</p><p>Blu-ray is the optical device that has the highest capacity. A double-sided, dual-layer Blu-ray disk has a capacity of 100 GB.</p><p>A double-sided, dual-layer DVD has a capacity of 17.1 GB. A single-sided, dual-layer Blu-ray disk has a capacity of 50 GB. A single-sided, single-layer Blu-ray disk has a capacity of 25 GB.</p>"
+    },
+    {
+      "question": "<p>Which type of wireless communication is a point-to-point connection?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Long-range fixed wireless</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Wi-Fi</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Zigbee</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Long-range fixed wireless</p><p>Long-range fixed wireless is used when a wireless connection needs to travel over 100 meters. It uses two directional antennas that look like satellite dishes to send and receive signals.</p><p>Wi-Fi, Bluetooth, and Zigbee are point-to-multipoint because one central device communicates with several others at the same time.</p>"
+    },
+    {
+      "question": "<p>Which of the following statements is true about DDR5 RAM?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>It is the first memory available in 128 GB modules.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>It uses the same voltage as DDR4.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>It doubles the speed of DDR3.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>It has an access time of faster than 10 nanoseconds.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: It is the first memory available in 128 GB modules.</p><p>DDR5 is the latest generation of RAM. It is the first RAM stick that comes in 128 GB modules.</p><p>DDR5 uses 1.1 volts, while DDR4 uses 1.2 volts. DDR4 is double the speed of DDR3. DDR5 has an access time of about 40 nanoseconds, while SRAM has an access time of under 10 nanoseconds.</p>"
+    },
+    {
+      "question": "<p>Which of the following connection types has the highest download speed?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Fiber</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DSL</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Satellite</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cable</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Fiber</p><p>Fiber connections offer downloads of up to 1 Gbps. They are fast but expensive.</p><p>A DSL connection has a maximum download speed of 50 Mbps. A satellite connection has a maximum download speed of 25 Mbps. A cable connection has a maximum download speed of 100 Mbps.</p>"
+    },
+    {
+      "question": "<p>A user keeps an application window open all the time on their computer. When they close the application to try another one, the outline of the previous application is still shown on the display.</p><p>What issue are they experiencing?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Display burn-in</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dead pixels</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Capacitor swelling</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Backlight bleeding</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Display burn-in</p><p>Burn-in happens if a screen has the same image for a long time. The image burns into the display.</p><p>Dead pixels are pixels on the screen that never light up. Capacitor swelling is a motherboard issue. Backlight bleeding is when the backlight behind the LCD creates uneven brightness.</p>"
+    },
+    {
+      "question": "<p>When troubleshooting, what tasks should be done when identifying the problem? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Talking to the user</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Determining if the problem is hardware- or software-related</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Restarting the computer</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Uninstalling recently added applications</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>The first step in troubleshooting is to identify the problem. This can involve talking to the user and determining if the problem is hardware- or software-related.</p><p>Uninstalling recently added applications can happen in the second step when eliminating possibilities. Restarting the computer can happen in the third step when testing a theory.</p>"
+    },
+    {
+      "question": "<p>A company wants to use a public cloud service for their app development. However, they need a reliable service that will hardly ever go down. They want a guarantee of at least 99.99% uptime per year.</p><p>In which document can they set this level of uptime with the cloud service provider?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SLA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Privacy notice</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NDA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SOP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SLA</p><p>A service level agreement (SLA) will set out the guaranteed level of uptime. A 99.99% level of uptime equates to only 8.77 hours of downtime per year.</p><p>A privacy notice is used to alert users to how their data will be used. A non-disclosure agreement (NDA) is used to stop a third party from sharing sensitive information. A standard operating procedure (SOP) is used to describe instructions for completing a process.</p>"
+    },
+    {
+      "question": "<p>A user's computer runs for a while after booting up but then shuts down suddenly. Which of the following reasons is the MOST likely cause of these intermittent shutdowns?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Excessive heat</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAID failure</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Corrupt driver</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Insufficient RAM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Excessive heat</p><p>If a system overheats, it can randomly shut down or freeze. If this is the case, then the computer may need to be cleaned or have more fans installed.</p><p>If a RAID fails, there will be file input/output issues. A corrupt driver could lead to a blue screen of death error. Insufficient RAM could lead to sluggish performance.</p>"
+    },
+    {
+      "question": "<p>What are the two major standards used in 3G networks? Select TWO.</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>CDMA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>GSM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>LTE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>eMBB</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Two competing standards in 3G are code-division multiple access (CDMA) and the Global System for Mobile Communication (GSM). CDMA was only used in the US, while GSM was popular in other countries around the world. They both had similar data rates.&nbsp;</p><p>LTE is a 4G technology and eMBB is a 5G technology.</p>"
+    },
+    {
+      "question": "<p>A user wants to connect their Bluetooth headset to their computer. What state must the peripheral device be in so that the computer can find it?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Discoverable</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Searching</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Administrative</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Restricted</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Discoverable</p><p>The peripheral device must be in a discoverable state. Each peripheral will have its own way of achieving this, such as holding down a specific button on the device.</p><p>The computer needs to search for the device while it is discoverable. Peripheral devices do not need administrative or restricted modes.</p>"
+    },
+    {
+      "question": "<p>An administrator wants to set up a server that workstations will use to retrieve configuration settings when setting up their operating systems. Which protocol would be ideal for this?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TFTP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>FTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HTTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>IMAP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TFTP</p><p>The Trivial File Transfer Protocol (TFTP) is used for simple and fast file transfers. This is useful for retrieving configuration data.</p><p>FTP is used for transferring files, but requires more overhead. HTTP is for unencrypted web traffic. IMAP is for checking email messages.</p>"
+    },
+    {
+      "question": "<p>Which component on a mobile device inputs a direct current and outputs an alternating current for the system's backlight?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Inverter</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Backlight</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NIC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Battery</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Inverter</p><p>The inverter takes a direct current (DC) and converts it to an alternate current (AC) for use with an LCD's backlight. A laptop's power supply unit converts AC to DC, &nbsp;but the backlight requires the opposite.</p><p>The backlight does not convert the current itself. A network interface card (NIC) is used to connect to a wired network. The battery powers the device when not plugged in.</p>"
+    },
+    {
+      "question": "<p>An application developer receives a report that their application is not working with a previous version of an operating system. What would be the ideal way for the developer to address the issue?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Troubleshoot the issue in a virtualized environment</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Troubleshoot the issue on a system that remains at the previous version of the operating system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Troubleshoot the issue by reading through the documentation of the previous operating system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Troubleshoot the issue by reinstalling the previous operating system on their system</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Troubleshoot the issue in a virtualized environment</p><p>Because there are a wide variety of platforms that developers need to support, it is easier to test the application in a virtualized environment rather than having dedicated hardware for each operating system version.</p><p>Keeping specific versions of each operating system on dedicated hardware would be impractical. Checking documentation would not necessarily help find and fix the issue. Reinstalling the previous operating system would be too time-intensive.</p>"
+    },
+    {
+      "question": "<p>Which device connects to peripherals like monitors, keyboards, and printers so that a laptop user does not have to connect to each one every time they bring their laptop to their desk?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Port replicator</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Trackpad</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hotspot</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Inverter</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Port replicator</p><p>A port replicator is a peripheral that connects to a laptop and to the other peripherals that it regularly uses, such as monitors, keyboards, and printers. This makes it easier to connect when bringing it to your desk.</p><p>A trackpad is a device that accepts a stylus for input. A hotspot is where users can get access to Wi-Fi. An inverter is a device that converts DC to AC for screen backlights.</p>"
+    },
+    {
+      "question": "<p>Users are experiencing jitter on a local network. Which of the following issues is MOST likely the cause for this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Too much network load</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Too many blocked firewall ports</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A failed RAID drive</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A failing DNS server</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Too much network load</p><p>Jitter on a network is when the connection slows down and speeds back up a lot. This can be caused by several issues, including too much network load, unnecessary network services running on hosts, or old network hardware.</p><p>Blocked ports on a firewall will stop all traffic at that port. A failed RAID drive is an issue for individual systems. A failing DNS server only affects DNS queries.</p>"
+    },
+    {
+      "question": "<p>An administrator is setting up monitors for the workstations in their company's HR department. They need average monitors with good contrast ratios, but are not concerned about the best color reproduction or high refresh rates.</p><p>Which LCD type would be MOST appropriate for this situation?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VA</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>TN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CCFL</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VA</p><p>Vertical alignment (VA) is a type of LCD technology with average traits. It does, however, have good contrast ratios.</p><p>In-plane switching (IPS) is ideal for designers who need the best color reproduction. Twisted nematic (TN) is used for systems that need high refresh rates. A cold cathode florescent lamp (CCFL) is a type of backlight.</p>"
+    },
+    {
+      "question": "<p>Which of the following sentences accurately describe using a cable modem? Select TWO.</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Cable modems are faster than dial-up connections.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Cable bandwidth is shared with other customers.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cable modems require a telephone line.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cable connections offer bandwidth up to 1 Gbps.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Cable connections are inexpensive and widely available. They are faster than dial-up connections and do not require a telephone line. However, bandwidth is shared with neighbors and the download speed only reaches 100 Mbps.</p>"
+    },
+    {
+      "question": "<p>A user's laptop supports up to DDR3 SODIMM RAM. What is the maximum amount of RAM per module that they can install?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>8 GB</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>1 GB</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>16 GB</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>32 GB</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 8 GB</p><p>DDR3 supports up to 8 GB per module. With two slots, a laptop can support 16 GB of DDR3 RAM.</p><p>DDR is up to 1 GB. DDR4 is up to 32 GB. DDR5 is up to 64 GB.</p>"
+    },
+    {
+      "question": "<p>Which voltages are commonly supplied by a PSU? Select THREE.</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>3.3V</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>5V</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>12V</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>3.7V</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>A power supply unit (PSU) typically outputs 3.3, 5, and 12 volts. The 3.3 and 5 volt rails will power the motherboard, memory, and disks, while the 12 volt rail powers components like the CPU or graphics card.</p>"
+    },
+    {
+      "question": "<p>A user reports that their new desktop system is not displaying the correct amount of installed RAM. A technician suspects that the RAM is not seated properly.</p><p>After opening the case and seating the RAM in properly, what should be the NEXT step in the troubleshooting process?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Verify system functionality</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Document the findings</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Disable unnecessary services</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Ask the user for detailed information</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Verify system functionality</p><p>After testing the theory, the technician needs to confirm that their action worked. To test if reseating the RAM was the solution, they can boot into the system again and check if the RAM is recognized.</p><p>Documenting the findings is done after verifying functionality. Disabling unnecessary services should not be done because only one solution should be tested at a time. Asking the user for information is part of identifying the problem.</p>"
+    },
+    {
+      "question": "<p>What is the maximum download speed for DSL?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>50 Mbps</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>56 Kbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>100 Mbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>1 Gbps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 50 Mbps</p><p>DSL is an inexpensive method to get internet access at home. It uses telephone wires and has download speeds up to 50 Mbps.</p><p>Dial-up has a maximum download speed of 56 Kbps. Cable has a maximum download speed of 100 Mbps. Fiber has a maximum download speed of 1 Gbps.</p>"
+    },
+    {
+      "question": "<p>How are DNS and DHCP different from each other?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DNS is used to resolve domain names to IP addresses, while DHCP is used to assign IP addresses.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DNS is used to route IP packets, while DHCP is used to manage network devices.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DNS is used to manage a remote desktop, while DHCP is used to provide access to file servers.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>DNS is used to transfer files, while DHCP is used to send email.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DNS is used to resolve domain names to IP addresses, while DHCP is used to assign IP addresses.</p><p>IP packet routing is handled by protocols like RIP or OSPF. SNMP is used to manage network devices. RDP is used to manage remote desktops. SMB is a protocol for network file servers. FTP is used to transfer files. SMTP is used to send email.</p>"
+    },
+    {
+      "question": "<p>Which part of a printer works with the pickup rollers to ensure that paper is only fed one page at a time?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Separation pads</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Corona wire</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Stepper motor</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EP drum</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Separation pads</p><p>Separation pads are rubber or cork pads that help separate individual pages. They apply pressure so that only one page is picked up.</p><p>A corona wire applies a negative charge to paper in a laser printer. A stepper motor moves an inkjet printer head. An EP drum is used with laser printers to transfer toner to the paper.</p>"
+    },
+    {
+      "question": "<p>A laser printer is printing pages with speckles. What can a technician use to determine which roller is causing the problem?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Roller circumference chart</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Formatter board</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Printer drivers</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>LED front panel</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Roller circumference chart</p><p>A roller circumference chart is included with laser printer documentation. A technician can line up the speckled pages with this chart to see which roller is causing the problem based on the length of its repeating pattern.</p><p>A formatter board is a circuit board for a printer. Printer drivers are used to prepare a document for a printer. A printer's LED panel shows settings and other status information.</p>"
+    },
+    {
+      "question": "<p>What is required for two devices with Bluetooth enabled in order for them to start exchanging or synchronizing data between the two?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pairing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>VPN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>HSM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pairing</p><p>Bluetooth devices need to be paired in order for them to start exchanging or synchronizing data. One device should be discoverable and the other device will search for it in order for the pairing process to start.</p><p>Encryption is not required for Bluetooth connections. A virtual private network (VPN) is used to connect to remote networks. A hardware security module (HSM) is used to provide security services such as storing digital keys.</p>"
+    },
+    {
+      "question": "<p>Which of the following operates on licensed frequencies?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>AM radio</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Wi-Fi</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Walkie-talkies</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cordless telephones</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: AM radio</p><p>AM and FM radio frequencies are licensed by the FCC. Only a registered operator can use the specific frequencies they have been granted access to.</p><p>Wi-Fi, walkies-talkies, and cordless phones can choose their frequencies within ranges, which can lead to interference.</p>"
+    }
+  ]
+}

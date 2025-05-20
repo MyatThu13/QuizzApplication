@@ -1,0 +1,2524 @@
+{
+  "questions": [
+    {
+      "question": "<p>Which of the following are options for interacting with an email server when configuring email on an iOS device? Select TWO.</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>IMAP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>POP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>GPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DNS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Two methods for communicating with an email server are POP and IMAP. IMAP is preferred because it allows the user to download messages without deleting them, while POP will delete the messages.&nbsp;</p><p>GPS is used for location services. DNS is used to resolve domain names to IP addresses.</p>"
+    },
+    {
+      "question": "<p>A company wants to save money by not hosting their web servers on their own hardware. They are considering various cloud providers that offer virtual machines where they can host their websites. They are concerned about being able to add or remove resources without having intervention from the provider.</p><p>Which characteristic of cloud computing are they currently concerned with?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>On-demand self-service</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Resource pooling</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Broad network access</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rapid elasticity</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: On-demand self-service</p><p>On-demand self-service refers to users being able to provision resources without needing assistance from the provider. This includes resources like storage, network capacity, or processing power.</p><p>Resource pooling refers to provisioning resources from systems that are shared with others. Broad network access refers to cloud services being accessible by multiple types of clients. Rapid elasticity refers to instantly scaling capabilities up or down based on demand.</p>"
+    },
+    {
+      "question": "<p>Which technology can BIOS/UEFI use to only boot from an authenticated boot device?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TPM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>BitLocker</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Southbridge</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>POST</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: TPM</p><p>The Trusted Platform Module (TPM) is a dedicated cryptoprocessor that can be used to authenticate a boot device. It can also be configured to require a password to be entered before booting.</p><p>BitLocker is a Microsoft product for encrypting an entire filesystem. The Southbridge is a chip on a motherboard for communicating with components. The power-on self-test (POST) is a routine that BIOS/UEFI performs to check if there are any hardware issues when a computer is turned on.</p>"
+    },
+    {
+      "question": "<p>What is the first step in troubleshooting a problem?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Identifying the problem</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Establishing a theory</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Testing the theory</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Establishing a plan of action</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Identifying the problem</p><p>The first step in troubleshooting is to identify the problem. This can involve talking to a user, gathering information, and determining if it is a hardware or software problem.</p><p>Establishing a theory is done after identifying the problem. Testing the theory is done after the theory has been established. Establishing a plan of action occurs after testing the theory.</p>"
+    },
+    {
+      "question": "<p>An administrator is interested in reducing the amount of spam on their company's network. They are looking for a simple solution that verifies the IP addresses of the email server that sends the message.</p><p>Which type of solution should they try?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SPF</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DKIM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DMARC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SNMP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SPF</p><p>The Sender Policy Framework (SPF) authenticates email servers based on their IP addresses. The receiving server sends a request to the sender's DNS server, and if the sending server is legitimate, then the email is accepted.</p><p>Domain Keys Identified Mail (DKIM) uses encryption through a public-private key pair. Domain-based Message Authentication, Reporting, and Conformance (DMARC) combines SPF and DKIM. The Simple Network Management Protocol (SNMP) is for managing network devices.</p>"
+    },
+    {
+      "question": "<p>Which protocol enables users to access a Microsoft Exchange Server for email, calendar, and other services from a variety of devices?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ActiveSync</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SMTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IMAP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>iTunes</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ActiveSync</p><p>ActiveSync lets users keep services from Microsoft Exchange Server in sync. It can also enforce security policies and perform tasks like remote wipe.</p><p>SMTP is used to transfer email. IMAP is used to manage email messages. iTunes is used to sync media files.</p>"
+    },
+    {
+      "question": "<p>Which statement is true regarding VDI on premises?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A virtual switch can handle multiple virtual NICs.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A virtual NIC must be connected to a physical NIC.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A virtual switch cannot connect to a physical NIC.&nbsp;</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>At least one VM in a virtualized environment must be connected to a NIC.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A virtual switch can handle multiple virtual NICs.</p><p>Using virtual desktop infrastructure (VDI), multiple VMs can connect to a virtual switch which is then connected to a physical network interface card (NIC). However, this may cause network bottlenecks if only one NIC is serving many virtual desktops.</p><p>A virtual NIC does not have to be connected to a physical NIC. A virtual switch is able to logically connect to a physical NIC. VMs can be completely isolated from the network by not connecting to a NIC.</p>"
+    },
+    {
+      "question": "<p>Which adapter type changes one analog video cable type to another analog video cable type?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DVI-to-VGA adapter</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DVI-to-HDMI adapter</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>USB-C to Lightning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>USB to PS/2</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DVI-to-VGA adapter</p><p>DVI and VGA are two video formats that support analog video. These formats are pin-compatible, so they only need a passive adapter to convert between the two standards.</p><p>A DVI-to-HDMI adapter converts between digital video. A USB-C to Lightning cable converts digital signals. A USB to PS/2 converts for mice and keyboards.</p>"
+    },
+    {
+      "question": "<p>Which video cable types can transmit both audio and video simultaneously? Select TWO.</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>HDMI</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>DisplayPort</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>VGA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DVI-I</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Both HDMI and DisplayPort cables can transmit video and audio.</p><p>VGA only sends analog video and DVI-I transmits video in either digital or analog.</p>"
+    },
+    {
+      "question": "<p>How many pairs of wires can an RJ-45 connector accommodate?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>4</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>1</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>8</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 4</p><p>RJ-45 connectors are commonly used with UTP cables for Ethernet networks. They support 4 twisted pairs, which is eight wires.</p>"
+    },
+    {
+      "question": "<p>Which solution for dealing with a mobile device with an old battery that can only hold a short charge will give the BEST results?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Replace the battery</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Drain the battery completely, then charge to full</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Recalibrate the battery</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Remove and re-insert the battery</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Replace the battery</p><p>Most techniques to try to make batteries last longer will only have a minimal impact. If a device is not yet obsolete but battery life is an issue, it is best to just replace the battery with a new one.</p>"
+    },
+    {
+      "question": "<p>In an attempt to establish a theory about a problem with a user's workstation, the technician starts disabling drivers. Which troubleshooting technique is the technician engaged in?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Eliminating possibilities</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Using external resources</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Checking hardware</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Gathering information</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Eliminating possibilities</p><p>In order to narrow down the cause of a problem, one step is to disable drivers and see if the problem still exists. The technician can also boot into safe mode and start adding drivers one-by-one until the issue is discovered.</p><p>Using external resources involves checking a vendor's website or user manual. Checking hardware involves seeing if cables are plugged in and memory chips are seated firmly. Gathering information refers to an action done when identifying the problem.</p>"
+    },
+    {
+      "question": "<p>A lecturer is setting up their laptop to connect to a projector. The projector has multiple HDMI and DisplayPort ports.</p><p>After connecting their laptop, what is one way they can select the right video source on the projector?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>By using the projector's data input source menu</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>By using the laptop's display settings menu</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>By using the projector's picture mode settings</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>By using the laptop's personalize menu</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: By using the projector's data input source menu</p><p>A projector can activate its onscreen menu through its remote or a button on the device itself. The data input source menu will switch between the different data ports.</p><p>The laptop's settings won't bring up projector settings. The picture mode settings adjust settings such as color, brightness, and contrast.</p>"
+    },
+    {
+      "question": "<p>A user bought a new digital camera and wants to extend its storage. What are options for solid-state memory that can be inserted into digital cameras? Select TWO.</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>microSD</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>xD-Picture Card</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>BD-R/RE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SODIMM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Two types of portable memory that can be used in small devices are microSD and xD-Picture Card. They fit into the appropriate slots on the device.</p><p>Blu-Ray readable/writable (BD-R/RE) disks are used for optical drives. SODIMM is used for RAM on laptops.</p>"
+    },
+    {
+      "question": "<p>How can a user avoid improperly charging their mobile device?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Use the device's recommended charger</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Only charge with DC adapters</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Purchase a third-party charger if there is an issue with the original one</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Charge the device in direct sunlight</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Use the device's recommended charger</p><p>A user should follow the manufacturer's recommendations when charging their device. Using third-party chargers can cause problems. Furthermore, the battery should be kept cool, so it should not be charged in direct sunlight.</p>"
+    },
+    {
+      "question": "<p>Which type of connector is an 8-pin connector that supports USB 2.0 and was introduced with the iPhone 5?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Lightning</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Thunderbolt</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Mini DisplayPort</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>eSATA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Lightning</p><p>A Lightning connector is proprietary for iPhones and iPads. It can be inserted with either edge up.</p><p>Thunderbolt is a standard that uses a USB-C connector. Mini DisplayPort is used for audio-visual information. An eSATA connector is for connecting external hard drives.</p>"
+    },
+    {
+      "question": "<p>Which fan in a computer case intakes outside air?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Front fan</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rear fan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Power supply fan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CPU fan</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Front fan</p><p>Air flow is important for keeping a PC from suffering heat damage. The intake fan should be located at the front of the case, or sometimes on the side.</p><p>The rear fan and power supply fan blow air out of the case. A CPU fan uses air already inside the case.</p>"
+    },
+    {
+      "question": "<p>A user wants to set up a new computer as a multi-media system. Therefore, they want it to be as expandable as possible so that they can add extra components later.</p><p>Which motherboard form factor would be ideal for this situation?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Standard-ATX</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Micro-ATX</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Nano-ITX</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Pico-ITX</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Standard-ATX</p><p>The standard-ATX form factor is the largest form factor to use. It will provide the most space for upgrading the system later.&nbsp;</p><p>A micro-ATX is slightly smaller than a standard-ATX. A nano-ITX is smaller than a micro-ATX. A pico-ITX is smaller than a nano-ITX.</p>"
+    },
+    {
+      "question": "<p>What are common functions of a managed switch? Select TWO.</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Port mirroring</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>QoS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Encryption</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Log aggregating</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A managed switch has many more functions than an unmanaged switch. An unmanaged switch passes all traffic through its interfaces based on MAC addresses, while a managed switch offers quality of service (QoS), redundancy, port mirroring, and VLANs.</p><p>Encryption is handled at the Presentation Layer of the OSI model. Log aggregating is done by network monitoring devices.</p>"
+    },
+    {
+      "question": "<p>A technician is tasked with troubleshooting an issue with a user's desktop. They are currently focused on identifying the issue.</p><p>What are tasks that can be done during this step? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Perform backups</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Determine any changes made</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Make configuration changes</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Document findings</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>The first step of troubleshooting is to identify changes. This includes performing tasks such as determining if any changes have been made recently and performing backups.&nbsp;</p><p>Making configuration changes should occur when the technician is testing their theory. Documenting findings should occur after the technician has verified functionality.</p>"
+    },
+    {
+      "question": "<p>Which twisted pair cable type can transmit up to 10 Gbps but only over a distance of 55 meters?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Cat 6</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cat 5e</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cat 5</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cat 6a</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Cat 6</p><p>A Cat 6 cable can be used as a backbone cable between floors of a building. It transmits up to 10 Gbps but only over 55 meters.</p><p>A Cat 5e cable has speeds up to 1 Gbps. A Cat 5 cable transmits up to 100 Mbps. A Cat 6a cable transmits up to 10 Gbps, but with a distance up to 100 meters.&nbsp;</p>"
+    },
+    {
+      "question": "<p>A company recently suffered a security incident in which an attacker was able to learn sensitive information from users' devices. An audit revealed that the company's wireless network extended beyond the company's building and into the parking lot.</p><p>What could the company do to mitigate this particular security threat?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Reduce power levels on access points</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Change to a different Wi-Fi channel</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Remove metal appliances near the antenna</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Require multi-factor authentication</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Reduce power levels on access points</p><p>The power levels on access points should be adjusted so that the signal does not reach beyond where it is intended. If the signal is too strong, unintended users can capture the wireless traffic and learn sensitive information.</p><p>Changing Wi-Fi channels does not reduce the signal's range. Removing metal appliances will help extend the reach of an access point's signal. Requiring multi-factor authentication does not address the issue.</p>"
+    },
+    {
+      "question": "<p>Which of the following solutions can help improve network speeds?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Segmenting traffic into VLANs</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Replacing switches with hubs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Setting NICs to half-duplex</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Upgrading cables to Cat 3</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Segmenting traffic into VLANs</p><p>A switch can segment a network into virtual LANs. This will improve efficiency because broadcast packets will only go to their own VLAN.</p><p>Hubs should be replaced with switches. NICs should be using full-duplex. Cables should be upgraded to Cat 5e or 6.</p>"
+    },
+    {
+      "question": "<p>During a presentation, a lecturer hears a popping sound from the projector and the screen goes dark. They call a technician to fix the issue, who determines that the bulb burned out.</p><p>What should the technician do FIRST before changing the bulb?&nbsp;</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Wait for the bulb to cool down</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Unplug the video cables</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Change the fan filter</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Recalibrate the display</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Wait for the bulb to cool down</p><p>Projector bulbs run hot, so they take about 30 minutes to cool completely. Touching a hot projector bulb can cause burns.</p><p>Unplugging the video cables, changing the fan filter, or recalibrating the display are not related to changing the bulb.</p>"
+    },
+    {
+      "question": "<p>An administrator has noticed many errors while transferring data on the network. They suspect that it is due to interference because the cables are near a power generator and some other machinery. When looking at the cable, the administrator notices wire pairs that have a plenum coating but no outer foil shield.</p><p>What type of cable is currently being used for the network?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>UTP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>STP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RG-59</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MMF fiber</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: UTP</p><p>An unshielded twisted pair (UTP) type of cable has twisted pairs of wires that are protected by plenum, but do not have an outer foil shield to protect from interference. UTP is more common, but shielded cables can provide greater stability and performance.</p><p>A shielded twisted pair (STP) has a foil shield around twisted pairs of wires. An RG-59 cable does not have twisted pairs. An MMF fiber cable transfers light, so it is not affected by interference.</p>"
+    },
+    {
+      "question": "<p>Which Internet connection type requires line-of-sight and has latency of about 300 milliseconds?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Satellite</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Fiber</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Cable</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Cellular</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Satellite</p><p>Using satellite Internet is advantageous for its portability and for transmitting location data or television broadcasts. However, there is more latency involved and a satellite dish needs line-of-sight with the satellite or there will be interference.</p><p>Fiber, cable, and cellular Internet do not require line-of-sight.</p>"
+    },
+    {
+      "question": "<p>Which of the following IPv4 addresses is a public address?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>168.10.0.4</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>192.168.0.12</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>172.30.12.24</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>10.200.132.35</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 168.10.0.4</p><p>Private IP addresses are not routable on the Internet. For Class A addresses, the private range is 10.0.0.0 to 10.255.255.255. For Class B addresses, the private range is 172.16.0.0 to 172.31.255.255. For Class C addresses, the range is 192.168.0.0 to 192.168.255.255.</p>"
+    },
+    {
+      "question": "<p>Which connector type is used with RG-6 and RG-59 cables?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>F-type</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>BNC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RJ-11</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ST</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: F-type</p><p>An F-type connector is used with coaxial cables. It is often used with cable television and cable modems.</p><p>A BNC connector is used with thinnet coax cables. An RJ-11 connector is used with twisted pair cables. An ST connection is used with fiber-optic cables.</p>"
+    },
+    {
+      "question": "<p>A user reports that the laser printer is printing black vertical lines down each page. What is one possible cause of this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A scratch in the EP drum</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A burned-out halogen light</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A broken cleaning blade</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An incorrect printer driver</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A scratch in the EP drum</p><p>A scratch in the EP drum can cause vertical black lines. A scratch does not receive a charge like other areas, so toner can stick to it.</p><p>A burned-out halogen light could cause image smudging. A broken cleaning blade could cause ghosting. An incorrect printer driver can cause garbled print.</p>"
+    },
+    {
+      "question": "<p>A user is having intermittent wireless connection problems at home. Which of the following is the MOST likely cause of this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Weak signal</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Low RAM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Disk space full</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Data collisions</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Weak signal</p><p>Having a weak signal can cause wireless connections to be intermittent. This can be addressed by getting closer to the signal, removing obstacles, or using a more powerful wireless router.</p><p>RAM and disk space do not affect wireless connections. Data collisions would only be a problem if there is too much traffic on the network.</p>"
+    },
+    {
+      "question": "<p>Which term describes switched, point-to-point signal paths between two PCIe components?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Lanes</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Slots</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Modules</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Channels</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Lanes</p><p>A lane is a pair of wires between components that allows traffic to flow in both ways. There can be a single lane or multiple lanes used for communication.</p><p>The other answer choices are not accepted terminologies for paths between PCIe components.</p>"
+    },
+    {
+      "question": "<p>Which technology is used to provide precise location services on an iOS mobile device?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>GPS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Two-factor authentication</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NFC</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: GPS</p><p>The global positioning system (GPS) can provide the location of a device to within 10 meters. A device can also be located by pinging cell towers, but this is less accurate.</p><p>Bluetooth is used for connecting close-range peripheral devices to a system. Two-factor authentication is used to make logins more secure. Near-field communications (NFC) is a wireless standard with a range of only a few centimeters.</p>"
+    },
+    {
+      "question": "<p>What method of communication does a RAID use to indicate that there is a problem?&nbsp;</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>LED lights</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Beep codes</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SMS alert</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Haptics</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: LED lights</p><p>RAID and other storage devices use LED lights to indicate their status. A light may blink when performing read and write operations or may use a different color to show errors.</p><p>Beep codes are used by motherboards. A RAID may send email alerts, but is not likely to use SMS. Haptics is used in smartphone notifications.</p>"
+    },
+    {
+      "question": "<p>A teacher needs to output the display of their laptop to a projector in a new classroom. After connecting the projector's video cable, where is the MOST likely place for them to switch the output to the projector?&nbsp;</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Function keys</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Numpad keys</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PrtSc key</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Arrow keys</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Function keys</p><p>The function keys on a laptop typically serve functions such as changing video output, controlling brightness, or adjusting sound. This involves pressing the function key and another key, such as F4 or F8.</p><p>The numpad keys, PrtSc key, and arrow keys are not associated with changing video output.</p>"
+    },
+    {
+      "question": "<p>A user enters a website address into their browser's URL bar, but the browser gives an error about not being able to find the address. The user is still able to access some other network resources, such as pages from websites that are already in opened tabs and files from their network file server.</p><p>Which service is MOST likely causing the issue for this user?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>DNS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DHCP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>FTP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>LDAP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: DNS</p><p>The domain name system (DNS) is responsible for translating domain names to IP addresses. If the DNS server becomes unavailable, sites that a host has previously visited may have their addresses cached, but a host would not be able to resolve new domain names.</p><p>The Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses to hosts. &nbsp;The File Transfer Protocol (FTP) is used to send and receive files. The Lightweight Directory Access Protocol (LDAP) is used for maintaining directory information services.</p>"
+    },
+    {
+      "question": "<p>Which sentence correctly describes CPU sockets?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ZIF sockets use a lever to lock the CPU in place.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Some CPU sockets are compatible with both Intel and AMD processors.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Servers and laptops have the same types of sockets.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>In an LGA socket, the socket has holes where the CPU's pins fit into.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ZIF sockets use a lever to lock the CPU in place.</p><p>CPU sockets are where CPUs are attached to a motherboard. In a zero-insertion force (ZIF) system, a lever is used to secure the CPU so that the pins do not get damaged.</p><p>CPU sockets are designed for either Intel or AMD, but not both. Servers and laptops have different types of sockets. A land grid array (LGA) socket has pins on the socket which fit into the holes of a CPU.</p>"
+    },
+    {
+      "question": "<p>A user wants to wirelessly connect a headset to their desktop so they can attend online meetings. Which of the following technologies should a technician use so the user can accomplish this?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Lightning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NFC</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Infrared</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Bluetooth</p><p>Bluetooth is used to create a personal area network that has a range of around 10 meters. It is commonly used for peripheral devices such as keyboards, mice, speakers, and headsets.</p><p>Lightning uses cables to connect devices. Near-field communications (NFC) only has a range of about 4 centimeters. Infrared requires line of sight to function.</p>"
+    },
+    {
+      "question": "<p>A web development company wants to move their development pipeline to the cloud. They will need software development tools hosted in the cloud so that they can build and test their apps directly there. However, they do not want to manage any virtual network infrastructure.</p><p>Which type of cloud service are they looking for?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>PaaS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>HaaS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: PaaS</p><p>Platform as a service (PaaS) is a cloud service that includes software development tools. It allows developers to focus on building software rather than the environment needed to build it.</p><p>Software as a service (SaaS) provides single apps that can be used in the cloud. Infrastructure as a service (IaaS) allows customers to allocate resources like network capacity, processing power, and storage. Hardware as a service (HaaS) refers to providing hardware cloud services such as storage.</p>"
+    },
+    {
+      "question": "<p>Which of the following statements is true about eSATA?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>It has a maximum transfer speed of 6 Gbps.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>It provides power to an external hard drive.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>It uses a 40-pin cable.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>It supports up to 8 devices on a single bus.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: It has a maximum transfer speed of 6 Gbps.</p><p>An eSATA cable is used to allow external SATA devices, such as hard drives. It has a maximum speed of 6 Gbps.&nbsp;</p><p>eSATA does not provide power on its own. A PATA drive uses a 40-pin cable. eSATA supports 15 devices on a single bus.</p>"
+    },
+    {
+      "question": "<p>Which version of the 802.11 standard has an outdoor range of 250 meters?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>802.11n</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>802.11a</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>802.11ac</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>802.11g</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 802.11n</p><p>The 802.11n standard has an outdoor range of 250 meters and an indoor range of 70 meters. It also has a maximum throughput of 600 Mbps.</p><p>The 802.11a standard has an outdoor range of 120 meters. The 802.11ac standard has an outdoor range of 140 meters. The 802.11g standard has an outdoor range of 140 meters.</p>"
+    },
+    {
+      "question": "<p>Which of the following accurately describe security requirements with client-side virtualization? Select THREE.</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Antimalware software should be installed on virtualized hosts.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Security issues with the hypervisor can affect all hosted VMs.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>VM operating systems need current patches.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>VM operating systems are more secure than operating systems that are not virtualized.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>Virtualized machines have the same security issues as systems that are not virtualized. The VM should have antimalware installed and be kept up-to-day with the latest patches. If hackers can attack the hypervisor that manages the VMs, they can access other VMs under its control. VM operating systems do not have any special protections that non-virtualized systems have.</p>"
+    },
+    {
+      "question": "<p>An administrator sets up a system in which users have to enter a unique PIN number in addition to their username and password to log in. Which aspect of security is the administrator implementing?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Authentication</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Authorization</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Accounting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Auditing</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Authentication</p><p>Authentication refers to validating that someone who is trying to log into a system is who they say they are. This can include using passwords or other types of information.</p><p>Authorization determines what actions an authenticated user can perform. Accounting refers to tracking what a user does on a system. Auditing involves validating the presence of appropriate security controls.</p>"
+    },
+    {
+      "question": "<p>What are the three nonoverlapping channels in the 2.4 Ghz range of a Wi-Fi router?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>1, 6, and 11</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>1, 7, and 15</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>0, 6, and 12</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>0, 3, and 5</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 1, 6, and 11</p><p>In the 2.4 Ghz range for Wi-Fi communications, there are channels 1 through 14, although only the first 11 are used. There is overlap between channels, so to avoid interference, channels 1, 6, and 11 should be used.</p>"
+    },
+    {
+      "question": "<p>A user spills a drink on their laptop keyboard and now one of the keys is stuck. What is the MOST likely way to fix this issue?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Replace the keyboard</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Switch out the sticky key</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Use compressed air on the keyboard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Wipe the keyboard with a damp cloth</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Replace the keyboard</p><p>On most laptop keyboards, individual keys cannot be replaced. Instead, the entire keyboard needs to be replaced.</p><p>With external keyboards, individual keys can be swapped out. Compressed air is used for cleaning dust. Wiping the keyboard is for cleaning the outside.</p>"
+    },
+    {
+      "question": "<p>A company does not want to manage their own email servers. So, they choose a third-party cloud service that lets their users send and retrieve email.</p><p>What type of cloud service are they using?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SaaS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IaaS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NaaS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SaaS</p><p>Software as a service (SaaS) is a cloud service in which a third-party provider takes care of the software, deployment, maintenance, and infrastructure. Examples of SaaS are Dropbox and Gmail.&nbsp;</p><p>Platform as a service (PaaS) additionally offers software development tools. Infrastructure as a service (IaaS) allows a customer to lease resources like network bandwidth, processing power, or storage. Network as a service (NaaS) provides network infrastructure.</p>"
+    },
+    {
+      "question": "<p>What is the MOST important factor in causing intermittent wireless connectivity in a SoHo location?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Distance</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Interference</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Obstacles</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Multiple users</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Distance</p><p>The best way to improve wireless connectivity in an office setting is to be closer to the wireless access point. Other issues like interference, obstacles, and too many users can also be factors, although in busier locations.</p>"
+    },
+    {
+      "question": "<p>An administrator is setting up a DNS server to resolve website domain name requests to the IP address of their web server. They currently want to set the record for IPv4 requests.</p><p>Which record type will they be configuring in the zone file?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SOA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>NS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>AAAA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A</p><p>DNS is used to resolve domain names to IP addresses.To configure IPv4 records in a DNS zone, an A record is used.</p><p>An SOA record is used to signify the authoritative DNS server. An NS record is used to specify the name or address of a name server. An AAAA record is used for IPv6 addresses.</p>"
+    },
+    {
+      "question": "<p>Which accessory allows a laptop to have all the same port connections as a desktop computer, including expansion bus slots and memory card slots?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Docking station</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Trackpad</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Port replicator</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Digitizer</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Docking station</p><p>A docking station is an accessory that stays at a user's desk so that when they are at work, they can connect their laptop to it to have all the functionality of a desktop computer. This could include adding more USB ports, full-sized drive bays, or optical drives.</p><p>A trackpad is used for freeform input. A port replicator is more limited in functionality than a docking station. A digitizer takes analog input and creates digital output, such as touchscreen panels.</p>"
+    },
+    {
+      "question": "<p>A graphic designer wants a display with the best viewing angles and color reproduction. They also want to mount it vertically.</p><p>Which of the following display technologies would BEST fit their needs?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>IPS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>VA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CRT</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: IPS</p><p>In-plane switching (IPS) is a type of LCD monitor that produces the best colors and has the best viewing angles. It is also ideal for mounting vertically, which is useful for app design.</p><p>Twisted nematic (TN) is older and does not have ideal color reproduction or viewing angles. Vertical alignment (VA) has average specs. Cathode-ray tube (CRT) is an obsolete monitor type.</p>"
+    },
+    {
+      "question": "<p>A developer wants to test a beta version of a piece of software. Since the software still has bugs, they do not want it to have any adverse effects on the rest of their system.</p><p>How can they use virtualization to help them in this situation?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>They can run the software in a virtual sandbox</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>They can check that the software has been digitally signed</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>They can create a separate folder for the application</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>They can install the application to a separate hard drive</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: They can run the software in a virtual sandbox</p><p>Virtualization can be used as a way to test software in its own isolated environment. The application has everything it needs inside the sandbox, and it will not be able to reach outside of it to make other system changes.</p><p>Digitally signing software proves authenticity but does not prevent it from making changes. Installing it to a separate folder or drive will not restrict the application.</p>"
+    },
+    {
+      "question": "<p>A systems administrator is setting up a file server that will use multiple drives for both redundancy and increased speed. They decide that they will not need to mirror the drive, though.</p><p>Which RAID level would fit this situation?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RAID 5</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAID 0</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RAID 1</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAID 10</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RAID 5</p><p>A RAID 5 configuration offers redundancy and striping. This makes it faster than a single disk and if one disk fails, it can be swapped out.</p><p>RAID 0 only offers disk striping for increased speed. RAID 1 only has disk mirroring. RAID 10 mirrors each disk in a RAID 0 striped set.</p>"
+    },
+    {
+      "question": "<p>Which of the following result from fatal errors in different types of operating systems? Select TWO.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Blue Screen of Death</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Pinwheel</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Blank screen</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>404 error</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A fatal operating system error in Windows is called the Blue Screen of Death (BSOD) and in macOS it is represented by a spinning pinwheel. These errors usually relate to memory.&nbsp;</p><p>A blank screen is caused by video issues. A 404 error is a web browsing error.</p>"
+    },
+    {
+      "question": "<p>Which tool is used to attach connectors to the end of a cable?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Crimper</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Multimeter</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Punchdown tool</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Loopback plug</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Crimper</p><p>A crimper is a tool that adds a connector to the end of a cable. Many crimpers can also cut cables and strip the jacket off them.&nbsp;</p><p>A multimeter is used to measure voltage. A punchdown tool attaches a cable to a patch panel. A loopback plug is used to test a network interface.</p>"
+    },
+    {
+      "question": "<p>What is the knob around the outside of a projector's lens used for?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Focusing the image</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Adjusting brightness</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Turning on and off</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Audio levels</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Focusing the image</p><p>A projector will have a knob around the lens that allows for manually focusing. Many projectors can also do auto-focus.</p><p>Most other settings are controlled through an onscreen menu.</p>"
+    },
+    {
+      "question": "<p>Which network device stores a table that keeps track of the best paths to send data to various IP addresses along a physical network?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Router</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Firewall</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Patch panel</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Router</p><p>A router is used to connect networks. To send data out the best interface, it maintains a routing table that can be statically or dynamically updated with the best paths to IP addresses or networks.</p><p>A switch typically works as a Layer 2 device, but can operate at Layer 3 with VLANs. A firewall blocks or allows traffic based on a ruleset. A patch panel does not make routing decisions.</p>"
+    },
+    {
+      "question": "<p>A system is low on physical memory but needs to be able to run a few different desktop applications simultaneously. Which solution will use space on the hard drive as a place to swap memory?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Virtual RAM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cache memory</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CMOS RAM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CPU</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Virtual RAM</p><p>Virtual RAM uses space on a hard drive that is referred to as either a swap file or a paging file. It can compensate for not having enough physical RAM, but is not as performant as just installing more RAM.</p><p>Cache memory is small, fast memory between the CPU and RAM. CMOS RAM is used to store BIOS settings. A central processing unit (CPU) is a circuit that executes instructions.</p>"
+    },
+    {
+      "question": "<p>A user reports that their system cannot find the OS when trying to boot. The technician decides that they will try to repair the master boot record to try and fix the issue.</p><p>What command can they run in the Windows Recovery Environment to do this?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>bootrec /fixmbr</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>bootrec /fixboot</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>bootrec /scanos</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>bootrec /rebuildbcd</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: bootrec /fixmbr</p><p>To fix the Master Boot Record (MBR), the command \"bootrec /fixmbr\" can be used. This writes the MBR to the system partition in case the file was corrupted.</p><p>The \"bootrec /fixboot\" command writes a new boot sector. The \"bootrec /scanos\" command scans for Windows installations. The \"bootrec /rebuildbcd\" command restores the boot configuration data (BCD) store.</p>"
+    },
+    {
+      "question": "<p>Which laser printer symptom occurs when toner is not fusing to paper properly?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Image smudging</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Ghosting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Repetitive defects</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>All-black pages</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Image smudging&nbsp;</p><p>Image smudging occurs when you run your fingers over a freshly printed page from a laser printer. This is caused because the fuser is not heating the toner properly.</p><p>Ghosting can occur when there are broken cleaning blades. Repetitive defects can occur when there is a crack in the EP drum. All-black pages occur when the charging unit malfunctions.</p>"
+    },
+    {
+      "question": "<p>Which characteristic of cloud services describes that ability to be charged for only the resources that an organization uses?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Measured service</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rapid elasticity</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>On-demand self-service</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Resource pooling</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Measured service</p><p>Cloud providers offer measured service, which means that they can track a customer's resource usage and charge them transparently.</p><p>Rapid elasticity is instantly scaling up or down the needed amount of resources. On-demand self-service refers to a customer being able to request services on their own without needing any intervention from the cloud service provider. Resource pooling is the sharing of large pools of resources among many customers.</p>"
+    },
+    {
+      "question": "<p>What is the maximum data transfer rate for USB 2.0?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>480 Mbps</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>12 Mbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>5 Gbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>10 Gbps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 480 Mbps</p><p>The USB 2.0 standard was released in 2000 and has a maximum speed of only 480 Mbps.&nbsp;</p><p>The USB 1.0 standard has a maximum data transfer rate of 12 Mbps. The USB 3.0 standard has a maximum data transfer rate of 5 Gbps. The USB 3.1 standard has a maximum data transfer rate of 10 Gbps.</p>"
+    },
+    {
+      "question": "<p>Which cellular technology has the two competing standards of WiMAX and LTE?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>4G</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>2G</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>3G</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>5G</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 4G</p><p>The fourth generation (4G) of cellular networks featured two standards: WiMAX and Long-Term Evolution (LTE). WiMAX had faster speeds, but carriers ended up supporting LTE instead.</p><p>2G had a maximum data rate of only 64 Kbps. 3G had competing standards of GMS and CDMA. 5G has three classifications: eMBB, URLLC, and mMTC.</p>"
+    },
+    {
+      "question": "<p>Which type of memory form factor is required for modern laptops?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SODIMM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DIMM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>DIP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SIMM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SODIMM</p><p>Memory for laptops needs to be in a smaller form factor than what is used for desktops. Small outline dual in-line memory modules (SODIMMs) are the standard RAM package for laptops.</p><p>Dual in-line memory modules (DIMMs) are used in desktops. Dual in-line packages (DIPs) and single in-line memory modules (SIMMs) are obsolete form factors.</p>"
+    },
+    {
+      "question": "<p>Which technologies are used for LCD backlighting? Select TWO.</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>LED</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>CCFL</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>OLED</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>VA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A liquid crystal display (LCD) does not produce light, so it needs backlighting. This can be produced by a light-emitting diode (LED) or cold cathode fluorescent lamp (CCFL).</p><p>An organic light emitting diode (OLED) is both the image-producing part and the backlight. Vertical alignment (VA) is a type of LCD monitor.</p>"
+    },
+    {
+      "question": "<p>Which of the following statements accurately describes USB 4.0?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>It requires USB-C connectors.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>It has a maximum data transfer rate of 100 Gbps.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>It supports two 8k displays.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>It is backward compatible down to USB 1.1.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: It requires USB-C connectors.</p><p>USB 4.0 uses USB-C connectors, which have rounded corners and are reversible. These are the same connectors used with Thunderbolt 3 and 4.</p><p>USB 4.0 has a maximum data transfer rate of 40 Gbps. It supports two 4k displays or one 8k display. It is backward compatible down to USB 2.0.</p>"
+    },
+    {
+      "question": "<p>How many bits wide is the bus from memory to an x86 processor?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>32 bits</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>64 bits</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>16 bits</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>86 bits</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 32 bits</p><p>An x86 processor has a 32-bit wide bus to the system's memory. They are called x86 because it refers to the last two digits of popular 32-bit Intel processors.</p>"
+    },
+    {
+      "question": "<p>A user reports that they hear a clicking sound coming from their desktop computer. Which of the following steps should the technician perform when troubleshooting the user's system?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Back up the hard drive</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Defragment all volumes</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Replace the RAM</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rollback operating system patches</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Back up the hard drive</p><p>A clicking sound coming from a system is most likely coming from a hard disk drive (HDD). A hard drive should be backed up immediately if it is in danger of failing.</p><p>Defragmenting will not help a failing drive. RAM does not have moving parts that can make a clicking sound. Rolling back patches would not affect a clicking sound.</p>"
+    },
+    {
+      "question": "<p>A technician is replacing an internal battery on a laptop. Which of the following steps should they perform FIRST?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Remove the bottom cover</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Remove the four screws holding the battery in place</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Remove the display</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Remove the keyboard</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Remove the bottom cover</p><p>Older laptops may have easily removable batteries in the back, but new laptops use internal batteries. To reach these, first remove the bottom cover.</p><p>Removing the display or keyboard is not necessary. Removing screws that hold the battery in place should be done after removing the bottom cover.</p>"
+    },
+    {
+      "question": "<p>Which computer component often makes a grinding noise when there is an issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>HDD</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>SSD</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>CPU</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RAM</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: HDD</p><p>A hard disk drive (HDD) is mechanical and can make grinding noises when it is malfunctioning. It is important to back up data as soon as possible when an HDD starts failing.</p><p>Random access memory (RAM), solid-state drives (SDDs), and central processing units (CPUs) do not have moving parts.</p>"
+    },
+    {
+      "question": "<p>Which option in BIOS/UEFI determines the first location where a system will start attempting to load an operating system?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Boot sequence</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Integrated ports</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Diagnostics</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Hardware security module</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Boot sequence</p><p>The boot sequence determines the order in which devices will be checked to start loading an operating system. This is usually the hard drive, but could be set to an optical drive or USB drive when needed.</p><p>The integrated ports option can be used to disable ports, such as USB. The diagnostics option lets BIOS or EUFI check for issues with components. The hardware security module is for storing encryption keys.</p>"
+    },
+    {
+      "question": "<p>A user reports that their company-issued smartphone looks swollen from the back and does not fit in its protective case well. What should the technician do to address this issue?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Dispose of the smartphone at a recycling center</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Open the case and poke the battery</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Recharge the battery fully</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Throw the smartphone in the trash</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Dispose of the smartphone at a recycling center</p><p>A swollen battery has a chance of exploding. For caution, the device should be disposed of at a recycling center.</p><p>Trying to fix the issue or charging the battery more may harm the technician. Throwing it into the trash could cause a fire or endanger sanitation workers.</p>"
+    },
+    {
+      "question": "<p>An organization hosts files they want to make accessible to the public as long as they contact the organization first for a username and password. Which protocol should they use to accomplish this?&nbsp;</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>FTP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Telnet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IMAP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>NetBIOS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: FTP</p><p>The file transfer protocol (FTP) is used for transferring files. It requires a username and password, although it does not encrypt the credentials or data in transit.</p><p>Telnet is used to open a remote terminal. IMAP is used to manage email messages on an email server. NetBIOS is used for a miming service, datagram distribution, and session management.</p>"
+    },
+    {
+      "question": "<p>How does a motherboard communicate that there is a start-up issue if it cannot output video?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Beep codes</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Web dashboard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Standard output</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MOTD</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Beep codes</p><p>A failing motherboard will produce beep codes to communicate the issue if it cannot start up. The message is encoded in long and short beeps which are unique to the vendor of the motherboard.</p><p>A system that cannot start up cannot load a web dashboard, write to standard output, or display a message of the day (MOTD).</p>"
+    },
+    {
+      "question": "<p>A business creates their own cloud infrastructure. They share their cloud resources with business partners so they can work together more effectively.</p><p>Which cloud model are they implementing?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Community</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Private</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Public</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Hybrid</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Community</p><p>A community cloud model is used when multiple organizations with a common interest use cloud resources. This type is considered more secure than a public cloud because the resources are not on systems shared with the rest of the Internet.</p><p>A private cloud is a cloud used only by a single organization. A public cloud is operated by a third party and is available to the rest of the Internet. A hybrid cloud combines private and public cloud types.</p>"
+    },
+    {
+      "question": "<p>A host computer has an IP address of 192.168.1.12 and a subnet mask of 255.255.255.0. In this situation, what would be the network portion of the address?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>192.168.1</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>12</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>168.1.12</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>192.168</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 192.168.1</p><p>The subnet mask determines the network portion of the address. Since the first three octets are set to 1s in the mask, the first three octets of the address refer to the network portion.</p>"
+    },
+    {
+      "question": "<p>A technician is troubleshooting a system that does not respond when a user tries to power it on. What are steps that the technician could attempt in this situation? Select THREE.</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Confirm the power outlet works</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Try a different power cable</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Replace the power supply</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Disassemble the power supply</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>A technician can attempt steps such as confirming that the power outlet works, trying a different plug, or replacing the power supply.</p><p>However, they should never try to repair or disassemble the power supply because it could result in a fatal electric shock.</p>"
+    },
+    {
+      "question": "<p>A company has grown from a small business in a single building to multiple locations across several cities. The separate locations are connected to each other through a network connection.</p><p>Which term describes the network between these locations?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WAN</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>LAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PAN</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MAN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WAN</p><p>A wide area network (WAN) is a network connection that spans large distances, such as cities, states, or nations. A WAN lets an organization connect network resources between locations without having to expose the resources to the broader Internet.</p><p>A local area network (LAN) is a network of systems that typically spans one floor of a building. A personal area network (PAN) is a short-range network, such as a network created by USB or Bluetooth. A metropolitan area network (MAN) spans a single metropolitan area.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a chip installed on an SSD to optimize data transfers?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>NVMe</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PCIe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SATA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>CompactFlash</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: NVMe</p><p>NVMe is a nonvolatile memory chip that is installed on a solid-state drive. It allows for read times of up to 3.5 Gbps.</p><p>PCIe and SATA are expansion slots to which SSDs can be attached. CompactFlash is a memory device for portable devices.</p>"
+    },
+    {
+      "question": "<p>Which of the following is the MOST likely cause of a blank screen?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Monitor connected to onboard video rather than expansion video card port</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RAM not seated properly</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bootup disk not selected</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Monitor set to wrong resolution</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Monitor connected to onboard video rather than expansion video card port</p><p>There are many reasons that a blank screen could appear. The monitor could be unplugged or broken. A common issue is that it is plugged into the wrong port, such as the onboard video port rather than a video card port.</p><p>Improperly installed RAM, missing bootup disks, and wrong resolutions can still output video to the screen.</p>"
+    },
+    {
+      "question": "<p>Which part of a laser printer is often responsible for paper jams?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Pickup rollers</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Toner cartridge</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HVPS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>EP drum</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Pickup rollers</p><p>A laser printer's pickup rollers feeds paper to the printer. These can get worn out over time, so they need to be replaced.</p><p>The toner cartridge holds the image-forming part of the printer. The high-voltage power supply (HVPS) supplies the power to the printer. The EP drum transfers toner to the paper.</p>"
+    },
+    {
+      "question": "<p>Which symptom is MOST likely to occur when an incorrect printer driver is used with a laser printer?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Garbled characters</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Ghosting</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Vertical white lines</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Image smudging</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Garbled characters</p><p>With the wrong print drivers, the printer and computer cannot communicate properly. The driver needs to use the correct page-description language, which is PCL or PostScript.</p><p>Ghosting can be caused by broken cleaning blades or erasure lamps. Vertical white lines can be caused by toner in the transfer corona wire. Image smudging can be caused by a bad fuser.</p>"
+    },
+    {
+      "question": "<p>Which technology used with touch screens utilizes electrical conductivity that makes the human finger act as a stylus?</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Capacitive</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Resistive</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Infrared</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Optical</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Capacitive</p><p>A capacitive screen uses electrical conductivity. This allows for smooth interaction because the user does not need to add pressure to the screen. However, wearing gloves can cause issues.</p><p>A resistive screen uses pressure to detect touches. An infrared screen uses photo sensors to detect touch. An optical screen uses cameras and image-processing software to detect touch.</p>"
+    },
+    {
+      "question": "<p>Which of the following metrics describes the speed of platters in an HDD?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>15,000 rpm</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>15 Ghz</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>1.5 Gbps</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>150 watts</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 15,000 rpm</p><p>An HDD has platters inside it that spin at a constant rate. The speed of the spin is measured in rotations per minute (rpm), with the fast HDD spins measured at 15,000 rpm.</p><p>15 Ghz is a measurement of cycles or frequencies. 1.5 Gbps is a measure of data transfer. 150 watts is a measurement of power.</p>"
+    },
+    {
+      "question": "<p>A developer is making an application that streams video. Which protocol should they use for fast, connectionless data transfers?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>UDP</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TCP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>SNMP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>RDP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: UDP</p><p>The User Datagram Protocol (UDP) is used when connections should be fast but can be unreliable. For streaming video or audio that can afford to miss frames, UDP is ideal.</p><p>The Transmission Control Protocol (TCP) is used when all data in a transfer must be accounted for. The Simple Network Management Protocol (SNMP) is used for networking devices to share information with each other. The Remote Desktop Protocol (RDP) is used to manage systems over the network.</p>"
+    },
+    {
+      "question": "<p>Which devices only repeat signals without making any decisions about their destination? Select TWO.</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Patch panel&nbsp;</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Hub</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Switch</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Router</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A hub looks like a switch but repeats all signals across each of its interfaces. A patch panel functions as a large, rack-mountable hub for organizing cables.</p><p>A switch makes decisions about which ports to forward signals to. A router makes decisions based on a packet's destination.</p>"
+    },
+    {
+      "question": "<p>Which biometric authentication types are supported on mobile devices? Select TWO.</p>",
+      "subject": "1101 1.0: Mobile Devices",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Fingerprint</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Facial recognition</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DNA scan</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>RFID</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Modern mobile devices commonly implement fingerprint scans and facial recognition.</p><p>DNA scans are not currently used, and radio-frequency identification (RFID) is used with access badges.</p>"
+    },
+    {
+      "question": "<p>Which feature of Bluetooth allows it to switch between bands to avoid interference?</p>",
+      "subject": "1101 2.0: Networking",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>SAM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>BR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HS</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>LE</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: SAM</p><p>Slot availability masking (SAM) is used because Bluetooth uses the same 2.4 Ghz frequency as Wi-Fi. SAM can detect interference and automatically switch to a different band within the frequency.</p><p>Basic rate (BR) refers to the basic transfer rate of 1 Mbps. High speed (HS) refers to transferring data at up to 24 Mbps. Low energy (LE) refers to lowering the speed to use less energy.</p>"
+    },
+    {
+      "question": "<p>Which of the following accurately describe resource requirements for client-side virtualization? Select TWO.</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>The Intel chip that supports virtualization uses VT technology.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>VMs should be allocated RAM separately from the host OS.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A hypervisor needs a separate CPU core for each virtual processor.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A physical NIC can only be bonded to a single virtual NIC.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Systems that will use virtualization have high resource requirements. For CPUs, they need to support virtualization, such as using VT for Intel or AMD-V for AMD. Each virtual machine will need its own memory allocated to it separate from memory that the host's OS needs. A hypervisor does not need a CPU core for each virtual processor. Many virtual NICs can share a physical NIC's network connection.</p>"
+    },
+    {
+      "question": "<p>A company wants to use a cloud environment for their developers so that they can share resources seamlessly across branches. They want the cloud environment to only be available to employees of the company, and do not want their data being hosted on any resources that are shared with the public.</p><p>What type of cloud should they employ?</p>",
+      "subject": "1101 4.0: Virtualization and Cloud Computing",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Private</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Public</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Hybrid</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Community</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Private</p><p>A private cloud is only open to members of one organization. It offers better security because data is never stored on publicly-shared cloud resources.</p><p>A public cloud utilizes resources that are shared with other users on the Internet. A hybrid cloud combines public and private clouds. A community cloud shares resources with other, trusted organizatons.</p>"
+    },
+    {
+      "question": "<p>A mobile device user is suffering from limited connectivity in their office. A technician wants to check the wireless network around their desk.</p><p>Which type of device should they use to determine the strength of the connection at the user's desk?</p>",
+      "subject": "1101 5.0: Hardware and Network Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Wi-Fi analyzer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cable tester</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Toner probe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Network tap</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Wi-Fi analyzer</p><p>A Wi-Fi analyzer will show wireless networks and their performance. It can help choose a channel that the Wi-Fi will run on that is least crowded.</p><p>A cable tester makes sure that a wired network cable works properly. A toner probe is used to find the start and end of a cable. A network tap creates copies of traffic on wired networks.</p>"
+    },
+    {
+      "question": "<p>A sound engineer is looking for a new computer. They need it to have a high-end audio card with a good signal-to-noise ratio.</p><p>Which of the following measurements should they be looking for?</p>",
+      "subject": "1101 3.0: Hardware",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>115 dB</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>115 kHz</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>115 watts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>115 Gbps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 115 dB</p><p>A signal-to-noise ratio (SNR) is measured in decibels (dB). A good audio card will be 115 dB or higher.</p><p>Kilohertz (kHz) is a measurement for sampling rate. Watts is a measurement of power. Gbps is a measurement of data throughput.</p>"
+    }
+  ]
+}

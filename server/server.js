@@ -7,6 +7,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const connectDB = require('./config/db');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Connect to database
@@ -101,12 +102,20 @@ app.get('/api/questions/titles', async (req, res) => {
 // Add the debug endpoint
 app.get('/api/debug/titles', async (req, res) => {
   try {
-    // Connect to database if not already connected
+    // Check mongoose connection
     if (mongoose.connection.readyState !== 1) {
-      await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      });
+      try {
+        await mongoose.connect(process.env.MONGO_URI, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+        });
+      } catch (connError) {
+        return res.status(500).json({
+          success: false,
+          error: `Failed to connect to database: ${connError.message}`,
+          connectionState: mongoose.connection.readyState
+        });
+      }
     }
     
     // Get exam metadata directly 
@@ -136,7 +145,6 @@ app.get('/api/debug/titles', async (req, res) => {
     });
   }
 });
-
 
 // AFTER defining these specific routes, THEN add the general routes with parameters
 // app.get('/api/questions/:examId', questionController.getQuestions);

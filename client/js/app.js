@@ -1382,53 +1382,53 @@ function showNotification(message, type = 'success') {
 /**
  * Add debugging tools in development mode
  */
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    // Debug application state
-    window.debugAppState = function() {
-        console.log('==== App State ====');
-        console.log('DOM Elements:');
-        console.log('- startScreen:', !!startScreen);
-        console.log('- questionContainer:', !!questionContainer);
-        console.log('- feedbackContainer:', !!feedbackContainer);
-        console.log('- examsContainer:', !!examsContainer);
-        console.log('- questionTextEl:', !!questionTextEl);
-        console.log('- choicesEl:', !!choicesEl);
+// if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+//     // Debug application state
+//     window.debugAppState = function() {
+//         console.log('==== App State ====');
+//         console.log('DOM Elements:');
+//         console.log('- startScreen:', !!startScreen);
+//         console.log('- questionContainer:', !!questionContainer);
+//         console.log('- feedbackContainer:', !!feedbackContainer);
+//         console.log('- examsContainer:', !!examsContainer);
+//         console.log('- questionTextEl:', !!questionTextEl);
+//         console.log('- choicesEl:', !!choicesEl);
         
-        console.log('App State:');
-        console.log('- API_URL:', API_URL);
-        console.log('- currentExamId:', currentExamId);
-        console.log('- currentExamMetadata:', currentExamMetadata);
-        console.log('- currentQuestions:', currentQuestions ? `${currentQuestions.length} questions` : 'None loaded');
-        console.log('- currentQuestionIndex:', currentQuestionIndex);
-        console.log('- correctAnswers:', correctAnswers);
-    };
+//         console.log('App State:');
+//         console.log('- API_URL:', API_URL);
+//         console.log('- currentExamId:', currentExamId);
+//         console.log('- currentExamMetadata:', currentExamMetadata);
+//         console.log('- currentQuestions:', currentQuestions ? `${currentQuestions.length} questions` : 'None loaded');
+//         console.log('- currentQuestionIndex:', currentQuestionIndex);
+//         console.log('- correctAnswers:', correctAnswers);
+//     };
     
-    // Debug database connectivity
-    window.testDatabaseConnection = function() {
-        fetch(`${API_URL}/debug/titles`)
-            .then(response => response.json())
-            .then(data => console.log('Database connection test:', data))
-            .catch(error => console.error('Database connection error:', error));
-    };
+//     // Debug database connectivity
+//     window.testDatabaseConnection = function() {
+//         fetch(`${API_URL}/debug/titles`)
+//             .then(response => response.json())
+//             .then(data => console.log('Database connection test:', data))
+//             .catch(error => console.error('Database connection error:', error));
+//     };
     
-    // Add debugging button
-    document.addEventListener('DOMContentLoaded', () => {
-        const debugButton = document.createElement('button');
-        debugButton.textContent = 'Debug';
-        debugButton.style.position = 'fixed';
-        debugButton.style.bottom = '10px';
-        debugButton.style.right = '10px';
-        debugButton.style.zIndex = '9999';
-        debugButton.style.backgroundColor = '#f72585';
-        debugButton.style.color = 'white';
-        debugButton.style.padding = '8px 12px';
-        debugButton.style.border = 'none';
-        debugButton.style.borderRadius = '4px';
-        debugButton.style.cursor = 'pointer';
-        debugButton.addEventListener('click', () => {
-            window.debugAppState();
-            window.testDatabaseConnection();
-        });
-        document.body.appendChild(debugButton);
-    });
-}
+//     // Add debugging button
+//     document.addEventListener('DOMContentLoaded', () => {
+//         const debugButton = document.createElement('button');
+//         debugButton.textContent = 'Debug';
+//         debugButton.style.position = 'fixed';
+//         debugButton.style.bottom = '10px';
+//         debugButton.style.right = '10px';
+//         debugButton.style.zIndex = '9999';
+//         debugButton.style.backgroundColor = '#f72585';
+//         debugButton.style.color = 'white';
+//         debugButton.style.padding = '8px 12px';
+//         debugButton.style.border = 'none';
+//         debugButton.style.borderRadius = '4px';
+//         debugButton.style.cursor = 'pointer';
+//         debugButton.addEventListener('click', () => {
+//             window.debugAppState();
+//             window.testDatabaseConnection();
+//         });
+//         document.body.appendChild(debugButton);
+//     });
+// }

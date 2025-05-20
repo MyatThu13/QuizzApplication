@@ -1,0 +1,2524 @@
+{
+  "questions": [
+    {
+      "question": "<p>Which of the following are features of a Windows 10 desktop? Select TWO.</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Start menu</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Taskbar</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Finder</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Dock</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Windows 10 has several features for its desktop, including the Start menu, which provides access to applications, and the Taskbar, which displays open applications so a user can switch between them. The Finder is a file manager for macOS, and the Dock allows macOS users to access applications easily.</p>"
+    },
+    {
+      "question": "<p>Which of the following is a security measure that should be taken with a SOHO router?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Changing default passwords</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Disabling WPA3</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Enabling WEP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Hiding SSID</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Changing default passwords</p><p>When an organization receives a new SOHO router, they should change the default administrative password. Many default passwords are already known and shared by threat actors.</p><p>WPA3 is the latest encryption method that should be used. WEP is an outdated encryption method. Hiding the SSID makes a router harder to find for clients, but does not increase security.</p>"
+    },
+    {
+      "question": "<p>Which sentence accurately describes architecture requirements for installing an application?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A 32-bit application can be installed on a 64-bit CPU and operating system.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A 32-bit application can be installed on a 16-bit CPU and operating system.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>A 64-bit application can be installed on a 32-bit CPU and operating system.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>A 64-bit application can be installed on a 16-bit CPU and operating system.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: A 32-bit application can be installed on a 64-bit CPU and operating system.</p><p>The system architecture needs to meet or exceed the requirements of the application. So, a 32-bit application can be installed on a 64-bit system, but a 64-bit application cannot be installed on a 32-bit system.</p>"
+    },
+    {
+      "question": "<p>If an issue in a ticketing system cannot be addressed after having been escalated to the highest level within the organization, what should be the next step?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Contacting third parties</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Dismissing the ticket</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Returning it to the lowest level</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Delaying the ticket until others are addressed first</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Contacting third parties</p><p>If a ticket cannot be addressed by someone within the organization, then it should be referred to someone outside the organization until an answer is found. Therefore, it is important to maintain service contracts with outside vendors.</p>"
+    },
+    {
+      "question": "<p>Which feature of Windows makes it difficult for a user to change system files?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>UAC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Desktop alerts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Redirection</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>System file check</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: UAC</p><p>User Access Control (UAC) is used to prevent users from doing actions that would change system files. It prompts the user for permission before making any changes that require administrative access.</p><p>Desktop alerts are notifications from the operating system. Redirection is an attack that sends a user to a malicious website. System file checks repair system files if they are missing or corrupt.</p>"
+    },
+    {
+      "question": "<p>When remediating a Windows system from malware, why is it important to disable System Restore?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>To keep the system from returning to an infected state</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>To stop the malware from spreading to other systems</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>To verify that the system has been infected</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>To prevent the malware from launching</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: To keep the system from returning to an infected state</p><p>After malware has been identified and the infected system has been quarantined, it should then have System Restore disabled. This can keep the malware from creating restore points or returning to an infected state.</p><p>Quarantining is used to stop the malware from spreading to other systems. Identifying malware is the first step to verifying that the system has been infected. The malware can still launch even if System Restore is disabled.</p>"
+    },
+    {
+      "question": "<p>A Windows user reports that they are unable to connect to a remote application server from their workstation. A technician confirms that they can ping the remote server from the workstation but that the two systems are not connecting on the server's port. What is an additional step they should perform on the workstation while troubleshooting?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Deactivate the firewall</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Flush the DNS cache</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Renew the DHCP lease</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Update virus definitions</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Deactivate the firewall</p><p>Windows Defender Firewall blocks ports, which could keep the system from communicating with the server. By temporarily deactivating the firewall, it can be determined if it is causing the problem.</p><p>If the workstation can ping the server, it would not need to change DNS or DHCP information. Updating virus definitions is used when anti-malware software checks for viruses.</p>"
+    },
+    {
+      "question": "<p>A business wants to implement changes to its network environment. Before committing the changes, the business would like to see how it works in an environment that is similar to its production environment. What should they do in this situation?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Sandbox testing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Rollback planning</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Create a ticketing system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Perform risk analysis</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Sandbox testing</p><p>A sandbox is an environment that is constructed that mimics the original environment and allows for testing. This type of sandboxing can be more easily accomplished by using virtual machines.</p><p>A rollback plan is a series of steps needed to revert a change back to its original configuration if needed. A ticketing system is used to handle user requests. Risk analysis identifies and analyzes threats.</p>"
+    },
+    {
+      "question": "<p>Which wireless encryption protocol utilizes SAE?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>WPA3</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>WPA2</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>WEP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>WPA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: WPA3</p><p>Wi-Fi Protected Access 3 (WPA3) uses the Simultaneous Authentication of Equals (SAE) protocol, which replaced the Pre-Shared Key (PSK) protocol used by WPA2. It is more secure because it does not use a single, static password.</p><p>WPA2 uses AES encryption along with CCMP. WEP uses a shared passphrase. WPA uses TKIP.</p>"
+    },
+    {
+      "question": "<p>A company wants to increase security for its staff members. They want every employee and visitor to go through a security checkpoint that will determine if they are carrying weapons. What type of device should they install to achieve this?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Magnetometer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Iris scanner</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bollard</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Key fobs</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Magnetometer</p><p>A magnetometer is a metal detector. It uses electromagnetic fields to detect metallic objects.</p><p>An iris scanner is a biometric form of authentication. Bollards are physical structures to block movement. Key fobs are RFID devices used for physical access.&nbsp;</p>"
+    },
+    {
+      "question": "<p>A company needs to set up their users' desktops so that users are centrally authenticated and their systems are centrally audited through Active Directory. Which editions of Windows 10 would support their requirements? Select THREE.</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Windows 10 Pro</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Windows 10 Pro for Workstation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Windows 10 Enterprise</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Windows 10 Home</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>To use domains, the supported Windows 10 editions are Windows 10 Pro, Windows 10 Pro for Workstation, and Windows 10 Enterprise. Windows 10 Home is meant for consumers, so it does not support connecting to a domain like Active Directory.</p>"
+    },
+    {
+      "question": "<p>What are some steps that can be taken to address mobile apps that continually crash? Select THREE.</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Clear the app's cache</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Re-install the app</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Reboot the device</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Run the app outside its sandbox</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>There are numerous reasons why an app on a mobile device would crash. Some solutions to try include force-quitting the app, clearing the app's cache, clearing the app's data, re-installing the app, or rebooting the device. &nbsp;Running an app outside of a sandbox provided by the device's operating system for security reasons would not be a solution.</p>"
+    },
+    {
+      "question": "<p>A user wants to change the background picture on their Windows desktop. Which tool should they use to do this?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Personalization</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Display</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Gaming</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Accounts</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Personalization</p><p>The Personalization tool lets a user change background pictures for the desktop. The background image can be set to fill, fit, stretch, tile, center or span the desktop.</p><p>The Display tool lets a user change resolutions or rearrange multiple displays. The Gaming tool configures options for recording game clips or chatting with others. The Accounts tool is for information on user accounts.</p>"
+    },
+    {
+      "question": "<p>Which tool is used to set options for Internet Explorer?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Internet Options</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>File Explorer</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Network and Sharing Center</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Ease of Access</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Internet Options</p><p>Internet Options, or Internet Properties, is a tool for configuring options for Internet Explorer. However, Internet Explorer has been deprecated and replaced by Microsoft's new browser, Microsoft Edge, which does not use Internet Options for its settings.</p><p>File Explorer is used for navigating the file system. Network and Sharing Center is used for viewing and changing network connections. Ease of Access is used to make the system more accessible to users with sensory impairments.</p>"
+    },
+    {
+      "question": "<p>Which connection method does a smartphone use to install OS updates?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Wi-Fi</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Cellular</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Wired</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Wi-Fi</p><p>Mobile devices need to be on Wi-Fi mode to install operating system updates. Wi-Fi connections are stable and usually have unlimited data.</p><p>A cellular connection is usually metered, so the OS will not update over it to save the user money. A Bluetooth connection is for connecting to peripheral devices. Smartphones do not use wired connections.</p>"
+    },
+    {
+      "question": "<p>What is the proper setup for using an ESD strap when adding RAM to a desktop computer?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>One end wrapped around the wrist and the other clipped to the case which is plugged in but not turned on</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>One end wrapped around the wrist and the other clipped to the case which is plugged in and turned on</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>One end wrapped around the wrist and the other clipped to the case which is not plugged in</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>One end wrapped around the wrist and the other clipped to the RAM slot</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct: One end wrapped around the wrist and the other clipped to the case</p><p>The proper way to use an electrostatic discharge strap is to wrap it around the wrist at one end and use the alligator clip to clip it to the case. The power supply should be plugged in, but not turned on, so that any ESD is discharged to the ground rather than to the case.</p>"
+    },
+    {
+      "question": "<p>An administrator has added an additional NIC to a system. Which Control Panel applet should they use to set up its connections?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Network and Sharing Center</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Programs and Features</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>User Accounts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Internet Options</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Network and Sharing Center</p><p>Network and Sharing Center is used to view and change network connections. Clicking the Change Adapter Settings link will allow for adapters to be manually configured.</p><p>Programs and Features is used for viewing and uninstalling applications. User Accounts is used for managing users and account types. Internet Options is used for configuring Internet Explorer.</p>"
+    },
+    {
+      "question": "<p>Which of the following operating systems is cloud-based and runs applications written in HTML, CSS, and JavaScript?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Chrome OS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Windows 10</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Linux</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>macOS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Chrome OS</p><p>Chrome OS stores all its data on Google Drive, so it is considered a cloud-based system. Applications written for Chrome OS are cross-platform because they run as plug-ins for the Chrome browser.</p><p>Windows 10, Linux, and macOS are workstation operating systems that do not rely on the cloud for all operations.</p>"
+    },
+    {
+      "question": "<p>Which term describes an attack that escalates to administrative access on a system?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Rootkit</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Keylogger</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Zero-day attack</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Insider threat</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Rootkit</p><p>A rootkit is an attack that lets the attacker gain administrative, or root, access. It gives the attacker a lot of power because they can perform any actions they want, such as clearing log files or installing different administrative tools that can let them hide their tracks.</p><p>A keylogger records all keystrokes. A zero-day attack is an attack that is exploited before researchers have discovered it. An insider threat is an attack that originates from inside an organization.</p>"
+    },
+    {
+      "question": "<p>A programmer wants to test their Android application on their mobile device. What should they configure on the device so they can lad the app via a USB cable?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Developer mode</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Google Play</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Xcode</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>AirDrop</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Developer mode</p><p>An Android device needs to be set to developer mode in order to sideload apps via USB for testing. Regular users should not use developer mode because it can be a security concern, such as allowing them to spoof their GPS data, which could circumvent geofencing rules.</p><p>&nbsp;Google Play is used for downloading finished apps. Xcode is used by iOS developers. AirDrop is used to transfer files on iOS devices.</p>"
+    },
+    {
+      "question": "<p>A user's Windows computer is running low on disk space. They want to make more space available by deleting rarely used applications. Which Control Panel applet should they use to do this?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Programs and Features</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Devices and Printers</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>User Accounts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>File Explorer Options</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Programs and Features</p><p>Programs and Features is a tool in Windows' Control Panel for viewing and removing applications. It can also turn off features, which are applications that are integral to Windows.</p><p>Devices and Printers is used for managing external devices. User Accounts is used for managing accounts and account types. File Explorer Options is used for configuring how files and folders are displayed and interacted with.</p>"
+    },
+    {
+      "question": "<p>Which option is used to configure the way a system retrieves IP addresses from domain names?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Preferred DNS server</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Subnet mask</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Default gateway</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Automatic Private IP address</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Preferred DNS server</p><p>A Domain Name System (DNS) server is contacted by a host when it needs to get the IP address of a domain name. Once a host knows the domain's IP address, it can start communicating with it.</p><p>A subnet mask is used to determine the server part and host part of an IP address. The default gateway is used to send data outside of the host's local network. An automatic private IP address (APIPA) is used when a host cannot contact a DHCP server or does not have its network information configured manually.</p>"
+    },
+    {
+      "question": "<p>Which solution lets a remote user securely connect to their corporate network?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VPN</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Telnet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Screen-sharing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>SNMP</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VPN</p><p>A virtual private network can be used to connect a remote client to a network, which is called a client-to-site VPN. Another VPN is a site-to-site VPN, which connects two networks so they appear as one.</p><p>Telnet is an insecure protocol to gain a terminal window to a remote system. Screen-sharing is used to let a remote user view your display. The Simple Network Monitoring Protocol (SNMP) is used by network devices to share monitoring and management information.</p>"
+    },
+    {
+      "question": "<p>A Windows user reports that their system is acting sluggish. Where should a technician check first when trying to identify the cause of the system's slow performance?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Task Manager</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>System Information</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Windows Memory Diagnostic</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Programs and Features</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Task Manager</p><p>The Task Manager in Windows is used to show how different resources are performing. The Performance tab shows how the CPU, RAM, disks, network, and graphics card are being utilized.</p><p>The System Information tool will not show real-time updates of performance. The Windows Memory Diagnostic only checks RAM. The Programs and Features tool is for removing, changing, or repairing a program.</p>"
+    },
+    {
+      "question": "<p>In Windows, what type of virus check is performed by booting into the Windows Recovery Environment?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Offline scan</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>System file check</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Windows Update</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Disk Defragmenter</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Offline scan</p><p>An offline scan can be run through Microsoft Defender. It will reboot the system in the Windows Recovery Environment where the scan will be run.</p><p>A system file check is used to replace damaged or missing system files. Windows Update is used to patch a system to the most recent version. Disk defragmenter makes files on a hard disk contiguous.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which method of securing a mobile device avoids the issue of shoulder surfing?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Facial recognition</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>PIN lock</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Swipe lock</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Pattern lock</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Facial recognition</p><p>Facial recognition is a biometric form of authentication. A person standing behind the user would not be able to learn how to access the device.</p><p>PIN lock and pattern lock can be viewed by an observer, while swipe lock does not secure the device.</p>"
+    },
+    {
+      "question": "<p>Which two of the following are authentication, authorization, and accounting servers? Select TWO.</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>TACACS+</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>RADIUS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>TKIP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IIS</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>Authentication, authorization, and accounting (AAA) servers handle access control for organizations. Popular AAA servers are TACACS+, RADIUS, RAS, and Kerberos. TKIP is a wireless security protocol and IIS is a web server.</p>"
+    },
+    {
+      "question": "<p>A user is searching for an application online and follows a sponsored link to it. They download and install the app, but it installs a backdoor onto their system. What type of attack have they encountered?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Trojan</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>On-path</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Vishing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Denial of service</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Trojan</p><p>A Trojan is an attack in which a malicious application poses as another. Once a user is tricked into installing the Trojan, it can set up a backdoor that lets the attacker into the system.</p><p>An on-path attack involves intercepting and modifying communication between two systems. A vishing attack is a social engineering attack over the phone. A denial of service attack sends excessive requests to a server to take it offline.</p>"
+    },
+    {
+      "question": "<p>A Windows user has read that a new vulnerability has been discovered and that all users should install the latest patches to their system. Where should they go in Settings to check if their system has the latest patches?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Update and Security</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Privacy</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Accounts</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Apps</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Update and Security</p><p>The Update and Security section of Settings will inform a user if their system is up to date. They can also choose to pause updates or change the time when updates should occur.</p><p>The Privacy section is for users to control how they share their data with apps. The Accounts section is for viewing information about user accounts. The Apps section is for viewing and removing applications.</p>"
+    },
+    {
+      "question": "<p>Which situation BEST describes the techniques and professionalism required when addressing customers' problems?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>The technician actively listens and avoids interrupting the customer.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>The technician starts hearing the customer's issue but interrupts them because they think they know the solution.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>The technician listens to the customer's issue but does not ask any follow-up questions.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>The technician listens to the customer and answers with the most technical terminology to explain the issue.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: The technician actively listens and avoids interrupting the customer.</p><p>A technician's most important skill is listening to the customer. They should have a respectful attitude and not interrupt them when they are speaking.</p><p>The technician should always listen to the full problem. They should ask follow-up questions for confirmation or more information. They should avoid highly technical jargon when talking to the customer.</p>"
+    },
+    {
+      "question": "<p>Which types of technology are used so that badges can be read by badge readers? Select TWO.</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RFID</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Magnetic strip</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Bluetooth</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Wi-Fi</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>ID badges and badge readers are used as a form of physical security to only allow authorized users into an area. These badges use either magnetic strips for swiping or RFID (Radio-Frequency Identification) for authenticating wirelessly over short distances. Bluetooth and Wi-Fi work for longer distances and require their own power source.</p>"
+    },
+    {
+      "question": "<p>A technician arrives at the location where they are supposed to solve a user's issue. Upon arrival, the person affected by the problem is not there. What should the technician do in this situation?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Attempt to contact the user.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Start working to fix the issue.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Find a nearby user to help you.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Write a note that you were there and leave.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Attempt to contact the user.</p><p>The technician should look for the person who has the issue. If they are not there, they should try to contact them before leaving, talking to another user, starting to fix the issue.</p>"
+    },
+    {
+      "question": "<p>When creating a support ticket, what are some key pieces of information that should be taken? Select THREE.</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>User information</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Device information</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Severity</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>User credentials</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>When creating a ticket for a user's issue, some information that should be gathered includes user information, device information, and severity level. A technician should never ask for credentials, such as the user's password or PIN access codes.</p>"
+    },
+    {
+      "question": "<p>When a user opens more than a few apps on their mobile device, they notice that it performs slowly. What is the most common reason for the device's slowdown?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RAM usage</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>CPU speed</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>HDD space</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Battery consumption</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RAM usage</p><p>When a user opens up many apps, it takes up space in RAM. Apps that are in the background are stored onto built-in storage, and freeing up space for background apps will slow down the system. &nbsp;</p><p>The CPU would not be the issue if the apps ran fine individually. Mobile devices use flash memory rather than HDDs for storage. Battery consumption does not slow down the system.</p>"
+    },
+    {
+      "question": "<p>Which type of battery does not contaminate the environment?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Li-ion</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>NiCd</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Alkaline</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Button cell</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Li-ion</p><p>Lithium ion (Li-ion) batteries and Nickel-Metal Hydride (NiMH) are not considered hazardous. They can also be recycled.</p><p>Nickel-Cadmium (NiCd) contains cadmium, which is highly toxic. Alkaline batteries still contain some harmful chemicals like potassium hydroxide. Button cell batteries contain mercury.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which file type is used to install an Android application?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>APK</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>EXE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>JAR</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>ADB</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: APK</p><p>An Android application can be installed from an APK file. Applications that are downloaded from the Google Play store are considered to be trusted. However, an APK that has not been approved by the Google Play store is considered untrusted.</p><p>An EXE is a Windows executable file. A JAR file is a Java Archive file used to aggregate Java class files. An ADB is used by a developer to sideload an app onto a device for testing.</p>"
+    },
+    {
+      "question": "<p>A user wants to update an app on their Android device to the latest version. However, the app update fails. What are some steps they could take to troubleshoot the problem? Select THREE.</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Switch from cellular to a Wi-Fi connection</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Confirm that the new update is supported on their device</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Uninstalling and then reinstalling the app</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Jailbreak the device before trying to update</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>If an app is not updating, some troubleshooting steps include making sure the phone is on Wi-Fi, confirming that the update is supported on their device, or reinstalling the app. Jailbreaking a phone is not a recommended action.</p>"
+    },
+    {
+      "question": "<p>Which type of error occurs when Windows quits unexpectedly?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>BSOD</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>No OS found</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>404 error</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Pinwheel</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: BSOD</p><p>The Blue Screen of Death (BSOD) error occurs when the system is booting or if a critical error occurs unexpectedly. It can be related to drivers or it can be a hardware error.</p><p>A \"No OS found\" error occurs during bootup. A 404 error occurs when a web page cannot be found. A pinwheel error occurs in macOS.</p>"
+    },
+    {
+      "question": "<p>A company has implemented a new mail server. However, unforeseen issues arise and they want to go back to their previous mail server until the issues can be resolved. What should they follow to revert to the previous system?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Rollback plan</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Sandbox testing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Risk analysis</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>End-user acceptance</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Rollback plan</p><p>A rollback plan describes how a system can be reverted in case there are issues with a change. This plan should include the original configuration along with the changes needed to bring it back to its original state.</p><p>Sandbox testing is an environment where changes can be tested. Risk analysis is the process of identifying and analyzing threats to an organization. End-user acceptance involves the testing of changes by users.</p>"
+    },
+    {
+      "question": "<p>A systems administrator has a web server that logs a lot of activity. Since the log file fills up quickly, they want to automate the process of sending the log file to a backup server and then clearing the log to save space. What type of solution should they implement to accomplish this?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Scripting</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Remote desktop</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Screen sharing</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>VPN</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Scripting</p><p>Basic automation is a use case of scripting. By writing scripts, rotating and archiving log files becomes automated.</p><p>Remote desktop is used to have a graphical user interface while controlling a remote system. Screen sharing is used to let a remote user view your screen. A VPN is used to create an encrypted tunnel for network traffic.</p>"
+    },
+    {
+      "question": "<p>Which two of the following products are MOST LIKELY to have MSDSs? Select TWO.</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Laser printer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>UPS</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Monitor wipes</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Computer vacuum</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a2",
+      "explanation": "<p>A material safety data sheet (MSDS) is used when a product has hazardous materials or may cause a dangerous situation. A laser printer has particulates that might be carcinogenic and an uninteruptible power supply (UPS) has chemicals used in batteries. Monitor wipes and a computer vacuum do not pose the same risks.</p>"
+    },
+    {
+      "question": "<p>What is the purpose of a recovery partition?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>To reimage a device back to the factory default</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>To store user data in case it gets deleted</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>To keep copies of system snapshots to revert to if needed</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>To recover memory contents after a blue screen of death error</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: To reimage a device back to the factory default</p><p>The recovery partition is a section of a hard drive that is used to restore a system to its original state. This is useful if the system malfunctions or if the user wants to remove all personal data in order to sell or give the device to another person.&nbsp;</p>"
+    },
+    {
+      "question": "<p>An administrator wants to set up a volume on a new hard drive they have added to a Windows system. Which tool in the MMC will let them administer volumes, such as extending, shrinking or deleting them?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Disk Management</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Device Manager</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Group Policy Editor</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Performance Monitor</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Disk Management</p><p>Disk Management is a snap-in for the Microsoft Management Console that is used to configure disk information. It can do various tasks, such as formatting and configuring volumes and filesystems.</p><p>Device Manager is used for managing various types of hardware devices. Group Policy Editor is used for configuring settings on systems. Performance Monitor is used for evaluating how the system is being utilized.</p>"
+    },
+    {
+      "question": "<p>What are some different types of resources that can be shared in a Windows workgroup? Select THREE.</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Applications</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Files</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Scanners</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Registry keys</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>A Windows workgroup can share various resources, including files, applications, printers, scanners, and cameras. Sensitive information cannot be shared, such as operating system files, registry keys, or resources that require authentication, like certificates.</p>"
+    },
+    {
+      "question": "<p>Which command gives a list of all files and folders in a directory in Windows?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>dir</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ls</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>cd</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>chkdsk</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: dir</p><p>The dir command is used to list all files and folders within a directory in Windows.</p><p>The ls command is used in Linux. The cd command is used to change directories. The chkdsk command is a tool for examining the status of a disk.</p>"
+    },
+    {
+      "question": "<p>An organization has just identified that it has suffered from a security incident. They want to make sure that they gather as much evidence as possible from the incident, starting with the most volatile data. Which of the following types of evidence should they recover first?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>RAM</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Swap files</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Filesystem information</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Network processes</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: RAM</p><p>RAM is the most volatile evidence because it will be cleared when the system reboots. A forensics tool should be used to capture the contents of RAM before it is lost.</p><p>Swap files are stored on disk, which is less volatile. Filesystem information is on a disk, which won't be deleted after a system reboot. Network processes can be logged to disk.</p>"
+    },
+    {
+      "question": "<p>When creating a support ticket to address a user's request, what is the first piece of information that a technician should get from the user?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>User's name</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Description of the problem</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Device information</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Severity of the problem</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: User's name</p><p>The first piece of information that should be taken on a support call is the user's name. They can be referred to by their name throughout the call. Additionally, the best method to contact them should be retrieved, such as their phone number or email address.</p><p>A description of the problem, the user's device information, the severity of the problem, and the category of the problem can be taken later.</p>"
+    },
+    {
+      "question": "<p>Which environment is best for managing ESD?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Humidity at around 50%</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Humidity at around 10%</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Humidity at around 25%</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Humidity at around 75%</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Humidity at around 50%</p><p>The ideal humidity level is around 50%. This is high enough to prevent electrostatic discharge but not too high so that it causes corrosion or condensation on equipment.</p>"
+    },
+    {
+      "question": "<p>Which method of destroying a hard drive involves using a strong electromagnet?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Degaussing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Drilling</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Shredding</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Incineraration</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Degaussing</p><p>Degaussing is a technique that uses a strong electromagnet to destroy media such as a hard drive. There are wand-type degaussers and desktop units.</p><p>Drilling, shredding, and incineration are physical ways to destroy media.</p>"
+    },
+    {
+      "question": "<p>An administrator of a small company wants users to be able to remotely control their desktops. It is important to the administrator that the tool be open source. Which tool should they use for this?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>VNC</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>RDP</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Telnet</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Python</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: VNC</p><p>Virtual Network Computing is an open-source protocol for controlling a remote desktop. It operates on a client-server model and uses TCP port 5900.&nbsp;</p><p>RDP is a proprietary Microsoft protocol. Telnet is used to get a terminal connection to a remote machine. Python is a language commonly used for scripting.</p>"
+    },
+    {
+      "question": "<p>Which type of backup creates an exact replica of files but does not reset archive bits?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Copy</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Full</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Incremental</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Differential</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Copy</p><p>A copy is a full backup that does not reset the archive bits. It is useful for making a backup without interrupting the regular backup schedule.</p><p>A full backup resets all the archive bits. An incremental backup backs up files with the archive bit set and then resets the bit. A differential backup backs up files with the archive bit set, but does not reset the archive bit.</p>"
+    },
+    {
+      "question": "<p>Which of the following is an example of an administrator implementing the principle of least privilege?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>An administrator allows a user to only access files that they need to perform their job</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>An administrator creates strong password requirements for all users</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>An administrator uninstalls unneeded applications on servers</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An administrator installs anti-malware software and keeps systems up to date with the latest patches</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: An administrator allows a user to only access files that they need to perform their job</p><p>The principle of least privilege involves only giving users the fewest amount of privileges they need to perform their jobs. If a user needs more resources, they must explicitly ask for it.</p><p>Strong passwords relate to authentication. Unintalling unused software and patching relates to system hardening.</p>"
+    },
+    {
+      "question": "<p>A multi-boot system has had trouble booting into Windows. An administrator wants to verify that the file that holds the locations of operating system files is still there.</p><p>Which file should they check?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>BCD</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ntbtlog.txt</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>hiberfil.sys</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>MBR</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: BCD</p><p>The Boot Configuration Data (BCD) file contains information about operating systems that are on the system. If there is a problem with this file, it can be rebuilt by booting into the Windows Recovery Environment and using Startup Repair.</p><p>The ntbtlog.txt file stores information about boot events. The hiberfile.sys file holds information from memory when the system is coming back from a hibernated state. The Master Boot Record (MBR) loads and finds the boot sector before the BCD is read.</p>"
+    },
+    {
+      "question": "<p>What are the three different network profiles that Windows Defender Firewall can choose from? Select THREE.</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Domain</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Private</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Public</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Wireless</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>The three profiles are domain, private, and public. Domain is used when the system is connected to a domain. Private is used on a home or work network. Public is used on a public network like public Wi-Fi.</p>"
+    },
+    {
+      "question": "<p>Where should a password be set so that a malicious user cannot change a system's boot device order?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>BIOS/UEFI firmware</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Operating system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Lock screen</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Domain controller</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: BIOS/UEFI firmware</p><p>A password should be set on the BIOS/UEFI firmware so that a user that gains physical access cannot change firmware settings. If a user can change the boot order, they could boot off a portable drive and then access the system's hard drives.</p><p>The operating system, lock screen, and domain controller don't matter until after the system is booted.</p>"
+    },
+    {
+      "question": "<p>Which type of attack does a privacy filter attempt to mitigate?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Shoulder surfing</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Tailgating</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Evil twin</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Dumpster diving</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Shoulder surfing</p><p>Shoulder surfing is when an attacker sees a user's screen from behind. A privacy filter makes it so that a screen can only be viewed from a very narrow angle directly in front of it.</p><p>Tailgating is when an attacker passes through a security point directly behind an authorized user. An evil twin attack is when an attacker impersonates a legitimate wireless access point. Dumpster diving is an attack that searches through trash for sensitive information.</p>"
+    },
+    {
+      "question": "<p>Which command in Windows moves to a new folder?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>cd</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>md</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>rd</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>dir</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: cd</p><p>The cd command is used to change directories or folders when in a terminal window in Windows. It is a shorthand version of the chdir command.</p><p>The md command is used to make a directory. The rd command is used to remove a directory. The dir command displays a list of files and folders.</p>"
+    },
+    {
+      "question": "<p>A Windows user has relocated to another country and now the date displays with the day first, instead of the month. Where can they go in Settings to change their date format to be consistent with their coworkers in their new country?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Time and Language</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Update and Security</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Ease of Access</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Personalization</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answers: Time and Language</p><p>The Time and Language tool in Settings allows a user to change the date, time, language and region information. To change the date format, go to the Region section and change the regional format data.</p><p>Update and Security is used for installing the latest patches and configuring security settings. Ease of Access is used to make the system more accessible to users with sensory impairments. Personalization is used for configuring backgrounds and colors.</p>"
+    },
+    {
+      "question": "<p>An administrator updates the DNS information for their company's web servers. Afterward, a user reports that they cannot reach the company's website from their Windows workstation. Which command should the administrator run that will let them flush the DNS cache on the user's system?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ipconfig</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ifconfig</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>hostname</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>nslookup</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ipconfig</p><p>The ipconfig command is used to display IP information and also to make configuration changes. With the /flushdns switch, it will clear the DNS cache which could have outdated DNS information.</p><p>The ifconfig command is used with Linux. The hostname command returns the name of the host it is typed on. The nslookup displays DNS information by querying a DNS server.</p>"
+    },
+    {
+      "question": "<p>What is the first step when following best practices for malware removal?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Identify malware symptoms</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Quarantine the system</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Disable system restore</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Run updates</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Identify malware symptoms</p><p>The first step is to identify whether there is an issue. Proof of the type of malware present should be found before moving on to fixing the issue.</p><p>Quarantining the system can be done after the issue is identified. Disabling system restore can be done after quarantining so that the system does not return to an infected state. Running updates are done after remediating the system.</p>"
+    },
+    {
+      "question": "<p>Which MMC system tool shows system errors, application log errors, and security audit records?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Event Viewer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Performance</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Device Manager</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Storage</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Event Viewer</p><p>The Event Viewer is used with the Microsoft Management Console (MMC) to show log files. It makes viewing log files easier because it gives a centralized view.</p><p>The Performance tool is used for viewing how the system's resources are being used either in real-time or from logs. The Device Manager tool is used for managing hardware devices. The Storage tool is used for disk management.&nbsp;</p>"
+    },
+    {
+      "question": "<p>A technician is changing the RAM in a desktop computer. They want to be able to use the RAM in other systems even after taking it out of this one. After taking out the RAM sticks, where should they be placed?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>On an ESD mat</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>On a metal desk</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>On top of the desktop's case</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>In an antistatic bag</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: On an ESD mat</p><p>An electrostatic discharge (ESD) mat will drain any charge left within the RAM. That will help prevent it from getting any damage from ESD.</p><p>A metal desk and a desktop case can cause ESD damage. An antistatic bag does not drain the charge but can protect it from the outside.</p>"
+    },
+    {
+      "question": "<p>A user reports that they cannot access the Internet from their Windows workstation. A technician wants to check if the workstation can reach the network's default gateway to diagnose where the problem is originating from. &nbsp;Which command can they use to try and get a response from the gateway?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ping</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>ipconfig</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>netstat</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>nslookup</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ping</p><p>The ping command sends ICMP packets to a target address to try and get a response. It will return the time that it takes for the response as well as how many packets were lost.</p><p>The ipconfig command is used to get information from and configure a network interface. The netstat command shows listening and established network connections. The nslookup command discovers IP addresses from domain names and vice versa.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which situation describes an evil twin attack?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>An attacker sets up a wireless access point that is similar in name to a legitimate wireless access point</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>An attacker calls an employee of a company and pretends to be their coworker</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>An attacker sends an email that looks like a legitimate request for a user to change their password</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>An attacker changes their system's MAC address to imitate a legitimate system</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: An attacker sets up a wireless access point that is similar in name to a legitimate wireless access point</p><p>An evil twin attack is when an attacker creates a wireless access point that has a similar in name to a legitimate one. When users connect to it, the attacker can steal or alter their network traffic.</p><p>An attacker making phone calls is an example of social engineering. An attacker sending emails is an example of phishing. An attacker changing their MAC address is an example of spoofing.</p>"
+    },
+    {
+      "question": "<p>Which of the following file types is associated with scripts?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>.sh</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>.exe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>.dll</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>.doc</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: .sh</p><p>A .sh file is for shell scripts. Scripts are used to automate tasks.</p><p>A .exe file is used for executables. A .dll file is used for shared libraries. A .doc file is a document.</p>"
+    },
+    {
+      "question": "<p>When requiring complex passwords that use lowercase letters, uppercase letters, numbers, and special characters, how many possible characters are in each position of the password?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>95</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>36</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>128</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>256</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: 95</p><p>When using complex passwords, there are 26 lowercase letters, 26 uppercase letters, 10 digits, and 33 special characters, which adds up to 95 different characters that can occupy each place in a password. An 8-character complex password would have 95 to the 8th power of possible combinations, or 6,547,408,607,889,473,600 possible combinations.</p>"
+    },
+    {
+      "question": "<p>Which of the following statements is true about in-place upgrading to Windows 10?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Windows 7 can be upgraded in-place to Windows 10 if it has Service Pack 1 installed.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>An in-place upgrade can switch from a 32-bit version to a 64-bit version.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Windows Vista can be upgraded in-place directly to Windows 10.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>All previous applications will still be supported after an in-place upgrade to Windows 10.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Windows 7 can be upgraded in-place to Windows 10 if it has Service Pack 1 installed.</p><p>An in-place upgrade involves updating a system's current operation system to the desired one. Windows 7 with Service Pack 1 can be upgraded in-place to Windows 10.</p><p>An in-place upgrade cannot switch from a 32-bit version to a 64-bit version. Windows Vista cannot be upgraded in-place directly to Windows 10. Previous applications may not function correctly after being upgraded to Windows 10, so they should be tested first.</p>"
+    },
+    {
+      "question": "<p>Which edition of Windows 10 does not support connecting to domains?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Windows 10 Home</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Windows 10 Pro</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Windows 10 Pro for Workstations</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Windows 10 Enterprise</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Windows 10 Home</p><p>Windows 10 Home is meant as a retail product sold to consumers. It comes preinstalled on systems and does not connect to domains.</p><p>Windows 10 Pro, Windows 10 Pro for Workstations, and Windows 10 Enterprise can be used to connect to a domain.</p>"
+    },
+    {
+      "question": "<p>Which technique in malware removal is used to prevent malware from spreading to other systems?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Quarantining the infected system</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Disabling System Restore</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Scheduling scans</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Educating end users</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Quarantining the infected system</p><p>If malware has been identified, then it is important that the system be quarantined so that the malware does not spread. It can be placed in its own separate network or disconnected entirely from networks.</p><p>Disabling System Restore is to keep the system from reverting to an infected state. Scheduling scans is done after the system has been remediated. Educating end users is done to prevent basic attacks.</p>"
+    },
+    {
+      "question": "<p>Which tab in Task Manager shows information such as the CPU usage percentage, number of processes, and memory usage?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Performance</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Users</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Details</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Services</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Performance</p><p>The Performance tab has various real-time information about usage of the CPU, memory, disks, networks, and GPUs. This can be used to quickly see how much a system is being utilized.</p><p>The Users tab is used for showing who is logged in to the system. The Details tab is used for showing more information about processes such as their process ID and status. The Services tab shows running services along with more details.</p>"
+    },
+    {
+      "question": "<p>What are the three different network profiles that Windows Defender Firewall can choose from? Select THREE.</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Domain</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Private</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Public</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Wireless</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>The three profiles are domain, private, and public. Domain is used when the system is connected to a domain. Private is used on a home or work network. Public is used on a public network like public Wi-Fi.</p>"
+    },
+    {
+      "question": "<p>Which command will load a tool that displays a list of system settings, such as the OS version, locale and installed RAM?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>msinfo32.exe</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>msconfig.exe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>regedit.exe</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>resmon.exe</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: msinfo32.exe</p><p>The msinfo32.exe command opens up the System Information tool. This lets you view a summary of system settings.</p><p>The msconfig.exe tool is used to open the System Configuration tool. The regedit.exe tool is used to open the Registry Editor. The resmon.exe tool is used to open the Resource Monitor.</p>"
+    },
+    {
+      "question": "<p>A Windows system has been experiencing frequent shutdowns. Where should a technician look first when trying to diagnose the issue?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Event Viewer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Swap file</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Backup and Restore</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Recovery partition</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Event Viewer</p><p>The Event Viewer is where a technician can look through log files. They should look for kernel errors which can show if the system was shut down properly or not.</p><p>The swap file is used for holding virtual memory. The Backup and Restore tool is used to recover files. The recovery partition is for resetting a system to its factory defaults.</p>"
+    },
+    {
+      "question": "<p>An employee for a company is suddenly able to install unapproved apps for their iPhone. What has MOST LIKELY happened?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Their device was jailbroken.</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Their device is in developer mode.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Their device is low on memory.</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Their device was updated to iOS 16.</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Their device has been jailbroken</p><p>If an iPhone has been jailbroken, the user will be able to install any app on it without having to go through the App Store. This can be a security concern because it becomes easy to install malware.</p><p>Developer mode is used with Android phones. Low memory would not relate to the issue. Different iOS versions do not relate to installing apps without the App Store.</p>"
+    },
+    {
+      "question": "<p>What does Defender Antivirus use to keep up-to-date on the latest viruses?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Definitions</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Security patches</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Service packs</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Rootkits</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Definitions</p><p>Definitions are signatures of known malware and are used by an anti-malware program to check for viruses. Definitions are updated in a database and need to be updated at least daily.</p><p>Security patches and service packs are applied to an operating system. Rootkits are malware that give administrative access.</p>"
+    },
+    {
+      "question": "<p>A company wants to create a physical security control that prevents unauthorized users from tailgating to enter the building. What type of solution should they implement to control this?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Access control vestibule</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Door locks</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Badge reader</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Bollards</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Access control vestibule</p><p>An access control vestibule, or mantrap, is a small area that only allows one person to pass through at a time. This prevents tailgating, which is when an unauthorized user follows an authorized one through a security point.</p><p>Door locks, badge readers, and bollards could still allow for easy tailgating situations.</p>"
+    },
+    {
+      "question": "<p>An administrator set up a web server on the company's intranet. They now want to see how many people have active connections to it. Which command can they use to view this information?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>netstat</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>nslookup</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>ipconfig</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>tracert</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: netstat</p><p>The netstat command is used to view open network connections. It has several options available, such as showing process IDs or addresses as numerical values.</p><p>The nslookup command is used for converting domain names to IP addresses. The ipconfig command is used for viewing and configuring network interfaces. The tracert command is used for diagnosing the route a packet takes to its destination.</p>"
+    },
+    {
+      "question": "<p>A user receives an error when attempting to apply the latest updates to Windows. What are some steps that the user should take to address the issue? Select THREE.</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Reboot the system</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>Check that the system has enough free space</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>Disconnect any peripheral devices</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Set the device to Developer Mode</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>Microsoft recommends several possible solutions if Windows Update is not working. These include rebooting, verifying free space, running Window Update again, updating third-party drivers, disconnecting peripherals, checking Device Manager, and doing a system restore. Windows does not have a Developer Mode, unlike Android.</p>"
+    },
+    {
+      "question": "<p>A company installs fingerprint scanners that every employee must use in order to enter the building. What type of security control are they implementing?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Biometrics</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Magnetometers</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Bollards</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Key fobs</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Biometrics</p><p>Biometric authentication refers to authentication techniques that use personal characteristics. This includes fingerprint, iris, hand, palm, or DNA scanning.</p><p>Magnetometers are metal detectors. Bollards are structures that block movement. Key fobs are devices that use RFID for close-proximity authentication.</p>"
+    },
+    {
+      "question": "<p>A company has had a security incident and needs to store evidence from it. After removing the affected materials to a safe, locked area, what type of form should they create to keep track of who accesses the evidence?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Chain of custody</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>EULA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Incident report form</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Lessons learned</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Chain of custody</p><p>A chain of custody form is used to keep track of who views evidence. It keeps track of information such as the person who secured it, when it was secured, and who checks it out.</p><p>An end-user license agreement (EULA) is an agreement a user must follow in order to use software or a service. An incident report form documents the details of the incident. A lessons learned form describes how the company will prevent similar attacks in the future.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which type of security does BitLocker enable?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Data at rest</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Data in use</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Data in motion</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Data in transit</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Data at rest</p><p>BitLocker encrypts data that is on a disk. Data that is on a disk or other storage media is considered data at rest.</p><p>Data in use is data that is on a screen, in RAM, or being processed by a CPU. Data in motion or in transit is data traversing a network.</p>"
+    },
+    {
+      "question": "<p>A user has installed a new webcam that they will use for business meetings. Which Control Panel applet will let them view their webcam and check its settings?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Devices and Printers</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Programs and Features</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Indexing Options</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Administrative Tools</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Devices and Printers</p><p>Devices and Printers is an applet for managing external devices, such as printers, external hard drives, or webcams. Devices can be added or removed, as well as have conjuration settings changed.</p><p>Progarms and Features is used for displaying and removing installed applications. Indexing Options is used for speeding up searches. Administrative Tools is used for viewing a list of other tools.</p>"
+    },
+    {
+      "question": "<p>An administrator wants to set up their company's SOHO router to block certain sites that encourage users to be unproductive. What feature of the router should they configure to do this?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Content filtering</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>DHCP reservations</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>MAC address filtering</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Screened subnet</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Content filtering</p><p>Content filtering is used to restrict the type of content that users can view. The SOHO router can block sites based on their URL or by analyzing unencrypted traffic to see if it is inappropriate.</p><p>DHCP reservations are used to tie a device to a specific IP address. MAC address filtering is used to limit the physical devices that can use the router. A screened subnet, or perimeter network, is a network that hosts internet-facing applications such as web or DNS servers.</p>"
+    },
+    {
+      "question": "<p>A business needs to set up a backup strategy. They want to make a full backup once per week on Sundays and then make daily backups of each change that happened on each day. So, if they need to restore data on a Wednesday, they will need the full backup plus backup files for each day in between. Which type of backup strategy are they using?</p>",
+      "subject": "1102 4.0: Operational Procedures",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Incremental</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Full</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Differential</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Copy</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Incremental</p><p>An incremental backup takes a full backup and then adds changes each day. Only files that have been changed since the last full or incremental backup are backed up each day.</p><p>A full backup backs up each file. A differential backup makes a full backup and then another backup so that only two steps need to be completed to restore the data. A copy is a full backup that does not reset the archive bits.&nbsp;</p>"
+    },
+    {
+      "question": "<p>A user receives an email that claims their system is infected by a virus. The user suspects that it may be a hoax because it asks the user to forward the email to others. Which website can they visit to confirm whether or not the virus is real?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>CERT</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>IEEE</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>IANA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>OSHA</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: CERT</p><p>There are several sites that keep track of viruses, including CERT and Symantec. A user should check with these sites before acting upon an email message that claims to contain a virus.</p><p>The Institute of Electrical and Electronics Engineers (IEEE) develops standards for electronics. The Internet Assigned Numbers Authority (IANA) coordinates global IP addressing. The Occupational Safety and Health Administration (OSHA) regulates work conditions.</p>"
+    },
+    {
+      "question": "<p>The CEO of a company inadvertently forgets their phone at a coffee shop. What should they do to make sure that the phone's data cannot be accessed by another user?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Remote wipe</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Facial recognition</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>PIN code</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Failed attempts lockout</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Remote wipe</p><p>If a user loses a mobile device, they should use the remote wipe feature as soon as possible. That will remove personal data and reset it.</p><p>Facial recognition, PIN codes, and lockouts are security measures that could potentially be bypassed by forensics software.&nbsp;</p>"
+    },
+    {
+      "question": "<p>Which type of security control consists of a list of actions that are taken based on conditions?</p>",
+      "subject": "1102 2.0: Security",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>ACL</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>MFA</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Key fob</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Access control vestibule</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: ACL</p><p>An access control list (ACL) is used to control data flow or make authentication decisions. For example, a firewall uses an ACL to determine if traffic should pass through it or not.</p><p>Multi-factor authentication (MFA) is an extra way to confirm a user before granting access to a resource. A key fob is a device that allows access through RFID. An access control vestibule is a physical security measure that allows only one person at a time to pass a security point.</p>"
+    },
+    {
+      "question": "<p>Which of the following situations are common symptoms that could indicate a security issue with a PC? Select THREE.</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>A user gets a desktop alert that asks the user to call a phone number to fix a problem with their computer</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a2",
+          "text": "<p>A user enters a website address but is taken to a different but similar-looking one</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "a3",
+          "text": "<p>A user gets a push notification in their operating system advising them to download and install an application</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>A user's free antivirus program asks the user to upgrade to a VPN service</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a3",
+      "explanation": "<p>Common symptoms of a security issue include fake desktop alerts, sudden networking issues, and push notifications that look like they are coming from the operating system. A free antivirus program trying to sell additional products is not an indicator of a security threat.</p>"
+    },
+    {
+      "question": "<p>How does an iPad user forcequit an app?</p>",
+      "subject": "1102 3.0: Software Troubleshooting",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>By swiping up on the app</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>By swiping left or right from the tab view</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>By clicking End Task in the Task Manager</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>By using the \"klll\" command with the process ID</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: By swiping up on the app</p><p>An iPad app can be force-quit by getting to the screen that shows all open apps. Then, swiping up on the icon for that app that you wish to close will force-quit it.</p><p>Swiping left or right from the tab view is used for Android. Clicking End Task in the Task Manager is used in Windows. Using the \"klll\" command with the process ID is used in Linux.</p>"
+    },
+    {
+      "question": "<p>Which version of Windows 10 only supports 64-bit versions?</p>",
+      "subject": "1102 1.0: Operating Systems",
+      "choices": [
+        {
+          "id": "a1",
+          "text": "<p>Windows 10 Pro for Workstation</p>",
+          "isCorrect": true
+        },
+        {
+          "id": "d1",
+          "text": "<p>Windows 10 Pro</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d2",
+          "text": "<p>Windows 10 Home</p>",
+          "isCorrect": false
+        },
+        {
+          "id": "d3",
+          "text": "<p>Windows 10 Enterprise</p>",
+          "isCorrect": false
+        }
+      ],
+      "correctAnswerId": "a1",
+      "explanation": "<p>Correct answer: Windows 10 Pro for Workstation</p><p>Windows 10 Pro for Workstation does not support 32-bit architecture because it is meant for high-end systems. It supports up to four CPUs and 6TB of RAM. Other versions of Windows 10 still have support for 32-bit architecture up to version 1909, although later updates do not support it.</p>"
+    }
+  ]
+}
