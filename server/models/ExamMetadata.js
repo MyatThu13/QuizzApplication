@@ -52,7 +52,11 @@ const ExamMetadataSchema = new mongoose.Schema({
   displayOrder: {
     type: Number,
     default: 0
-  }
+  },
+  isMissed: {
+        type: Boolean,
+        default: false
+    }
 });
 
 // Export the ExamMetadata model

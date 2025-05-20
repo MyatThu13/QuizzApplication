@@ -203,6 +203,80 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, '../client/404.html'));
 });
 
+// Define and register the missed questions routes explicitly
+app.put('/api/questions/markMissed', async (req, res) => {
+    console.log('markMissed route called with query:', req.query);
+    try {
+        const questionId = req.query.id;
+        
+        if (!questionId) {
+            return res.status(400).json({ message: 'Question ID is required' });
+        }
+        
+        // Find and update the question
+        const Question = require('./models/Question');
+        const question = await Question.findByIdAndUpdate(
+            questionId,
+            { missed: true },
+            { new: true }
+        );
+        
+        // Check if question exists
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        
+        // Return success
+        res.json({ 
+            message: 'Question marked as missed',
+            question 
+        });
+    } catch (error) {
+        console.error('Error marking question as missed:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+});
+
+app.put('/api/questions/unmarkMissed', async (req, res) => {
+    console.log('unmarkMissed route called with query:', req.query);
+    try {
+        const questionId = req.query.id;
+        
+        if (!questionId) {
+            return res.status(400).json({ message: 'Question ID is required' });
+        }
+        
+        // Find and update the question
+        const Question = require('./models/Question');
+        const question = await Question.findByIdAndUpdate(
+            questionId,
+            { missed: false },
+            { new: true }
+        );
+        
+        // Check if question exists
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        
+        // Return success
+        res.json({ 
+            message: 'Question removed from missed',
+            question 
+        });
+    } catch (error) {
+        console.error('Error unmarking question as missed:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+});
+
+
 
 
 // Import route modules explicitly with variable names

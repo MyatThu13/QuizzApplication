@@ -184,6 +184,29 @@ const importQuestions = async () => {
       
       console.log(`Created Flagged Questions exam for ${title}`);
     }
+
+    // After creating "Flagged Questions" exams
+console.log('\nCreating Missed Questions exams for each title...');
+for (const [title, metadataList] of uniqueTitles.entries()) {
+    // Use metadata from the first file of this title
+    const baseMetadata = metadataList[0];
+    
+    // Create missed exam metadata
+    await ExamMetadata.create({
+        examId: `${title}_Missed`,
+        fileName: 'virtual',
+        title: baseMetadata.title,
+        type: 'Missed Questions',
+        vendor: baseMetadata.vendor,
+        year: baseMetadata.year,
+        fullName: `${baseMetadata.title} Missed Questions`,
+        questionCount: 0, // Will be dynamic based on user interaction
+        dateImported: new Date(),
+        isMissed: true
+    });
+    
+    console.log(`Created Missed Questions exam for ${title}`);
+}
     
     // Display summary information
     console.log('\nImport Summary:');

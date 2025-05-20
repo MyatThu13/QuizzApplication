@@ -26,4 +26,9 @@ router.put('/flag', questionController.flagQuestion);
 // @access  Public
 router.put('/unflag', questionController.unflagQuestion);
 
+// Add these routes to your questions router
+router.put('/markMissed', questionController.markQuestionMissed);
+router.put('/unmarkMissed', questionController.unmarkQuestionMissed);
+
+
 module.exports = router;

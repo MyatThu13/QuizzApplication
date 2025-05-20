@@ -157,6 +157,227 @@ function initialize() {
  * 
  * This updated function includes detailed debugging and better handles the API response format
  */
+// function loadExams() {
+//     try {
+//         // Show loading indicator
+//         examsContainer.innerHTML = `
+//             <div class="loading-spinner">
+//                 <div class="spinner"></div>
+//                 <p>Loading available exams...</p>
+//             </div>
+//         `;
+        
+//         console.log('Starting to fetch exam titles from API...');
+        
+//         // Add this debugging code to check your API URL
+//         const titlesUrl = `${API_URL}/questions/titles`;
+//         console.log('Fetching from:', titlesUrl);
+        
+//         // Use fetch with explicit debugging
+//         fetch(titlesUrl)
+//             .then(response => {
+//                 console.log('Response status:', response.status);
+//                 if (!response.ok) {
+//                     throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+//                 }
+//                 return response.json();
+//             })
+//             .then(data => {
+//                 // Log the complete response structure
+//                 console.log('API Response data:', data);
+                
+//                 // Check if response has the expected structure
+//                 if (!data || typeof data !== 'object') {
+//                     throw new Error('API response is not a valid object');
+//                 }
+                
+//                 // Examine what's in the response
+//                 if (data.titles) {
+//                     console.log('Found titles array in response:', data.titles.length);
+//                     examTitles = data.titles;
+//                 } else {
+//                     // If data doesn't have a titles property, check if it might be the titles array directly
+//                     console.log('No titles property found, checking if response is the titles array');
+//                     if (Array.isArray(data)) {
+//                         console.log('Response is an array, using as titles:', data.length);
+//                         examTitles = data;
+//                     } else {
+//                         console.error('Unexpected API response format:', data);
+//                         throw new Error('API returned unexpected data format - missing titles array');
+//                     }
+//                 }
+                
+//                 // Clear loading indicator
+//                 examsContainer.innerHTML = '';
+                
+//                 if (examTitles.length === 0) {
+//                     console.log('No exam titles found');
+//                     examsContainer.innerHTML = `
+//                         <div class="no-exams">
+//                             <h2>No Exams Available</h2>
+//                             <p>No exam data found. Please run the import script to load exams.</p>
+//                         </div>
+//                     `;
+//                     return;
+//                 }
+                
+//                 console.log('Building UI for exam titles...');
+                
+//                 // Create a section for each title
+//                 examTitles.forEach(title => {
+//                     console.log(`Processing title: ${title._id || title.title}`);
+                    
+//                     const titleSection = document.createElement('div');
+//                     titleSection.className = 'exam-title-section';
+                    
+//                     // Create title header
+//                     const titleHeader = document.createElement('h2');
+//                     titleHeader.textContent = title._id || title.title; // Handle both formats
+//                     titleSection.appendChild(titleHeader);
+                    
+//                     // Create exams container for this title
+//                     const titleExamsContainer = document.createElement('div');
+//                     titleExamsContainer.className = 'title-exams-container';
+                    
+//                     // Check if title has exams array
+//                     const exams = title.exams || [];
+//                     if (exams.length === 0) {
+//                         console.warn(`No exams found for title ${title._id || title.title}`);
+//                         const noExamsMsg = document.createElement('p');
+//                         noExamsMsg.className = 'no-exams-message';
+//                         noExamsMsg.textContent = `No exams available for ${title._id || title.title}`;
+//                         titleExamsContainer.appendChild(noExamsMsg);
+//                     } else {
+//                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
+                        
+//                         // Filter out flagged and all questions first
+//                         const regularExams = exams.filter(exam => 
+//                             !exam.isFlagged && 
+//                             !exam.type.includes('All') && 
+//                             !exam.type.includes('Flagged')
+//                         );
+                        
+//                         // Add each regular exam with a reset counter starting at 1
+//                         regularExams.forEach((exam, index) => {
+//                             console.log(`Adding button for exam: ${exam.examId} with index ${index + 1}`);
+                            
+//                             const examButton = document.createElement('button');
+//                             examButton.className = 'mock-exam-btn';
+//                             examButton.setAttribute('data-exam-id', exam.examId);
+                            
+//                             // Use index + 1 (starting from 1) for each title group
+//                             const examNumber = index + 1;
+//                             let iconText = examNumber.toString().padStart(2, '0');
+                            
+//                             examButton.innerHTML = `
+//                                 <div class="exam-icon">${iconText}</div>
+//                                 <div class="exam-info">
+//                                     <span class="exam-title">${exam.type}</span>
+//                                     <span class="exam-subtitle">${exam.vendor} ${exam.year}</span>
+//                                 </div>
+//                             `;
+                            
+//                             // Add event listener - FIXED: Add event listener when creating the button
+//                             examButton.addEventListener('click', () => {
+//                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
+//                                 startExam(exam.examId);
+//                             });
+                            
+//                             titleExamsContainer.appendChild(examButton);
+//                         });
+                        
+//                         // Add "All Questions" exam if it exists
+//                         const allQuestionsExam = exams.find(exam => exam.type.includes('All'));
+//                         if (allQuestionsExam) {
+//                             console.log(`Adding All Questions button for ${title._id || title.title}`);
+                            
+//                             const allButton = document.createElement('button');
+//                             allButton.className = 'mock-exam-btn';
+//                             allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
+                            
+//                             allButton.innerHTML = `
+//                                 <div class="exam-icon">ALL</div>
+//                                 <div class="exam-info">
+//                                     <span class="exam-title">${allQuestionsExam.type}</span>
+//                                     <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
+//                                 </div>
+//                             `;
+                            
+//                             // Add event listener
+//                             allButton.addEventListener('click', () => {
+//                                 console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
+//                                 startExam(allQuestionsExam.examId);
+//                             });
+                            
+//                             titleExamsContainer.appendChild(allButton);
+//                         }
+                        
+//                         // Add flagged questions exam at the end
+//                         const flaggedExam = exams.find(exam => exam.isFlagged);
+//                         if (flaggedExam) {
+//                             console.log(`Adding flagged exam for ${title._id || title.title}`);
+                            
+//                             const flaggedButton = document.createElement('button');
+//                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
+//                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
+                            
+//                             flaggedButton.innerHTML = `
+//                                 <div class="exam-icon">
+//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+//                                         <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+//                                     </svg>
+//                                 </div>
+//                                 <div class="exam-info">
+//                                     <span class="exam-title">Flagged Questions</span>
+//                                     <span class="exam-subtitle">Your saved items</span>
+//                                 </div>
+//                             `;
+                            
+//                             // Add event listener for flagged exam
+//                             flaggedButton.addEventListener('click', () => {
+//                                 console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
+//                                 startExam(flaggedExam.examId);
+//                             });
+                            
+//                             titleExamsContainer.appendChild(flaggedButton);
+//                         } else {
+//                             console.warn(`No flagged exam found for ${title._id || title.title}`);
+//                         }
+//                     }
+                    
+//                     titleSection.appendChild(titleExamsContainer);
+//                     examsContainer.appendChild(titleSection);
+//                 });
+                
+//                 console.log('Exam titles UI building completed successfully');
+//             })
+//             .catch(error => {
+//                 console.error('Error in loadExams:', error);
+//                 examsContainer.innerHTML = `
+//                     <div class="error-message">
+//                         <h2>Error Loading Exams</h2>
+//                         <p>${error.message || 'Failed to load available exams.'}</p>
+//                         <button onclick="location.reload()" class="error-button">Refresh Page</button>
+//                     </div>
+//                 `;
+//             });
+            
+//     } catch (error) {
+//         console.error('Exception in loadExams:', error);
+//         examsContainer.innerHTML = `
+//             <div class="error-message">
+//                 <h2>Error Loading Exams</h2>
+//                 <p>${error.message || 'An unexpected error occurred.'}</p>
+//                 <button onclick="location.reload()" class="error-button">Refresh Page</button>
+//             </div>
+//         `;
+//     }
+// }
+
+
+/**
+ * Load available exams from the server
+ */
 function loadExams() {
     try {
         // Show loading indicator
@@ -250,11 +471,13 @@ function loadExams() {
                     } else {
                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
                         
-                        // Filter out flagged and all questions first
+                        // Filter out special exams first (flagged, missed, all questions)
                         const regularExams = exams.filter(exam => 
                             !exam.isFlagged && 
+                            !exam.isMissed && 
                             !exam.type.includes('All') && 
-                            !exam.type.includes('Flagged')
+                            !exam.type.includes('Flagged') &&
+                            !exam.type.includes('Missed')
                         );
                         
                         // Add each regular exam with a reset counter starting at 1
@@ -277,7 +500,7 @@ function loadExams() {
                                 </div>
                             `;
                             
-                            // Add event listener - FIXED: Add event listener when creating the button
+                            // Add event listener
                             examButton.addEventListener('click', () => {
                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
                                 startExam(exam.examId);
@@ -312,7 +535,7 @@ function loadExams() {
                             titleExamsContainer.appendChild(allButton);
                         }
                         
-                        // Add flagged questions exam at the end
+                        // Add flagged questions exam if it exists
                         const flaggedExam = exams.find(exam => exam.isFlagged);
                         if (flaggedExam) {
                             console.log(`Adding flagged exam for ${title._id || title.title}`);
@@ -340,8 +563,36 @@ function loadExams() {
                             });
                             
                             titleExamsContainer.appendChild(flaggedButton);
-                        } else {
-                            console.warn(`No flagged exam found for ${title._id || title.title}`);
+                        }
+                        
+                        // Add missed questions exam if it exists
+                        const missedExam = exams.find(exam => exam.isMissed);
+                        if (missedExam) {
+                            console.log(`Adding missed exam for ${title._id || title.title}`);
+                            
+                            const missedButton = document.createElement('button');
+                            missedButton.className = 'mock-exam-btn missed-exam-btn';
+                            missedButton.setAttribute('data-exam-id', missedExam.examId);
+                            
+                            missedButton.innerHTML = `
+                                <div class="exam-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="exam-info">
+                                    <span class="exam-title">Missed Questions</span>
+                                    <span class="exam-subtitle">Your incorrect answers</span>
+                                </div>
+                            `;
+                            
+                            // Add event listener
+                            missedButton.addEventListener('click', () => {
+                                console.log(`Missed exam button clicked for exam: ${missedExam.examId}`);
+                                startExam(missedExam.examId);
+                            });
+                            
+                            titleExamsContainer.appendChild(missedButton);
                         }
                     }
                     
@@ -373,7 +624,6 @@ function loadExams() {
         `;
     }
 }
-
 
 
 
@@ -820,6 +1070,67 @@ function showQuestion() {
     }
 }
 
+
+// function selectMultipleAnswers(selectedChoiceIds) {
+//     try {
+//         // Get the current question
+//         const question = currentQuestions[currentQuestionIndex];
+        
+//         // Get all correct choice IDs and texts
+//         const correctChoices = question.choices.filter(choice => choice.isCorrect);
+//         const correctChoiceIds = correctChoices.map(choice => choice.id);
+        
+//         // Check if the selected answers match all correct answers
+//         const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
+//             correctChoiceIds.every(id => selectedChoiceIds.includes(id));
+        
+//         // Update score if all answers are correct
+//         if (allCorrect) {
+//             correctAnswers++;
+//         }
+        
+//         // Hide question container and show feedback
+//         questionContainer.style.display = 'none';
+//         feedbackContainer.style.display = 'block';
+        
+//         // Style the feedback container based on correctness
+//         feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
+        
+//         // Set feedback header with improved formatting for multiple correct answers
+//         if (allCorrect) {
+//             feedbackHeaderEl.textContent = 'Correct!';
+//         } else {
+//             // Create a stylized feedback for correct answers
+//             let correctAnswersHTML = `
+//                 <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
+//                 <div class="correct-answers-list">
+//             `;
+            
+//             // Add each correct answer with styling
+//             correctChoices.forEach(choice => {
+//                 correctAnswersHTML += `
+//                     <div class="correct-answer-item">
+//                         ${choice.text}
+//                     </div>
+//                 `;
+//             });
+            
+//             correctAnswersHTML += '</div>';
+//             feedbackHeaderEl.innerHTML = correctAnswersHTML;
+//         }
+        
+//         // Show explanation
+//         explanationEl.innerHTML = question.explanation;
+        
+//         // Update next button text
+//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+//         nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+//     } catch (error) {
+//         console.error('Error processing multiple answers:', error);
+//         alert(`An error occurred while processing your answers: ${error.message}`);
+//     }
+// }
+
 /**
  * Handle multiple answer selection
  * @param {Array} selectedChoiceIds - IDs of the selected choices
@@ -829,22 +1140,27 @@ function selectMultipleAnswers(selectedChoiceIds) {
         // Get the current question
         const question = currentQuestions[currentQuestionIndex];
         
-        // Get all correct choice IDs
-        const correctChoiceIds = question.choices
-            .filter(choice => choice.isCorrect)
-            .map(choice => choice.id);
+        // Get all correct choice IDs and texts
+        const correctChoices = question.choices.filter(choice => choice.isCorrect);
+        const correctChoiceIds = correctChoices.map(choice => choice.id);
         
         // Check if the selected answers match all correct answers
-        // All correct answers must be selected and no incorrect answers should be selected
         const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
             correctChoiceIds.every(id => selectedChoiceIds.includes(id));
         
         // Update score if all answers are correct
         if (allCorrect) {
             correctAnswers++;
+            
+            // If all answers are correct, remove from missed if it was missed before
+            if (question.missed) {
+                unmarkQuestionMissed(question._id);
+            }
+        } else {
+            // If any answer is incorrect, mark as missed
+            markQuestionMissed(question._id);
         }
         
-        // Use existing feedback mechanism
         // Hide question container and show feedback
         questionContainer.style.display = 'none';
         feedbackContainer.style.display = 'block';
@@ -852,17 +1168,30 @@ function selectMultipleAnswers(selectedChoiceIds) {
         // Style the feedback container based on correctness
         feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
         
-        // Set feedback header
+        // Set feedback header with improved formatting for multiple correct answers
         if (allCorrect) {
             feedbackHeaderEl.textContent = 'Correct!';
         } else {
-            // Create a readable feedback message
-            const correctChoicesText = question.choices
-                .filter(choice => choice.isCorrect)
-                .map(choice => choice.text)
-                .join(' and ');
+            // Format correct answers in a more elegant way
+            const correctAnswersText = correctChoices.map(choice => choice.text).join(', ');
             
-            feedbackHeaderEl.innerHTML = `Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}: ${correctChoicesText}`;
+            // Create a stylized feedback for correct answers
+            let correctAnswersHTML = `
+                <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
+                <div class="correct-answers-list" style="margin-top: 10px;">
+            `;
+            
+            // Add each correct answer with styling
+            correctChoices.forEach(choice => {
+                correctAnswersHTML += `
+                    <div class="correct-answer-item" style="background-color: rgba(76, 201, 240, 0.1); border-left: 3px solid var(--success-color); padding: 8px 12px; margin-top: 5px; border-radius: 4px; font-weight: 500;">
+                        ${choice.text}
+                    </div>
+                `;
+            });
+            
+            correctAnswersHTML += '</div>';
+            feedbackHeaderEl.innerHTML = correctAnswersHTML;
         }
         
         // Show explanation
@@ -873,10 +1202,9 @@ function selectMultipleAnswers(selectedChoiceIds) {
         nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
     } catch (error) {
         console.error('Error processing multiple answers:', error);
-        alert(`An error occurred while processing your answers: ${error.message}`);
+        showNotification('An error occurred while processing your answers', 'error');
     }
 }
-
 
 /**
  * Toggle the flag status of a question
@@ -933,39 +1261,150 @@ async function toggleFlag(question) {
     }
 }
 
+
+/**
+ * Mark a question as missed
+ * @param {string} questionId - The ID of the question to mark as missed
+ */
+async function markQuestionMissed(questionId) {
+    try {
+        // Use the correct endpoint format with query parameter
+        const response = await fetch(`${API_URL}/questions/markMissed?id=${questionId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            const data = await response.json();
+            throw new Error(`Failed to mark question as missed: ${data.message || response.statusText}`);
+        }
+        
+        console.log('Question marked as missed');
+    } catch (error) {
+        console.error('Error marking question as missed:', error);
+    }
+}
+
+/**
+ * Unmark a question as missed
+ * @param {string} questionId - The ID of the question to unmark as missed
+ */
+async function unmarkQuestionMissed(questionId) {
+    try {
+        // Use the correct endpoint format with query parameter
+        const response = await fetch(`${API_URL}/questions/unmarkMissed?id=${questionId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            const data = await response.json();
+            throw new Error(`Failed to unmark question as missed: ${data.message || response.statusText}`);
+        }
+        
+        console.log('Question removed from missed');
+    } catch (error) {
+        console.error('Error unmarking question as missed:', error);
+    }
+}
+
+// /**
+//  * Handle a selected answer
+//  * @param {string} choiceId - The ID of the selected choice
+//  */
+// function selectAnswer(choiceId) {
+//     try {
+//         // Make sure we have questions and the current question
+//         if (!currentQuestions || currentQuestions.length === 0 || currentQuestionIndex >= currentQuestions.length) {
+//             console.error('No current question available');
+//             return;
+//         }
+        
+//         // Get the current question
+//         const question = currentQuestions[currentQuestionIndex];
+        
+//         // Check if the answer is correct
+//         const isCorrect = choiceId === question.correctAnswerId;
+        
+//         if (isCorrect) {
+//             correctAnswers++;
+//         }
+        
+//         // Make sure we have required elements
+//         if (!questionContainer || !feedbackContainer || !feedbackHeaderEl || !explanationEl) {
+//             console.error('Missing critical DOM elements for feedback:', {
+//                 questionContainer: !!questionContainer,
+//                 feedbackContainer: !!feedbackContainer,
+//                 feedbackHeaderEl: !!feedbackHeaderEl,
+//                 explanationEl: !!explanationEl
+//             });
+            
+//             alert(`Your answer was ${isCorrect ? 'correct' : 'incorrect'}. Please try again.`);
+//             return;
+//         }
+        
+//         // Hide question container and show feedback
+//         questionContainer.style.display = 'none';
+//         feedbackContainer.style.display = 'block';
+        
+//         // Style the feedback container based on correctness
+//         feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
+        
+//         // Set feedback header
+//         if (isCorrect) {
+//             feedbackHeaderEl.textContent = 'Correct!';
+//         } else {
+//             // Find the correct answer text
+//             const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
+//             if (correctChoice) {
+//                 feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+//             } else {
+//                 feedbackHeaderEl.innerHTML = 'Incorrect!';
+//             }
+//         }
+        
+//         // Show explanation
+//         explanationEl.innerHTML = question.explanation;
+        
+//         // Update next button text
+//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+        
+//         if (nextButtonEl) {
+//             nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+//         }
+//     } catch (error) {
+//         console.error('Error selecting answer:', error);
+//         alert(`An error occurred while processing your answer: ${error.message}`);
+//     }
+// }
+
 /**
  * Handle a selected answer
  * @param {string} choiceId - The ID of the selected choice
  */
 function selectAnswer(choiceId) {
     try {
-        // Make sure we have questions and the current question
-        if (!currentQuestions || currentQuestions.length === 0 || currentQuestionIndex >= currentQuestions.length) {
-            console.error('No current question available');
-            return;
-        }
-        
         // Get the current question
         const question = currentQuestions[currentQuestionIndex];
         
         // Check if the answer is correct
         const isCorrect = choiceId === question.correctAnswerId;
         
+        // Update score counter
         if (isCorrect) {
             correctAnswers++;
-        }
-        
-        // Make sure we have required elements
-        if (!questionContainer || !feedbackContainer || !feedbackHeaderEl || !explanationEl) {
-            console.error('Missing critical DOM elements for feedback:', {
-                questionContainer: !!questionContainer,
-                feedbackContainer: !!feedbackContainer,
-                feedbackHeaderEl: !!feedbackHeaderEl,
-                explanationEl: !!explanationEl
-            });
             
-            alert(`Your answer was ${isCorrect ? 'correct' : 'incorrect'}. Please try again.`);
-            return;
+            // If the answer is correct, remove from missed if it was missed before
+            if (question.missed) {
+                unmarkQuestionMissed(question._id);
+            }
+        } else {
+            // If the answer is incorrect, mark as missed
+            markQuestionMissed(question._id);
         }
         
         // Hide question container and show feedback
@@ -981,11 +1420,7 @@ function selectAnswer(choiceId) {
         } else {
             // Find the correct answer text
             const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
-            if (correctChoice) {
-                feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
-            } else {
-                feedbackHeaderEl.innerHTML = 'Incorrect!';
-            }
+            feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
         }
         
         // Show explanation
@@ -993,15 +1428,13 @@ function selectAnswer(choiceId) {
         
         // Update next button text
         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-        
-        if (nextButtonEl) {
-            nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
-        }
+        nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
     } catch (error) {
         console.error('Error selecting answer:', error);
-        alert(`An error occurred while processing your answer: ${error.message}`);
+        showNotification('An error occurred while processing your answer', 'error');
     }
 }
+
 
 /**
  * Show the next question or results

@@ -145,57 +145,121 @@ exports.getExamTitles = async (req, res) => {
 };
 
 // Get questions for a specific exam
+// exports.getQuestions = async (req, res) => {
+//   try {
+//     const examId = req.params.examId;
+    
+//     // Check if this is a flagged questions exam
+//     const metadata = await ExamMetadata.findOne({ examId });
+    
+//     if (!metadata) {
+//       return res.status(404).json({ 
+//         message: `Exam with ID ${examId} not found.` 
+//       });
+//     }
+    
+//     let questions;
+    
+//     if (metadata.isFlagged) {
+//       // Get flagged questions for this title
+//       questions = await Question.find({ 
+//         title: metadata.title, 
+//         flagged: true 
+//       });
+//     } else {
+//       // Get questions for the specific exam
+//       questions = await Question.find({ examId });
+//     }
+    
+//     // Check if any questions were found
+//     if (questions.length === 0) {
+//       if (metadata.isFlagged) {
+//         return res.status(404).json({ 
+//           message: `No flagged questions found for ${metadata.title}. Flag some questions first.` 
+//         });
+//       } else {
+//         return res.status(404).json({ 
+//           message: `No questions found for exam "${metadata.fullName}". Make sure to import questions first.` 
+//         });
+//       }
+//     }
+    
+//     // Return the questions with metadata
+//     res.json({
+//       questions,
+//       metadata
+//     });
+//   } catch (error) {
+//     console.error('Error getting questions:', error);
+//     res.status(500).json({ 
+//       message: 'Server Error',
+//       error: error.message 
+//     });
+//   }
+// };
+
+
 exports.getQuestions = async (req, res) => {
-  try {
-    const examId = req.params.examId;
-    
-    // Check if this is a flagged questions exam
-    const metadata = await ExamMetadata.findOne({ examId });
-    
-    if (!metadata) {
-      return res.status(404).json({ 
-        message: `Exam with ID ${examId} not found.` 
-      });
-    }
-    
-    let questions;
-    
-    if (metadata.isFlagged) {
-      // Get flagged questions for this title
-      questions = await Question.find({ 
-        title: metadata.title, 
-        flagged: true 
-      });
-    } else {
-      // Get questions for the specific exam
-      questions = await Question.find({ examId });
-    }
-    
-    // Check if any questions were found
-    if (questions.length === 0) {
-      if (metadata.isFlagged) {
-        return res.status(404).json({ 
-          message: `No flagged questions found for ${metadata.title}. Flag some questions first.` 
+    try {
+        const examId = req.params.examId;
+        
+        // Check if this is a flagged or missed questions exam
+        const metadata = await ExamMetadata.findOne({ examId });
+        
+        if (!metadata) {
+            return res.status(404).json({ 
+                message: `Exam with ID ${examId} not found.` 
+            });
+        }
+        
+        let questions;
+        
+        if (metadata.isFlagged) {
+            // Get flagged questions for this title
+            questions = await Question.find({ 
+                title: metadata.title, 
+                flagged: true 
+            });
+        } else if (metadata.isMissed) {
+            // Get missed questions for this title
+            questions = await Question.find({ 
+                title: metadata.title, 
+                missed: true 
+            });
+        } else {
+            // Get questions for the specific exam
+            questions = await Question.find({ examId });
+        }
+        
+        // Check if any questions were found
+        if (questions.length === 0) {
+            if (metadata.isFlagged) {
+                return res.status(404).json({ 
+                    message: `No flagged questions found for ${metadata.title}. Flag some questions first.` 
+                });
+            } else if (metadata.isMissed) {
+                return res.status(404).json({ 
+                    message: `No missed questions found for ${metadata.title}. Questions you answer incorrectly will appear here.` 
+                });
+            } else {
+                return res.status(404).json({ 
+                    message: `No questions found for exam "${metadata.fullName}". Make sure to import questions first.` 
+                });
+            }
+        }
+        
+        // Return the questions with metadata
+        res.json({
+            questions,
+            metadata
         });
-      } else {
-        return res.status(404).json({ 
-          message: `No questions found for exam "${metadata.fullName}". Make sure to import questions first.` 
+    } catch (error) {
+        console.error('Error getting questions:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
         });
-      }
     }
-    
-    // Return the questions with metadata
-    res.json({
-      questions,
-      metadata
-    });
-  } catch (error) {
-    console.error('Error getting questions:', error);
-    res.status(500).json({ 
-      message: 'Server Error',
-      error: error.message 
-    });
-  }
 };
 
 // Flag a question
@@ -266,4 +330,74 @@ exports.unflagQuestion = async (req, res) => {
       error: error.message 
     });
   }
+};
+
+// Mark a question as missed
+exports.markQuestionMissed = async (req, res) => {
+    try {
+        const questionId = req.query.id;
+        
+        if (!questionId) {
+            return res.status(400).json({ message: 'Question ID is required' });
+        }
+        
+        // Find and update the question
+        const question = await Question.findByIdAndUpdate(
+            questionId,
+            { missed: true },
+            { new: true }
+        );
+        
+        // Check if question exists
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        
+        // Return success
+        res.json({ 
+            message: 'Question marked as missed',
+            question 
+        });
+    } catch (error) {
+        console.error('Error marking question as missed:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+};
+
+// Unmark a question as missed
+exports.unmarkQuestionMissed = async (req, res) => {
+    try {
+        const questionId = req.query.id;
+        
+        if (!questionId) {
+            return res.status(400).json({ message: 'Question ID is required' });
+        }
+        
+        // Find and update the question
+        const question = await Question.findByIdAndUpdate(
+            questionId,
+            { missed: false },
+            { new: true }
+        );
+        
+        // Check if question exists
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        
+        // Return success
+        res.json({ 
+            message: 'Question removed from missed',
+            question 
+        });
+    } catch (error) {
+        console.error('Error unmarking question as missed:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
 };

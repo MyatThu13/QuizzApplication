@@ -1096,3 +1096,36 @@ tr:nth-child(even) {
     justify-content: flex-end;
     margin-top: var(--space-lg);
 }
+
+
+/* Styling for correct answers list */
+.correct-answers-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.correct-answer-item {
+    background-color: rgba(76, 201, 240, 0.1);
+    border-left: 3px solid var(--success-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Add to your styles.css */
+.missed-exam-btn {
+    border-color: var(--danger-color);
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.missed-exam-btn .exam-icon {
+    background-color: var(--danger-color);
+}
+
+.missed-exam-btn .exam-icon svg {
+    fill: none;
+    stroke: var(--white-color);
+}
