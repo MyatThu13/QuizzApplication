@@ -157,6 +157,205 @@ function initialize() {
  * 
  * This updated function includes detailed debugging and better handles the API response format
  */
+// function loadExams() {
+//     try {
+//         // Show loading indicator
+//         examsContainer.innerHTML = `
+//             <div class="loading-spinner">
+//                 <div class="spinner"></div>
+//                 <p>Loading available exams...</p>
+//             </div>
+//         `;
+        
+//         console.log('Starting to fetch exam titles from API...');
+        
+//         // Add this debugging code to check your API URL
+//         const titlesUrl = `${API_URL}/questions/titles`;
+//         console.log('Fetching from:', titlesUrl);
+        
+//         // Use fetch with explicit debugging
+//         fetch(titlesUrl)
+//             .then(response => {
+//                 console.log('Response status:', response.status);
+//                 if (!response.ok) {
+//                     throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+//                 }
+//                 return response.json();
+//             })
+//             .then(data => {
+//                 // Log the complete response structure
+//                 console.log('API Response data:', data);
+                
+//                 // Check if response has the expected structure
+//                 if (!data || typeof data !== 'object') {
+//                     throw new Error('API response is not a valid object');
+//                 }
+                
+//                 // Examine what's in the response
+//                 if (data.titles) {
+//                     console.log('Found titles array in response:', data.titles.length);
+//                     examTitles = data.titles;
+//                 } else {
+//                     // If data doesn't have a titles property, check if it might be the titles array directly
+//                     console.log('No titles property found, checking if response is the titles array');
+//                     if (Array.isArray(data)) {
+//                         console.log('Response is an array, using as titles:', data.length);
+//                         examTitles = data;
+//                     } else {
+//                         console.error('Unexpected API response format:', data);
+//                         throw new Error('API returned unexpected data format - missing titles array');
+//                     }
+//                 }
+                
+//                 // Clear loading indicator
+//                 examsContainer.innerHTML = '';
+                
+//                 if (examTitles.length === 0) {
+//                     console.log('No exam titles found');
+//                     examsContainer.innerHTML = `
+//                         <div class="no-exams">
+//                             <h2>No Exams Available</h2>
+//                             <p>No exam data found. Please run the import script to load exams.</p>
+//                         </div>
+//                     `;
+//                     return;
+//                 }
+                
+//                 console.log('Building UI for exam titles...');
+                
+//                 // Create a section for each title
+//                 examTitles.forEach(title => {
+//                     console.log(`Processing title: ${title._id || title.title}`);
+                    
+//                     const titleSection = document.createElement('div');
+//                     titleSection.className = 'exam-title-section';
+                    
+//                     // Create title header
+//                     const titleHeader = document.createElement('h2');
+//                     titleHeader.textContent = title._id || title.title; // Handle both formats
+//                     titleSection.appendChild(titleHeader);
+                    
+//                     // Create exams container for this title
+//                     const titleExamsContainer = document.createElement('div');
+//                     titleExamsContainer.className = 'title-exams-container';
+                    
+//                     // Check if title has exams array
+//                     const exams = title.exams || [];
+//                     if (exams.length === 0) {
+//                         console.warn(`No exams found for title ${title._id || title.title}`);
+//                         const noExamsMsg = document.createElement('p');
+//                         noExamsMsg.className = 'no-exams-message';
+//                         noExamsMsg.textContent = `No exams available for ${title._id || title.title}`;
+//                         titleExamsContainer.appendChild(noExamsMsg);
+//                     } else {
+//                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
+                        
+//                         // Add each exam for this title
+//                         exams.forEach(exam => {
+//                             // Skip flagged for now, we'll add it at the end
+//                             if (exam.isFlagged) return;
+                            
+//                             console.log(`Adding button for exam: ${exam.examId}`);
+                            
+//                             const examButton = document.createElement('button');
+//                             examButton.className = 'mock-exam-btn';
+//                             examButton.setAttribute('data-exam-id', exam.examId);
+                            
+//                             // Determine icon text
+//                             let iconText;
+//                             if (exam.type.includes('Mock') || exam.type.includes('Exam')) {
+//                                 // If it's a numbered exam, extract the number
+//                                 const examNumber = exam.examId.split('_')[1] || '';
+//                                 iconText = examNumber.padStart(2, '0');
+//                             } else if (exam.type.includes('All')) {
+//                                 iconText = 'ALL';
+//                             } else {
+//                                 // Use first letter of each word in type
+//                                 iconText = exam.type.split(' ')
+//                                     .map(word => word[0])
+//                                     .join('')
+//                                     .toUpperCase();
+//                             }
+                            
+//                             examButton.innerHTML = `
+//                                 <div class="exam-icon">${iconText}</div>
+//                                 <div class="exam-info">
+//                                     <span class="exam-title">${exam.type}</span>
+//                                     <span class="exam-subtitle">${exam.vendor} ${exam.year}</span>
+//                                 </div>
+//                             `;
+                            
+//                             // Add event listener - FIXED: Add event listener when creating the button
+//                             examButton.addEventListener('click', () => {
+//                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
+//                                 startExam(exam.examId);
+//                             });
+                            
+//                             titleExamsContainer.appendChild(examButton);
+//                         });
+                        
+//                         // Add flagged questions exam at the end
+//                         const flaggedExam = exams.find(exam => exam.isFlagged);
+//                         if (flaggedExam) {
+//                             console.log(`Adding flagged exam for ${title._id || title.title}`);
+                            
+//                             const flaggedButton = document.createElement('button');
+//                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
+//                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
+                            
+//                             flaggedButton.innerHTML = `
+//                                 <div class="exam-icon">
+//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+//                                         <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+//                                     </svg>
+//                                 </div>
+//                                 <div class="exam-info">
+//                                     <span class="exam-title">Flagged Questions</span>
+//                                     <span class="exam-subtitle">Your saved items</span>
+//                                 </div>
+//                             `;
+                            
+//                             // Add event listener for flagged exam
+//                             flaggedButton.addEventListener('click', () => {
+//                                 console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
+//                                 startExam(flaggedExam.examId);
+//                             });
+                            
+//                             titleExamsContainer.appendChild(flaggedButton);
+//                         } else {
+//                             console.warn(`No flagged exam found for ${title._id || title.title}`);
+//                         }
+//                     }
+                    
+//                     titleSection.appendChild(titleExamsContainer);
+//                     examsContainer.appendChild(titleSection);
+//                 });
+                
+//                 console.log('Exam titles UI building completed successfully');
+//             })
+//             .catch(error => {
+//                 console.error('Error in loadExams:', error);
+//                 examsContainer.innerHTML = `
+//                     <div class="error-message">
+//                         <h2>Error Loading Exams</h2>
+//                         <p>${error.message || 'Failed to load available exams.'}</p>
+//                         <button onclick="location.reload()" class="error-button">Refresh Page</button>
+//                     </div>
+//                 `;
+//             });
+            
+//     } catch (error) {
+//         console.error('Exception in loadExams:', error);
+//         examsContainer.innerHTML = `
+//             <div class="error-message">
+//                 <h2>Error Loading Exams</h2>
+//                 <p>${error.message || 'An unexpected error occurred.'}</p>
+//                 <button onclick="location.reload()" class="error-button">Refresh Page</button>
+//             </div>
+//         `;
+//     }
+// }
+
 function loadExams() {
     try {
         // Show loading indicator
@@ -250,32 +449,24 @@ function loadExams() {
                     } else {
                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
                         
-                        // Add each exam for this title
-                        exams.forEach(exam => {
-                            // Skip flagged for now, we'll add it at the end
-                            if (exam.isFlagged) return;
-                            
-                            console.log(`Adding button for exam: ${exam.examId}`);
+                        // Filter out flagged and all questions first
+                        const regularExams = exams.filter(exam => 
+                            !exam.isFlagged && 
+                            !exam.type.includes('All') && 
+                            !exam.type.includes('Flagged')
+                        );
+                        
+                        // Add each regular exam with a reset counter starting at 1
+                        regularExams.forEach((exam, index) => {
+                            console.log(`Adding button for exam: ${exam.examId} with index ${index + 1}`);
                             
                             const examButton = document.createElement('button');
                             examButton.className = 'mock-exam-btn';
                             examButton.setAttribute('data-exam-id', exam.examId);
                             
-                            // Determine icon text
-                            let iconText;
-                            if (exam.type.includes('Mock') || exam.type.includes('Exam')) {
-                                // If it's a numbered exam, extract the number
-                                const examNumber = exam.examId.split('_')[1] || '';
-                                iconText = examNumber.padStart(2, '0');
-                            } else if (exam.type.includes('All')) {
-                                iconText = 'ALL';
-                            } else {
-                                // Use first letter of each word in type
-                                iconText = exam.type.split(' ')
-                                    .map(word => word[0])
-                                    .join('')
-                                    .toUpperCase();
-                            }
+                            // Use index + 1 (starting from 1) for each title group
+                            const examNumber = index + 1;
+                            let iconText = examNumber.toString().padStart(2, '0');
                             
                             examButton.innerHTML = `
                                 <div class="exam-icon">${iconText}</div>
@@ -293,6 +484,32 @@ function loadExams() {
                             
                             titleExamsContainer.appendChild(examButton);
                         });
+                        
+                        // Add "All Questions" exam if it exists
+                        const allQuestionsExam = exams.find(exam => exam.type.includes('All'));
+                        if (allQuestionsExam) {
+                            console.log(`Adding All Questions button for ${title._id || title.title}`);
+                            
+                            const allButton = document.createElement('button');
+                            allButton.className = 'mock-exam-btn';
+                            allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
+                            
+                            allButton.innerHTML = `
+                                <div class="exam-icon">ALL</div>
+                                <div class="exam-info">
+                                    <span class="exam-title">${allQuestionsExam.type}</span>
+                                    <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
+                                </div>
+                            `;
+                            
+                            // Add event listener
+                            allButton.addEventListener('click', () => {
+                                console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
+                                startExam(allQuestionsExam.examId);
+                            });
+                            
+                            titleExamsContainer.appendChild(allButton);
+                        }
                         
                         // Add flagged questions exam at the end
                         const flaggedExam = exams.find(exam => exam.isFlagged);
@@ -532,110 +749,6 @@ function ensureRequiredDomElements() {
  * Start an exam
  * @param {string} examId - The ID of the exam
  */
-// async function startExam(examId) {
-//     try {
-//         console.log(`Starting exam with ID: ${examId}`);
-        
-//         // Make sure required DOM elements exist
-//         if (!ensureRequiredDomElements()) {
-//             alert('Error: Required page elements not found. Please refresh the page and try again.');
-//             return;
-//         }
-        
-//         // Show loading indicator
-//         startScreen.style.display = 'none';
-//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
-//         questionContainer.style.display = 'block';
-        
-//         // Reset quiz state
-//         currentExamId = examId;
-//         currentQuestionIndex = 0;
-//         correctAnswers = 0;
-        
-//         // Fetch questions from the server
-//         const response = await fetch(`${API_URL}/questions/${examId}`);
-        
-//         if (!response.ok) {
-//             const statusCode = response.status;
-//             let errorMessage;
-            
-//             // Handle specific status codes
-//             if (statusCode === 404) {
-//                 errorMessage = `No questions available for this exam. Please run the import script to load questions.`;
-//             } else {
-//                 errorMessage = `Failed to load questions: ${response.statusText || 'Server error'}`;
-//             }
-            
-//             throw new Error(errorMessage);
-//         }
-        
-//         const data = await response.json();
-//         console.log('Received data from API:', { 
-//             hasMetadata: !!data.metadata, 
-//             questionsCount: data.questions ? data.questions.length : 0 
-//         });
-        
-//         // Check if we received any questions
-//         if (!data || !data.questions || data.questions.length === 0) {
-//             throw new Error(`No questions available for this exam. Please run the import script to load questions.`);
-//         }
-        
-//         // Store metadata and questions
-//         currentExamMetadata = data.metadata;
-//         currentQuestions = shuffleArray(data.questions);
-        
-//         // Restore question container structure
-//         questionContainer.innerHTML = `
-//             <div class="exam-header">
-//                 <div class="progress">
-//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
-//                 </div>
-//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
-//             </div>
-//             <div id="question-text"></div>
-//             <div id="choices"></div>
-//         `;
-        
-//         // Update element references after recreating DOM elements
-//         currentQuestionEl = document.getElementById('current-question');
-//         totalQuestionsEl = document.getElementById('total-questions');
-//         questionTextEl = document.getElementById('question-text');
-//         choicesEl = document.getElementById('choices');
-        
-//         // Make sure elements exist
-//         if (!questionTextEl || !choicesEl) {
-//             throw new Error('Critical question elements not found after container setup');
-//         }
-        
-//         // Add event listener for the exit button
-//         const exitButton = document.getElementById('exit-exam-btn');
-//         if (exitButton) {
-//             exitButton.addEventListener('click', exitExam);
-//         }
-        
-//         // Show the first question (with randomized choices)
-//         showQuestion();
-//     } catch (error) {
-//         console.error('Error starting exam:', error);
-        
-//         // Use our error handler
-//         if (questionContainer) {
-//             questionContainer.innerHTML = `
-//                 <div class="error-container">
-//                     <h1 class="error-code">Error</h1>
-//                     <h2 class="error-title">Error Loading Questions</h2>
-//                     <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
-//                     <div class="button-container">
-//                         <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
-//                     </div>
-//                 </div>
-//             `;
-//         } else {
-//             alert(`Error starting exam: ${error.message}`);
-//         }
-//     }
-// }
-
 
 async function startExam(examId) {
     try {
@@ -1020,21 +1133,12 @@ function exitExam() {
 /**
  * Display the quiz results
  */
+
+/**
+ * Display the quiz results
+ */
 async function showResults() {
     try {
-        // Make sure we have the required elements and data
-        if (!resultsContainer || !currentExamMetadata || !currentQuestions || currentQuestions.length === 0) {
-            console.error('Missing elements or data for showResults:', {
-                resultsContainer: !!resultsContainer,
-                currentExamMetadata: !!currentExamMetadata,
-                currentQuestions: !!currentQuestions
-            });
-            
-            alert('Error displaying results. Please return to the home screen.');
-            returnToStart();
-            return;
-        }
-        
         // Calculate percentage
         const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
         
@@ -1051,76 +1155,57 @@ async function showResults() {
             percentage: percentage
         };
         
-        console.log('Saving attempt:', attempt);
+        console.log('Saving attempt with data:', attempt);
         
-        // Save attempt to the server
-        const response = await fetch(`${API_URL}/attempts`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(attempt)
-        });
-        
-        if (!response.ok) {
-            throw new Error('Failed to save attempt');
-        }
-        
-        // Check if result elements exist
-// Check if result elements exist
-        if (!completedExamNameEl || !percentageCorrectEl || !correctAnswersEl || !totalAnswersEl) {
-            console.error('Missing DOM elements for results display:', {
-                completedExamNameEl: !!completedExamNameEl,
-                percentageCorrectEl: !!percentageCorrectEl,
-                correctAnswersEl: !!correctAnswersEl,
-                totalAnswersEl: !!totalAnswersEl
-            });
-            
-            alert(`Your score: ${percentage}% (${correctAnswers}/${currentQuestions.length})`);
-            returnToStart();
-            return;
-        }
-        
-        // Update results UI
+        // Update results UI before saving
         completedExamNameEl.textContent = currentExamMetadata.fullName;
         percentageCorrectEl.textContent = percentage;
         correctAnswersEl.textContent = correctAnswers;
         totalAnswersEl.textContent = currentQuestions.length;
         
         // Hide other containers and show results
-        if (questionContainer) questionContainer.style.display = 'none';
-        if (feedbackContainer) feedbackContainer.style.display = 'none';
+        questionContainer.style.display = 'none';
+        feedbackContainer.style.display = 'none';
         resultsContainer.style.display = 'block';
         
-        // Display attempt history
-        await displayAttemptHistory();
+        // Try to save attempt to server
+        try {
+            const response = await fetch(`${API_URL}/attempts`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(attempt)
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Failed to save attempt: ${errorData.message || response.statusText}`);
+            }
+            
+            await displayAttemptHistory();
+        } catch (saveError) {
+            console.error('Error saving attempt:', saveError);
+            showNotification('Error saving your results, but your score has been calculated.', 'error');
+            
+            // Display error message in history table
+            if (historyBodyEl) {
+                historyBodyEl.innerHTML = `
+                    <tr>
+                        <td colspan="3">Failed to save attempt. Results not stored.</td>
+                    </tr>
+                `;
+            }
+        }
     } catch (error) {
         console.error('Error showing results:', error);
-        showNotification('Error saving your results', 'error');
-            
-        // Try to show a simplified results view even if saving failed
-        if (completedExamNameEl && percentageCorrectEl && correctAnswersEl && totalAnswersEl) {
-            completedExamNameEl.textContent = currentExamMetadata ? currentExamMetadata.fullName : 'Completed Exam';
-            percentageCorrectEl.textContent = Math.round((correctAnswers / currentQuestions.length) * 100);
-            correctAnswersEl.textContent = correctAnswers;
-            totalAnswersEl.textContent = currentQuestions.length;
-            
-            // Hide other containers and show results
-            if (questionContainer) questionContainer.style.display = 'none';
-            if (feedbackContainer) feedbackContainer.style.display = 'none';
-            resultsContainer.style.display = 'block';
-        }
         
-        // Show error message in history table
-        if (historyBodyEl) {
-            historyBodyEl.innerHTML = `
-                <tr>
-                    <td colspan="3">Failed to save attempt. Results not stored.</td>
-                </tr>
-            `;
-        }
+        // Show a simplified results view if something fails
+        alert(`An error occurred while showing results: ${error.message}`);
+        returnToStart();
     }
 }
+
 
 /**
  * Load and display recent attempts on the home page
