@@ -1,0 +1,40 @@
+services:
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: quiz-app-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - quiz-app-network
+
+  # Quiz application
+  app:
+    build:
+      context: .
+    container_name: quiz-app
+    restart: on-failure
+    depends_on:
+      - mongodb
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/quiz-app
+    volumes:
+      - ./data:/usr/src/app/data
+    networks:
+      - quiz-app-network
+    command: sh -c "sleep 10 && npm run import && npm start"
+
+# Volumes
+volumes:
+  mongodb_data:
+
+# Networks
+networks:
+  quiz-app-network:
+    driver: bridge
