@@ -35,7 +35,7 @@ Title_Type_Vendor_Year.json
 
 For example:
 - `CISSP_MockExam_PocketPrep_2024.json`
-- `AWS_Practice_CloudGuru_2025.json`
+- `AWS_AllQuestions_CloudGuru_2025.json`
 
 This naming format is critical for proper metadata extraction during import.
 
