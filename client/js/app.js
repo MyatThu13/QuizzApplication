@@ -864,6 +864,50 @@ function showQuestion() {
 }
 
 
+// Add this to client/js/app.js
+// Replace or update the existing handleAllQuestionsExamClick function
+// just testing
+function handleAllQuestionsExamClick(examId, examTitle) {
+    console.log(`All Questions exam clicked: ${examId}`);
+    
+    // Find the exam metadata in the exam titles
+    const examMetadata = findExamMetadata(examId);
+    
+    if (!examMetadata) {
+        console.error(`Exam metadata not found for ${examId}`);
+        startExam(examId); // Fallback to starting the exam directly
+        return;
+    }
+    
+    // Show the quiz configuration UI
+    showQuizConfigUI(examId, examTitle || examMetadata.fullName || examId);
+}
+
+/**
+ * Find the exam metadata in the exam titles
+ * @param {string} examId - The ID of the exam
+ * @returns {Object|null} - The exam metadata or null if not found
+ */
+function findExamMetadata(examId) {
+    if (!examTitles || examTitles.length === 0) {
+        return null;
+    }
+    
+    // Check if examTitles is an array of title objects
+    if (Array.isArray(examTitles)) {
+        for (const title of examTitles) {
+            if (!title.exams || !Array.isArray(title.exams)) continue;
+            
+            const exam = title.exams.find(e => e.examId === examId);
+            if (exam) {
+                return exam;
+            }
+        }
+    }
+    
+    return null;
+}
+
 /**
  * Handle multiple answer selection
  * @param {Array} selectedChoiceIds - IDs of the selected choices
