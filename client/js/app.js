@@ -293,30 +293,53 @@ function loadExams() {
                         
                         // Add "All Questions" exam if it exists
                         const allQuestionsExam = exams.find(exam => exam.type.includes('All'));
+                        // if (allQuestionsExam) {
+                        //     console.log(`Adding All Questions button for ${title._id || title.title}`);
+                            
+                        //     const allButton = document.createElement('button');
+                        //     allButton.className = 'mock-exam-btn';
+                        //     allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
+                            
+                        //     allButton.innerHTML = `
+                        //         <div class="exam-icon">ALL</div>
+                        //         <div class="exam-info">
+                        //             <span class="exam-title">${allQuestionsExam.type}</span>
+                        //             <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
+                        //         </div>
+                        //     `;
+                            
+                        //     // Add event listener
+                        //     allButton.addEventListener('click', () => {
+                        //         console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
+                        //         startExam(allQuestionsExam.examId);
+                        //     });
+                            
+                        //     titleExamsContainer.appendChild(allButton);
+                        // }
+                        // Replace the existing code for creating "All Questions" button with this:
                         if (allQuestionsExam) {
                             console.log(`Adding All Questions button for ${title._id || title.title}`);
                             
-                            const allButton = document.createElement('button');
-                            allButton.className = 'mock-exam-btn';
-                            allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
-                            
-                            allButton.innerHTML = `
+                            const allQuestionsButton = document.createElement('button');
+                            allQuestionsButton.className = 'mock-exam-btn';
+                            allQuestionsButton.setAttribute('data-exam-id', allQuestionsExam.examId);
+
+                            allQuestionsButton.innerHTML = `
                                 <div class="exam-icon">ALL</div>
                                 <div class="exam-info">
                                     <span class="exam-title">${allQuestionsExam.type}</span>
                                     <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
                                 </div>
                             `;
-                            
-                            // Add event listener
-                            allButton.addEventListener('click', () => {
+                            // Replace the standard event listener with our custom one
+                            allQuestionsButton.addEventListener('click', () => {
                                 console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
-                                startExam(allQuestionsExam.examId);
+                                handleAllQuestionsExamClick(allQuestionsExam.examId, allQuestionsExam.fullName);
                             });
                             
-                            titleExamsContainer.appendChild(allButton);
+                            titleExamsContainer.appendChild(allQuestionsButton);
                         }
-                        
+                                                
                         // Add flagged questions exam if it exists - WITH INLINE STYLES
                         const flaggedExam = exams.find(exam => exam.isFlagged);
                         if (flaggedExam) {
@@ -866,7 +889,6 @@ function showQuestion() {
 
 // Add this to client/js/app.js
 // Replace or update the existing handleAllQuestionsExamClick function
-// just testing
 function handleAllQuestionsExamClick(examId, examTitle) {
     console.log(`All Questions exam clicked: ${examId}`);
     
@@ -882,6 +904,152 @@ function handleAllQuestionsExamClick(examId, examTitle) {
     // Show the quiz configuration UI
     showQuizConfigUI(examId, examTitle || examMetadata.fullName || examId);
 }
+
+// Add this function to mark questions as answered
+async function markQuestionAnswered(questionId) {
+    try {
+        // Call the API to mark the question as answered
+        const response = await fetch(`${API_URL}/questions/markAnswered?id=${questionId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to mark question as answered');
+        }
+        
+        console.log('Question marked as answered');
+    } catch (error) {
+        console.error('Error marking question as answered:', error);
+        // Don't show notification to user - this is a background operation
+    }
+}
+
+
+// Add to client/js/app.js
+
+/**
+ * Start an exam with custom questions and settings
+ * @param {string} examId - The ID of the exam
+ * @param {Array} questions - The custom questions
+ * @param {boolean} showAnswerAfterEach - Whether to show answers after each question
+ */
+
+function startExamWithCustomQuestions(examId, questions, showAnswerAfterEach = true) {
+    try {
+        // Show loading indicator
+        startScreen.style.display = 'none';
+        questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading custom quiz...</p></div>';
+        questionContainer.style.display = 'block';
+        
+        console.log(`Starting custom exam with ${questions.length} questions`);
+        
+        // Reset quiz state
+        currentExamId = examId;
+        currentExamName = `Custom Quiz (${examId})`; // Set a default exam name
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        currentQuestions = questions;
+        
+        // Set the flag for showing answers
+        window.showAnswersImmediately = showAnswerAfterEach;
+        
+        // Create basic metadata for the custom quiz if real metadata isn't available
+        if (!currentExamMetadata) {
+            // Parse the exam ID to get the base title
+            const baseTitle = examId.split('_')[0] || 'Custom';
+            
+            // Create metadata
+            currentExamMetadata = {
+                examId: examId,
+                title: baseTitle,
+                type: 'Custom Quiz',
+                vendor: 'PocketPrep',
+                year: new Date().getFullYear(),
+                fullName: `${baseTitle} Custom Quiz`,
+                questionCount: questions.length
+            };
+        }
+        
+        // Restore question container structure
+        questionContainer.innerHTML = `
+            <div class="exam-header">
+                <div class="progress">
+                    Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+                </div>
+                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+            </div>
+            <div id="question-text"></div>
+            <div id="choices"></div>
+        `;
+        
+        // Update element references after recreating DOM elements
+        currentQuestionEl = document.getElementById('current-question');
+        totalQuestionsEl = document.getElementById('total-questions');
+        questionTextEl = document.getElementById('question-text');
+        choicesEl = document.getElementById('choices');
+        
+        // Add event listener for the exit button
+        const exitButton = document.getElementById('exit-exam-btn');
+        if (exitButton) {
+            exitButton.addEventListener('click', exitExam);
+        }
+        
+        // Show the first question
+        showQuestion();
+    } catch (error) {
+        console.error('Error starting custom exam:', error);
+        
+        // Use ErrorHandler if available
+        if (typeof ErrorHandler !== 'undefined') {
+            ErrorHandler.handleApiError(error, 'Error starting custom quiz', questionContainer);
+        } else {
+            alert('Error starting quiz: ' + error.message);
+            returnToStart();
+        }
+    }
+}
+
+// Add to client/js/app.js
+
+/**
+ * Load the quiz configuration CSS
+ */
+function loadQuizConfigCSS() {
+    if (document.getElementById('quiz-config-css')) return;
+    
+    const cssLink = document.createElement('link');
+    cssLink.id = 'quiz-config-css';
+    cssLink.rel = 'stylesheet';
+    cssLink.href = 'css/quizConfig.css';
+    document.head.appendChild(cssLink);
+}
+
+/**
+ * Show the quiz configuration UI
+ * @param {string} examId - The ID of the exam
+ * @param {string} examTitle - The title of the exam
+ */
+async function showQuizConfigUI(examId, examTitle) {
+    try {
+        // Load the CSS if not already loaded
+        loadQuizConfigCSS();
+        
+        // Get available question counts
+        const questionCounts = await QuizService.getAvailableQuestionCounts(examId);
+        
+        // Initialize the quiz configuration UI
+        QuizConfig.init(examId, examTitle, questionCounts);
+    } catch (error) {
+        console.error('Error showing quiz config UI:', error);
+        alert('An error occurred while loading quiz configuration. Starting the exam directly.');
+        startExam(examId);
+    }
+}
+
+
 
 /**
  * Find the exam metadata in the exam titles
@@ -1093,6 +1261,56 @@ async function unmarkQuestionMissed(questionId) {
  * Handle a selected answer
  * @param {string} choiceId - The ID of the selected choice
  */
+// function selectAnswer(choiceId) {
+//     try {
+//         // Get the current question
+//         const question = currentQuestions[currentQuestionIndex];
+        
+//         // Check if the answer is correct
+//         const isCorrect = choiceId === question.correctAnswerId;
+        
+//         // Update score counter
+//         if (isCorrect) {
+//             correctAnswers++;
+            
+//             // If the answer is correct, remove from missed if it was missed before
+//             if (question.missed) {
+//                 unmarkQuestionMissed(question._id);
+//             }
+//         } else {
+//             // If the answer is incorrect, mark as missed
+//             markQuestionMissed(question._id);
+//         }
+        
+//         // Hide question container and show feedback
+//         questionContainer.style.display = 'none';
+//         feedbackContainer.style.display = 'block';
+        
+//         // Style the feedback container based on correctness
+//         feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
+        
+//         // Set feedback header
+//         if (isCorrect) {
+//             feedbackHeaderEl.textContent = 'Correct!';
+//         } else {
+//             // Find the correct answer text
+//             const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
+//             feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+//         }
+        
+//         // Show explanation
+//         explanationEl.innerHTML = question.explanation;
+        
+//         // Update next button text
+//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+//         nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+//     } catch (error) {
+//         console.error('Error selecting answer:', error);
+//         showNotification('An error occurred while processing your answer', 'error');
+//     }
+// }
+
+
 function selectAnswer(choiceId) {
     try {
         // Get the current question
@@ -1114,34 +1332,45 @@ function selectAnswer(choiceId) {
             markQuestionMissed(question._id);
         }
         
-        // Hide question container and show feedback
-        questionContainer.style.display = 'none';
-        feedbackContainer.style.display = 'block';
+        // Mark the question as answered (regardless of correctness)
+        markQuestionAnswered(question._id);
         
-        // Style the feedback container based on correctness
-        feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
-        
-        // Set feedback header
-        if (isCorrect) {
-            feedbackHeaderEl.textContent = 'Correct!';
+        // Check if we should show the answer immediately
+        if (window.showAnswersImmediately) {
+            // Show feedback immediately - this is your existing code
+            questionContainer.style.display = 'none';
+            feedbackContainer.style.display = 'block';
+            
+            feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
+            
+            if (isCorrect) {
+                feedbackHeaderEl.textContent = 'Correct!';
+            } else {
+                const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
+                feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+            }
+            
+            explanationEl.innerHTML = question.explanation;
+            
+            const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+            nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
         } else {
-            // Find the correct answer text
-            const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
-            feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+            // Move to the next question without showing feedback
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < currentQuestions.length) {
+                // Show the next question
+                showQuestion();
+            } else {
+                // Show results
+                showResults();
+            }
         }
-        
-        // Show explanation
-        explanationEl.innerHTML = question.explanation;
-        
-        // Update next button text
-        const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-        nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
     } catch (error) {
         console.error('Error selecting answer:', error);
         showNotification('An error occurred while processing your answer', 'error');
     }
 }
-
 
 /**
  * Show the next question or results
@@ -1194,19 +1423,56 @@ function exitExam() {
 /**
  * Display the quiz results
  */
+
 async function showResults() {
     try {
         // Calculate percentage
         const percentage = Math.round((correctAnswers / currentQuestions.length) * 100);
         
+        // Get exam metadata if it's not already available
+        if (!currentExamMetadata) {
+            try {
+                // Try to fetch metadata for the exam ID
+                const response = await fetch(`${API_URL}/questions/metadata/${currentExamId}`);
+                if (response.ok) {
+                    currentExamMetadata = await response.json();
+                } else {
+                    // If we can't get metadata, create a fallback version
+                    // This handles custom filtered quizzes
+                    currentExamMetadata = {
+                        examId: currentExamId,
+                        fullName: `Custom Quiz (${currentExamId})`,
+                        title: currentExamId.split('_')[0] || 'Custom',
+                        type: 'Custom Quiz',
+                        vendor: 'PocketPrep',
+                        year: new Date().getFullYear()
+                    };
+                }
+            } catch (error) {
+                console.error('Error fetching exam metadata:', error);
+                // Create default metadata as fallback
+                currentExamMetadata = {
+                    examId: currentExamId,
+                    fullName: `Custom Quiz (${currentExamId})`,
+                    title: currentExamId.split('_')[0] || 'Custom',
+                    type: 'Custom Quiz',
+                    vendor: 'PocketPrep',
+                    year: new Date().getFullYear()
+                };
+            }
+        }
+        
+        // Ensure we have the exam name
+        const examName = currentExamName || currentExamMetadata.fullName || `Quiz (${currentExamId})`;
+        
         // Create attempt object
         const attempt = {
             examId: currentExamId,
-            examName: currentExamMetadata.fullName,
-            title: currentExamMetadata.title,
-            type: currentExamMetadata.type,
-            vendor: currentExamMetadata.vendor,
-            year: currentExamMetadata.year,
+            examName: examName,
+            title: currentExamMetadata.title || currentExamId.split('_')[0] || 'Custom',
+            type: currentExamMetadata.type || 'Custom Quiz',
+            vendor: currentExamMetadata.vendor || 'PocketPrep',
+            year: currentExamMetadata.year || new Date().getFullYear(),
             questionsCount: currentQuestions.length,
             correctAnswers: correctAnswers,
             percentage: percentage
@@ -1215,15 +1481,15 @@ async function showResults() {
         console.log('Saving attempt with data:', attempt);
         
         // Update results UI before saving
-        completedExamNameEl.textContent = currentExamMetadata.fullName;
-        percentageCorrectEl.textContent = percentage;
-        correctAnswersEl.textContent = correctAnswers;
-        totalAnswersEl.textContent = currentQuestions.length;
+        if (completedExamNameEl) completedExamNameEl.textContent = examName;
+        if (percentageCorrectEl) percentageCorrectEl.textContent = percentage;
+        if (correctAnswersEl) correctAnswersEl.textContent = correctAnswers;
+        if (totalAnswersEl) totalAnswersEl.textContent = currentQuestions.length;
         
         // Hide other containers and show results
-        questionContainer.style.display = 'none';
-        feedbackContainer.style.display = 'none';
-        resultsContainer.style.display = 'block';
+        if (questionContainer) questionContainer.style.display = 'none';
+        if (feedbackContainer) feedbackContainer.style.display = 'none';
+        if (resultsContainer) resultsContainer.style.display = 'block';
         
         // Try to save attempt to server
         try {
@@ -1258,11 +1524,31 @@ async function showResults() {
         console.error('Error showing results:', error);
         
         // Show a simplified results view if something fails
-        alert(`An error occurred while showing results: ${error.message}`);
-        returnToStart();
+        showNotification(`An error occurred while showing results: ${error.message}`, 'error');
+        
+        // Create a basic fallback results display
+        if (resultsContainer) {
+            resultsContainer.innerHTML = `
+                <h1>Quiz Completed</h1>
+                <p>Score: ${correctAnswers} out of ${currentQuestions.length}</p>
+                <p>Percentage: ${Math.round((correctAnswers / currentQuestions.length) * 100)}%</p>
+                <button id="return-btn" class="error-button">Return to Home</button>
+            `;
+            
+            // Add event listener to the return button
+            const returnBtn = document.getElementById('return-btn');
+            if (returnBtn) {
+                returnBtn.addEventListener('click', returnToStart);
+            }
+            
+            resultsContainer.style.display = 'block';
+        } else {
+            // Last resort: alert and return to start
+            alert(`Quiz completed with score: ${correctAnswers}/${currentQuestions.length}`);
+            returnToStart();
+        }
     }
 }
-
 
 /**
  * Load and display recent attempts on the home page

@@ -97,6 +97,22 @@ app.put('/api/questions/flag', questionController.flagQuestion);
 app.put('/api/questions/unflag', questionController.unflagQuestion);
 app.get('/api/questions/titles', questionController.getExamTitles);
 
+
+// Add the filtered questions endpoint
+app.get('/api/questions/filtered', questionController.getFilteredQuestions);
+
+// Add the mark answered endpoint
+app.put('/api/questions/markAnswered', questionController.markQuestionAnswered);
+
+// Add the stats endpoint
+app.get('/api/questions/stats/:examId', questionController.getQuestionStats);
+
+// Add to server/server.js
+
+// Add the metadata endpoint - register it directly
+app.get('/api/questions/metadata/:examId', questionController.getExamMetadata);
+
+
 // Then register the parameter route AFTER all specific routes
 app.get('/api/questions/:examId', (req, res, next) => {
     console.log('Exam ID requested:', req.params.examId);

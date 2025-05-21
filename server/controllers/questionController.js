@@ -251,3 +251,248 @@ exports.unmarkQuestionMissed = async (req, res) => {
         });
     }
 };
+
+// Add to server/controllers/questionController.js
+
+// Get filtered questions for a specific exam title
+exports.getFilteredQuestions = async (req, res) => {
+    try {
+        const { 
+            examId, 
+            includeNew, 
+            includeAnswered, 
+            includeFlagged, 
+            includeIncorrect, 
+            count 
+        } = req.query;
+        
+        // Validate required parameters
+        if (!examId) {
+            return res.status(400).json({ message: 'Exam ID is required' });
+        }
+        
+        // Find the exam metadata
+        const metadata = await ExamMetadata.findOne({ examId });
+        
+        if (!metadata) {
+            return res.status(404).json({ 
+                message: `Exam with ID ${examId} not found.` 
+            });
+        }
+        
+        // Parse boolean parameters
+        const includeNewBool = includeNew === 'true';
+        const includeAnsweredBool = includeAnswered === 'true';
+        const includeFlaggedBool = includeFlagged === 'true';
+        const includeIncorrectBool = includeIncorrect === 'true';
+        
+        // Parse count parameter
+        const questionCount = parseInt(count) || 10;
+        
+        // Build the query based on the configuration
+        const query = { title: metadata.title };
+        
+        // If all are false, include all questions
+        if (!includeNewBool && !includeAnsweredBool && !includeFlaggedBool && !includeIncorrectBool) {
+            // No filter, include all questions
+        } else {
+            // Build filter conditions
+            const conditions = [];
+            
+            if (includeNewBool) {
+                conditions.push({ answered: false });
+            }
+            
+            if (includeAnsweredBool) {
+                conditions.push({ answered: true });
+            }
+            
+            if (includeFlaggedBool) {
+                conditions.push({ flagged: true });
+            }
+            
+            if (includeIncorrectBool) {
+                conditions.push({ missed: true });
+            }
+            
+            // Add conditions to query if any exist
+            if (conditions.length > 0) {
+                query.$or = conditions;
+            }
+        }
+        
+        // Get questions matching the query and limit to the requested count
+        // Use aggregation to get a random sample if needed
+        let questions = await Question.aggregate([
+            { $match: query },
+            { $sample: { size: questionCount } }
+        ]);
+        
+        // // Check if any questions were found
+        // if (questions.length === 0) {
+        //     return res.status(404).json({ 
+        //         message: 'No questions match the selected filters.' 
+        //     });
+        // }
+        // Replace the existing "no questions found" error with this:
+        if (questions.length === 0) {
+            // Instead of a 404 error, return an empty array with metadata
+            return res.json({ 
+                questions: [],
+                metadata,
+                filters: {
+                    includeNew: includeNewBool,
+                    includeAnswered: includeAnsweredBool,
+                    includeFlagged: includeFlaggedBool,
+                    includeIncorrect: includeIncorrectBool,
+                    count: questionCount
+                },
+                message: 'No questions match the selected filters.'
+            });
+        }
+        
+        // Return the questions with metadata
+        res.json({
+            questions,
+            metadata,
+            filters: {
+                includeNew: includeNewBool,
+                includeAnswered: includeAnsweredBool,
+                includeFlagged: includeFlaggedBool,
+                includeIncorrect: includeIncorrectBool,
+                count: questionCount
+            }
+        });
+    } catch (error) {
+        console.error('Error getting filtered questions:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+};
+
+// Add to server/controllers/questionController.js
+
+// Mark a question as answered
+exports.markQuestionAnswered = async (req, res) => {
+    try {
+        const questionId = req.query.id;
+        
+        if (!questionId) {
+            return res.status(400).json({ message: 'Question ID is required' });
+        }
+        
+        // Find and update the question
+        const question = await Question.findByIdAndUpdate(
+            questionId,
+            { answered: true },
+            { new: true }
+        );
+        
+        // Check if question exists
+        if (!question) {
+            return res.status(404).json({ message: 'Question not found' });
+        }
+        
+        // Return success
+        res.json({ 
+            message: 'Question marked as answered',
+            question 
+        });
+    } catch (error) {
+        console.error('Error marking question as answered:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+};
+
+
+// Add to server/controllers/questionController.js
+
+// Get question statistics for a specific exam
+exports.getQuestionStats = async (req, res) => {
+    try {
+        const examId = req.params.examId;
+        
+        // Find the exam metadata
+        const metadata = await ExamMetadata.findOne({ examId });
+        
+        if (!metadata) {
+            return res.status(404).json({ 
+                message: `Exam with ID ${examId} not found.` 
+            });
+        }
+        
+        // Get all questions for this title (not just for this specific exam)
+        const allQuestionsCount = await Question.countDocuments({ title: metadata.title });
+        
+        // Get counts for each type
+        const newCount = await Question.countDocuments({ 
+            title: metadata.title,
+            answered: false
+        });
+        
+        const answeredCount = await Question.countDocuments({ 
+            title: metadata.title,
+            answered: true
+        });
+        
+        const flaggedCount = await Question.countDocuments({ 
+            title: metadata.title,
+            flagged: true
+        });
+        
+        const incorrectCount = await Question.countDocuments({ 
+            title: metadata.title,
+            missed: true
+        });
+        
+        // Return the statistics
+        res.json({
+            examId,
+            title: metadata.title,
+            totalCount: allQuestionsCount,
+            newCount,
+            answeredCount,
+            flaggedCount,
+            incorrectCount
+        });
+    } catch (error) {
+        console.error('Error getting question statistics:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+};
+
+
+// Add to server/controllers/questionController.js
+
+// Get exam metadata for a specific exam ID
+exports.getExamMetadata = async (req, res) => {
+    try {
+        const examId = req.params.examId;
+        
+        // Find the exam metadata
+        const metadata = await ExamMetadata.findOne({ examId });
+        
+        if (!metadata) {
+            return res.status(404).json({ 
+                message: `Exam with ID ${examId} not found.` 
+            });
+        }
+        
+        // Return the metadata
+        res.json(metadata);
+    } catch (error) {
+        console.error('Error getting exam metadata:', error);
+        res.status(500).json({ 
+            message: 'Server Error',
+            error: error.message 
+        });
+    }
+};

@@ -35,6 +35,18 @@ router.put('/markMissed', questionController.markQuestionMissed);
 // @access  Public
 router.put('/unmarkMissed', questionController.unmarkQuestionMissed);
 
+router.get('/filtered', questionController.getFilteredQuestions);
+router.put('/markAnswered', questionController.markQuestionAnswered);
+
+
+router.get('/stats/:examId', questionController.getQuestionStats);
+
+// Add to server/routes/questions.js
+
+// Get exam metadata
+router.get('/metadata/:examId', questionController.getExamMetadata);
+
+
 // IMPORTANT: Parameter routes must come AFTER specific routes
 // Otherwise, Express will treat 'titles', 'flag', etc. as examId values
 
