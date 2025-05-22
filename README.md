@@ -174,7 +174,7 @@ If the application can't connect to MongoDB:
 
 ### Port Conflicts
 
-If port 80 is already in use on your machine, modify the `docker-compose.yml` file to use a different port:
+If port 5000 is already in use on your machine, modify the `docker-compose.yml` file to use a different port:
 
 ```yaml
 ports:
