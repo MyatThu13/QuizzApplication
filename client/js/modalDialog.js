@@ -2,6 +2,7 @@
  * Custom Modal Dialog Component
  * Provides stylish, modern alert and confirmation dialogs
  */
+//Modal Dialog Component
 
 const ModalDialog = (function() {
     // Private variables
