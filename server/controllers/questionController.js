@@ -1,18 +1,18 @@
 /**
  * Updated Question Controller
- * Properly handle missed questions logic
+ * Fixed to show separate All Questions buttons per vendor
  */
 const Question = require('../models/Question');
 const ExamMetadata = require('../models/ExamMetadata');
 
-// Get all available exam titles and their metadata
+// Get all available exam titles and their metadata - FIXED VERSION
 exports.getExamTitles = async (req, res) => {
   try {
     console.log('getExamTitles called - fetching exam titles from database');
     
-    // Get unique titles with their exams
+    // Get unique titles with their exams - MODIFIED to not aggregate All Questions
     const titles = await ExamMetadata.aggregate([
-      { $sort: { title: 1, year: -1, type: 1 } },
+      { $sort: { title: 1, vendor: 1, year: -1, type: 1 } }, // Sort by vendor too
       { 
         $group: {
           _id: "$title",
@@ -26,7 +26,7 @@ exports.getExamTitles = async (req, res) => {
               fullName: "$fullName",
               questionCount: "$questionCount",
               isFlagged: "$isFlagged",
-              isMissed: "$isMissed"  // Include isMissed flag
+              isMissed: "$isMissed"
             }
           },
           count: { $sum: 1 }
@@ -37,8 +37,44 @@ exports.getExamTitles = async (req, res) => {
 
     console.log(`Found ${titles.length} unique titles in database`);
     
-    // IMPORTANT: Make sure the response format is { titles: [...] }
-    res.json({ titles });
+    // Process each title to ensure proper grouping
+    const processedTitles = titles.map(title => {
+      // Separate different types of exams
+      const regularExams = [];
+      const allQuestionsExams = [];
+      const flaggedExams = [];
+      const missedExams = [];
+      
+      title.exams.forEach(exam => {
+        if (exam.isFlagged) {
+          flaggedExams.push(exam);
+        } else if (exam.isMissed) {
+          missedExams.push(exam);
+        } else if (exam.type.toLowerCase().includes('all')) {
+          // Don't aggregate All Questions - keep them separate by vendor
+          allQuestionsExams.push(exam);
+        } else {
+          regularExams.push(exam);
+        }
+      });
+      
+      // Combine all exams back, maintaining vendor separation for All Questions
+      const combinedExams = [
+        ...regularExams,
+        ...allQuestionsExams, // Keep separate by vendor
+        ...flaggedExams,
+        ...missedExams
+      ];
+      
+      return {
+        _id: title._id,
+        exams: combinedExams,
+        count: combinedExams.length
+      };
+    });
+    
+    // Return the processed titles
+    res.json({ titles: processedTitles });
   } catch (error) {
     console.error('Error in getExamTitles:', error);
     res.status(500).json({ 
@@ -48,6 +84,7 @@ exports.getExamTitles = async (req, res) => {
   }
 };
 
+// Rest of the controller methods remain the same...
 // Get questions for a specific exam
 exports.getQuestions = async (req, res) => {
     try {
@@ -252,8 +289,6 @@ exports.unmarkQuestionMissed = async (req, res) => {
     }
 };
 
-// Add to server/controllers/questionController.js
-
 // Get filtered questions for a specific exam title
 exports.getFilteredQuestions = async (req, res) => {
     try {
@@ -322,21 +357,12 @@ exports.getFilteredQuestions = async (req, res) => {
         }
         
         // Get questions matching the query and limit to the requested count
-        // Use aggregation to get a random sample if needed
         let questions = await Question.aggregate([
             { $match: query },
             { $sample: { size: questionCount } }
         ]);
         
-        // // Check if any questions were found
-        // if (questions.length === 0) {
-        //     return res.status(404).json({ 
-        //         message: 'No questions match the selected filters.' 
-        //     });
-        // }
-        // Replace the existing "no questions found" error with this:
         if (questions.length === 0) {
-            // Instead of a 404 error, return an empty array with metadata
             return res.json({ 
                 questions: [],
                 metadata,
@@ -372,8 +398,6 @@ exports.getFilteredQuestions = async (req, res) => {
     }
 };
 
-// Add to server/controllers/questionController.js
-
 // Mark a question as answered
 exports.markQuestionAnswered = async (req, res) => {
     try {
@@ -408,9 +432,6 @@ exports.markQuestionAnswered = async (req, res) => {
         });
     }
 };
-
-
-// Add to server/controllers/questionController.js
 
 // Get question statistics for a specific exam
 exports.getQuestionStats = async (req, res) => {
@@ -468,9 +489,6 @@ exports.getQuestionStats = async (req, res) => {
         });
     }
 };
-
-
-// Add to server/controllers/questionController.js
 
 // Get exam metadata for a specific exam ID
 exports.getExamMetadata = async (req, res) => {

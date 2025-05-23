@@ -1,13 +1,14 @@
 /**
- * Enhanced Import Questions Utility
+ * Enhanced Import Questions Utility - Updated Version
  * Script to import questions from multiple JSON files into MongoDB with improved metadata
+ * Now supports multiple "All Questions" exams per vendor without aggregation
  */
 
 const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 const Question = require('../models/Question');
-const ExamMetadata = require('../models/ExamMetadata'); // New model for exam metadata
+const ExamMetadata = require('../models/ExamMetadata');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 // Connect to MongoDB
@@ -35,7 +36,7 @@ const connectDB = async () => {
 /**
  * Parse file name to extract metadata
  * Expected format: Title_Type_Vendor_Year.json
- * Example: CISSP_MockExam_PocketPrep_2024.json
+ * Example: CISSP_AllQuestions_PocketPrep_2024.json, CISSP_AllQuestions_Kaplan_2024.json
  */
 function parseFileName(fileName) {
   // Remove extension
@@ -92,7 +93,7 @@ const importQuestions = async () => {
     await Question.deleteMany({});
     await ExamMetadata.deleteMany({});
     
-    // Map to track unique titles for creating flagged exams
+    // Map to track unique titles for creating flagged/missed exams
     const uniqueTitles = new Map();
     
     // Import each file
@@ -116,14 +117,22 @@ const importQuestions = async () => {
           continue;
         }
         
-        // Track this title to create flagged exams
+        // Track this title to create flagged/missed exams later
         if (!uniqueTitles.has(metadata.title)) {
           uniqueTitles.set(metadata.title, []);
         }
         uniqueTitles.get(metadata.title).push(metadata);
         
         // Generate a unique examId for this file
-        const examId = `${metadata.title}_${i+1}`;
+        // For "All Questions" exams, include vendor to make them unique
+        let examId;
+        if (metadata.type.toLowerCase().includes('all')) {
+          examId = `${metadata.title}_${metadata.type}_${metadata.vendor}`;
+        } else {
+          examId = `${metadata.title}_${i+1}`;
+        }
+        
+        console.log(`Generated examId: ${examId}`);
         
         // Add metadata and examId to each question
         const questionsToInsert = questionsData.questions.map(question => ({
@@ -153,7 +162,7 @@ const importQuestions = async () => {
             dateImported: new Date()
           });
           
-          console.log(`Successfully imported ${questionsToInsert.length} questions for ${metadata.title} (${examId}).`);
+          console.log(`Successfully imported ${questionsToInsert.length} questions for ${metadata.title} - ${metadata.vendor} (${examId}).`);
         } else {
           console.log(`No questions found in ${fileName}.`);
         }
@@ -162,7 +171,7 @@ const importQuestions = async () => {
       }
     }
     
-    // Create a "Flagged Questions" exam for each unique title
+    // Create a "Flagged Questions" exam for each unique title (only one per title)
     console.log('\nCreating Flagged Questions exams for each title...');
     for (const [title, metadataList] of uniqueTitles.entries()) {
       // Use metadata from the first file of this title
@@ -185,42 +194,60 @@ const importQuestions = async () => {
       console.log(`Created Flagged Questions exam for ${title}`);
     }
 
-    // After creating "Flagged Questions" exams
-console.log('\nCreating Missed Questions exams for each title...');
-for (const [title, metadataList] of uniqueTitles.entries()) {
-    // Use metadata from the first file of this title
-    const baseMetadata = metadataList[0];
-    
-    // Create missed exam metadata
-    await ExamMetadata.create({
-        examId: `${title}_Missed`,
-        fileName: 'virtual',
-        title: baseMetadata.title,
-        type: 'Missed Questions',
-        vendor: baseMetadata.vendor,
-        year: baseMetadata.year,
-        fullName: `${baseMetadata.title} Missed Questions`,
-        questionCount: 0, // Will be dynamic based on user interaction
-        dateImported: new Date(),
-        isMissed: true
-    });
-    
-    console.log(`Created Missed Questions exam for ${title}`);
-}
+    // Create a "Missed Questions" exam for each unique title (only one per title)
+    console.log('\nCreating Missed Questions exams for each title...');
+    for (const [title, metadataList] of uniqueTitles.entries()) {
+        // Use metadata from the first file of this title
+        const baseMetadata = metadataList[0];
+        
+        // Create missed exam metadata
+        await ExamMetadata.create({
+            examId: `${title}_Missed`,
+            fileName: 'virtual',
+            title: baseMetadata.title,
+            type: 'Missed Questions',
+            vendor: baseMetadata.vendor,
+            year: baseMetadata.year,
+            fullName: `${baseMetadata.title} Missed Questions`,
+            questionCount: 0, // Will be dynamic based on user interaction
+            dateImported: new Date(),
+            isMissed: true
+        });
+        
+        console.log(`Created Missed Questions exam for ${title}`);
+    }
     
     // Display summary information
     console.log('\nImport Summary:');
-    console.log(`Total exams imported: ${files.length}`);
+    console.log(`Total files processed: ${files.length}`);
     console.log(`Total unique titles: ${uniqueTitles.size}`);
     console.log(`Total questions imported: ${totalQuestionsImported}`);
     
-    // List titles and their exam counts
+    // List titles and their exam counts with vendor breakdown
     console.log('\nExams by Title:');
     for (const [title, metadataList] of uniqueTitles.entries()) {
-      console.log(`- ${title}: ${metadataList.length} exams + 1 Flagged Questions exam`);
+      console.log(`\n- ${title}: ${metadataList.length} exams + 1 Flagged + 1 Missed`);
+      
+      // Group by type and vendor
+      const examsByType = {};
+      metadataList.forEach(metadata => {
+        const key = `${metadata.type}_${metadata.vendor}`;
+        if (!examsByType[key]) {
+          examsByType[key] = [];
+        }
+        examsByType[key].push(metadata);
+      });
+      
+      // Display breakdown
+      Object.keys(examsByType).forEach(key => {
+        const [type, vendor] = key.split('_');
+        const count = examsByType[key].length;
+        console.log(`  • ${type} (${vendor}): ${count} exam${count > 1 ? 's' : ''}`);
+      });
     }
     
     console.log('\nImport process complete!');
+    console.log('\nNOTE: Each "All Questions" exam from different vendors will now appear as separate buttons.');
     process.exit(0);
   } catch (error) {
     console.error('Error importing questions:', error);
