@@ -151,298 +151,6 @@ function initialize() {
     });
 }
 
-
-/**
- * Updated loadExams function to properly display Missed Questions buttons
- * This function loads exam titles from the API and creates buttons for regular, "All Questions", 
- * "Flagged Questions", and "Missed Questions" exams
- */
-
-/**
- * Modified loadExams function that applies consistent styling directly
- * This ensures all buttons have the exact same appearance
- */
-// function loadExams() {
-//     try {
-//         // Show loading indicator
-//         examsContainer.innerHTML = `
-//             <div class="loading-spinner">
-//                 <div class="spinner"></div>
-//                 <p>Loading available exams...</p>
-//             </div>
-//         `;
-        
-//         console.log('Starting to fetch exam titles from API...');
-        
-//         const titlesUrl = `${API_URL}/questions/titles`;
-//         console.log('Fetching from:', titlesUrl);
-        
-//         // Define the consistent colors
-//         const FLAGGED_COLOR = '#f8961e'; // Orange
-//         const MISSED_COLOR = '#f94144';  // Red
-        
-//         // Use fetch with explicit debugging
-//         fetch(titlesUrl)
-//             .then(response => {
-//                 console.log('Response status:', response.status);
-//                 if (!response.ok) {
-//                     throw new Error(`API request failed: ${response.status} ${response.statusText}`);
-//                 }
-//                 return response.json();
-//             })
-//             .then(data => {
-//                 console.log('API Response data:', data);
-                
-//                 // Check if response has the expected structure
-//                 if (!data || typeof data !== 'object') {
-//                     throw new Error('API response is not a valid object');
-//                 }
-                
-//                 // Determine where the titles array is in the response
-//                 if (data.titles) {
-//                     console.log('Found titles array in response:', data.titles.length);
-//                     examTitles = data.titles;
-//                 } else if (Array.isArray(data)) {
-//                     console.log('Response is an array, using as titles:', data.length);
-//                     examTitles = data;
-//                 } else {
-//                     console.error('Unexpected API response format:', data);
-//                     throw new Error('API returned unexpected data format - missing titles array');
-//                 }
-                
-//                 // Clear loading indicator
-//                 examsContainer.innerHTML = '';
-                
-//                 if (examTitles.length === 0) {
-//                     console.log('No exam titles found');
-//                     examsContainer.innerHTML = `
-//                         <div class="no-exams">
-//                             <h2>No Exams Available</h2>
-//                             <p>No exam data found. Please run the import script to load exams.</p>
-//                         </div>
-//                     `;
-//                     return;
-//                 }
-                
-//                 console.log('Building UI for exam titles...');
-                
-//                 // Create a section for each title
-//                 examTitles.forEach(title => {
-//                     console.log(`Processing title: ${title._id || title.title}`);
-                    
-//                     const titleSection = document.createElement('div');
-//                     titleSection.className = 'exam-title-section';
-                    
-//                     // Create title header
-//                     const titleHeader = document.createElement('h2');
-//                     titleHeader.textContent = title._id || title.title; // Handle both formats
-//                     titleSection.appendChild(titleHeader);
-                    
-//                     // Create exams container for this title
-//                     const titleExamsContainer = document.createElement('div');
-//                     titleExamsContainer.className = 'title-exams-container';
-                    
-//                     // Check if title has exams array
-//                     const exams = title.exams || [];
-//                     if (exams.length === 0) {
-//                         console.warn(`No exams found for title ${title._id || title.title}`);
-//                         const noExamsMsg = document.createElement('p');
-//                         noExamsMsg.className = 'no-exams-message';
-//                         noExamsMsg.textContent = `No exams available for ${title._id || title.title}`;
-//                         titleExamsContainer.appendChild(noExamsMsg);
-//                     } else {
-//                         console.log(`Title ${title._id || title.title} has ${exams.length} exams`);
-                        
-//                         // Filter out special exams first
-//                         const regularExams = exams.filter(exam => 
-//                             !exam.isFlagged && 
-//                             !exam.isMissed && 
-//                             !exam.type.includes('All') && 
-//                             !exam.type.includes('Flagged') &&
-//                             !exam.type.includes('Missed')
-//                         );
-                        
-//                         // Add each regular exam with a reset counter starting at 1
-//                         regularExams.forEach((exam, index) => {
-//                             console.log(`Adding button for exam: ${exam.examId} with index ${index + 1}`);
-                            
-//                             const examButton = document.createElement('button');
-//                             examButton.className = 'mock-exam-btn';
-//                             examButton.setAttribute('data-exam-id', exam.examId);
-                            
-//                             // Use index + 1 (starting from 1) for each title group
-//                             const examNumber = index + 1;
-//                             let iconText = examNumber.toString().padStart(2, '0');
-                            
-//                             examButton.innerHTML = `
-//                                 <div class="exam-icon">${iconText}</div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">${exam.type}</span>
-//                                     <span class="exam-subtitle">${exam.vendor} ${exam.year}</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener
-//                             examButton.addEventListener('click', () => {
-//                                 console.log(`Exam button clicked for exam: ${exam.examId}`);
-//                                 startExam(exam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(examButton);
-//                         });
-                        
-//                         // Add "All Questions" exam if it exists
-//                         const allQuestionsExam = exams.find(exam => exam.type.includes('All'));
-//                         // if (allQuestionsExam) {
-//                         //     console.log(`Adding All Questions button for ${title._id || title.title}`);
-                            
-//                         //     const allButton = document.createElement('button');
-//                         //     allButton.className = 'mock-exam-btn';
-//                         //     allButton.setAttribute('data-exam-id', allQuestionsExam.examId);
-                            
-//                         //     allButton.innerHTML = `
-//                         //         <div class="exam-icon">ALL</div>
-//                         //         <div class="exam-info">
-//                         //             <span class="exam-title">${allQuestionsExam.type}</span>
-//                         //             <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
-//                         //         </div>
-//                         //     `;
-                            
-//                         //     // Add event listener
-//                         //     allButton.addEventListener('click', () => {
-//                         //         console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
-//                         //         startExam(allQuestionsExam.examId);
-//                         //     });
-                            
-//                         //     titleExamsContainer.appendChild(allButton);
-//                         // }
-//                         // Replace the existing code for creating "All Questions" button with this:
-//                         if (allQuestionsExam) {
-//                             console.log(`Adding All Questions button for ${title._id || title.title}`);
-                            
-//                             const allQuestionsButton = document.createElement('button');
-//                             allQuestionsButton.className = 'mock-exam-btn';
-//                             allQuestionsButton.setAttribute('data-exam-id', allQuestionsExam.examId);
-
-//                             allQuestionsButton.innerHTML = `
-//                                 <div class="exam-icon">ALL</div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">${allQuestionsExam.type}</span>
-//                                     <span class="exam-subtitle">${allQuestionsExam.vendor} ${allQuestionsExam.year}</span>
-//                                 </div>
-//                             `;
-//                             // Replace the standard event listener with our custom one
-//                             allQuestionsButton.addEventListener('click', () => {
-//                                 console.log(`All Questions button clicked for exam: ${allQuestionsExam.examId}`);
-//                                 handleAllQuestionsExamClick(allQuestionsExam.examId, allQuestionsExam.fullName);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(allQuestionsButton);
-//                         }
-                                                
-//                         // Add flagged questions exam if it exists - WITH INLINE STYLES
-//                         const flaggedExam = exams.find(exam => exam.isFlagged);
-//                         if (flaggedExam) {
-//                             console.log(`Adding flagged exam for ${title._id || title.title}`);
-                            
-//                             const flaggedButton = document.createElement('button');
-//                             flaggedButton.className = 'mock-exam-btn flagged-exam-btn';
-//                             flaggedButton.setAttribute('data-exam-id', flaggedExam.examId);
-                            
-//                             // Apply direct styling
-//                             flaggedButton.style.borderColor = FLAGGED_COLOR;
-//                             flaggedButton.style.borderStyle = 'dashed';
-//                             flaggedButton.style.borderWidth = '1px';
-                            
-//                             flaggedButton.innerHTML = `
-//                                 <div class="exam-icon flag-icon" style="background-color: ${FLAGGED_COLOR};">
-//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-//                                         <path d="M4 21V6M4 6C4 6 7 3 12 3C17 3 20 6 20 6V15C20 15 17 12 12 12C7 12 4 15 4 15V6Z" 
-//                                             stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-//                                     </svg>
-//                                 </div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">Flagged Questions</span>
-//                                     <span class="exam-subtitle">Your saved items</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener for flagged exam
-//                             flaggedButton.addEventListener('click', () => {
-//                                 console.log(`Flagged exam button clicked for exam: ${flaggedExam.examId}`);
-//                                 startExam(flaggedExam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(flaggedButton);
-//                         }
-                        
-//                         // Add missed questions exam if it exists - WITH INLINE STYLES
-//                         const missedExam = exams.find(exam => exam.isMissed);
-//                         if (missedExam) {
-//                             console.log(`Adding missed exam for ${title._id || title.title}`);
-                            
-//                             const missedButton = document.createElement('button');
-//                             missedButton.className = 'mock-exam-btn missed-exam-btn';
-//                             missedButton.setAttribute('data-exam-id', missedExam.examId);
-                            
-//                             // Apply direct styling
-//                             missedButton.style.borderColor = MISSED_COLOR;
-//                             missedButton.style.borderStyle = 'dashed';
-//                             missedButton.style.borderWidth = '1px';
-                            
-//                             missedButton.innerHTML = `
-//                                 <div class="exam-icon missed-icon" style="background-color: ${MISSED_COLOR};">
-//                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-//                                         <path d="M6 18L18 6M6 6l12 12" 
-//                                             stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-//                                     </svg>
-//                                 </div>
-//                                 <div class="exam-info">
-//                                     <span class="exam-title">Missed Questions</span>
-//                                     <span class="exam-subtitle">Your incorrect answers</span>
-//                                 </div>
-//                             `;
-                            
-//                             // Add event listener
-//                             missedButton.addEventListener('click', () => {
-//                                 console.log(`Missed exam button clicked for exam: ${missedExam.examId}`);
-//                                 startExam(missedExam.examId);
-//                             });
-                            
-//                             titleExamsContainer.appendChild(missedButton);
-//                         }
-//                     }
-                    
-//                     titleSection.appendChild(titleExamsContainer);
-//                     examsContainer.appendChild(titleSection);
-//                 });
-                
-//                 console.log('Exam titles UI building completed successfully');
-//             })
-//             .catch(error => {
-//                 console.error('Error in loadExams:', error);
-//                 examsContainer.innerHTML = `
-//                     <div class="error-message">
-//                         <h2>Error Loading Exams</h2>
-//                         <p>${error.message || 'Failed to load available exams.'}</p>
-//                         <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//                     </div>
-//                 `;
-//             });
-            
-//     } catch (error) {
-//         console.error('Exception in loadExams:', error);
-//         examsContainer.innerHTML = `
-//             <div class="error-message">
-//                 <h2>Error Loading Exams</h2>
-//                 <p>${error.message || 'An unexpected error occurred.'}</p>
-//                 <button onclick="location.reload()" class="error-button">Refresh Page</button>
-//             </div>
-//         `;
-//     }
-// }
-
-
 /**
  * Updated loadExams function that shows separate "All Questions" buttons per vendor
  * This function loads exam titles from the API and creates buttons for regular, "All Questions" (per vendor), 
@@ -717,7 +425,6 @@ function loadExams() {
     }
 }
 
-
 /**
  * Debug function to check database status
  */
@@ -895,88 +602,88 @@ function ensureRequiredDomElements() {
  * @param {string} examId - The ID of the exam
  */
 
-async function startExam(examId) {
-    try {
-        // Show loading indicator
-        startScreen.style.display = 'none';
-        questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
-        questionContainer.style.display = 'block';
+// async function startExam(examId) {
+//     try {
+//         // Show loading indicator
+//         startScreen.style.display = 'none';
+//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
+//         questionContainer.style.display = 'block';
         
-        console.log(`Starting exam with ID: ${examId}`);
+//         console.log(`Starting exam with ID: ${examId}`);
         
-        // Reset quiz state
-        currentExamId = examId;
-        currentQuestionIndex = 0;
-        correctAnswers = 0;
+//         // Reset quiz state
+//         currentExamId = examId;
+//         currentQuestionIndex = 0;
+//         correctAnswers = 0;
         
-        // Fetch questions from the server
-        const response = await fetch(`${API_URL}/questions/${examId}`);
+//         // Fetch questions from the server
+//         const response = await fetch(`${API_URL}/questions/${examId}`);
         
-        if (!response.ok) {
-            // Handle server error response
-            throw new Error(`Failed to load questions: ${response.status} ${response.statusText}`);
-        }
+//         if (!response.ok) {
+//             // Handle server error response
+//             throw new Error(`Failed to load questions: ${response.status} ${response.statusText}`);
+//         }
         
-        const data = await response.json();
-        console.log('Fetched data:', data);
+//         const data = await response.json();
+//         console.log('Fetched data:', data);
         
-        // Check if we received any questions
-        if (!data || !data.questions || data.questions.length === 0) {
-            throw new Error(`No questions available for this exam.`);
-        }
+//         // Check if we received any questions
+//         if (!data || !data.questions || data.questions.length === 0) {
+//             throw new Error(`No questions available for this exam.`);
+//         }
         
-        // Store metadata and questions
-        currentExamMetadata = data.metadata;
-        currentQuestions = shuffleArray(data.questions);
+//         // Store metadata and questions
+//         currentExamMetadata = data.metadata;
+//         currentQuestions = shuffleArray(data.questions);
         
-        // Restore question container structure
-        questionContainer.innerHTML = `
-            <div class="exam-header">
-                <div class="progress">
-                    Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
-                </div>
-                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
-            </div>
-            <div id="question-text"></div>
-            <div id="choices"></div>
-        `;
+//         // Restore question container structure
+//         questionContainer.innerHTML = `
+//             <div class="exam-header">
+//                 <div class="progress">
+//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+//                 </div>
+//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+//             </div>
+//             <div id="question-text"></div>
+//             <div id="choices"></div>
+//         `;
         
-        // Update element references after recreating DOM elements
-        currentQuestionEl = document.getElementById('current-question');
-        totalQuestionsEl = document.getElementById('total-questions');
-        questionTextEl = document.getElementById('question-text');
-        choicesEl = document.getElementById('choices');
+//         // Update element references after recreating DOM elements
+//         currentQuestionEl = document.getElementById('current-question');
+//         totalQuestionsEl = document.getElementById('total-questions');
+//         questionTextEl = document.getElementById('question-text');
+//         choicesEl = document.getElementById('choices');
         
-        // Add event listener for the exit button
-        const exitButton = document.getElementById('exit-exam-btn');
-        if (exitButton) {
-            exitButton.addEventListener('click', exitExam);
-        }
+//         // Add event listener for the exit button
+//         const exitButton = document.getElementById('exit-exam-btn');
+//         if (exitButton) {
+//             exitButton.addEventListener('click', exitExam);
+//         }
         
-        // Show the first question (with randomized choices)
-        showQuestion();
-    } catch (error) {
-        console.error('Error starting exam:', error);
+//         // Show the first question (with randomized choices)
+//         showQuestion();
+//     } catch (error) {
+//         console.error('Error starting exam:', error);
         
-        // Use ErrorHandler if available
-        if (typeof ErrorHandler !== 'undefined') {
-            const examName = examId.includes('Flagged') ? 'Flagged Questions' : examId;
-            ErrorHandler.handleQuestionsLoadingError(error, examName);
-        } else {
-            // Fallback error handling
-            questionContainer.innerHTML = `
-                <div class="error-container">
-                    <h1 class="error-code">404</h1>
-                    <h2 class="error-title">Error Loading Questions</h2>
-                    <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
-                    <div class="button-container">
-                        <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
-                    </div>
-                </div>
-            `;
-        }
-    }
-}
+//         // Use ErrorHandler if available
+//         if (typeof ErrorHandler !== 'undefined') {
+//             const examName = examId.includes('Flagged') ? 'Flagged Questions' : examId;
+//             ErrorHandler.handleQuestionsLoadingError(error, examName);
+//         } else {
+//             // Fallback error handling
+//             questionContainer.innerHTML = `
+//                 <div class="error-container">
+//                     <h1 class="error-code">404</h1>
+//                     <h2 class="error-title">Error Loading Questions</h2>
+//                     <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
+//                     <div class="button-container">
+//                         <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
+//                     </div>
+//                 </div>
+//             `;
+//         }
+//     }
+// }
 
 
 /**
@@ -1212,80 +919,80 @@ async function markQuestionAnswered(questionId) {
  * @param {boolean} showAnswerAfterEach - Whether to show answers after each question
  */
 
-function startExamWithCustomQuestions(examId, questions, showAnswerAfterEach = true) {
-    try {
-        // Show loading indicator
-        startScreen.style.display = 'none';
-        questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading custom quiz...</p></div>';
-        questionContainer.style.display = 'block';
+// function startExamWithCustomQuestions(examId, questions, showAnswerAfterEach = true) {
+//     try {
+//         // Show loading indicator
+//         startScreen.style.display = 'none';
+//         questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading custom quiz...</p></div>';
+//         questionContainer.style.display = 'block';
         
-        console.log(`Starting custom exam with ${questions.length} questions`);
+//         console.log(`Starting custom exam with ${questions.length} questions`);
         
-        // Reset quiz state
-        currentExamId = examId;
-        currentExamName = `Custom Quiz (${examId})`; // Set a default exam name
-        currentQuestionIndex = 0;
-        correctAnswers = 0;
-        currentQuestions = questions;
+//         // Reset quiz state
+//         currentExamId = examId;
+//         currentExamName = `Custom Quiz (${examId})`; // Set a default exam name
+//         currentQuestionIndex = 0;
+//         correctAnswers = 0;
+//         currentQuestions = questions;
         
-        // Set the flag for showing answers
-        window.showAnswersImmediately = showAnswerAfterEach;
+//         // Set the flag for showing answers
+//         window.showAnswersImmediately = showAnswerAfterEach;
         
-        // Create basic metadata for the custom quiz if real metadata isn't available
-        if (!currentExamMetadata) {
-            // Parse the exam ID to get the base title
-            const baseTitle = examId.split('_')[0] || 'Custom';
+//         // Create basic metadata for the custom quiz if real metadata isn't available
+//         if (!currentExamMetadata) {
+//             // Parse the exam ID to get the base title
+//             const baseTitle = examId.split('_')[0] || 'Custom';
             
-            // Create metadata
-            currentExamMetadata = {
-                examId: examId,
-                title: baseTitle,
-                type: 'Custom Quiz',
-                vendor: 'PocketPrep',
-                year: new Date().getFullYear(),
-                fullName: `${baseTitle} Custom Quiz`,
-                questionCount: questions.length
-            };
-        }
+//             // Create metadata
+//             currentExamMetadata = {
+//                 examId: examId,
+//                 title: baseTitle,
+//                 type: 'Custom Quiz',
+//                 vendor: 'PocketPrep',
+//                 year: new Date().getFullYear(),
+//                 fullName: `${baseTitle} Custom Quiz`,
+//                 questionCount: questions.length
+//             };
+//         }
         
-        // Restore question container structure
-        questionContainer.innerHTML = `
-            <div class="exam-header">
-                <div class="progress">
-                    Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
-                </div>
-                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
-            </div>
-            <div id="question-text"></div>
-            <div id="choices"></div>
-        `;
+//         // Restore question container structure
+//         questionContainer.innerHTML = `
+//             <div class="exam-header">
+//                 <div class="progress">
+//                     Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+//                 </div>
+//                 <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+//             </div>
+//             <div id="question-text"></div>
+//             <div id="choices"></div>
+//         `;
         
-        // Update element references after recreating DOM elements
-        currentQuestionEl = document.getElementById('current-question');
-        totalQuestionsEl = document.getElementById('total-questions');
-        questionTextEl = document.getElementById('question-text');
-        choicesEl = document.getElementById('choices');
+//         // Update element references after recreating DOM elements
+//         currentQuestionEl = document.getElementById('current-question');
+//         totalQuestionsEl = document.getElementById('total-questions');
+//         questionTextEl = document.getElementById('question-text');
+//         choicesEl = document.getElementById('choices');
         
-        // Add event listener for the exit button
-        const exitButton = document.getElementById('exit-exam-btn');
-        if (exitButton) {
-            exitButton.addEventListener('click', exitExam);
-        }
+//         // Add event listener for the exit button
+//         const exitButton = document.getElementById('exit-exam-btn');
+//         if (exitButton) {
+//             exitButton.addEventListener('click', exitExam);
+//         }
         
-        // Show the first question
-        showQuestion();
-    } catch (error) {
-        console.error('Error starting custom exam:', error);
+//         // Show the first question
+//         showQuestion();
+//     } catch (error) {
+//         console.error('Error starting custom exam:', error);
         
-        // Use ErrorHandler if available
-        if (typeof ErrorHandler !== 'undefined') {
-            ErrorHandler.handleApiError(error, 'Error starting custom quiz', questionContainer);
-        } else {
-            alert('Error starting quiz: ' + error.message);
-            returnToStart();
-        }
-    }
-}
+//         // Use ErrorHandler if available
+//         if (typeof ErrorHandler !== 'undefined') {
+//             ErrorHandler.handleApiError(error, 'Error starting custom quiz', questionContainer);
+//         } else {
+//             alert('Error starting quiz: ' + error.message);
+//             returnToStart();
+//         }
+//     }
+// }
 
 // Add to client/js/app.js
 
@@ -1355,76 +1062,76 @@ function findExamMetadata(examId) {
  * Handle multiple answer selection
  * @param {Array} selectedChoiceIds - IDs of the selected choices
  */
-function selectMultipleAnswers(selectedChoiceIds) {
-    try {
-        // Get the current question
-        const question = currentQuestions[currentQuestionIndex];
+// function selectMultipleAnswers(selectedChoiceIds) {
+//     try {
+//         // Get the current question
+//         const question = currentQuestions[currentQuestionIndex];
         
-        // Get all correct choice IDs and texts
-        const correctChoices = question.choices.filter(choice => choice.isCorrect);
-        const correctChoiceIds = correctChoices.map(choice => choice.id);
+//         // Get all correct choice IDs and texts
+//         const correctChoices = question.choices.filter(choice => choice.isCorrect);
+//         const correctChoiceIds = correctChoices.map(choice => choice.id);
         
-        // Check if the selected answers match all correct answers
-        const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
-            correctChoiceIds.every(id => selectedChoiceIds.includes(id));
+//         // Check if the selected answers match all correct answers
+//         const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
+//             correctChoiceIds.every(id => selectedChoiceIds.includes(id));
         
-        // Update score if all answers are correct
-        if (allCorrect) {
-            correctAnswers++;
+//         // Update score if all answers are correct
+//         if (allCorrect) {
+//             correctAnswers++;
             
-            // If all answers are correct, remove from missed if it was missed before
-            if (question.missed) {
-                unmarkQuestionMissed(question._id);
-            }
-        } else {
-            // If any answer is incorrect, mark as missed
-            markQuestionMissed(question._id);
-        }
+//             // If all answers are correct, remove from missed if it was missed before
+//             if (question.missed) {
+//                 unmarkQuestionMissed(question._id);
+//             }
+//         } else {
+//             // If any answer is incorrect, mark as missed
+//             markQuestionMissed(question._id);
+//         }
         
-        // Hide question container and show feedback
-        questionContainer.style.display = 'none';
-        feedbackContainer.style.display = 'block';
+//         // Hide question container and show feedback
+//         questionContainer.style.display = 'none';
+//         feedbackContainer.style.display = 'block';
         
-        // Style the feedback container based on correctness
-        feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
+//         // Style the feedback container based on correctness
+//         feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
         
-        // Set feedback header with improved formatting for multiple correct answers
-        if (allCorrect) {
-            feedbackHeaderEl.textContent = 'Correct!';
-        } else {
-            // Format correct answers in a more elegant way
-            const correctAnswersText = correctChoices.map(choice => choice.text).join(', ');
+//         // Set feedback header with improved formatting for multiple correct answers
+//         if (allCorrect) {
+//             feedbackHeaderEl.textContent = 'Correct!';
+//         } else {
+//             // Format correct answers in a more elegant way
+//             const correctAnswersText = correctChoices.map(choice => choice.text).join(', ');
             
-            // Create a stylized feedback for correct answers
-            let correctAnswersHTML = `
-                <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
-                <div class="correct-answers-list" style="margin-top: 10px;">
-            `;
+//             // Create a stylized feedback for correct answers
+//             let correctAnswersHTML = `
+//                 <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
+//                 <div class="correct-answers-list" style="margin-top: 10px;">
+//             `;
             
-            // Add each correct answer with styling
-            correctChoices.forEach(choice => {
-                correctAnswersHTML += `
-                    <div class="correct-answer-item" style="background-color: rgba(76, 201, 240, 0.1); border-left: 3px solid var(--success-color); padding: 8px 12px; margin-top: 5px; border-radius: 4px; font-weight: 500;">
-                        ${choice.text}
-                    </div>
-                `;
-            });
+//             // Add each correct answer with styling
+//             correctChoices.forEach(choice => {
+//                 correctAnswersHTML += `
+//                     <div class="correct-answer-item" style="background-color: rgba(76, 201, 240, 0.1); border-left: 3px solid var(--success-color); padding: 8px 12px; margin-top: 5px; border-radius: 4px; font-weight: 500;">
+//                         ${choice.text}
+//                     </div>
+//                 `;
+//             });
             
-            correctAnswersHTML += '</div>';
-            feedbackHeaderEl.innerHTML = correctAnswersHTML;
-        }
+//             correctAnswersHTML += '</div>';
+//             feedbackHeaderEl.innerHTML = correctAnswersHTML;
+//         }
         
-        // Show explanation
-        explanationEl.innerHTML = question.explanation;
+//         // Show explanation
+//         explanationEl.innerHTML = question.explanation;
         
-        // Update next button text
-        const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
-        nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
-    } catch (error) {
-        console.error('Error processing multiple answers:', error);
-        showNotification('An error occurred while processing your answers', 'error');
-    }
-}
+//         // Update next button text
+//         const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+//         nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+//     } catch (error) {
+//         console.error('Error processing multiple answers:', error);
+//         showNotification('An error occurred while processing your answers', 'error');
+//     }
+// }
 
 /**
  * Toggle the flag status of a question
@@ -1532,10 +1239,7 @@ async function unmarkQuestionMissed(questionId) {
     }
 }
 
-/**
- * Handle a selected answer
- * @param {string} choiceId - The ID of the selected choice
- */
+
 // function selectAnswer(choiceId) {
 //     try {
 //         // Get the current question
@@ -1586,6 +1290,71 @@ async function unmarkQuestionMissed(questionId) {
 // }
 
 
+// function selectAnswer(choiceId) {
+//     try {
+//         // Get the current question
+//         const question = currentQuestions[currentQuestionIndex];
+        
+//         // Check if the answer is correct
+//         const isCorrect = choiceId === question.correctAnswerId;
+        
+//         // Update score counter
+//         if (isCorrect) {
+//             correctAnswers++;
+            
+//             // If the answer is correct, remove from missed if it was missed before
+//             if (question.missed) {
+//                 unmarkQuestionMissed(question._id);
+//             }
+//         } else {
+//             // If the answer is incorrect, mark as missed
+//             markQuestionMissed(question._id);
+//         }
+        
+//         // Mark the question as answered (regardless of correctness)
+//         markQuestionAnswered(question._id);
+        
+//         // Check if we should show the answer immediately
+//         if (window.showAnswersImmediately) {
+//             // Show feedback immediately - this is your existing code
+//             questionContainer.style.display = 'none';
+//             feedbackContainer.style.display = 'block';
+            
+//             feedbackContainer.className = isCorrect ? 'correct' : 'incorrect';
+            
+//             if (isCorrect) {
+//                 feedbackHeaderEl.textContent = 'Correct!';
+//             } else {
+//                 const correctChoice = question.choices.find(choice => choice.id === question.correctAnswerId);
+//                 feedbackHeaderEl.innerHTML = 'Incorrect! The correct answer is: ' + correctChoice.text;
+//             }
+            
+//             explanationEl.innerHTML = question.explanation;
+            
+//             const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+//             nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+//         } else {
+//             // Move to the next question without showing feedback
+//             currentQuestionIndex++;
+            
+//             if (currentQuestionIndex < currentQuestions.length) {
+//                 // Show the next question
+//                 showQuestion();
+//             } else {
+//                 // Show results
+//                 showResults();
+//             }
+//         }
+//     } catch (error) {
+//         console.error('Error selecting answer:', error);
+//         showNotification('An error occurred while processing your answer', 'error');
+//     }
+// }
+
+/**
+ * Fixed selectAnswer function - Shows feedback for ALL exam types
+ * This function handles single-choice questions across all exam types
+ */
 function selectAnswer(choiceId) {
     try {
         // Get the current question
@@ -1610,9 +1379,12 @@ function selectAnswer(choiceId) {
         // Mark the question as answered (regardless of correctness)
         markQuestionAnswered(question._id);
         
-        // Check if we should show the answer immediately
-        if (window.showAnswersImmediately) {
-            // Show feedback immediately - this is your existing code
+        // FIXED: Always show feedback for single-choice questions
+        // Check if we should show the answer immediately (default behavior for most exams)
+        const shouldShowFeedback = window.showAnswersImmediately !== false; // Default to true if not set
+        
+        if (shouldShowFeedback) {
+            // Show feedback immediately - this is the default behavior
             questionContainer.style.display = 'none';
             feedbackContainer.style.display = 'block';
             
@@ -1630,7 +1402,7 @@ function selectAnswer(choiceId) {
             const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
             nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
         } else {
-            // Move to the next question without showing feedback
+            // Move to the next question without showing feedback (only for special configured quizzes)
             currentQuestionIndex++;
             
             if (currentQuestionIndex < currentQuestions.length) {
@@ -1646,6 +1418,269 @@ function selectAnswer(choiceId) {
         showNotification('An error occurred while processing your answer', 'error');
     }
 }
+
+/**
+ * Fixed selectMultipleAnswers function - Also ensure it works for all exam types
+ */
+function selectMultipleAnswers(selectedChoiceIds) {
+    try {
+        // Get the current question
+        const question = currentQuestions[currentQuestionIndex];
+        
+        // Get all correct choice IDs and texts
+        const correctChoices = question.choices.filter(choice => choice.isCorrect);
+        const correctChoiceIds = correctChoices.map(choice => choice.id);
+        
+        // Check if the selected answers match all correct answers
+        const allCorrect = correctChoiceIds.length === selectedChoiceIds.length &&
+            correctChoiceIds.every(id => selectedChoiceIds.includes(id));
+        
+        // Update score if all answers are correct
+        if (allCorrect) {
+            correctAnswers++;
+            
+            // If all answers are correct, remove from missed if it was missed before
+            if (question.missed) {
+                unmarkQuestionMissed(question._id);
+            }
+        } else {
+            // If any answer is incorrect, mark as missed
+            markQuestionMissed(question._id);
+        }
+        
+        // Mark the question as answered (regardless of correctness)
+        markQuestionAnswered(question._id);
+        
+        // FIXED: Always show feedback for multiple-choice questions too
+        const shouldShowFeedback = window.showAnswersImmediately !== false; // Default to true if not set
+        
+        if (shouldShowFeedback) {
+            // Hide question container and show feedback
+            questionContainer.style.display = 'none';
+            feedbackContainer.style.display = 'block';
+            
+            // Style the feedback container based on correctness
+            feedbackContainer.className = allCorrect ? 'correct' : 'incorrect';
+            
+            // Set feedback header with improved formatting for multiple correct answers
+            if (allCorrect) {
+                feedbackHeaderEl.textContent = 'Correct!';
+            } else {
+                // Format correct answers in a more elegant way
+                const correctAnswersText = correctChoices.map(choice => choice.text).join(', ');
+                
+                // Create a stylized feedback for correct answers
+                let correctAnswersHTML = `
+                    <div>Incorrect! The correct answer${correctChoiceIds.length > 1 ? 's are' : ' is'}:</div>
+                    <div class="correct-answers-list" style="margin-top: 10px;">
+                `;
+                
+                // Add each correct answer with styling
+                correctChoices.forEach(choice => {
+                    correctAnswersHTML += `
+                        <div class="correct-answer-item" style="background-color: rgba(76, 201, 240, 0.1); border-left: 3px solid var(--success-color); padding: 8px 12px; margin-top: 5px; border-radius: 4px; font-weight: 500;">
+                            ${choice.text}
+                        </div>
+                    `;
+                });
+                
+                correctAnswersHTML += '</div>';
+                feedbackHeaderEl.innerHTML = correctAnswersHTML;
+            }
+            
+            // Show explanation
+            explanationEl.innerHTML = question.explanation;
+            
+            // Update next button text
+            const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
+            nextButtonEl.textContent = isLastQuestion ? 'Submit Results' : 'Next Question';
+        } else {
+            // Move to the next question without showing feedback (only for special configured quizzes)
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < currentQuestions.length) {
+                // Show the next question
+                showQuestion();
+            } else {
+                // Show results
+                showResults();
+            }
+        }
+    } catch (error) {
+        console.error('Error processing multiple answers:', error);
+        showNotification('An error occurred while processing your answers', 'error');
+    }
+}
+
+/**
+ * Updated startExam function - Always show feedback by default
+ */
+async function startExam(examId) {
+    try {
+        // Show loading indicator
+        startScreen.style.display = 'none';
+        questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading questions...</p></div>';
+        questionContainer.style.display = 'block';
+        
+        console.log(`Starting exam with ID: ${examId}`);
+        
+        // Reset quiz state
+        currentExamId = examId;
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        
+        // FIXED: Set default behavior to show answers after each question
+        window.showAnswersImmediately = true; // Default to true for regular exams
+        
+        // Fetch questions from the server
+        const response = await fetch(`${API_URL}/questions/${examId}`);
+        
+        if (!response.ok) {
+            // Handle server error response
+            throw new Error(`Failed to load questions: ${response.status} ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        console.log('Fetched data:', data);
+        
+        // Check if we received any questions
+        if (!data || !data.questions || data.questions.length === 0) {
+            throw new Error(`No questions available for this exam.`);
+        }
+        
+        // Store metadata and questions
+        currentExamMetadata = data.metadata;
+        currentQuestions = shuffleArray(data.questions);
+        
+        // Restore question container structure
+        questionContainer.innerHTML = `
+            <div class="exam-header">
+                <div class="progress">
+                    Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+                </div>
+                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+            </div>
+            <div id="question-text"></div>
+            <div id="choices"></div>
+        `;
+        
+        // Update element references after recreating DOM elements
+        currentQuestionEl = document.getElementById('current-question');
+        totalQuestionsEl = document.getElementById('total-questions');
+        questionTextEl = document.getElementById('question-text');
+        choicesEl = document.getElementById('choices');
+        
+        // Add event listener for the exit button
+        const exitButton = document.getElementById('exit-exam-btn');
+        if (exitButton) {
+            exitButton.addEventListener('click', exitExam);
+        }
+        
+        // Show the first question (with randomized choices)
+        showQuestion();
+    } catch (error) {
+        console.error('Error starting exam:', error);
+        
+        // Use ErrorHandler if available
+        if (typeof ErrorHandler !== 'undefined') {
+            const examName = examId.includes('Flagged') ? 'Flagged Questions' : examId;
+            ErrorHandler.handleQuestionsLoadingError(error, examName);
+        } else {
+            // Fallback error handling
+            questionContainer.innerHTML = `
+                <div class="error-container">
+                    <h1 class="error-code">404</h1>
+                    <h2 class="error-title">Error Loading Questions</h2>
+                    <p class="error-message">${error.message || 'Failed to load questions. Please try again later.'}</p>
+                    <div class="button-container">
+                        <button onclick="returnToStart()" class="error-button">Return to Exam Selection</button>
+                    </div>
+                </div>
+            `;
+        }
+    }
+}
+
+/**
+ * Updated startExamWithCustomQuestions function - Properly handle showAnswersImmediately flag
+ */
+function startExamWithCustomQuestions(examId, questions, showAnswerAfterEach = true) {
+    try {
+        // Show loading indicator
+        startScreen.style.display = 'none';
+        questionContainer.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading custom quiz...</p></div>';
+        questionContainer.style.display = 'block';
+        
+        console.log(`Starting custom exam with ${questions.length} questions`);
+        
+        // Reset quiz state
+        currentExamId = examId;
+        currentExamName = `Custom Quiz (${examId})`; // Set a default exam name
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        currentQuestions = questions;
+        
+        // FIXED: Set the flag for showing answers properly
+        window.showAnswersImmediately = showAnswerAfterEach;
+        
+        // Create basic metadata for the custom quiz if real metadata isn't available
+        if (!currentExamMetadata) {
+            // Parse the exam ID to get the base title
+            const baseTitle = examId.split('_')[0] || 'Custom';
+            
+            // Create metadata
+            currentExamMetadata = {
+                examId: examId,
+                title: baseTitle,
+                type: 'Custom Quiz',
+                vendor: 'PocketPrep',
+                year: new Date().getFullYear(),
+                fullName: `${baseTitle} Custom Quiz`,
+                questionCount: questions.length
+            };
+        }
+        
+        // Restore question container structure
+        questionContainer.innerHTML = `
+            <div class="exam-header">
+                <div class="progress">
+                    Question <span id="current-question">1</span> of <span id="total-questions">${currentQuestions.length}</span>
+                </div>
+                <button id="exit-exam-btn" class="exit-button">Exit Exam</button>
+            </div>
+            <div id="question-text"></div>
+            <div id="choices"></div>
+        `;
+        
+        // Update element references after recreating DOM elements
+        currentQuestionEl = document.getElementById('current-question');
+        totalQuestionsEl = document.getElementById('total-questions');
+        questionTextEl = document.getElementById('question-text');
+        choicesEl = document.getElementById('choices');
+        
+        // Add event listener for the exit button
+        const exitButton = document.getElementById('exit-exam-btn');
+        if (exitButton) {
+            exitButton.addEventListener('click', exitExam);
+        }
+        
+        // Show the first question
+        showQuestion();
+    } catch (error) {
+        console.error('Error starting custom exam:', error);
+        
+        // Use ErrorHandler if available
+        if (typeof ErrorHandler !== 'undefined') {
+            ErrorHandler.handleApiError(error, 'Error starting custom quiz', questionContainer);
+        } else {
+            alert('Error starting quiz: ' + error.message);
+            returnToStart();
+        }
+    }
+}
+
+
+
 
 /**
  * Show the next question or results
