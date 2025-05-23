@@ -86,9 +86,75 @@ exports.getExamTitles = async (req, res) => {
 
 // Rest of the controller methods remain the same...
 // Get questions for a specific exam
+// exports.getQuestions = async (req, res) => {
+//     try {
+//         const examId = req.params.examId;
+        
+//         // Check if this is a flagged or missed questions exam
+//         const metadata = await ExamMetadata.findOne({ examId });
+        
+//         if (!metadata) {
+//             return res.status(404).json({ 
+//                 message: `Exam with ID ${examId} not found.` 
+//             });
+//         }
+        
+//         let questions;
+        
+//         if (metadata.isFlagged) {
+//             // Get flagged questions for this title
+//             questions = await Question.find({ 
+//                 title: metadata.title, 
+//                 flagged: true 
+//             });
+//         } else if (metadata.isMissed) {
+//             // Get missed questions for this title
+//             questions = await Question.find({ 
+//                 title: metadata.title, 
+//                 missed: true 
+//             });
+//         } else {
+//             // Get questions for the specific exam
+//             questions = await Question.find({ examId });
+//         }
+        
+//         // Check if any questions were found
+//         if (questions.length === 0) {
+//             if (metadata.isFlagged) {
+//                 return res.status(404).json({ 
+//                     message: `No flagged questions found for ${metadata.title}. Flag some questions first.` 
+//                 });
+//             } else if (metadata.isMissed) {
+//                 return res.status(404).json({ 
+//                     message: `No missed questions found for ${metadata.title}. Questions you answer incorrectly will appear here.` 
+//                 });
+//             } else {
+//                 return res.status(404).json({ 
+//                     message: `No questions found for exam "${metadata.fullName}". Make sure to import questions first.` 
+//                 });
+//             }
+//         }
+        
+//         // Return the questions with metadata
+//         res.json({
+//             questions,
+//             metadata
+//         });
+//     } catch (error) {
+//         console.error('Error getting questions:', error);
+//         res.status(500).json({ 
+//             message: 'Server Error',
+//             error: error.message 
+//         });
+//     }
+// };
+
+
+// Get questions for a specific exam - FIXED VERSION
 exports.getQuestions = async (req, res) => {
     try {
         const examId = req.params.examId;
+        console.log(`Getting questions for examId: ${examId}`);
         
         // Check if this is a flagged or missed questions exam
         const metadata = await ExamMetadata.findOne({ examId });
@@ -99,24 +165,32 @@ exports.getQuestions = async (req, res) => {
             });
         }
         
+        console.log(`Found metadata for exam: ${JSON.stringify(metadata, null, 2)}`);
+        
         let questions;
         
         if (metadata.isFlagged) {
             // Get flagged questions for this title
+            console.log(`Fetching flagged questions for title: ${metadata.title}`);
             questions = await Question.find({ 
                 title: metadata.title, 
                 flagged: true 
             });
         } else if (metadata.isMissed) {
             // Get missed questions for this title
+            console.log(`Fetching missed questions for title: ${metadata.title}`);
             questions = await Question.find({ 
                 title: metadata.title, 
                 missed: true 
             });
         } else {
-            // Get questions for the specific exam
+            // FIXED: Get questions for the specific exam (not all questions for the title)
+            // This will now correctly fetch vendor-specific questions
+            console.log(`Fetching questions for specific examId: ${examId}`);
             questions = await Question.find({ examId });
         }
+        
+        console.log(`Found ${questions.length} questions for exam ${examId}`);
         
         // Check if any questions were found
         if (questions.length === 0) {
@@ -148,6 +222,8 @@ exports.getQuestions = async (req, res) => {
         });
     }
 };
+
+
 
 // Flag a question
 exports.flagQuestion = async (req, res) => {
@@ -290,6 +366,115 @@ exports.unmarkQuestionMissed = async (req, res) => {
 };
 
 // Get filtered questions for a specific exam title
+// exports.getFilteredQuestions = async (req, res) => {
+//     try {
+//         const { 
+//             examId, 
+//             includeNew, 
+//             includeAnswered, 
+//             includeFlagged, 
+//             includeIncorrect, 
+//             count 
+//         } = req.query;
+        
+//         // Validate required parameters
+//         if (!examId) {
+//             return res.status(400).json({ message: 'Exam ID is required' });
+//         }
+        
+//         // Find the exam metadata
+//         const metadata = await ExamMetadata.findOne({ examId });
+        
+//         if (!metadata) {
+//             return res.status(404).json({ 
+//                 message: `Exam with ID ${examId} not found.` 
+//             });
+//         }
+        
+//         // Parse boolean parameters
+//         const includeNewBool = includeNew === 'true';
+//         const includeAnsweredBool = includeAnswered === 'true';
+//         const includeFlaggedBool = includeFlagged === 'true';
+//         const includeIncorrectBool = includeIncorrect === 'true';
+        
+//         // Parse count parameter
+//         const questionCount = parseInt(count) || 10;
+        
+//         // Build the query based on the configuration
+//         const query = { title: metadata.title };
+        
+//         // If all are false, include all questions
+//         if (!includeNewBool && !includeAnsweredBool && !includeFlaggedBool && !includeIncorrectBool) {
+//             // No filter, include all questions
+//         } else {
+//             // Build filter conditions
+//             const conditions = [];
+            
+//             if (includeNewBool) {
+//                 conditions.push({ answered: false });
+//             }
+            
+//             if (includeAnsweredBool) {
+//                 conditions.push({ answered: true });
+//             }
+            
+//             if (includeFlaggedBool) {
+//                 conditions.push({ flagged: true });
+//             }
+            
+//             if (includeIncorrectBool) {
+//                 conditions.push({ missed: true });
+//             }
+            
+//             // Add conditions to query if any exist
+//             if (conditions.length > 0) {
+//                 query.$or = conditions;
+//             }
+//         }
+        
+//         // Get questions matching the query and limit to the requested count
+//         let questions = await Question.aggregate([
+//             { $match: query },
+//             { $sample: { size: questionCount } }
+//         ]);
+        
+//         if (questions.length === 0) {
+//             return res.json({ 
+//                 questions: [],
+//                 metadata,
+//                 filters: {
+//                     includeNew: includeNewBool,
+//                     includeAnswered: includeAnsweredBool,
+//                     includeFlagged: includeFlaggedBool,
+//                     includeIncorrect: includeIncorrectBool,
+//                     count: questionCount
+//                 },
+//                 message: 'No questions match the selected filters.'
+//             });
+//         }
+        
+//         // Return the questions with metadata
+//         res.json({
+//             questions,
+//             metadata,
+//             filters: {
+//                 includeNew: includeNewBool,
+//                 includeAnswered: includeAnsweredBool,
+//                 includeFlagged: includeFlaggedBool,
+//                 includeIncorrect: includeIncorrectBool,
+//                 count: questionCount
+//             }
+//         });
+//     } catch (error) {
+//         console.error('Error getting filtered questions:', error);
+//         res.status(500).json({ 
+//             message: 'Server Error',
+//             error: error.message 
+//         });
+//     }
+// };
+
+// Get filtered questions for a specific exam title - FIXED FOR VENDOR SEPARATION
 exports.getFilteredQuestions = async (req, res) => {
     try {
         const { 
@@ -300,6 +485,8 @@ exports.getFilteredQuestions = async (req, res) => {
             includeIncorrect, 
             count 
         } = req.query;
+        
+        console.log(`Getting filtered questions for examId: ${examId}`);
         
         // Validate required parameters
         if (!examId) {
@@ -315,6 +502,8 @@ exports.getFilteredQuestions = async (req, res) => {
             });
         }
         
+        console.log(`Found metadata: ${JSON.stringify(metadata, null, 2)}`);
+        
         // Parse boolean parameters
         const includeNewBool = includeNew === 'true';
         const includeAnsweredBool = includeAnswered === 'true';
@@ -324,12 +513,25 @@ exports.getFilteredQuestions = async (req, res) => {
         // Parse count parameter
         const questionCount = parseInt(count) || 10;
         
-        // Build the query based on the configuration
-        const query = { title: metadata.title };
+        // FIXED: Build the query based on the configuration
+        // For vendor-specific "All Questions" exams, we need to filter by vendor too
+        let baseQuery;
         
-        // If all are false, include all questions
+        if (metadata.type.toLowerCase().includes('all') && !metadata.isFlagged && !metadata.isMissed) {
+            // For "All Questions" exams, filter by title AND vendor to get vendor-specific questions
+            console.log(`This is an All Questions exam for vendor: ${metadata.vendor}`);
+            baseQuery = { 
+                title: metadata.title,
+                vendor: metadata.vendor  // ADDED: Filter by vendor for All Questions exams
+            };
+        } else {
+            // For regular exams, flagged, and missed - use title only
+            baseQuery = { title: metadata.title };
+        }
+        
+        // If all filter options are false, include all questions
         if (!includeNewBool && !includeAnsweredBool && !includeFlaggedBool && !includeIncorrectBool) {
-            // No filter, include all questions
+            // No additional filter, use base query
         } else {
             // Build filter conditions
             const conditions = [];
@@ -350,17 +552,23 @@ exports.getFilteredQuestions = async (req, res) => {
                 conditions.push({ missed: true });
             }
             
-            // Add conditions to query if any exist
+            // Combine base query with filter conditions
             if (conditions.length > 0) {
-                query.$or = conditions;
+                baseQuery.$and = [
+                    { $or: conditions }
+                ];
             }
         }
         
+        console.log(`Final query: ${JSON.stringify(baseQuery, null, 2)}`);
+        
         // Get questions matching the query and limit to the requested count
         let questions = await Question.aggregate([
-            { $match: query },
+            { $match: baseQuery },
             { $sample: { size: questionCount } }
         ]);
+        
+        console.log(`Found ${questions.length} questions matching the filters`);
         
         if (questions.length === 0) {
             return res.json({ 
@@ -434,9 +642,67 @@ exports.markQuestionAnswered = async (req, res) => {
 };
 
 // Get question statistics for a specific exam
+// exports.getQuestionStats = async (req, res) => {
+//     try {
+//         const examId = req.params.examId;
+        
+//         // Find the exam metadata
+//         const metadata = await ExamMetadata.findOne({ examId });
+        
+//         if (!metadata) {
+//             return res.status(404).json({ 
+//                 message: `Exam with ID ${examId} not found.` 
+//             });
+//         }
+        
+//         // Get all questions for this title (not just for this specific exam)
+//         const allQuestionsCount = await Question.countDocuments({ title: metadata.title });
+        
+//         // Get counts for each type
+//         const newCount = await Question.countDocuments({ 
+//             title: metadata.title,
+//             answered: false
+//         });
+        
+//         const answeredCount = await Question.countDocuments({ 
+//             title: metadata.title,
+//             answered: true
+//         });
+        
+//         const flaggedCount = await Question.countDocuments({ 
+//             title: metadata.title,
+//             flagged: true
+//         });
+        
+//         const incorrectCount = await Question.countDocuments({ 
+//             title: metadata.title,
+//             missed: true
+//         });
+        
+//         // Return the statistics
+//         res.json({
+//             examId,
+//             title: metadata.title,
+//             totalCount: allQuestionsCount,
+//             newCount,
+//             answeredCount,
+//             flaggedCount,
+//             incorrectCount
+//         });
+//     } catch (error) {
+//         console.error('Error getting question statistics:', error);
+//         res.status(500).json({ 
+//             message: 'Server Error',
+//             error: error.message 
+//         });
+//     }
+// };
+
+// Get question statistics for a specific exam - FIXED FOR VENDOR SEPARATION
 exports.getQuestionStats = async (req, res) => {
     try {
         const examId = req.params.examId;
+        console.log(`Getting question stats for examId: ${examId}`);
         
         // Find the exam metadata
         const metadata = await ExamMetadata.findOne({ examId });
@@ -447,34 +713,55 @@ exports.getQuestionStats = async (req, res) => {
             });
         }
         
-        // Get all questions for this title (not just for this specific exam)
-        const allQuestionsCount = await Question.countDocuments({ title: metadata.title });
+        console.log(`Found metadata: ${JSON.stringify(metadata, null, 2)}`);
         
-        // Get counts for each type
+        // FIXED: Build base query for vendor-specific statistics
+        let baseQuery;
+        
+        if (metadata.type.toLowerCase().includes('all') && !metadata.isFlagged && !metadata.isMissed) {
+            // For "All Questions" exams, get stats for this specific vendor only
+            console.log(`Getting stats for All Questions exam - vendor: ${metadata.vendor}`);
+            baseQuery = { 
+                title: metadata.title,
+                vendor: metadata.vendor  // ADDED: Filter by vendor for All Questions exams
+            };
+        } else {
+            // For regular exams, flagged, and missed - use title only (affects all vendors)
+            baseQuery = { title: metadata.title };
+        }
+        
+        // Get total count for this specific exam/vendor combination
+        const allQuestionsCount = await Question.countDocuments(baseQuery);
+        
+        // Get counts for each type using the same base query
         const newCount = await Question.countDocuments({ 
-            title: metadata.title,
+            ...baseQuery,
             answered: false
         });
         
         const answeredCount = await Question.countDocuments({ 
-            title: metadata.title,
+            ...baseQuery,
             answered: true
         });
         
         const flaggedCount = await Question.countDocuments({ 
-            title: metadata.title,
+            ...baseQuery,
             flagged: true
         });
         
         const incorrectCount = await Question.countDocuments({ 
-            title: metadata.title,
+            ...baseQuery,
             missed: true
         });
+        
+        console.log(`Stats for ${examId}: Total=${allQuestionsCount}, New=${newCount}, Answered=${answeredCount}, Flagged=${flaggedCount}, Incorrect=${incorrectCount}`);
         
         // Return the statistics
         res.json({
             examId,
             title: metadata.title,
+            vendor: metadata.vendor, // Include vendor in response
+            type: metadata.type,
             totalCount: allQuestionsCount,
             newCount,
             answeredCount,

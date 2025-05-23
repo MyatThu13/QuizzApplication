@@ -28,6 +28,14 @@ app.use((req, res, next) => {
 const questionController = require('./controllers/questionController');
 const attemptController = require('./controllers/attemptController');
 
+
+// Serve static assets (frontend)
+app.use(express.static(path.join(__dirname, '../client')));
+
+// IMPORTANT: Add static file serving for question assets
+// This should be added BEFORE your other routes
+app.use('/question_assets', express.static(path.join(__dirname, '../question_assets')));
+
 // Handle favicon requests
 app.get('/favicon.ico', (req, res) => {
   res.status(204).end(); // No content response
@@ -122,8 +130,7 @@ app.get('/api/questions/:examId', (req, res, next) => {
 // Then register the attempts routes
 app.use('/api/attempts', attemptsRoutes);
 
-// Serve static assets (frontend)
-app.use(express.static(path.join(__dirname, '../client')));
+
 
 // Handle 404 errors for API routes
 app.use('/api/*', (req, res) => {
